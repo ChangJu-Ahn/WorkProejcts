@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=txtLoanLocAmt name=txtLoanLocAmt title=FPDOUBLESINGLE ALT="차입금액(자국)" tag="24X2Z" CLASS=FPDS140></OBJECT>');

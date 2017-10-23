@@ -1,0 +1,1916 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EFA7946E-65B2-412C-8AC4-F551D550D60C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERPAppAddition</RootNamespace>
+    <AssemblyName>ERPAppAddition</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ERPAppAddition.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ERPAppAddition.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ERPAppAddition.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\ERPAppAddition.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\ERP\ERP_Project_Yoosr\ERPAppAddition\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.CalcEngine, Version=6.0.3505.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\..\tool\Farpoint DLL\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel">
+      <HintPath>..\..\tool\Farpoint DLL\FarPoint.Excel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FarPoint.PDF, Version=6.0.3505.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\..\tool\Farpoint DLL\FarPoint.PDF.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Web.Chart, Version=6.0.3505.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>..\..\tool\Farpoint DLL\FarPoint.Web.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Web.Spread, Version=6.0.3505.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\tool\Farpoint DLL\FarPoint.Web.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\Program Files\Microsoft Visual Studio 12.0\ReportViewer\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\app\Administrator\product\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Oracle.Web, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\app\Administrator\product\11.2.0\client_2\ASP.NET\bin\4\Oracle.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Content\images\header-columns-bg.gif" />
+    <Content Include="Content\images\sort-asc.gif" />
+    <Content Include="Content\images\sort-desc.gif" />
+    <Content Include="Content\slick.columnpicker.css" />
+    <Content Include="Content\slick.grid.css" />
+    <Content Include="Content\slick.headerbuttons.css" />
+    <Content Include="Content\slick.headermenu.css" />
+    <Content Include="Content\slick.pager.css" />
+    <Content Include="ERPAddition\AM\AM_A1001\am_a1001.aspx" />
+    <Content Include="ERPAddition\AM\AM_A2001\AM_A2001.aspx" />
+    <Content Include="ERPAddition\AM\AM_A3001\AM_A3001.aspx" />
+    <Content Include="ERPAddition\AM\AM_A4001\AM_A4001.aspx" />
+    <Content Include="ERPAddition\AM\AM_A5001\AM_A5001.aspx" />
+    <Content Include="ERPAddition\AM\AM_A6001\am_a6001.aspx" />
+    <Content Include="ERPAddition\AM\AM_A7001\AM_A7001.aspx" />
+    <Content Include="ERPAddition\AM\AM_A8001\AM_A8001.aspx" />
+    <Content Include="ERPAddition\CM\CM_C1001\CM_C1001.aspx" />
+    <Content Include="ERPAddition\CM\CM_C2001\CM_C2001.aspx" />
+    <Content Include="ERPAddition\IDEA\change_os.aspx" />
+    <Content Include="ERPAddition\IM\IM_I1001\IM_I1001.aspx" />
+    <Content Include="ERPAddition\IM\IM_I1002\IM_I1002.aspx" />
+    <Content Include="ERPAddition\INSA\insa_report.aspx" />
+    <Content Include="ERPAddition\MM\MM_M10001\MM_M10001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M10001\pop_mm_m10001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M1001\MM_M1001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M2001\MM_M2001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M3001\MM_M3001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M4001\MM_M4001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M5001\MM_M5001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M5001\mm_m5001_image_upload.aspx" />
+    <Content Include="ERPAddition\MM\MM_M5001\nepes 로그.png" />
+    <Content Include="ERPAddition\MM\MM_M5001\pop_mm_m5001_mail.aspx" />
+    <Content Include="ERPAddition\MM\MM_M5001\pop_mm_m5001_po.aspx" />
+    <Content Include="ERPAddition\MM\MM_M6001\MM_M6001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M6001\pop_mm_m6001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M7001\MM_M7001.aspx" />
+    <Content Include="ERPAddition\MM\MM_M9001\MM_M9001.aspx" />
+    <Content Include="ERPAddition\OM\OM_O1001\Om_O1001.aspx" />
+    <Content Include="ERPAddition\OM\OM_O1001\pop_om_o2001.aspx" />
+    <Content Include="ERPAddition\OM\OM_O2001\OM_O2001.aspx" />
+    <Content Include="ERPAddition\PM\p1401ma6_nepes\PM_P1401MA6.aspx" />
+    <Content Include="ERPAddition\PM\PM_P1010\PM_P1010.aspx" />
+    <Content Include="ERPAddition\PM\PM_P1020\PM_P1020.aspx" />
+    <Content Include="ERPAddition\PM\PM_P1030\PM_P1030.aspx" />
+    <Content Include="ERPAddition\POPUP\popup_am_ctrl_cd.aspx" />
+    <Content Include="ERPAddition\POPUP\popup_am_ctrl_cd.htm" />
+    <Content Include="ERPAddition\POPUP\pop_cust_cd.aspx" />
+    <Content Include="ERPAddition\POPUP\pop_item_cd.aspx" />
+    <Content Include="ERPAddition\SM\sm_s1001\sm_s1001.aspx" />
+    <Content Include="ERPAddition\SM\sm_s1001\web_sm_s10001.aspx" />
+    <Content Include="ERPAddition\SM\sm_s2001\sm_s2001.aspx" />
+    <Content Include="ERPAddition\SM\sm_s3001\pop_sm_s3001_invoice.aspx" />
+    <Content Include="ERPAddition\SM\sm_s3001\sm_s3001.aspx" />
+    <Content Include="ERPAddition\SM\sm_s4001\sm_s4001.aspx" />
+    <Content Include="ERPAddition\SM\sm_s4002\sm_s4002.aspx" />
+    <Content Include="ERPAddition\SM\sm_s5001\pop_sm_s5001.aspx" />
+    <Content Include="ERPAddition\SM\sm_s5001\sm_s5001.aspx" />
+    <Content Include="Fail_Page.aspx" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\button.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\checkboxeditor.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\checkboxrender.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\cmdbar.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\fpspread.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\fpspread.js" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\fpspreadie8.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\fpspreadie9.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\FpSpreadJsIntellisense.js" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\fpspreadmac.js" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\listboxeditor.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\listboxrender.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\multicolumncombobox.css" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\multicolumncombobox.js" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\percenteditor.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\percentrender.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\radiobtnlisteditor.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\spreadchart.js" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\HTC\tagcloud.htc" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Add-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Add-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Add.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\bshadow.png" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Cancel-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Cancel-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Cancel.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\cbbg.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\cbm.png" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\chbg.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\checked.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\chm.png" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Clear-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Clear-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Clear.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Copy-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Copy-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Copy.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\cshadow.png" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Cut-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Cut.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Delete-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Delete-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Delete.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\down.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\downarrow.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Edit-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Edit-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Edit.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\First-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\First-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\First.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\gline.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\gradient1_ch.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\gradient1_ch_s.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Insert-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Insert-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Insert.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Last-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Last-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Last.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\lshadow.png" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\minus.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Next-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Next-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Next.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Add-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Add-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Add.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Cancel-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Cancel-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Cancel.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Clear-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Clear-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Clear.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Copy-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Copy-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Copy.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Delete-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Delete-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Delete.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Edit-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Edit-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Edit.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007First-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007First-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007First.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Insert-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Insert-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Insert.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Last-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Last-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Last.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Next-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Next-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Next.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Paste-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Paste-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Paste.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Prev-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Prev-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Prev.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Print-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Print-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Print.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007PrintPDF-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007PrintPDF-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007PrintPDF.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Update-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Update-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Office2007Update.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Paste-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Paste-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Paste.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\pin.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\plus.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Prev-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Prev-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Prev.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Print-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Print-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Print.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\PrintPDF-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\PrintPDF-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\PrintPDF.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\resize.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\sbar.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\small_square.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\spinner.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\unchecked.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\up.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\uparrow.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Update-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Update-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\Update.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaAdd-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaAdd-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaAdd.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaCancel-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaCancel-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaCancel.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaClear-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaClear-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaClear.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaCopy-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaCopy-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaCopy.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaDelete-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaDelete-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaDelete.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaEdit-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaEdit-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaEdit.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaFirst-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaFirst-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaFirst.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaInsert-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaInsert-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaInsert.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaLast-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaLast-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaLast.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaNext-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaNext-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaNext.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPaste-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPaste-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPaste.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrev-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrev-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrev.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrint-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrint-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrint.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrintPDF-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrintPDF-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaPrintPDF.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaUpdate-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaUpdate-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\VistaUpdate.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpAdd-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpAdd-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpAdd.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpCancel-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpCancel-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpCancel.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpClear-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpClear-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpClear.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpCopy-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpCopy-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpCopy.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpDelete-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpDelete-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpDelete.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpEdit-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpEdit-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpEdit.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpFirst-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpFirst-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpFirst.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpInsert-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpInsert-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpInsert.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpLast-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpLast-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpLast.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpNext-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpNext-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpNext.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPaste-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPaste-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPaste.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrev-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrev-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrev.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrint-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrint-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrint.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrintPDF-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrintPDF-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpPrintPDF.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpUpdate-d.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpUpdate-h.gif" />
+    <Content Include="fp_client\fpspread\6_0_3505_2008\img\XpUpdate.gif" />
+    <Content Include="img\ajax-loader.gif" />
+    <Content Include="img\folder.gif" />
+    <Content Include="img\loading9_mod.gif" />
+    <Content Include="img\login.png" />
+    <Content Include="img\nepesdisplay image.jpg" />
+    <Content Include="pop.js" />
+    <Content Include="Scripts\jquery-1.7.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.2.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery.event.drag.js" />
+    <Content Include="Scripts\jquery.event.drag.min.js" />
+    <Content Include="Scripts\SlickGrid\Controls\slick.columnpicker.js" />
+    <Content Include="Scripts\SlickGrid\Controls\slick.pager.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.autotooltips.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.cellcopymanager.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.cellrangedecorator.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.cellrangeselector.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.cellselectionmodel.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.checkboxselectcolumn.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.headerbuttons.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.headermenu.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.rowmovemanager.js" />
+    <Content Include="Scripts\SlickGrid\Plugins\slick.rowselectionmodel.js" />
+    <Content Include="Scripts\SlickGrid\slick.core.js" />
+    <Content Include="Scripts\SlickGrid\slick.dataview.js" />
+    <Content Include="Scripts\SlickGrid\slick.editors.js" />
+    <Content Include="Scripts\SlickGrid\slick.formatters.js" />
+    <Content Include="Scripts\SlickGrid\slick.grid.js" />
+    <Content Include="Scripts\SlickGrid\slick.groupitemmetadataprovider.js" />
+    <Content Include="Scripts\SlickGrid\slick.remotemodel.js" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="class\cls_dbexe_erp.cs" />
+    <Compile Include="class\cls_prod_qty_month.cs" />
+    <Compile Include="class\MessageBox.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A1001\am_a1001.aspx.cs">
+      <DependentUpon>am_a1001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A1001\am_a1001.aspx.designer.cs">
+      <DependentUpon>am_a1001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A1001\ds_am_a1001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_am_a1001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A2001\AM_A2001.aspx.cs">
+      <DependentUpon>AM_A2001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A2001\AM_A2001.aspx.designer.cs">
+      <DependentUpon>AM_A2001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A3001\AM_A3001.aspx.cs">
+      <DependentUpon>AM_A3001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A3001\AM_A3001.aspx.designer.cs">
+      <DependentUpon>AM_A3001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A3001\AM_A3001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AM_A3001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A4001\AM_A4001.aspx.cs">
+      <DependentUpon>AM_A4001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A4001\AM_A4001.aspx.designer.cs">
+      <DependentUpon>AM_A4001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A4001\ds_am_a4001.cs">
+      <DependentUpon>ds_am_a4001.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A4001\ds_am_a4001.Designer.cs">
+      <DependentUpon>ds_am_a4001.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A5001\AM_A5001.aspx.cs">
+      <DependentUpon>AM_A5001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A5001\AM_A5001.aspx.designer.cs">
+      <DependentUpon>AM_A5001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A5001\ds_am_a5001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_am_a5001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A6001\am_a6001.aspx.cs">
+      <DependentUpon>am_a6001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A6001\am_a6001.aspx.designer.cs">
+      <DependentUpon>am_a6001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A6001\ds_am_a6001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_am_a6001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A7001\AM_A7001.aspx.cs">
+      <DependentUpon>AM_A7001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A7001\AM_A7001.aspx.designer.cs">
+      <DependentUpon>AM_A7001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A7001\DataSet_AM_A7001.Designer.cs" />
+    <Compile Include="ERPAddition\AM\AM_A8001\AM_A8001.aspx.cs">
+      <DependentUpon>AM_A8001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A8001\AM_A8001.aspx.designer.cs">
+      <DependentUpon>AM_A8001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\AM\AM_A8001\DataSet_AM_A8001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_AM_A8001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C1001\CM_C1001.aspx.cs">
+      <DependentUpon>CM_C1001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C1001\CM_C1001.aspx.designer.cs">
+      <DependentUpon>CM_C1001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\CM_C2001.aspx.cs">
+      <DependentUpon>CM_C2001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\CM_C2001.aspx.designer.cs">
+      <DependentUpon>CM_C2001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C1001\ds_cm_c1001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c1001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_a.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_a.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_b.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_b.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_c.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_c.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_d.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_d.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_e.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_e.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_f.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_f.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_prodqty.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_prodqty.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_sys_b1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_sys_b2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_sys_b3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_cm_c2001_sys_b4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\IDEA\change_os.aspx.cs">
+      <DependentUpon>change_os.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\IDEA\change_os.aspx.designer.cs">
+      <DependentUpon>change_os.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\IDEA\DataSet_os.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_os.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\IM\IM_I1001\ds_im_i1001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_im_i1001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\IM\IM_I1001\IM_I1001.aspx.cs">
+      <DependentUpon>IM_I1001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\IM\IM_I1001\IM_I1001.aspx.designer.cs">
+      <DependentUpon>IM_I1001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\IM\IM_I1002\ds_im_i1002.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_im_i1002.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\IM\IM_I1002\IM_I1002.aspx.cs">
+      <DependentUpon>IM_I1002.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\IM\IM_I1002\IM_I1002.aspx.designer.cs">
+      <DependentUpon>IM_I1002.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\INSA\DataSet_insa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_insa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\INSA\insa_report.aspx.cs">
+      <DependentUpon>insa_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\INSA\insa_report.aspx.designer.cs">
+      <DependentUpon>insa_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M10001\ds_mm_m100011.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mm_m10001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M10001\MM_M10001.aspx.cs">
+      <DependentUpon>MM_M10001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M10001\MM_M10001.aspx.designer.cs">
+      <DependentUpon>MM_M10001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M10001\pop_mm_m10001.aspx.cs">
+      <DependentUpon>pop_mm_m10001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M10001\pop_mm_m10001.aspx.designer.cs">
+      <DependentUpon>pop_mm_m10001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M1001\ds_mm_m1001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mm_m1001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M1001\MM_M1001.aspx.cs">
+      <DependentUpon>MM_M1001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M1001\MM_M1001.aspx.designer.cs">
+      <DependentUpon>MM_M1001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M2001\ds_mm_m2001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mm_m2001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M2001\MM_M2001.aspx.cs">
+      <DependentUpon>MM_M2001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M2001\MM_M2001.aspx.designer.cs">
+      <DependentUpon>MM_M2001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M3001\ds_mm_m3001.Designer.cs" />
+    <Compile Include="ERPAddition\MM\MM_M3001\MM_M3001.aspx.cs">
+      <DependentUpon>MM_M3001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M3001\MM_M3001.aspx.designer.cs">
+      <DependentUpon>MM_M3001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M4001\MM_M4001.aspx.cs">
+      <DependentUpon>MM_M4001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M4001\MM_M4001.aspx.designer.cs">
+      <DependentUpon>MM_M4001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_sub.cs">
+      <DependentUpon>ds_mm_m5001_sub.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_sub.Designer.cs">
+      <DependentUpon>ds_mm_m5001_sub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\MM_M5001.aspx.cs">
+      <DependentUpon>MM_M5001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\MM_M5001.aspx.designer.cs">
+      <DependentUpon>MM_M5001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\mm_m5001_image_upload.aspx.cs">
+      <DependentUpon>mm_m5001_image_upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\mm_m5001_image_upload.aspx.designer.cs">
+      <DependentUpon>mm_m5001_image_upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\pop_mm_m5001_mail.aspx.cs">
+      <DependentUpon>pop_mm_m5001_mail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\pop_mm_m5001_mail.aspx.designer.cs">
+      <DependentUpon>pop_mm_m5001_mail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\pop_mm_m5001_po.aspx.cs">
+      <DependentUpon>pop_mm_m5001_po.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M5001\pop_mm_m5001_po.aspx.designer.cs">
+      <DependentUpon>pop_mm_m5001_po.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M6001\ds_mm_m6001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mm_m6001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M6001\MM_M6001.aspx.cs">
+      <DependentUpon>MM_M6001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M6001\MM_M6001.aspx.designer.cs">
+      <DependentUpon>MM_M6001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M6001\pop_mm_m6001.aspx.cs">
+      <DependentUpon>pop_mm_m6001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M6001\pop_mm_m6001.aspx.designer.cs">
+      <DependentUpon>pop_mm_m6001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M7001\ds_mm_m7001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mm_m7001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M7001\MM_M7001.aspx.cs">
+      <DependentUpon>MM_M7001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M7001\MM_M7001.aspx.designer.cs">
+      <DependentUpon>MM_M7001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M9001\ds_mm_m9001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_mm_m9001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M9001\MM_M9001.aspx.cs">
+      <DependentUpon>MM_M9001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\MM\MM_M9001\MM_M9001.aspx.designer.cs">
+      <DependentUpon>MM_M9001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O1001\ds_om_o1001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_om_o1001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O1001\Om_O1001.aspx.cs">
+      <DependentUpon>Om_O1001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O1001\Om_O1001.aspx.designer.cs">
+      <DependentUpon>Om_O1001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O1001\pop_om_o2001.aspx.cs">
+      <DependentUpon>pop_om_o2001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O1001\pop_om_o2001.aspx.designer.cs">
+      <DependentUpon>pop_om_o2001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O2001\ds_om_o2001.cs">
+      <DependentUpon>ds_om_o2001.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O2001\ds_om_o2001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_om_o2001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O2001\OM_O2001.aspx.cs">
+      <DependentUpon>OM_O2001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\OM\OM_O2001\OM_O2001.aspx.designer.cs">
+      <DependentUpon>OM_O2001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\PM\p1401ma6_nepes\DataSet_p1401ma6_nepes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_p1401ma6_nepes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\PM\p1401ma6_nepes\PM_P1401MA6.aspx.cs">
+      <DependentUpon>PM_P1401MA6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\PM\p1401ma6_nepes\PM_P1401MA6.aspx.designer.cs">
+      <DependentUpon>PM_P1401MA6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1010\DataSet_pm_p1010.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pm_p1010.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1010\PM_P1010.aspx.cs">
+      <DependentUpon>PM_P1010.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1010\PM_P1010.aspx.designer.cs">
+      <DependentUpon>PM_P1010.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1020\DataSet_pm_p1020.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pm_p1020.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1020\PM_P1020.aspx.cs">
+      <DependentUpon>PM_P1020.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1020\PM_P1020.aspx.designer.cs">
+      <DependentUpon>PM_P1020.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1030\DataSet_pm_p1030.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_pm_p1030.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1030\PM_P1030.aspx.cs">
+      <DependentUpon>PM_P1030.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\PM\PM_P1030\PM_P1030.aspx.designer.cs">
+      <DependentUpon>PM_P1030.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\POPUP\popup_am_ctrl_cd.aspx.cs">
+      <DependentUpon>popup_am_ctrl_cd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\POPUP\popup_am_ctrl_cd.aspx.designer.cs">
+      <DependentUpon>popup_am_ctrl_cd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\POPUP\pop_cust_cd.aspx.cs">
+      <DependentUpon>pop_cust_cd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\POPUP\pop_cust_cd.aspx.designer.cs">
+      <DependentUpon>pop_cust_cd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\POPUP\pop_item_cd.aspx.cs">
+      <DependentUpon>pop_item_cd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\POPUP\pop_item_cd.aspx.designer.cs">
+      <DependentUpon>pop_item_cd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s1001\ds_sm_s1001.cs">
+      <DependentUpon>ds_sm_s1001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s1001\ds_sm_s1001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s1001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s1001\ds_sm_s1001_temp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s1001_temp.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s1001\sm_s1001.aspx.cs">
+      <DependentUpon>sm_s1001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s1001\sm_s1001.aspx.designer.cs">
+      <DependentUpon>sm_s1001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s1001\web_sm_s10001.aspx.cs">
+      <DependentUpon>web_sm_s10001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s1001\web_sm_s10001.aspx.designer.cs">
+      <DependentUpon>web_sm_s10001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s2001\ds_sm_s2001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s2001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s2001\sm_s2001.aspx.cs">
+      <DependentUpon>sm_s2001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s2001\sm_s2001.aspx.designer.cs">
+      <DependentUpon>sm_s2001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s3001\ds_sm_s3001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s3001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_dtl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s3001_dtl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_no2_sub.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s3001_no2_sub.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_sub.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s3001_sub.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s3001\pop_sm_s3001_invoice.aspx.cs">
+      <DependentUpon>pop_sm_s3001_invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s3001\pop_sm_s3001_invoice.aspx.designer.cs">
+      <DependentUpon>pop_sm_s3001_invoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s3001\sm_s3001.aspx.cs">
+      <DependentUpon>sm_s3001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s3001\sm_s3001.aspx.designer.cs">
+      <DependentUpon>sm_s3001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4001\ds_sm_s4001.cs">
+      <DependentUpon>ds_sm_s4001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4001\ds_sm_s4001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s4001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_amt.cs">
+      <DependentUpon>ds_sm_s4001_amt.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_amt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s4001_amt.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_qty.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s4001_qty.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_test.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s4001_test.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4001\sm_s4001.aspx.cs">
+      <DependentUpon>sm_s4001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4001\sm_s4001.aspx.designer.cs">
+      <DependentUpon>sm_s4001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4002\ds_sm_s4002.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds_sm_s4002.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4002\sm_s4002.aspx.cs">
+      <DependentUpon>sm_s4002.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s4002\sm_s4002.aspx.designer.cs">
+      <DependentUpon>sm_s4002.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s5001\pop_sm_s5001.aspx.cs">
+      <DependentUpon>pop_sm_s5001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s5001\pop_sm_s5001.aspx.designer.cs">
+      <DependentUpon>pop_sm_s5001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s5001\sm_s5001.aspx.cs">
+      <DependentUpon>sm_s5001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s5001\sm_s5001.aspx.designer.cs">
+      <DependentUpon>sm_s5001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ERPAddition\SM\sm_s5001\sm_s5001.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sm_s5001.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Fail_Page.aspx.cs">
+      <DependentUpon>Fail_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fail_Page.aspx.designer.cs">
+      <DependentUpon>Fail_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxClass.cs" />
+    <Compile Include="nepesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nepesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryExe\ERP_Query_exe.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ERPAddition\AM\AM_A1001\rv_am_a1001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\AM\AM_A4001\rp_am_a4001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\AM\AM_A5001\rp_am_a5001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\AM\AM_A6001\am_a6001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\AM\AM_A7001\AM_A7001_1.rdlc" />
+    <EmbeddedResource Include="ERPAddition\AM\AM_A7001\AM_A7001_2.rdlc" />
+    <EmbeddedResource Include="ERPAddition\AM\AM_A8001\AM_A8001_1.rdlc" />
+    <EmbeddedResource Include="ERPAddition\AM\AM_A8001\AM_A8001_2.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_b.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_a.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_c.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_d.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_e.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_f.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_sys_b1.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_sys_b2.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_sys_b3.rdlc" />
+    <EmbeddedResource Include="ERPAddition\CM\CM_C2001\rp_cm_c2001_sys_b4.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IDEA\change_os.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1001\rp_im_i1001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1001\rp_im_i1002.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002_detail_.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002_detail_v2.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002_erp_detail_1.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002_erp_detail_2.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002_erp_sum.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002_mes_detail.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002_mes_sum.rdlc" />
+    <EmbeddedResource Include="ERPAddition\IM\IM_I1002\rp_im_i1002_sum.rdlc" />
+    <EmbeddedResource Include="ERPAddition\INSA\insa.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M10001\rp_mm_m10001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M1001\rp_mm_m1001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M2001\rv_mm_m2001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M3001\rp_mm_m3001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M4001\rv_mm_m4001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M4001\rv_mm_m4001_view.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M5001\rv_mm_m5001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M5001\rv_mm_m5001_sub.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M6001\rp_mm_m6001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M7001\rp_mm_m7001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\MM\MM_M9001\MM_M9001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\OM\OM_O2001\rp_om_o2001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\PM\p1401ma6_nepes\p1401ma6_nepes.rdlc" />
+    <EmbeddedResource Include="ERPAddition\PM\p1401ma6_nepes\p1401ma6_nepes1.rdlc" />
+    <EmbeddedResource Include="ERPAddition\PM\PM_P1010\pm_p1010.rdlc" />
+    <EmbeddedResource Include="ERPAddition\PM\PM_P1020\pm_p1020.rdlc" />
+    <EmbeddedResource Include="ERPAddition\PM\PM_P1030\pm_p1030.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s1001\rv_sm_s1001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s1001\rv_sm_s1001_pg_a.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s1001\rv_sm_s1001_v2.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s1001\rv_sm_s1001_v2_detail.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s1001\rv_sm_s1001_v3.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s1001\rv_sm_s1001_v4.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s1001\rv_sm_s1001_v4_detail.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s1001\rv_sm_s1001_v5.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s2001\sm_s2001.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s3001\rv_sm_s3001_no1.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s3001\rv_sm_s3001_no1_dtl.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s3001\rv_sm_s3001_no1_sub.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s3001\rv_sm_s3001_no2_sub.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_amt.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_amt_add.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_cus.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_cus_add.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_item.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_item_add.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_qty.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_qty_cus.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4001\rp_sm_s4001_qty_item.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s4002\rp_sm_s4002.rdlc" />
+    <EmbeddedResource Include="ERPAddition\SM\sm_s5001\rp_sm_5001.rdlc" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ERPAddition\AM\AM_A1001\ds_am_a1001.xsc">
+      <DependentUpon>ds_am_a1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A1001\ds_am_a1001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_am_a1001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\AM\AM_A1001\ds_am_a1001.xss">
+      <DependentUpon>ds_am_a1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A3001\AM_A3001.xsc">
+      <DependentUpon>AM_A3001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A3001\AM_A3001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AM_A3001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\AM\AM_A3001\AM_A3001.xss">
+      <DependentUpon>AM_A3001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A4001\ds_am_a4001.xsc">
+      <DependentUpon>ds_am_a4001.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\AM\AM_A4001\ds_am_a4001.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_am_a4001.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\AM\AM_A4001\ds_am_a4001.xss">
+      <DependentUpon>ds_am_a4001.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\AM\AM_A5001\ds_am_a5001.xsc">
+      <DependentUpon>ds_am_a5001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A5001\ds_am_a5001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_am_a5001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\AM\AM_A5001\ds_am_a5001.xss">
+      <DependentUpon>ds_am_a5001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A6001\ds_am_a6001.xsc">
+      <DependentUpon>ds_am_a6001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A6001\ds_am_a6001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_am_a6001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\AM\AM_A6001\ds_am_a6001.xss">
+      <DependentUpon>ds_am_a6001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A7001\DataSet_AM_A7001.xsc">
+      <DependentUpon>DataSet_AM_A7001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A7001\DataSet_AM_A7001.xsd" />
+    <None Include="ERPAddition\AM\AM_A7001\DataSet_AM_A7001.xss">
+      <DependentUpon>DataSet_AM_A7001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A8001\DataSet_AM_A8001.xsc">
+      <DependentUpon>DataSet_AM_A8001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\AM\AM_A8001\DataSet_AM_A8001.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_AM_A8001.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\AM\AM_A8001\DataSet_AM_A8001.xss">
+      <DependentUpon>DataSet_AM_A8001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C1001\ds_cm_c1001.xsc">
+      <DependentUpon>ds_cm_c1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C1001\ds_cm_c1001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c1001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C1001\ds_cm_c1001.xss">
+      <DependentUpon>ds_cm_c1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001.xsc">
+      <DependentUpon>ds_cm_c2001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001.xss">
+      <DependentUpon>ds_cm_c2001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_a.xsc">
+      <DependentUpon>ds_cm_c2001_a.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_a.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_a.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_a.xss">
+      <DependentUpon>ds_cm_c2001_a.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_b.xsc">
+      <DependentUpon>ds_cm_c2001_b.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_b.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_b.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_b.xss">
+      <DependentUpon>ds_cm_c2001_b.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_c.xsc">
+      <DependentUpon>ds_cm_c2001_c.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_c.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_c.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_c.xss">
+      <DependentUpon>ds_cm_c2001_c.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_d.xsc">
+      <DependentUpon>ds_cm_c2001_d.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_d.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_d.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_d.xss">
+      <DependentUpon>ds_cm_c2001_d.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_e.xsc">
+      <DependentUpon>ds_cm_c2001_e.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_e.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_e.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_e.xss">
+      <DependentUpon>ds_cm_c2001_e.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_f.xsc">
+      <DependentUpon>ds_cm_c2001_f.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_f.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_f.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_f.xss">
+      <DependentUpon>ds_cm_c2001_f.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_prodqty.xsc">
+      <DependentUpon>ds_cm_c2001_prodqty.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_prodqty.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_prodqty.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_prodqty.xss">
+      <DependentUpon>ds_cm_c2001_prodqty.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b1.xsc">
+      <DependentUpon>ds_cm_c2001_sys_b1.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_sys_b1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b1.xss">
+      <DependentUpon>ds_cm_c2001_sys_b1.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b2.xsc">
+      <DependentUpon>ds_cm_c2001_sys_b2.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_sys_b2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b2.xss">
+      <DependentUpon>ds_cm_c2001_sys_b2.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b3.xsc">
+      <DependentUpon>ds_cm_c2001_sys_b3.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_sys_b3.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b3.xss">
+      <DependentUpon>ds_cm_c2001_sys_b3.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b4.xsc">
+      <DependentUpon>ds_cm_c2001_sys_b4.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b4.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_cm_c2001_sys_b4.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\CM\CM_C2001\ds_cm_c2001_sys_b4.xss">
+      <DependentUpon>ds_cm_c2001_sys_b4.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\IDEA\DataSet_os.xsc">
+      <DependentUpon>DataSet_os.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\IDEA\DataSet_os.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_os.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\IDEA\DataSet_os.xss">
+      <DependentUpon>DataSet_os.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\IM\IM_I1001\ds_im_i1001.xsc">
+      <DependentUpon>ds_im_i1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\IM\IM_I1001\ds_im_i1001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_im_i1001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\IM\IM_I1001\ds_im_i1001.xss">
+      <DependentUpon>ds_im_i1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\IM\IM_I1002\ds_im_i1002.xsc">
+      <DependentUpon>ds_im_i1002.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\IM\IM_I1002\ds_im_i1002.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_im_i1002.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\IM\IM_I1002\ds_im_i1002.xss">
+      <DependentUpon>ds_im_i1002.xsd</DependentUpon>
+    </None>
+    <Content Include="ERPAddition\MM\MM_M10001\ds_mm_m10001.xsc">
+      <DependentUpon>ds_mm_m10001.xsd</DependentUpon>
+    </Content>
+    <Content Include="ERPAddition\INSA\DataSet_insa.xsc">
+      <DependentUpon>DataSet_insa.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\INSA\DataSet_insa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_insa.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="ERPAddition\INSA\DataSet_insa.xss">
+      <DependentUpon>DataSet_insa.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\MM\MM_M10001\ds_mm_m10001.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m100011.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ERPAddition\MM\MM_M10001\ds_mm_m10001.xss">
+      <DependentUpon>ds_mm_m10001.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\MM\MM_M1001\ds_mm_m1001.xsc">
+      <DependentUpon>ds_mm_m1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M1001\ds_mm_m1001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m1001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\MM\MM_M1001\ds_mm_m1001.xss">
+      <DependentUpon>ds_mm_m1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M2001\ds_mm_m2001.xsc">
+      <DependentUpon>ds_mm_m2001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M2001\ds_mm_m2001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m2001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\MM\MM_M2001\ds_mm_m2001.xss">
+      <DependentUpon>ds_mm_m2001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M3001\ds_mm_m3001.xsc">
+      <DependentUpon>ds_mm_m3001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M3001\ds_mm_m3001.xsd" />
+    <None Include="ERPAddition\MM\MM_M3001\ds_mm_m3001.xss">
+      <DependentUpon>ds_mm_m3001.xsd</DependentUpon>
+    </None>
+    <Content Include="ERPAddition\MM\MM_M4001\ds_mm_m4001.xsc">
+      <DependentUpon>ds_mm_m4001.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\MM\MM_M4001\ds_mm_m4001.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m40011.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ERPAddition\MM\MM_M4001\ds_mm_m4001.xss">
+      <DependentUpon>ds_mm_m4001.xsd</DependentUpon>
+    </Content>
+    <Content Include="ERPAddition\MM\MM_M5001\attachments\MRP_7월_BUMP FCST.xlsx" />
+    <Content Include="ERPAddition\MM\MM_M5001\attachments\MRP_7월_PKG FCST%282%29.xlsx" />
+    <Content Include="ERPAddition\MM\MM_M5001\attachments\PO20140805000001발주서2014-08-12.pdf" />
+    <Content Include="ERPAddition\MM\MM_M5001\ds_mm_m5001.xsc">
+      <DependentUpon>ds_mm_m5001.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\MM\MM_M5001\ds_mm_m5001.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m50011.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ERPAddition\MM\MM_M5001\ds_mm_m5001.xss">
+      <DependentUpon>ds_mm_m5001.xsd</DependentUpon>
+    </Content>
+    <Content Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_pop.xsc">
+      <DependentUpon>ds_mm_m5001_pop.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_pop.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m5001_pop1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_pop.xss">
+      <DependentUpon>ds_mm_m5001_pop.xsd</DependentUpon>
+    </Content>
+    <Content Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_pop_mail.xsc">
+      <DependentUpon>ds_mm_m5001_pop_mail.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_pop_mail.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m5001_pop_mail1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_pop_mail.xss">
+      <DependentUpon>ds_mm_m5001_pop_mail.xsd</DependentUpon>
+    </Content>
+    <Content Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_sub.xsc">
+      <DependentUpon>ds_mm_m5001_sub.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_sub.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m5001_sub1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ERPAddition\MM\MM_M5001\ds_mm_m5001_sub.xss">
+      <DependentUpon>ds_mm_m5001_sub.xsd</DependentUpon>
+    </Content>
+    <Content Include="ERPAddition\MM\MM_M5001\PO20140721000026자동발주서2014-07-21.pdf" />
+    <None Include="ERPAddition\MM\MM_M6001\ds_mm_m6001.xsc">
+      <DependentUpon>ds_mm_m6001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M6001\ds_mm_m6001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m6001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\MM\MM_M6001\ds_mm_m6001.xss">
+      <DependentUpon>ds_mm_m6001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M7001\ds_mm_m7001.xsc">
+      <DependentUpon>ds_mm_m7001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M7001\ds_mm_m7001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m7001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\MM\MM_M7001\ds_mm_m7001.xss">
+      <DependentUpon>ds_mm_m7001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M9001\ds_mm_m9001.xsc">
+      <DependentUpon>ds_mm_m9001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\MM\MM_M9001\ds_mm_m9001.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_mm_m9001.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\MM\MM_M9001\ds_mm_m9001.xss">
+      <DependentUpon>ds_mm_m9001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\OM\OM_O1001\ds_om_o1001.xsc">
+      <DependentUpon>ds_om_o1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\OM\OM_O1001\ds_om_o1001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_om_o1001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\OM\OM_O1001\ds_om_o1001.xss">
+      <DependentUpon>ds_om_o1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\OM\OM_O2001\ds_om_o2001.xsc">
+      <DependentUpon>ds_om_o2001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\OM\OM_O2001\ds_om_o2001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_om_o2001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\OM\OM_O2001\ds_om_o2001.xss">
+      <DependentUpon>ds_om_o2001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\PM\p1401ma6_nepes\DataSet_p1401ma6_nepes.xsc">
+      <DependentUpon>DataSet_p1401ma6_nepes.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\PM\p1401ma6_nepes\DataSet_p1401ma6_nepes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_p1401ma6_nepes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\PM\p1401ma6_nepes\DataSet_p1401ma6_nepes.xss">
+      <DependentUpon>DataSet_p1401ma6_nepes.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1010\DataSet_pm_p1010.xsc">
+      <DependentUpon>DataSet_pm_p1010.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1010\DataSet_pm_p1010.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pm_p1010.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1010\DataSet_pm_p1010.xss">
+      <DependentUpon>DataSet_pm_p1010.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1020\DataSet_pm_p1020.xsc">
+      <DependentUpon>DataSet_pm_p1020.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1020\DataSet_pm_p1020.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pm_p1020.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1020\DataSet_pm_p1020.xss">
+      <DependentUpon>DataSet_pm_p1020.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1030\DataSet_pm_p1030.xsc">
+      <DependentUpon>DataSet_pm_p1030.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1030\DataSet_pm_p1030.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_pm_p1030.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\PM\PM_P1030\DataSet_pm_p1030.xss">
+      <DependentUpon>DataSet_pm_p1030.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s1001\ds_sm_s1001.xsc">
+      <DependentUpon>ds_sm_s1001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s1001\ds_sm_s1001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s1001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s1001\ds_sm_s1001.xss">
+      <DependentUpon>ds_sm_s1001.xsd</DependentUpon>
+    </None>
+    <Content Include="packages.config" />
+    <None Include="ERPAddition\SM\sm_s1001\ds_sm_s1001_temp.xsc">
+      <DependentUpon>ds_sm_s1001_temp.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s1001\ds_sm_s1001_temp.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s1001_temp.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s1001\ds_sm_s1001_temp.xss">
+      <DependentUpon>ds_sm_s1001_temp.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s2001\ds_sm_s2001.xsc">
+      <DependentUpon>ds_sm_s2001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s2001\ds_sm_s2001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s2001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s2001\ds_sm_s2001.xss">
+      <DependentUpon>ds_sm_s2001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001.xsc">
+      <DependentUpon>ds_sm_s3001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s3001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001.xss">
+      <DependentUpon>ds_sm_s3001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_dtl.xsc">
+      <DependentUpon>ds_sm_s3001_dtl.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_dtl.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s3001_dtl.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_dtl.xss">
+      <DependentUpon>ds_sm_s3001_dtl.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_no2_sub.xsc">
+      <DependentUpon>ds_sm_s3001_no2_sub.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_no2_sub.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s3001_no2_sub.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_no2_sub.xss">
+      <DependentUpon>ds_sm_s3001_no2_sub.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_sub.xsc">
+      <DependentUpon>ds_sm_s3001_sub.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_sub.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s3001_sub.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s3001\ds_sm_s3001_sub.xss">
+      <DependentUpon>ds_sm_s3001_sub.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001.xsc">
+      <DependentUpon>ds_sm_s4001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s4001.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001.xss">
+      <DependentUpon>ds_sm_s4001.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_amt.xsc">
+      <DependentUpon>ds_sm_s4001_amt.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_amt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s4001_amt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_amt.xss">
+      <DependentUpon>ds_sm_s4001_amt.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_qty.xsc">
+      <DependentUpon>ds_sm_s4001_qty.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_qty.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s4001_qty.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_qty.xss">
+      <DependentUpon>ds_sm_s4001_qty.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_test.xsc">
+      <DependentUpon>ds_sm_s4001_test.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_test.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s4001_test.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4001\ds_sm_s4001_test.xss">
+      <DependentUpon>ds_sm_s4001_test.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4002\ds_sm_s4002.xsc">
+      <DependentUpon>ds_sm_s4002.xsd</DependentUpon>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4002\ds_sm_s4002.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds_sm_s4002.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ERPAddition\SM\sm_s4002\ds_sm_s4002.xss">
+      <DependentUpon>ds_sm_s4002.xsd</DependentUpon>
+    </None>
+    <Content Include="ERPAddition\SM\sm_s5001\sm_s5001.xsc">
+      <DependentUpon>sm_s5001.xsd</DependentUpon>
+    </Content>
+    <None Include="ERPAddition\SM\sm_s5001\sm_s5001.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sm_s5001.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ERPAddition\SM\sm_s5001\sm_s5001.xss">
+      <DependentUpon>sm_s5001.xsd</DependentUpon>
+    </Content>
+    <None Include="nepesDataSet.xsc">
+      <DependentUpon>nepesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="nepesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>nepesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="nepesDataSet.xss">
+      <DependentUpon>nepesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\PublishProfiles\ERP_APP_FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ERP_FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ERP_배포2.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1402</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

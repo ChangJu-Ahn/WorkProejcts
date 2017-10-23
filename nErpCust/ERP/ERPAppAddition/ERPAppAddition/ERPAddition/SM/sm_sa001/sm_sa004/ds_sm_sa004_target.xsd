@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_sm_sa004_target" targetNamespace="http://tempuri.org/ds_sm_sa004_target.xsd" xmlns:mstns="http://tempuri.org/ds_sm_sa004_target.xsd" xmlns="http://tempuri.org/ds_sm_sa004_target.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_sm_sa004_target" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_sm_sa004_target" msprop:Generator_UserDSName="ds_sm_sa004_target">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DRAIN_DT" msprop:Generator_ColumnVarNameInTable="columnDRAIN_DT" msprop:Generator_ColumnPropNameInRow="DRAIN_DT" msprop:Generator_ColumnPropNameInTable="DRAIN_DTColumn" msprop:Generator_UserColumnName="DRAIN_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="AMAT_IN" msprop:Generator_ColumnVarNameInTable="columnAMAT_IN" msprop:Generator_ColumnPropNameInRow="AMAT_IN" msprop:Generator_ColumnPropNameInTable="AMAT_INColumn" msprop:Generator_UserColumnName="AMAT_IN" type="xs:string" minOccurs="0" />
+              <xs:element name="AMAT_USG" msprop:Generator_ColumnVarNameInTable="columnAMAT_USG" msprop:Generator_ColumnPropNameInRow="AMAT_USG" msprop:Generator_ColumnPropNameInTable="AMAT_USGColumn" msprop:Generator_UserColumnName="AMAT_USG" type="xs:string" minOccurs="0" />
+              <xs:element name="DRAIN_INTGELEC" msprop:Generator_ColumnVarNameInTable="columnDRAIN_INTGELEC" msprop:Generator_ColumnPropNameInRow="DRAIN_INTGELEC" msprop:Generator_ColumnPropNameInTable="DRAIN_INTGELECColumn" msprop:Generator_UserColumnName="DRAIN_INTGELEC" type="xs:string" minOccurs="0" />
+              <xs:element name="R_QTY" msprop:Generator_ColumnVarNameInTable="columnR_QTY" msprop:Generator_ColumnPropNameInRow="R_QTY" msprop:Generator_ColumnPropNameInTable="R_QTYColumn" msprop:Generator_UserColumnName="R_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="IN_AU_QTY" msprop:Generator_ColumnVarNameInTable="columnIN_AU_QTY" msprop:Generator_ColumnPropNameInRow="IN_AU_QTY" msprop:Generator_ColumnPropNameInTable="IN_AU_QTYColumn" msprop:Generator_UserColumnName="IN_AU_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="IN_AU_RATION" msprop:Generator_ColumnVarNameInTable="columnIN_AU_RATION" msprop:Generator_ColumnPropNameInRow="IN_AU_RATION" msprop:Generator_ColumnPropNameInTable="IN_AU_RATIONColumn" msprop:Generator_UserColumnName="IN_AU_RATION" type="xs:string" minOccurs="0" />
+              <xs:element name="AMAT_LOSS" msprop:Generator_ColumnVarNameInTable="columnAMAT_LOSS" msprop:Generator_ColumnPropNameInRow="AMAT_LOSS" msprop:Generator_ColumnPropNameInTable="AMAT_LOSSColumn" msprop:Generator_UserColumnName="AMAT_LOSS" type="xs:string" minOccurs="0" />
+              <xs:element name="MACHINE" msprop:Generator_ColumnVarNameInTable="columnMACHINE" msprop:Generator_ColumnPropNameInRow="MACHINE" msprop:Generator_ColumnPropNameInTable="MACHINEColumn" msprop:Generator_UserColumnName="MACHINE" type="xs:string" minOccurs="0" />
+              <xs:element name="IN_AU_SHD_QTY" msprop:Generator_ColumnVarNameInTable="columnIN_AU_SHD_QTY" msprop:Generator_ColumnPropNameInRow="IN_AU_SHD_QTY" msprop:Generator_ColumnPropNameInTable="IN_AU_SHD_QTYColumn" msprop:Generator_UserColumnName="IN_AU_SHD_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="IN_AU_SHD_RATION" msprop:Generator_ColumnVarNameInTable="columnIN_AU_SHD_RATION" msprop:Generator_ColumnPropNameInRow="IN_AU_SHD_RATION" msprop:Generator_ColumnPropNameInTable="IN_AU_SHD_RATIONColumn" msprop:Generator_UserColumnName="IN_AU_SHD_RATION" type="xs:string" minOccurs="0" />
+              <xs:element name="R_SHD_QTY" msprop:Generator_ColumnVarNameInTable="columnR_SHD_QTY" msprop:Generator_ColumnPropNameInRow="R_SHD_QTY" msprop:Generator_ColumnPropNameInTable="R_SHD_QTYColumn" msprop:Generator_UserColumnName="R_SHD_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="DRAIN_SCRAP_SHD_QTY" msprop:Generator_ColumnVarNameInTable="columnDRAIN_SCRAP_SHD_QTY" msprop:Generator_ColumnPropNameInRow="DRAIN_SCRAP_SHD_QTY" msprop:Generator_ColumnPropNameInTable="DRAIN_SCRAP_SHD_QTYColumn" msprop:Generator_UserColumnName="DRAIN_SCRAP_SHD_QTY" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

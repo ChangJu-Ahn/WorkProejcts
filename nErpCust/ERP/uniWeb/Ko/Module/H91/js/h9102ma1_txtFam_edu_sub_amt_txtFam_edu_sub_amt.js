@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=txtFam_edu_sub_amt name=txtFam_edu_sub_amt CLASS=FPDS115 title=FPDOUBLESINGLE tag="21X2Z" ALT="초중고교육비1인한도액"></OBJECT>');

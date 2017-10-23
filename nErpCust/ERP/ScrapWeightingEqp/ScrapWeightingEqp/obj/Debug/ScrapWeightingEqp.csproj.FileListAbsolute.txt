@@ -1,0 +1,6 @@
+E:\New_Project\NERPCUST\ERP\ScrapWeightingEqp\ScrapWeightingEqp\bin\Debug\ScrapWeightingEqp.exe.config
+E:\New_Project\NERPCUST\ERP\ScrapWeightingEqp\ScrapWeightingEqp\obj\Debug\ScrapWeightingEqp.csprojResolveAssemblyReference.cache
+E:\New_Project\NERPCUST\ERP\ScrapWeightingEqp\ScrapWeightingEqp\obj\Debug\ScrapWeightingEqp.Form1.resources
+E:\New_Project\NERPCUST\ERP\ScrapWeightingEqp\ScrapWeightingEqp\obj\Debug\ScrapWeightingEqp.Properties.Resources.resources
+E:\New_Project\NERPCUST\ERP\ScrapWeightingEqp\ScrapWeightingEqp\obj\Debug\ScrapWeightingEqp.Setting.resources
+E:\New_Project\NERPCUST\ERP\ScrapWeightingEqp\ScrapWeightingEqp\obj\Debug\ScrapWeightingEqp.csproj.GenerateResource.Cache

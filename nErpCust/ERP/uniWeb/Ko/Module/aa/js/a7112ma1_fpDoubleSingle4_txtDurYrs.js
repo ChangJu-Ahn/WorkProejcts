@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle4 name="txtDurYrs" style="HEIGHT: 20px; RIGHT: 0px; TOP: 0px; WIDTH: 80px" title="FPDOUBLESINGLE" ALT="내용연수" tag="24X3"> </OBJECT>');

@@ -1,0 +1,323 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<%@ include file="/WEB-INF/include/include-header.jspf" %>
+</head>
+<body>
+	<jsp:include page="../sample/top.jsp" flush="false"></jsp:include>
+    <sec:authorize access="hasRole('ROLE_ADMIN')" var="ROLE_ADMIN"/>
+    <h2>계약 체결현황</h2>
+    <c:if test="${ROLE_ADMIN == true}">
+	    <div id = "adminSearchBar" style="float:left;">
+		    <select id = "selctBucode" style="height: 28.5px;float: left;">
+		    	<option value = "ALL">ALL</option>
+                <c:forEach items="${standardList }" var="row">
+                    <option value = "${row.CODE}">${row.CODE_NM}</option>
+                </c:forEach>
+		    </select>
+		</div>
+	</c:if>	
+    <div id = "searchBar" style="float:right;">
+	    <select id = "gubun" style="height: 28.5px;float: left;">
+	    	<option value = "A">계약번호</option>
+	    	<option value = "B">계약서명</option>
+	    	<option value = "C">거래처명</option>	    	
+	    </select>
+		<input type='text' placeholder='Search...' id='search' />
+		<input type='hidden' id='searchInfo' value = '0'/> <!--search 구분자-->
+		<div id='button-holder'>
+		    <img src='../images/search.png' />
+		</div>
+	</div>
+	<br/>
+	<br/>
+	<table class="board_list">
+        <colgroup>
+        <col width="10%"/>
+		<col width="5%"/>
+		<col width="15%"/>
+		<col width="5%"/>
+		<col width="20%"/>
+		<col width="15%"/>
+		<col width="15%"/>
+		<col width="5%"/>
+		<col width="5%"/>
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">계약 번호</th>
+			<th scope="col">사업부</th>
+			<th scope="col">고객사(업체)1 / 고객사(업체)2</th>
+			<th scope="col">구분</th>
+			<th scope="col">계약서 명</th>
+			<th scope="col">목적 사업(제품)</th>
+			<th scope="col">효력발생일 / 종료일</th>
+			<th scope="col">자동연장</th>
+			<th scope="col">만료</th>
+		</tr>
+	</thead>
+	<tbody>
+    </tbody>
+    </table>
+    <br/>
+    <div id="PAGE_NAVI" style="text-align: center;"></div>
+    <input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX"/>
+    
+    <div id = "excel" style="float:right;">
+    	 <img id="excelBtnImg" src='../images/btn_excelDown.gif'/>
+    </div>
+    
+    <%@ include file="/WEB-INF/include/include-body.jspf" %>
+    <script type="text/javascript">
+    	var userid = "<sec:authentication property='principal.username'/>";
+    	$(document).ready(function(){
+    		//최초 1페이지를 보여줘야 함..
+    		fn_selectBoardList(1);
+        	
+        	$("#write").on("click", function(e){ //글쓰기 버튼
+                e.preventDefault();
+                fn_openBoardWrite();
+            }); 
+            
+            $("#modify").on("click", function(e){
+                e.preventDefault();
+                fn_openBoardModify();
+            });
+            /* Ajax 하면 Jquery 클릭 이벤트가 안됨 왜지???? 
+               on으로 해당 태그이름을 설정 해주면 됨.....		
+           	*/
+            $("tbody").on("click",'#title',function(e){     
+            	e.preventDefault();
+                fn_openBoardDetail($(this));
+            });
+            
+            $("input[name='save']").on("click", function(e){ 
+                e.preventDefault();
+                fn_opensendEmail($("input[name=email]").val());
+            });
+            
+            $("#searchBar").on("click",'#button-holder', function(e){
+            	e.preventDefault();
+//                 fn_openBoardSearch();
+				$('#searchInfo').val(1);
+                fn_openBoardSearch(1);
+            });
+            
+          	//serchBar에 놓고 엔터를 칠 경우 조회로 인식
+            $("#searchBar").on("keypress",'#search', function(e){
+            	if (e.which == 13) /* 13 == enter key@ascii */
+            		$('#button-holder').click();
+            });
+            
+             $("#excel").on("click",'#excelBtnImg', function(e){
+            	e.preventDefault();
+                fn_downExcelFile();
+            }); 
+             
+            $("#selctBucode").change(function(e){
+            	e.preventDefault();
+            	fn_selectBusorChange();
+            });
+            
+        });
+                
+        function fn_downExcelFile(){
+        	var comSubmit = new ComSubmit();
+        	var tempTarget = "CONTRACT_LIST";
+        	
+            //comSubmit.setUrl("<c:url value='/sample/downExcel.do' />");
+            comSubmit.setUrl("<c:url value='/downExcel.do' />");
+            comSubmit.addParam("userid", userid);
+            comSubmit.addParam("TARGET", tempTarget.toUpperCase());
+            
+            comSubmit.submit();
+        }
+        
+        
+        function fn_opensendEmail(email){
+        	if(email != ''){
+	        	var comSubmit = new ComSubmit();
+	            comSubmit.setUrl("<c:url value='/sample/openSendEmail.do' />");
+	            comSubmit.addParam("EMAIL", email);
+	            comSubmit.submit();
+	            
+	            alert("메일전송 완료.");
+        	}else
+        		alert("메일주소를 입력 바랍니다.")
+        }
+        
+        
+        function fn_openBoardWrite(){
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/sample/openBoardWrite.do' />");
+            comSubmit.submit();
+        }
+        
+        function fn_openBoardModify(){
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/sample/openBoardModify.do' />");
+            comSubmit.submit();
+        }
+
+        function fn_openBoardDetail(obj){
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
+            
+            console.log(obj.parent().find("#id").val());
+            
+            comSubmit.addParam("CONTRACT_NO", obj.parent().find("#id").val());
+            comSubmit.submit();
+        }
+        
+        function fn_openBoardSearch(pageNo){
+        	var comAjax = new ComAjax();
+        	var gubun = $('#gubun option:selected').val();
+        	
+        	if($('#selctBucode option:selected').val() == undefined) 
+        		var busor_Code = "ALL"; 
+        	else 
+        		var busor_Code = $('#selctBucode option:selected').val();
+        	
+        	comAjax.setUrl("<c:url value='/sample/selectBoardSearch.do' />");
+            comAjax.setCallback("fn_selectBoardListCallback");
+            comAjax.addParam("PAGE_INDEX",pageNo);
+          	//comAjax.addParam("PAGE_ROW", 5);
+            comAjax.addParam("PAGE_ROW", 10);
+            
+            if(gubun == "A"){
+            	comAjax.addParam("CONTRACT_NO", $("#search").val());
+            	comAjax.addParam("CONTRACT_NM", "");
+            	comAjax.addParam("CODE_SNM", "");
+            	comAjax.addParam("USERID", userid);
+            	comAjax.addParam("BUSOR_CODE", busor_Code);
+            }else if(gubun == "B"){
+            	comAjax.addParam("CONTRACT_NM", $("#search").val());
+            	comAjax.addParam("CONTRACT_NO", "");
+            	comAjax.addParam("CODE_SNM", "");
+            	comAjax.addParam("USERID", userid);
+            	comAjax.addParam("BUSOR_CODE", busor_Code);
+            }else if(gubun == "C"){
+            	comAjax.addParam("CODE_SNM", $("#search").val());
+            	comAjax.addParam("CONTRACT_NM", "");
+            	comAjax.addParam("CONTRACT_NO", "");
+            	comAjax.addParam("USERID", userid);
+            	comAjax.addParam("BUSOR_CODE", busor_Code);
+            }
+            
+            comAjax.ajax();
+        }
+
+        function fn_selectBoardList(pageNo){
+            var comAjax = new ComAjax();
+            
+            if($('#selctBucode option:selected').val() == undefined) 
+        		var busor_Code = "ALL"; 
+        	else 
+        		var busor_Code = $('#selctBucode option:selected').val();
+			
+            //최초 searchInfo는 0이며, 검색버튼을 눌렀을 때 1로 변경해줌, 이때부터는 검색로직을 실행하도록 수정
+            if ($('#searchInfo').val() == 1){
+            	fn_openBoardSearch(pageNo)            	
+            }
+            //searchInfo가 0이면 검색하지 않은 상태로 전체 정보들을 보여줌
+            else{
+                comAjax.setUrl("<c:url value='/sample/selectBoardList.do' />");
+                comAjax.setCallback("fn_selectBoardListCallback");
+                comAjax.addParam("PAGE_INDEX",pageNo);
+                /* 페이지 Row 수 */
+    			//comAjax.addParam("PAGE_ROW", 5);
+                comAjax.addParam("PAGE_ROW", 10);
+                comAjax.addParam("USERID", userid);
+                comAjax.addParam("BUSOR_CODE", busor_Code);
+                
+                comAjax.ajax();
+            }
+        }
+        
+        function fn_pageInitialization()
+        {
+        	var params = {
+                    divId : "PAGE_NAVI",
+                    pageIndex : "PAGE_INDEX",
+                    /* 페이지 Row 수 */
+                    recordCount : 5,
+                    totalCount : total,
+                    eventName : "fn_selectBoardList",
+                    initCheck : "Y"
+                };
+                
+                gfn_renderPaging(params);
+        }
+         
+        function fn_selectBoardListCallback(data){
+        	var total = data.TOTAL;
+            var body = $("table>tbody");
+            body.empty();
+            
+            if(total == '0'){
+                var str = "<tr><td colspan='9'>조회된 결과가 없습니다.</td></tr>";
+                body.append(str);
+                /* Paging 초기화 */
+                $('#PAGE_NAVI').html("");
+            }
+            else{
+                var params = {
+                    divId : "PAGE_NAVI",
+                    pageIndex : "PAGE_INDEX",
+                    /* 페이지 Row 수 */
+                    recordCount : 5,
+                    totalCount : total,
+                    eventName : "fn_selectBoardList"
+                };
+                
+                gfn_renderPaging(params);
+                 
+                var str = "";
+                var str1, str2 //하위 루트에서 사용 될 조건1, 조건2를 선언.
+//                 var str1 = ""; // 조건1
+//                 var str2 = ""; // 조건2
+                $.each(data.list, function(key, value){
+                	//조건 확인 후 변수에 담아 사용해야 하기에 루트 시 매번 초기화를 해야 한다.
+                	//(이전에 초기화로직이 없어서 한번 들어간 값이 계속 사용 됨)
+                	str1 = "";
+                	str2 = "";
+                	
+					//undefined 체크 
+                	if(jQuery.type(value.BP_CD2) !== 'undefined'){
+						console.log(value.BP_CD2);
+                		str1 = "/"+ value.BP_CD2;
+					}
+                	
+                	if(value.EXPIRE_CONDITION == 'D0001'){
+                		str2 = "<td>" + value.VALID_DT + "~" + value.EXPIRE_DT + "</td>"
+					}else						
+						str2 = "<td>" + value.EXPIRE_CONDITIONNM + "</td>"
+                	
+                	str += "<tr>" +
+                                "<td>" + value.CONTRACT_NO + "</td>" + 
+        						"<td>" + value.BU_CODE + "</td>"+
+        						"<td>" + value.BP_CD1 + str1 +
+        					    "</td>" +
+        						"<td>" + value.CONTRACT_TYPE + "</td>" +
+        						"<td><a href='#this' id='title'>" + value.CONTRACT_NM + "</a>" +
+                                "<input type='hidden' id='id' value='" + value.CONTRACT_NO + "'>" +
+                                "</td>" +
+                                "<td>" + value.PURPOSE + "</td>" + str2 +    
+        						"<td>"+ value.EXTEND_FLAG + "</td>" + 
+        						"<td>"+ value.EXPIRE_FLAG + "</td>" +
+                          "</tr>";
+                });
+                
+                body.append(str);
+            }
+            
+            function fn_selectBusorChange(){
+            	fn_pageInitialization();
+            	fn_openBoardSearch(1);
+            }
+        }  
+    </script> 
+</body>
+</html>

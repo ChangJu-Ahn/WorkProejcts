@@ -1,0 +1,1 @@
+document.write('<OBJECT ALT=B/L발행부수 NAME="txtBLIssueCnt" CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle5 style="HEIGHT: 20px; WIDTH: 80px" tag="21X72" Title="FPDOUBLESINGLE"></OBJECT>');

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_sm_s9001" targetNamespace="http://tempuri.org/ds_sm_s9001.xsd" xmlns:mstns="http://tempuri.org/ds_sm_s9001.xsd" xmlns="http://tempuri.org/ds_sm_s9001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_sm_s9001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_sm_s9001" msprop:Generator_UserDSName="ds_sm_s9001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DIVI" msprop:Generator_ColumnVarNameInTable="columnDIVI" msprop:Generator_ColumnPropNameInRow="DIVI" msprop:Generator_ColumnPropNameInTable="DIVIColumn" msprop:Generator_UserColumnName="DIVI" type="xs:string" minOccurs="0" />
+              <xs:element name="M_STOCK" msprop:Generator_ColumnVarNameInTable="columnM_STOCK" msprop:Generator_ColumnPropNameInRow="M_STOCK" msprop:Generator_ColumnPropNameInTable="M_STOCKColumn" msprop:Generator_UserColumnName="M_STOCK" type="xs:string" minOccurs="0" />
+              <xs:element name="LINE_STOCK" msprop:Generator_ColumnVarNameInTable="columnLINE_STOCK" msprop:Generator_ColumnPropNameInRow="LINE_STOCK" msprop:Generator_ColumnPropNameInTable="LINE_STOCKColumn" msprop:Generator_UserColumnName="LINE_STOCK" type="xs:string" minOccurs="0" />
+              <xs:element name="WIP_STOCK" msprop:Generator_ColumnVarNameInTable="columnWIP_STOCK" msprop:Generator_ColumnPropNameInRow="WIP_STOCK" msprop:Generator_ColumnPropNameInTable="WIP_STOCKColumn" msprop:Generator_UserColumnName="WIP_STOCK" type="xs:string" minOccurs="0" />
+              <xs:element name="FGS_STOCK" msprop:Generator_ColumnVarNameInTable="columnFGS_STOCK" msprop:Generator_ColumnPropNameInRow="FGS_STOCK" msprop:Generator_ColumnPropNameInTable="FGS_STOCKColumn" msprop:Generator_UserColumnName="FGS_STOCK" type="xs:string" minOccurs="0" />
+              <xs:element name="GOODS_STOCK" msprop:Generator_ColumnVarNameInTable="columnGOODS_STOCK" msprop:Generator_ColumnPropNameInRow="GOODS_STOCK" msprop:Generator_ColumnPropNameInTable="GOODS_STOCKColumn" msprop:Generator_UserColumnName="GOODS_STOCK" type="xs:string" minOccurs="0" />
+              <xs:element name="STOCK_SUM" msprop:Generator_ColumnVarNameInTable="columnSTOCK_SUM" msprop:Generator_ColumnPropNameInRow="STOCK_SUM" msprop:Generator_ColumnPropNameInTable="STOCK_SUMColumn" msprop:Generator_UserColumnName="STOCK_SUM" type="xs:string" minOccurs="0" />
+              <xs:element name="SEQ" msprop:Generator_ColumnVarNameInTable="columnSEQ" msprop:Generator_ColumnPropNameInRow="SEQ" msprop:Generator_ColumnPropNameInTable="SEQColumn" msprop:Generator_UserColumnName="SEQ" type="xs:string" minOccurs="0" />
+              <xs:element name="CYC" msprop:Generator_ColumnVarNameInTable="columnCYC" msprop:Generator_ColumnPropNameInRow="CYC" msprop:Generator_ColumnPropNameInTable="CYCColumn" msprop:Generator_UserColumnName="CYC" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SEQ" msdata:Caption="DIVI" msprop:Generator_ColumnVarNameInTable="columnSEQ" msprop:Generator_ColumnPropNameInRow="SEQ" msprop:Generator_ColumnPropNameInTable="SEQColumn" msprop:Generator_UserColumnName="SEQ" type="xs:string" minOccurs="0" />
+              <xs:element name="WEEK" msdata:Caption="M_STOCK" msprop:Generator_ColumnVarNameInTable="columnWEEK" msprop:Generator_ColumnPropNameInRow="WEEK" msprop:Generator_ColumnPropNameInTable="WEEKColumn" msprop:Generator_UserColumnName="WEEK" type="xs:string" minOccurs="0" />
+              <xs:element name="DIVI" msdata:Caption="LINE_STOCK" msprop:Generator_ColumnVarNameInTable="columnDIVI" msprop:Generator_ColumnPropNameInRow="DIVI" msprop:Generator_ColumnPropNameInTable="DIVIColumn" msprop:Generator_UserColumnName="DIVI" type="xs:string" minOccurs="0" />
+              <xs:element name="M_STOCK" msdata:Caption="WIP_STOCK" msprop:Generator_ColumnVarNameInTable="columnM_STOCK" msprop:Generator_ColumnPropNameInRow="M_STOCK" msprop:Generator_ColumnPropNameInTable="M_STOCKColumn" msprop:Generator_UserColumnName="M_STOCK" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

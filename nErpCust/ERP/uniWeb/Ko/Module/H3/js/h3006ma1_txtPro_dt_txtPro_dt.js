@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=txtPro_dt name=txtPro_dt CLASS=FPDTYYYYMMDD title=FPDATETIME tag="12X1" ALT="½Â±Þ¿¹Á¤ÀÏ"></OBJECT>');

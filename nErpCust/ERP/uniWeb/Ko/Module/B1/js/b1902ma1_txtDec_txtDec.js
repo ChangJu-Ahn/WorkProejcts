@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=txtDec name="txtDec" style="HEIGHT: 20px; RIGHT: 0px; TOP: 0px; WIDTH: 178px" title="FPDOUBLESINGLE" ALT="소수점자리수" tag="22X60"></OBJECT>');

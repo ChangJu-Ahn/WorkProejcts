@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="Object11" name=txtTaxLaw_contr_amt2 style="HEIGHT: 20px; LEFT: 0px; TOP: 0px; WIDTH: 120px" title=FPDOUBLESINGLE tag="24X2Z" ALT="Æ¯·Ê±âºÎ±Ý(100%)"></OBJECT>');

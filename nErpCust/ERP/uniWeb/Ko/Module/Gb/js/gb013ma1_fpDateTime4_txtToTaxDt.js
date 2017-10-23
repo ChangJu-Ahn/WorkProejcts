@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=fpDateTime4 name="txtToTaxDt" CLASS=FPDTYYYYMMDD title=FPDATETIME ALT="매출채권일" tag="21"></OBJECT>');

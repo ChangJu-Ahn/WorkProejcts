@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:9C40F053-0D27-11d2-8810-0000C0E5948C" name=txtAGENT_RGST_NO CLASS=FPDS100 title=FPDOUBLESINGLE ALT="세무대리인사업자번호" tag="25" Onchange="ChangeEvents()" id=OBJECT1></OBJECT>');

@@ -1,0 +1,480 @@
+<script RunAt="Server" Language="VBScript">
+
+'--------------------------------------------------------------------
+' ChartFX Internet Include File
+'
+' (c) 1999-2001 Sofware FX, Inc.  All Rights Reserved.
+'
+'
+' ChartFX IE Main Include File for VBScript/JScript
+'
+'--------------------------------------------------------------------
+
+Const CHART_HIDDEN = 1.0e+308
+Const CHART_PALETTECOLOR = 16777216 
+Const CHART_SYSCOLOR = -2147483648 
+Const CHART_TRANSPARENT = 1073741824
+
+Const AF_NONE = 0 
+Const AF_NUMBER = 1 
+Const AF_CURRENCY = 2 
+Const AF_SCIENTIFIC = 3 
+Const AF_PERCENTAGE = 4 
+Const AF_DATE = 5 
+Const AF_LONGDATE = 6 
+Const AF_TIME = 7 
+Const AF_DATETIME = 8 
+Const AF_CUSTOM = 32768
+
+' Gallery
+Const LINES = 1 
+Const BAR = 2 
+Const CURVE = 3 
+Const SCATTER = 4 
+Const PIE = 5 
+Const AREA = 6 
+Const PARETO = 7 
+Const STEP = 8 
+Const HILOWCLOSE = 9 
+Const SURFACE = 10 
+Const RADAR = 11 
+Const CUBE = 12 
+Const DOUGHNUT = 13 
+Const PYRAMID = 14 
+Const BUBBLE = 15 
+Const OPENHILOWCLOSE = 16 
+Const CANDLESTICK = 17 
+Const CONTOUR = 18 
+Const CURVEAREA = 19 
+Const GANTT = 20 
+Const SPLINE = 3 
+Const POLAR = 11
+
+' Type/MultiType
+Const CT_3D = 256 
+Const CT_HORZ = 512 
+Const CT_TOOL = 1024 
+Const CT_PALETTE = 2048 
+Const CT_LEGEND = 4096 
+Const CT_HIDESERIES = 8192 
+Const CT_EACHBAR = 65536 
+Const CT_CLUSTER = 131072 
+Const CT_EDITOR = 262144 
+Const CT_SHOWDATA = 262144 
+Const CT_DLGGRAY = 524288 
+Const CT_PATTERN = 1048576 
+Const CT_POINTLABELS = 2097152 
+Const CT_SHOWVALUES = 2097152 
+Const CT_RADARAREA = 16777216
+Const CT_MENU = 4194304 
+Const CT_SHOWLINES = 8388608 
+Const CT_NOAREALINE = 33554432 
+Const CT_NOBORDERS = 67108864 
+Const CT_COLORLINE = 67108864 
+Const CT_PIEVALUES = 134217728 
+Const CT_TRACKMOUSE = 268435456 
+Const CT_EVENSPACING = 536870912 
+Const CT_SERLEGEND = 1073741824 
+Const CT_PAINTMARKER = -2147483648
+
+' Style
+Const CS_TIPS = 1 
+Const CS_MENUSONDEMAND = 2 
+Const CS_ALLOWDRAG = 4 
+Const CS_SCROLLBARS = 8 
+Const CS_CHANGESTEP = 256 
+Const CS_GALLERY = 1024 
+Const CS_MULTITYPE = 2048 
+Const CS_3D = 8192 
+Const CS_SCALE = 131072 
+Const CS_TITLES = 262144 
+Const CS_FONTS = 524288 
+Const CS_EDITABLE = 1048576 
+Const CS_FILEEXPORT = 2097152 
+Const CS_FILEIMPORT = 4194304 
+Const CS_SCROLLABLE = 8388608 
+Const CS_PRINTABLE = 16777216 
+Const CS_3DVIEW = 33554432 
+Const CS_GRID = 67108864 
+Const CS_RESIZEABLE = 134217728 
+Const CS_COPY = 536870912 
+Const CS_CLOSEABLE = 1073741824 
+Const CS_LOGSCALE = -2147483648 
+Const CS_ALL = -1
+
+' Scheme
+Const CHART_CSSOLID = 0 
+Const CHART_CSBWPATTERN = 1 
+Const CHART_CSPATTERN = 2 
+Const CHART_CSBWHATCH = 3 
+Const CHART_CSHATCH = 4
+
+' Stacked
+Const CHART_NOSTACKED = 0 
+Const CHART_STACKED = 1 
+Const CHART_STACKED100 = 2
+
+' Grid
+Const CHART_NOGRID = 0 
+Const CHART_HORZGRID = 1 
+Const CHART_VERTGRID = 2 
+Const CHART_BOTHGRID = 3 
+Const CHART_GRIDY2 = 4
+
+' LineStyle/GridStyle
+Const CHART_SOLID = 0 
+Const CHART_DASH = 1 
+Const CHART_DOT = 2 
+Const CHART_DASHDOT = 3 
+Const CHART_DASHDOTDOT = 4 
+Const CHART_PS_TRANSPARENT = 0
+
+' Axis::Style
+Const CAS_NONE = 0 
+Const CAS_3DFRAME = 1 
+Const CAS_MATH = 2 
+Const CAS_FLATFRAME = 3
+
+' MarkerShape
+Const MK_NONE = 0 
+Const MK_RECT = 1 
+Const MK_CIRCLE = 2 
+Const MK_TRIANGLE = 3 
+Const MK_DIAMOND = 4 
+Const MK_MARBLE = 5 
+Const MK_HORZLINE = 6 
+Const MK_VERTLINE = 7 
+Const MK_CROSS = 8 
+Const MK_INVERTEDTRIANGLE = 9 
+Const MK_CUBE = 10 
+Const MK_MANY = 11
+
+' BorderStyle
+Const BORDER_NONE = 0 
+Const BORDER_SUNKENOUTER = 4 
+Const BORDER_SUNKENINNER = 5 
+Const BORDER_RAISEDOUTER = 6 
+Const BORDER_RAISEDINNER = 7 
+Const BORDER_FLAT = 8 
+Const BORDER_MONO = 9 
+Const BORDER_RAISED = 10 
+Const BORDER_ETCHED = 11 
+Const BORDER_BUMP = 12 
+Const BORDER_SUNKEN = 13 
+Const BORDER_SOFT = 512
+
+' DataStyle
+Const CHART_DS_SERLEGEND = 1 
+Const CHART_DS_USETEXTASLEG = 2 
+Const CHART_DS_USEDATEASLEG = 4 
+Const CHART_DS_NOMINMAX = 8 
+Const CHART_DS_TRANSPOSE = 16 
+Const CHART_DS_USEBLOBTEXT = 32
+
+' TypeEx
+Const CTE_SMOOTH = 2 
+Const CTE_SQUAREPIE = 4 
+Const CTE_NOLEGINVALIDATE = 8 
+Const CTE_ACTMINMAX = 16 
+Const CTE_NOTITLESHADOW = 32 
+Const CTE_CREATELEGENDS = 64 
+Const CTE_NOCROSS = 128 
+Const CTE_ONLYCHART = 512 
+Const CTE_PLAIN2DAXIS = 1024 
+Const CTE_SIDEBYSIDE = 2048 
+Const CTE_MONOCHROME = 4096 
+Const CTE_USEPALETTE = 8192
+Const CTE_GETTIPDRAG = 16384
+Const CTE_MERGEPALETTE = 32768
+Const CTE_XAXISDATE = &H80000000&
+
+' StyleEx
+Const CSE_NOSEPARATE = 1 
+Const CSE_NOLASTPAGE = 2 
+Const CSE_WIN95TOP = 4 
+Const CSE_CHILDDESTROY = 8 
+Const CSE_EXPORTXVALUES = 16 
+Const CSE_FASTLEGENDS = 32
+Const CSE_TOOLBAR = 256
+Const CSE_DATAEDITOR = 512
+
+' PointLabelAlign
+Const LA_LEFT = 0 
+Const LA_RIGHT = 2 
+Const LA_CENTER = 6 
+Const LA_TOP = 0 
+Const LA_BOTTOM = 8 
+Const LA_BASELINE = 24
+
+' Axis indices
+Const AXIS_Y = 0 
+Const AXIS_Y2 = 1 
+Const AXIS_X = 2 
+Const AXIS_X2 = 3 
+Const AXIS_NUM = 4
+
+' Fonts values
+Const CF_BOLD = 256 
+Const CF_ITALIC = 512 
+Const CF_UNDERLINE = 1024 
+Const CF_STRIKEOUT = 2048 
+Const CF_FDONTCARE = 0 
+Const CF_FROMAN = 4096 
+Const CF_FSWISS = 8192 
+Const CF_FMODERN = 12288 
+Const CF_FSCRIPT = 16384 
+Const CF_FDECORATIVE = 20480 
+Const CF_ARIAL = 0 
+Const CF_COURIER = 65536 
+Const CF_COURIERNEW = 131072 
+Const CF_MSSANSERIF = 196608 
+Const CF_MODERN = 262144 
+Const CF_ROMAN = 327680 
+Const CF_SCRIPT = 393216 
+Const CF_SYMBOL = 458752 
+Const CF_TIMES = 524288 
+Const CF_TIMESNEWR = 589824 
+Const CF_WINGDINGS = 655360 
+Const CF_SMALLFONTS = 720896
+
+' Axis::Style
+Const AS_HIDETEXT = 1 
+Const AS_NOTIFY = 2 
+Const AS_2LEVELS = 4 
+Const AS_SINGLELINE = 8 
+Const AS_BREAKZERO = 32 
+Const AS_HIDE = 64 
+Const AS_NOTCLIPPED = 128 
+Const AS_INTERLACED = 256 
+Const AS_CENTERED = 512 
+Const AS_ROTATETEXT = 1024 
+Const AS_LONGTICK = 2048 
+Const AS_AUTOSCALE = 4096 
+Const AS_FORCEZERO = 8192 
+Const AS_SHOWENDS = 16384 
+Const AS_NOROUNDSTEP = 32768
+Const AS_IGNORELABELS = 65536
+
+' TickMark
+Const TS_NONE = 0 
+Const TS_OUTSIDE = 1 
+Const TS_INSIDE = 2 
+Const TS_CROSS = 3 
+Const TS_GRID = 32768
+
+' Title
+Const CHART_LEFTTIT = 0 
+Const CHART_RIGHTTIT = 1 
+Const CHART_TOPTIT = 2 
+Const CHART_BOTTOMTIT = 3
+
+' Fonts/RGBFont indices
+Const CHART_LEFTFT = 0 
+Const CHART_RIGHTFT = 1 
+Const CHART_TOPFT = 2 
+Const CHART_BOTTOMFT = 3 
+Const CHART_XLEGFT = 4 
+Const CHART_YLEGFT = 5 
+Const CHART_FIXEDFT = 6 
+Const CHART_LEGENDFT = 7 
+Const CHART_VALUESFT = 8 
+Const CHART_POINTFT = 9 
+Const CHART_Y2LEGFT = 10 
+Const CHART_X2LEGFT = 11 
+Const CHART_EDITORFT = 12
+
+' Item indices
+Const CI_HORZGRID = 0 
+Const CI_VERTGRID = 1 
+Const CI_2DLINE = 2 
+Const CI_FIXED = 3 
+Const CI_LOOPPOS = 4 
+Const CI_HORZGRID2 = 5
+
+' DataType
+Const CDT_DEFAULT = 0 
+Const CDT_LABEL = 1 
+Const CDT_VALUE = 2 
+Const CDT_XVALUE = 3 
+Const CDT_KEYLEGEND = 4 
+Const CDT_INIVALUE = 5 
+Const CDT_SERIES = 6
+Const CDT_POINT = 7
+Const CDT_NOTUSED = -2
+
+' OpenDataEx/CloseData
+Const COD_VALUES = 1 
+Const COD_CONSTANTS = 2 
+Const COD_COLORS = 3 
+Const COD_STRIPES = 4 
+Const COD_INIVALUES = 5 
+Const COD_XVALUES = 6 
+Const COD_STATUSITEMS = 7 
+Const COD_SCROLLLEGEND = 16384 
+Const COD_NOINVALIDATE = 8192 
+Const COD_SMOOTH = 4096 
+Const COD_REMOVE = 2048 
+Const COD_ADDPOINTS = 1024 
+Const COD_REALTIMESCROLL = 768 
+Const COD_REALTIME = 256 
+Const COD_RESETMINMAX = 128 
+Const COD_NOALLOC = 64 
+Const COD_INSERTPOINTS = 32
+Const COD_UNKNOWN = -1 
+Const COD_UNCHANGE = 0
+
+' DblClk/RigClk
+Const CHART_BALLOONCLK = 0 
+Const CHART_DIALOGCLK = 1 
+Const CHART_NONECLK = 2 
+Const CHART_MENUCLK = 3 
+Const CHART_PROPERTIESCLK = 4
+Const CHART_URLCLK = 5
+
+' Import/Export
+Const CHART_DATA = 0 
+Const CHART_BITMAP = 1 
+Const CHART_METAFILE = 2 
+Const CHART_CFXFILE = 3 
+Const CHART_CFXTEMPLATE = 4 
+Const CHART_INTERNALFILE = 5 
+Const CHART_INTERNALTEMPLATE = 6 
+Const CHART_PALETTE = 7 
+Const CHART_CFXOLEFILE = 8 
+Const CHART_IMAGE = 9
+Const CHART_CFXOLETEMPLATE = 10
+
+' LegStyle
+Const CL_NOTCLIPPED = 1 
+Const CL_NOTCHANGECOLOR = 2 
+Const CL_HIDE = 4 
+Const CL_HIDEXLEG = 4 
+Const CL_FORCESERLEG = 8 
+Const CL_GETLEGEND = 16 
+Const CL_HIDEYLEG = 32 
+Const CL_2LEVELS = 64 
+Const CL_VERTXLEG = 128 
+Const CL_SHOWZLEG = 256 
+Const CL_PIELEGEND = 512 
+Const CL_SINGLELINE = 1024
+
+' Tool*
+Const CTOOL_LEGEND = 0 
+Const CTOOL_SERLEGEND = 1 
+Const CTOOL_TB = 2 
+Const CTOOL_EDITOR = 3 
+Const CTOOL_BKCOLOR = 4096 
+Const CTOOL_OPTIONS = 8192 
+Const CTOOL_MOVE = 16384
+
+' Adm
+Const CSA_MIN = 0
+Const CSA_MAX = 1
+Const CSA_GAP = 2
+Const CSA_SCALE = 3
+Const CSA_YLEGGAP = 4
+Const CSA_PIXXVALUE = 5
+Const CSA_XMIN = 6
+Const CSA_XMAX = 7
+Const CSA_XGAP = 8
+Const CSA_LOGBASE = 9
+Const CSA_MIN2 = 10
+Const CSA_MAX2 = 11
+Const CSA_GAP2 = 12
+Const CSA_SCALE2 = 13
+Const CSA_XSCALE = 14
+Const CSA_LOGBASE2 = 15
+Const CSA_LOGBASEX = 16
+Const CSA_X2MIN = 17
+Const CSA_X2MAX = 18
+Const CSA_X2STEP = 19
+Const CSA_X2SCALE = 20
+Const CSA_LOGBASEX2 = 21
+
+' DecimalsNum
+Const CD_ALL = 0 
+Const CD_YLEG = 2 
+Const CD_YLEG2 = 3 
+Const CD_XLEG = 4 
+Const CD_XLEG2 = 5
+
+' AxisTypes
+Const CFXFMT_DEFAULT = 0
+Const CFXFMT_NUMBER = 1
+Const CFXFMT_CURRENCY = 2
+
+' URLOptions Flags
+Const CHART_URL_JUMP = &H0&
+Const CHART_URL_RELOAD = &H1&
+Const CHART_URL_GLOBAL = &H0&
+Const CHART_URL_BYSERIES = &H2&
+Const CHART_URL_BYMARKER = &H4&
+Const CHART_URL_BYVALUE = &H8&
+Const CHART_URL_PARAM = &H10&
+
+' ImgMap Flags
+Const CHART_MAP_TITLETIP = &H1&
+Const CHART_MAP_MOUSETIP = &H2&
+Const CHART_MAP_URLTIP = &H4&
+Const CHART_MAP_EMBEDDED = &H8&
+Const CHART_MAP_FORCE = &H10&
+Const CHART_MAP_ENCODETIP = &H20&
+
+'--------------------------------------------------------------------
+' SfxBar Constants
+
+' Docked
+Const TGFP_TOP = &H100&
+Const TGFP_LEFT = &H201&
+Const TGFP_BOTTOM = &H102&
+Const TGFP_RIGHT = &H203&
+Const TGFP_FIXED = &H404&
+Const TGFP_FLOAT = &H405&
+Const TGFP_SWITCH = &H806&
+
+Const BBS_NONE = 0
+Const BBS_LINE = 1
+Const BBS_FLATLINE = 2
+Const BBS_MONOLINE = 3
+Const BBS_SUNKENOUTER = 4
+Const BBS_SUNKENINNER = 5
+Const BBS_RAISEDOUTER = 6
+Const BBS_RAISEDINNER = 7
+Const BBS_FLAT = 8
+Const BBS_MONO = 9
+Const BBS_RAISED = 10
+Const BBS_ETCHED = 11
+Const BBS_BUMP = 12
+Const BBS_SUNKEN = 13
+Const BBS_SPLITTER = &H100&
+Const BBS_SOFT = &H200&
+
+'--------------------------------------------------------------------
+' Utility functions
+
+' CHART_ML creates a long (32bits) value based in two short (16bits) values
+Function CHART_ML (wLow, wHi)
+	CHART_ML = CLng(&H10000 * wHi) + wLow
+End Function
+
+' CHART_HIWORD returns the high (16bits) short from a long (32bits) value
+Function CHART_HIWORD (l)
+	CHART_HIWORD = CInt((l And &HFFFF0000) / &H10000)
+End Function
+
+' CHART_LOWORD returns the low (16bits) short from a long (32bits) value
+Function CHART_LOWORD (l)
+    l2 = l And &HFFFF&
+    If (l2 > 32767) Then
+		l2 = l2 - 65536
+    End If
+
+    CHART_LOWORD = CInt(l2)
+End Function
+
+' RGB is not defined in JavaScript
+Function CHART_RGB (r,g,b)
+    CHART_RGB = (b * &H10000) + (g * &H100) + r
+End Function
+
+</script>

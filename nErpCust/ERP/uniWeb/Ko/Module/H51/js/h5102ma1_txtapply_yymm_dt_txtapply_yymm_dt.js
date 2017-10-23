@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=txtapply_yymm_dt NAME="txtapply_yymm_dt" CLASS=FPDTYYYYMM title=FPDATETIME ALT="적용년월" tag="11X1" VIEWASTEXT> </OBJECT>');

@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=txtDiff_yymm_dt NAME="txtDiff_yymm_dt" CLASS=FPDTYYYYMM title=FPDATETIME ALT="비교년월" tag="12X1" VIEWASTEXT> </OBJECT>');

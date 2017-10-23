@@ -1,0 +1,16 @@
+<Script Language=VBScript>
+	Dim gStrRequestMenuID      'Program을 요청한 Menu의 ID
+	Dim gStrRequestUpperMenuID 'Program을 요청한 Upper Menu의 ID
+	gStrRequestMenuID       = "<%=Request("strRequestMenuID")%>"
+	gStrRequestUpperMenuID  = "<%=Request("strRequestUpperMenuID")%>"
+</Script>
+
+<OBJECT CLASSID = "clsid:5220cb21-c88d-11cf-b347-00aa00a28331">
+<PARAM NAME="LPKPath" VALUE="../../Control/farpoint214111.lpk">
+</OBJECT>
+<OBJECT ID="ggoOper"          CLASSID="CLSID:BF2D0DBA-E9F0-11D3-99D3-0000F0610DBD"></OBJECT>
+<OBJECT ID="ggoSpread"        CLASSID="CLSID:BF2D0DBC-E9F0-11D3-99D3-0000F0610DBD"></OBJECT>
+<OBJECT ID="ggoSaveFile"      CLASSID="CLSID:27CFBC4B-3D5F-11D4-B106-00A0C91E553A"></OBJECT>
+<OBJECT ID="uni2KMenu"        CLASSID="CLSID:253AB35C-C60F-11D4-B106-00A0C91E553A"></OBJECT>
+<OBJECT ID="ADS"              CLASSID="CLSID:BD96C556-65A3-11D0-983A-00C04FC29E36" HEIGHT=0 WIDTH=0></OBJECT> 
+<OBJECT ID="ConnectorControl" CLASSID="CLSID:EBCF5077-3931-11D4-8D9D-00AA005703C2"></OBJECT>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="PointcutMatcherPage">
+		<item value="1" key="HISTORY_SIZE"/>
+		<item value="false" key="PROXY_TARGET_CLASS"/>
+		<section name="HISTORY0">
+			<item value="false" key="isProxyTargetClass"/>
+			<item value="0" key="scope"/>
+			<item value="SQL" key="pattern"/>
+			<list key="workingSets">
+			</list>
+		</section>
+	</section>
+</section>

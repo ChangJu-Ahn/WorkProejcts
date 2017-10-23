@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+        </layout>   
+    </appender>
+    
+    <appender name="console-infolog" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %m%n" />
+        </layout>   
+    </appender>
+     
+    <!-- 날짜별 로그 파일 생성 -->
+    <appender name="rollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="D:/Logs/CONTRACT/roling.log"/>
+        <param name="Append" value="true"/>
+<!--         <param name="DatePattern" value="'.'yyyy-MM-dd-HH-mm"/> -->
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/> 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %m%n" />
+        </layout>   
+    </appender>
+     
+    <appender name="sqlFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="D:/Logs/SQL/sql.log"/>
+        <param name="Append" value="true"/>
+<!--         <param name="DatePattern" value="'.'yyyy-MM-dd-HH-mm"/> -->
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/> 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %m%n" />
+        </layout>   
+    </appender>
+    
+   <appender name="allFile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="D:/Logs/ALL/all.log"/>
+        <param name="Append" value="true"/>
+<!--          <param name="DatePattern" value="'.'yyyy-MM-dd-HH-mm"/>  -->
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/> 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p %m%n" />
+        </layout>   
+    </appender>
+	
+	<!-- Application Loggers -->
+	<logger name="first" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="console"/>
+		<appender-ref ref="rollingFile"/>
+	</logger>
+	
+	<!-- Query Loggers -->
+	<logger name="jdbc.sqlonly" additivity="true">
+    	<level value="INFO"/>  
+        <appender-ref ref="console-infolog"/>
+        <appender-ref ref="sqlFile"/>
+    </logger>
+    
+    <!-- Query ResultSetTable -->
+    <logger name="jdbc.resultsettable" additivity="true">
+    	<level value="INFO"/>  
+        <appender-ref ref="console"/>
+    </logger>  
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="off"/>
+		<appender-ref ref="console" />
+		<appender-ref ref="allFile"/>
+	</root>
+	
+</log4j:configuration>
+

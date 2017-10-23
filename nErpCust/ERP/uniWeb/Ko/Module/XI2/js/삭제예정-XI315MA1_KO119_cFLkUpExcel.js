@@ -1,0 +1,1 @@
+document.write('<OBJECT ID="cFLkUpExcel" NAME="cFLkUpExcel" WIDTH=0 HEIGHT=0 CLASSID="CLSID:DB059CBF-48DB-405A-8F2A-C3A062652ACF" CODEBASE="../../control/PLkUp_Excel.CAB#version=1,0,0,0"></OBJECT>');

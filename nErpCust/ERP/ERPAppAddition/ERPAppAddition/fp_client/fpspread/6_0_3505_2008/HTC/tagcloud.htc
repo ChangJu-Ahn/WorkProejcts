@@ -1,0 +1,75 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<!-- 
+<PUBLIC:ATTACH EVENT="onmousedown" ONEVENT="mouseDown()"  /> 
+<PUBLIC:ATTACH EVENT="onmouseup" ONEVENT="mouseUp()"  />
+-->
+
+<PUBLIC:ATTACH EVENT="ondocumentready" ONEVENT="init()"  />
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="mouseOver()"  />
+<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="mouseOut()"  />
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+// <!--
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // Event handler
+    ///////////////////////////////////////////////////////////////////////////////////////////
+      
+    var link = null;  
+        
+//    function mouseDown() 
+//    {
+//      if (event.srcElement!=null && event.srcElement.tagName=="A" && !event.srcElement.disabled) 
+//      {
+//        link = event.srcElement; 
+//        // change click text color
+//        link.style.color = "black";
+//      }                              
+//    }  
+//        
+//    function mouseUp() 
+//    {
+//      if (link!=null) 
+//      {
+//        link = event.srcElement; 
+//        // revert click text color
+//        link.style.color = "";
+//      }
+//    }
+    
+    function init() 
+    {
+    // alert("message"); 
+    }
+    function mouseOver() 
+    {
+ //   debugger;
+      if (event.srcElement!=null && event.srcElement.tagName=="A" && !event.srcElement.disabled) 
+      {
+        link = event.srcElement; 
+        // make hover text - bold
+        // link.style.fontWeight = "700";
+        // make hover text italic
+        // link.style.fontStyle = "italic";
+        // make hover text background color change
+        link.style.backgroundColor = this.style.hoverColor;
+      }  
+    }    
+    function mouseOut() 
+    {
+ //   debugger;
+      if (event.srcElement!=null && event.srcElement.tagName=="A" && !event.srcElement.disabled) 
+      {
+        link = event.srcElement; 
+        link.style.fontWeight = "";
+        link.style.fontStyle = "";
+        link.style.backgroundColor = "";
+      }      
+    }
+             
+//-->
+</script>

@@ -1,0 +1,1 @@
+document.write('<OBJECT ALT=VATÀ² NAME="txtVatrt" CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle3 style="HEIGHT: 20px; WIDTH: 160px" tag="24X5" Title="FPDOUBLESINGLE" CLASS = protected readonly = True TabIndex = -1 ></OBJECT>');

@@ -1,0 +1,63 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:PROPERTY NAME="value">
+  <get internalName="getValue"/>
+  <put internalName="setValue"/>
+</PUBLIC:PROPERTY>
+<PUBLIC:METHOD NAME="isValid">
+</PUBLIC:METHOD>
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+   	               	       
+    function getValue() {
+      var ctlrs = element.getElementsByTagName("INPUT");
+      var checkbox = ctlrs(0);
+      if (checkbox!=null && checkbox.type!="checkbox") {
+        checkbox = checkbox.children(0);
+      }
+      
+      if (checkbox!=null && checkbox.type=="checkbox") {
+        if (checkbox.checked) return "True"; 
+      } 
+            
+      return "False";      
+    }
+    
+    function setValue(val) {   
+      if (val!=null) {
+        var ctlrs = element.getElementsByTagName("INPUT");
+        var checkbox = ctlrs(0);
+        if (checkbox!=null && checkbox.type!="checkbox") {
+          checkbox = checkbox.children(0);
+        }
+        if (checkbox!=null && checkbox.type=="checkbox") {
+          if (val.toString().toLowerCase()=="true")
+            checkbox.checked = true;
+          else
+            checkbox.checked = false;
+        } 
+      }
+    }
+    
+    function isValid(val) {
+      if (val==null) return "";            
+      val = trim(val);           
+      if (val=="") return "";
+      
+      if (val.toLowerCase()=="true" || val.toLowerCase()=="false") 
+        return "";
+      else
+        return "invalid value";
+    }
+    
+    function trim(s) {
+        var m = s.match(/^\s*(\S+(\s+\S+)*)\s*$/);
+        return (m == null) ? "" : m[1];
+    }
+                
+//-->
+</script>

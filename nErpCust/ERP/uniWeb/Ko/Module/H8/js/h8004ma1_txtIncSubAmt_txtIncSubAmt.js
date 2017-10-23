@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" name=txtIncSubAmt CLASS=FPDS140 title=FPDOUBLESINGLE ALT="인상분공제액" tag="24X2" id=txtIncSubAmt></OBJECT>');

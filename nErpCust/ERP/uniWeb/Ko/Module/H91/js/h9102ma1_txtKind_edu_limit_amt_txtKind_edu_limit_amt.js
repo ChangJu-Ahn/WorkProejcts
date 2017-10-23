@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=txtKind_edu_limit_amt name=txtKind_edu_limit_amt CLASS=FPDS115 title=FPDOUBLESINGLE tag="21X2Z" ALT="유치원교육비1인한도액"></OBJECT>');

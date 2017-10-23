@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:41F841C1-AE16-11D5-8817-0050DA6EF5E5" height="100%" id=vaSpread1 name=vspdData width="100%" tag="23" title="SPREAD"> <PARAM NAME="MaxCols" VALUE="0"><PARAM NAME="MaxRows" VALUE="0"> </OBJECT>');

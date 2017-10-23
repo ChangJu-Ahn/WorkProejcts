@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle2 name=txtChl_rear_inwon_t style="HEIGHT: 20px; LEFT: 0px; TOP: 0px; WIDTH: 50px" title=FPDOUBLESINGLE tag="24X7Z" ALT="ÀÚ³à¾çÀ°¼ö"></OBJECT>');

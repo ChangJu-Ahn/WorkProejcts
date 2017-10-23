@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=txtChk_Prd1 name=txtChk_Prd1 ALT="점검주기(주)" CLASS=FPDS140 title="FPDOUBLESINGLE" tag="21X6Z"> </OBJECT>');

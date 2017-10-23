@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=Retire_yymm_dt name=txtRetire_yymm_dt CLASS=FPDTYYYYMM title=FPDATETIME ALT="정산년월일" tag="14X1" VIEWASTEXT></OBJECT>');

@@ -1,0 +1,7 @@
+E:\New_Project\NERPCUST\EXTEND\IF_ERP_MES\WindowsFormsApplication1\bin\Debug\T_IF_RCV_PROD_ORD_KO441.exe
+E:\New_Project\NERPCUST\EXTEND\IF_ERP_MES\WindowsFormsApplication1\bin\Debug\T_IF_RCV_PROD_ORD_KO441.pdb
+E:\New_Project\NERPCUST\EXTEND\IF_ERP_MES\WindowsFormsApplication1\obj\x86\Debug\T_IF_RCV_PROD_ORD_KO441.FormMain.resources
+E:\New_Project\NERPCUST\EXTEND\IF_ERP_MES\WindowsFormsApplication1\obj\x86\Debug\T_IF_RCV_PROD_ORD_KO441.Properties.Resources.resources
+E:\New_Project\NERPCUST\EXTEND\IF_ERP_MES\WindowsFormsApplication1\obj\x86\Debug\T_IF_RCV_PROD_ORD_KO441.csproj.GenerateResource.Cache
+E:\New_Project\NERPCUST\EXTEND\IF_ERP_MES\WindowsFormsApplication1\obj\x86\Debug\T_IF_RCV_PROD_ORD_KO441.exe
+E:\New_Project\NERPCUST\EXTEND\IF_ERP_MES\WindowsFormsApplication1\obj\x86\Debug\T_IF_RCV_PROD_ORD_KO441.pdb

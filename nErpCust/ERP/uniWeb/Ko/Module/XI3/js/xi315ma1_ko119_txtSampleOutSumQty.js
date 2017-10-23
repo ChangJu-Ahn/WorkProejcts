@@ -1,0 +1,1 @@
+document.write('<OBJECT NAME=txtSampleOutSumQty CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" ID=fpDoubleSingle5 STYLE="height:20px; width:60px" TAG="24X3Z" TITLE="FPDOUBLESINGLE" ALT="SampleÃâ°í"></OBJECT>');

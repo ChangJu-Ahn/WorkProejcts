@@ -1,0 +1,86 @@
+/**
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+**/
+
+div.combo
+{
+  padding:1px;
+  height:auto;
+  display:block;
+}
+
+div.comboDiv
+{
+  width:100%;
+  height:100%;
+  display:block;
+  /*border-top:solid 1px #404040;
+  border-left:solid 1px #404040;
+*/
+}
+
+table.comboTable
+{
+  width:100%;
+  height:100%;
+  padding:0px;
+  table-layout:fixed;
+  border-top:solid 1px #808080;
+  border-left:solid 1px #808080;
+  border-right:solid 1px #d4d0c8;
+  border-bottom:solid 1px #d4d0c8;
+}
+
+td.comboButton
+{
+  width:21px;
+  padding:0px;
+  table-layout:fixed;
+  height:100%;
+  border:medium none;
+}
+
+td.comboButtonSafari
+{
+  width:30px;
+  padding:0px;
+  table-layout:fixed;
+  height:100%;
+  border:medium none;
+}
+
+td.comboInput
+{
+  width:100%;
+  border-style:none;
+  padding:0px;
+}
+
+td.comboInput .txtInput
+{
+ width:100%;
+  border:medium none;
+}
+
+div.comboContainer
+{
+  padding:0px;
+}
+
+table.tableContainer
+{
+  padding:0px;
+}
+
+td.spreadContainer
+{
+  padding:0px;
+  width:10000px;
+}
+
+td.statusBar
+{
+  padding:0px;
+  text-align:right;
+  background-color:#D4E8F3;
+}

@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtDisabled_edu_limit_amt" name=txtDisabled_edu_limit_amt CLASS=FPDS115 title=FPDOUBLESINGLE tag="21X2Z" ALT="장애인특수교육비1인한도액"></OBJECT>');

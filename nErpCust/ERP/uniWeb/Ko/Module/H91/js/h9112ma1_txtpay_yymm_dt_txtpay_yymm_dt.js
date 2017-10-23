@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=txtpay_yymm_dt NAME="txtpay_yymm_dt" style="HEIGHT: 20px; LEFT: 0px; TOP: 0px; WIDTH: 50px; CENTER: 0px" title=FPDATETIME ALT="급여년월" tag="12X1" VIEWASTEXT> </OBJECT>');

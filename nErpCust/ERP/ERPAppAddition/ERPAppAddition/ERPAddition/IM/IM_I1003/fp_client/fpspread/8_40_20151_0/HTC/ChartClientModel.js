@@ -1,0 +1,5 @@
+﻿//
+//	  Copyright (C) 2003-2013 GrapeCity Inc.	All rights reserved.
+//
+
+if(typeof FarPoint=="undefined")FarPoint={};if(typeof FarPoint.Web=="undefined")FarPoint.Web={};if(typeof FarPoint.Web.Chart=="undefined")FarPoint.Web.Chart={};FarPoint.Web.Chart.GetChartClickInfo=function(a){var c={},d;if(!a)var a=window.event;if(a.target)d=a.target;else if(a.srcElement)d=a.srcElement;getChartPosition=function(b){var a={};a.x=0;a.y=0;if(b.offsetParent){a.x=b.offsetLeft;a.y=b.offsetTop;var c=b.offsetParent;while(c){a.x+=c.offsetLeft;a.y+=c.offsetTop;var d=c.tagName.toLowerCase();if(d!="table"&&d!="body"&&d!="html"&&d!="div"&&c.clientTop&&c.clientLeft){a.x+=c.clientLeft;a.y+=c.clientTop}c=c.offsetParent}}else if(b.left&&b.top){a.x=b.left;a.y=b.top}else{if(b.x)a.x=b.x;if(b.y)a.y=b.y}return a};var b=d;if(b.tagName=="AREA"){b=b.parentNode;if(b.tagName=="MAP"){var f=b.id.substr(11,b.id.length-11);b=document.getElementById(f)}}if(typeof a.offsetX!="undefined"){c.x=a.offsetX;c.y=a.offsetY}else if(a.pageX){var e=getChartPosition(b);c.x=a.pageX-e.x;c.y=a.pageY-e.y}return typeof c.x=="undefined"?"-1,-1":c.x.toString()+","+c.y.toString()}

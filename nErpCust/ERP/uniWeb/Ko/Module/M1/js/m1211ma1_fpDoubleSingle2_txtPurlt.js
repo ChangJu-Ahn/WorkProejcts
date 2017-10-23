@@ -1,0 +1,1 @@
+document.write('<OBJECT ALT=±¸¸ÅL/T NAME="txtPurlt"CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle2 NAME="txtPurlt" style="HEIGHT: 20px; WIDTH: 80px" tag="21XX1" Title="FPDOUBLESINGLE"></OBJECT>');

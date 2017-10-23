@@ -1,0 +1,1 @@
+document.write('<OBJECT ALT=최소발주량 NAME="txtMinQty" CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle3 style="HEIGHT: 20px; WIDTH: 160px" tag="21X3Z" Title="FPDOUBLESINGLE" ALT=최소발주량></OBJECT>');

@@ -1,0 +1,386 @@
+<%@ LANGUAGE=VBSCript TRANSACTION=Required%>
+<% Option Explicit%>
+
+<!-- #Include file="../../inc/IncSvrMain.asp" -->
+<!-- #Include file="../../ComAsp/LoadInfTB19029.asp" -->
+<!-- #Include file="../../inc/adovbs.inc" -->
+<!-- #Include file="../../inc/lgSvrVariables.inc" -->
+<!-- #Include file="../../inc/incServeradodb.asp" -->
+<!-- #Include file="../../inc/incSvrDate.inc" -->
+<!-- #Include file="../../inc/incSvrNumber.inc" -->
+<!-- #Include file="../../inc/IncSvrDBAgent.inc" -->
+
+<%
+    Call HideStatusWnd                                                               '¢Ð: Hide Processing message
+    Call LoadBasisGlobalInf()
+    Call LoadInfTB19029B("I", "H","NOCOOKIE","MB")
+    
+    '---------------------------------------Common-----------------------------------------------------------                                                              '¢Ð: Hide Processing message
+    lgErrorStatus     = "NO"
+    lgErrorPos        = ""                                                           '¢Ð: Set to space
+    lgOpModeCRUD      = Request("txtMode")                                           '¢Ð: Read Operation Mode (CRUD)
+    lgIntFlgMode = CInt(Request("txtFlgMode"))		
+
+    'Multi SpreadSheet
+
+    lgLngMaxRow       = Request("txtMaxRows")                                        '¢Ð: Read Operation Mode (CRUD)    
+    lgMaxCount        = CInt(Request("lgMaxCount"))                                  '¢Ð: Fetch count at a time for VspdData
+    lgStrPrevKeyIndex = UNICInt(Trim(Request("lgStrPrevKeyIndex")),0)                '¢Ð: "0"(First),"1"(Second),"2"(Third),"3"(...)
+    
+	'------ Developer Coding part (Start ) ------------------------------------------------------------------
+    Dim lgSoSeq
+    Dim L1_auto_code
+    Dim lgQueryChain
+    Dim lgDataError
+	Dim iArrTotal
+'    ReDim L1_auto_code(lgLngMaxRow)
+
+    Function RtnQueryVal(strField,strFrom,strWhere)
+        Dim lgF0,lgF1,lgF2,lgF3,lgF4,lgF5,lgF6
+	    RtnQueryVal = ""
+	    Call CommonQueryRs(strField,strFrom,strWhere,lgF0,lgF1,lgF2,lgF3,lgF4,lgF5,lgF6)
+	    RtnQueryVal = Replace(lgF0,Chr(11),"")
+	    If RtnQueryVal = "X" Or trim(RtnQueryVal) = "" Or IsNull(RtnQueryVal) Then
+            Call DisplayMsgBox("970000", vbInformation, strWhere & strField, "", I_MKSCRIPT)
+           
+            ObjectContext.SetAbort
+            Call SetErrorStatus
+		End If
+    End Function
+    
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------ 
+    Call SubOpenDB(lgObjConn)
+     
+    Select Case lgOpModeCRUD
+        Case CStr(UID_M0001)                                                         '¢Ð: Query        
+               Call SubBizQuery()
+
+        Case CStr(UID_M0002)                                                         '¢Ð: Save,Update
+            
+            
+        Case CStr(UID_M0003)                                                         '¢Ð: Delete
+             
+        Case CStr(UID_M0005)
+            
+        Case CStr(UID_M0006)
+            
+    End Select
+    Call SubCloseDB(lgObjConn)                                                       '¢Ð: Close DB Connection
+
+'============================================================================================================
+' Name : SubBizSaveMultiDeleteBtn
+' Desc : Delete Data from Db
+'============================================================================================================
+Sub SubBizSaveMultiDeleteBtn()
+                                                                    '¢Ð: Clear Error status
+       
+    
+End Sub
+
+    
+
+Sub SubBizQuery()
+'''''''''''''''''''''''''''''''''''''''''''''''''''''
+	Dim iDx
+    Dim iLoopMax
+    Dim iKey1
+    Dim strWhere
+   
+    Dim iClsRs
+    Dim iTemp,i
+    Dim k
+    
+    On Error Resume Next
+    Err.Clear                                                               '¢Ð: Clear Error status
+    
+    '---------- Developer Coding part (Start) ---------------------------------------------------------------
+    'iKey1 = FilterVar(lgKeyStream(0),"''", "S")
+    
+    strWhere = " "
+
+    Call SubMakeSQLStatements("MR",strWhere,"X","")                              '¢Ð : Make sql statements
+    
+    If FncOpenRs("R",lgObjConn,lgObjRs,lgStrSQL,"X","X") = False Then
+        lgStrPrevKeyIndex = ""
+        iClsRs = 1
+      '  Call DisplayMsgBox("900014", vbInformation, "", "", I_MKSCRIPT)      '¢Ð : No data is found. 
+      '  Call SetErrorStatus()
+    Else
+  
+        
+		
+             
+        lgstrData = ""
+      
+       
+
+        iDx = 1
+        iClsRs = 0
+        iSeq = 0
+        iTemp = lgObjRs.GetRows()
+        i = UBound(iTemp)
+        ReDim iArrCols(5)
+        Redim iArrRows(6)
+        
+
+        
+        For k = 0 To 6
+      
+            
+   				iArrCols(0) = ""
+   				iArrCols(1) = iTemp(k,0)
+   				iArrCols(2) = iTemp(k,1)
+   		  	    iArrCols(3) =UNIConvNum(iTemp(k,1),0)
+   				iArrCols(4) = ""
+   				iArrCols(5) =  ""
+
+
+				iArrRows(k) = Join(iArrCols, gColSep)
+    '---------- Developer Coding part (End  ) ---------------------------------------------------------------
+            iDx =  iDx + 1
+            iSeq = iSeq + 1
+	
+		
+        Next
+              
+
+
+
+    lgstrData = Join(iArrRows, gColSep & gRowSep) & gColSep & gRowSep
+
+
+         
+       'Do While Not lgObjRs.EOF
+       '        if idx +100 = 103 or v +100 = 115 or idx +100 = 116 or idx +100 = 117  or idx +100 = 118 then        
+        
+	   '				lgstrData = lgstrData & Chr(11) & idx +100 
+	   '				lgstrData = lgstrData & Chr(11) & ""
+	'				lgstrData = lgstrData & Chr(11) & ""
+	'				lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("w4Value"))
+	'				lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("w4View"))
+	'		   else
+	'		        lgstrData = lgstrData & Chr(11) & idx +100 
+	'				lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("Minor_nm"))
+	'				lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("w4Value"))
+	'				lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("w4View"))
+	'		        
+	'		   end if	 
+
+	            
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------
+	'			lgstrData = lgstrData & Chr(11) & lgLngMaxRow + iDx
+	'			lgstrData = lgstrData & Chr(11) & Chr(12)
+			
+	'	    lgObjRs.MoveNext
+		 
+
+    '        iDx =  iDx + 1
+ 
+
+
+    '    Loop 
+  
+
+
+    
+
+
+    
+
+  end if  
+
+	Call SubHandleError("MR",lgObjConn,lgObjRs,Err)
+    Call SubCloseRs(lgObjRs) 
+End Sub
+
+
+
+
+
+'============================================================================================================
+' Name : SubMakeSQLStatements
+' Desc : Make SQL statements
+'============================================================================================================
+Sub SubMakeSQLStatements(pDataType,pCode,pCode1,pComp)
+
+	Dim iSelCount
+	 
+    '------ Developer Coding part (Start ) ------------------------------------------------------------------
+    Select Case Mid(pDataType,1,1)
+        Case "S"
+
+	        Select Case  lgPrevNext
+                Case " "
+                Case "P"
+                Case "N"
+            End Select
+        Case "M"
+            iSelCount = lgMaxCount + lgMaxCount *  lgStrPrevKeyIndex + 1
+           
+            Select Case Mid(pDataType,2,1)
+                Case "C"
+                
+                Case "D"
+                      
+                Case "R"
+                       lgStrSQL = "SELECT A.Minor_nm , a.major_Cd "
+                       lgStrSQL = lgStrSQL & " FROM  b_minor A"
+                       lgStrSQL = lgStrSQL & "       Left Join B_CONFIGURATION B on a.major_cd =b.major_Cd and a.minor_cd = b.minor_cd and b.seq_no = 1  "
+                       lgStrSQL = lgStrSQL & "       Left Join B_CONFIGURATION C on a.major_cd =c.major_Cd and a.minor_cd = c.minor_cd and c.seq_no =2  "
+                       lgStrSQL = lgStrSQL & " where "
+                       lgStrSQL = lgStrSQL &  " A.Major_cd ='W1016' Order by cast(a.minor_cd as int)"         
+
+
+
+
+
+
+
+
+
+
+
+                Case "Y"
+                      
+ 
+                Case "Z"
+                   
+                       
+				Case "U"
+                
+            End Select
+           
+    End Select
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------
+
+End Sub
+
+'============================================================================================================
+' Name : CommonOnTransactionCommit
+' Desc : This Sub is called by OnTransactionCommit Error handler
+'============================================================================================================
+Sub CommonOnTransactionCommit()
+	'------ Developer Coding part (Start ) -------------------------------------------------------------- 
+    
+	'------ Developer Coding part (End   ) -------------------------------------------------------------- 
+End Sub
+
+'============================================================================================================
+' Name : CommonOnTransactionAbort
+' Desc : This Sub is called by OnTransactionAbort Error handler
+'============================================================================================================
+Sub CommonOnTransactionAbort()
+    lgErrorStatus    = "YES"
+	'------ Developer Coding part (Start ) -------------------------------------------------------------- 
+    
+	'------ Developer Coding part (End   ) -------------------------------------------------------------- 
+End Sub
+
+'============================================================================================================
+' Name : CommonOnTransactionCommit
+' Desc : This Sub is called by OnTransactionCommit Error handler
+'============================================================================================================
+Sub CommonOnTransactionCommit()
+	'------ Developer Coding part (Start ) ------------------------------------------------------------------
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------
+End Sub
+
+'============================================================================================================
+' Name : CommonOnTransactionAbort
+' Desc : This Sub is called by OnTransactionAbort Error handler
+'============================================================================================================
+Sub CommonOnTransactionAbort()
+    lgErrorStatus    = "YES"
+	'------ Developer Coding part (Start ) ------------------------------------------------------------------
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------
+End Sub
+
+'============================================================================================================
+' Name : SetErrorStatus
+' Desc : This Sub set error status
+'============================================================================================================
+Sub SetErrorStatus()
+    lgErrorStatus     = "YES"                                                         '¢Ð: Set error status
+	'------ Developer Coding part (Start ) ------------------------------------------------------------------
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------
+End Sub
+
+'============================================================================================================
+' Name : SubHandleError
+' Desc : This Sub handle error
+'============================================================================================================
+Sub SubHandleError(pOpCode,pConn,pRs,pErr)
+    On Error Resume Next                                                             '¢Ð: Protect system from crashing
+    Err.Clear                                                                        '¢Ð: Clear Error status
+
+    Select Case pOpCode
+        Case "MC"
+                 If CheckSYSTEMError(pErr,True) = True Then
+                    ObjectContext.SetAbort
+                    Call SetErrorStatus
+                 Else
+                    If CheckSQLError(pConn,True) = True Then
+                       ObjectContext.SetAbort
+                       Call SetErrorStatus
+                    End If
+                 End If
+        Case "MD"
+        Case "MR"
+        Case "MU"        
+                 If CheckSYSTEMError(pErr,True) = True Then
+                    ObjectContext.SetAbort
+                    Call SetErrorStatus
+                 Else
+                    If CheckSQLError(pConn,True) = True Then
+                       ObjectContext.SetAbort
+                       Call SetErrorStatus
+                    End If
+                 End If
+    End Select
+End Sub
+
+%>
+
+<Script Language="VBScript">
+    Select Case "<%=lgOpModeCRUD %>"
+      Case "<%=UID_M0001%>"                                                         '¢Ð : Query
+          If Trim("<%=lgErrorStatus%>") = "NO" Then
+              With Parent
+                .ggoSpread.Source     = .frm1.vspdData
+                
+                .lgStrPrevKeyIndex    = "<%=lgStrPrevKeyIndex%>"
+                .ggoSpread.SSShowData "<%=lgstrData%>"                
+    
+ 
+                .DBQueryOk2
+    
+                         
+	          End With
+          End If
+        Case "<%=UID_M0002%>"                                                         '¢Ð : Save
+    
+                If Trim("<%=lgErrorStatus%>") = "NO" Then
+                   
+                    Parent.DBSaveOk
+                Else
+                   
+                End If
+     
+        Case "<%=UID_M0005%>"                                                         '¢Ð : Save
+            If Trim("<%=lgErrorStatus%>") = "NO" Then
+                Parent.DBBtnSaveOk
+            Else
+            End If
+        Case "<%=UID_M0006%>"                                                         '¢Ð : Save
+            If Trim("<%=lgErrorStatus%>") = "NO" Then
+                Parent.DBBtnSaveOk
+            Else
+            End If
+        Case "<%=UID_M0003%>"                                                         '¢Ð : Delete
+            If Trim("<%=lgErrorStatus%>") = "NO" Then
+                Parent.DbDeleteOk
+            Else
+            End If
+    End Select
+    
+</Script>

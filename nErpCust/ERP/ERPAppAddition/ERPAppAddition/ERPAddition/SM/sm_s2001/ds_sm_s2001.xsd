@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_sm_s2001" targetNamespace="http://tempuri.org/ds_sm_s2001.xsd" xmlns:mstns="http://tempuri.org/ds_sm_s2001.xsd" xmlns="http://tempuri.org/ds_sm_s2001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_sm_s2001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_sm_s2001" msprop:Generator_UserDSName="ds_sm_s2001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="l_group" msprop:Generator_ColumnVarNameInTable="columnl_group" msprop:Generator_ColumnPropNameInRow="l_group" msprop:Generator_ColumnPropNameInTable="l_groupColumn" msprop:Generator_UserColumnName="l_group" type="xs:string" minOccurs="0" />
+              <xs:element name="s_group" msprop:Generator_ColumnVarNameInTable="columns_group" msprop:Generator_ColumnPropNameInRow="s_group" msprop:Generator_ColumnPropNameInTable="s_groupColumn" msprop:Generator_UserColumnName="s_group" type="xs:string" minOccurs="0" />
+              <xs:element name="process_type" msprop:Generator_ColumnVarNameInTable="columnprocess_type" msprop:Generator_ColumnPropNameInRow="process_type" msprop:Generator_ColumnPropNameInTable="process_typeColumn" msprop:Generator_UserColumnName="process_type" type="xs:string" minOccurs="0" />
+              <xs:element name="WAFER_DIA" msprop:Generator_ColumnVarNameInTable="columnWAFER_DIA" msprop:Generator_ColumnPropNameInRow="WAFER_DIA" msprop:Generator_ColumnPropNameInTable="WAFER_DIAColumn" msprop:Generator_UserColumnName="WAFER_DIA" type="xs:string" minOccurs="0" />
+              <xs:element name="mm" msprop:Generator_ColumnVarNameInTable="columnmm" msprop:Generator_ColumnPropNameInRow="mm" msprop:Generator_ColumnPropNameInTable="mmColumn" msprop:Generator_UserColumnName="mm" type="xs:string" minOccurs="0" />
+              <xs:element name="bill_qty" msprop:Generator_ColumnVarNameInTable="columnbill_qty" msprop:Generator_ColumnPropNameInRow="bill_qty" msprop:Generator_ColumnPropNameInTable="bill_qtyColumn" msprop:Generator_UserColumnName="bill_qty" type="xs:long" minOccurs="0" />
+              <xs:element name="bill_amt" msprop:Generator_ColumnVarNameInTable="columnbill_amt" msprop:Generator_ColumnPropNameInRow="bill_amt" msprop:Generator_ColumnPropNameInTable="bill_amtColumn" msprop:Generator_UserColumnName="bill_amt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="vat_amt" msprop:Generator_ColumnVarNameInTable="columnvat_amt" msprop:Generator_ColumnPropNameInRow="vat_amt" msprop:Generator_ColumnPropNameInTable="vat_amtColumn" msprop:Generator_UserColumnName="vat_amt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sum_amt" msprop:Generator_ColumnVarNameInTable="columnsum_amt" msprop:Generator_ColumnPropNameInRow="sum_amt" msprop:Generator_ColumnPropNameInTable="sum_amtColumn" msprop:Generator_UserColumnName="sum_amt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="bill_amt_loc" msprop:Generator_ColumnVarNameInTable="columnbill_amt_loc" msprop:Generator_ColumnPropNameInRow="bill_amt_loc" msprop:Generator_ColumnPropNameInTable="bill_amt_locColumn" msprop:Generator_UserColumnName="bill_amt_loc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="vat_amt_loc" msprop:Generator_ColumnVarNameInTable="columnvat_amt_loc" msprop:Generator_ColumnPropNameInRow="vat_amt_loc" msprop:Generator_ColumnPropNameInTable="vat_amt_locColumn" msprop:Generator_UserColumnName="vat_amt_loc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sum_amt_loc" msprop:Generator_ColumnVarNameInTable="columnsum_amt_loc" msprop:Generator_ColumnPropNameInRow="sum_amt_loc" msprop:Generator_ColumnPropNameInTable="sum_amt_locColumn" msprop:Generator_UserColumnName="sum_amt_loc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BP_ALIAS_NM" msprop:Generator_ColumnVarNameInTable="columnBP_ALIAS_NM" msprop:Generator_ColumnPropNameInRow="BP_ALIAS_NM" msprop:Generator_ColumnPropNameInTable="BP_ALIAS_NMColumn" msprop:Generator_UserColumnName="BP_ALIAS_NM" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

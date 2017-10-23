@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=txtPubDt NAME="txtPubDt" style="HEIGHT: 20px; WIDTH: 100px" tag="23X1X" Title="FPDATETIME" ALT="발행일자"></OBJECT>');

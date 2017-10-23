@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=txtPlanLocAmtPI name=txtPlanLocAmtPI ALT="이자지급액(자국)" title=FPDOUBLESINGLE tag="21X2" CLASS=FPDS140></OBJECT>');

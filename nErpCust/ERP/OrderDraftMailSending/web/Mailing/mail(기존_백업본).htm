@@ -1,0 +1,460 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+    input, select { font-weight: normal; }
+    </style>
+        <!-- UPLOAD Control CSS - begin-->
+    <style type="text/css">
+    .FileSize
+    {
+        text-align: right;
+        padding-right: 5px;
+    }
+    
+    .Progress
+    {
+        height: 20px;
+    }
+    
+    .ProgressBar
+    {
+        height: 15px;
+        margin: 6px 5px 6px 5px;
+        background-attachment: scroll; background-repeat: repeat; background-image: none; background-position: 0% 0%; background-size: auto; background-origin: padding-box; background-clip: border-box; background-color: rgb(117, 231, 159);
+    }
+	
+	/*common start*/
+	/*sing box*/
+	.SignLabel {
+		color: #3f3f3f;
+		background-color: #ededed;
+		text-align: center;
+	}
+	/*input 바인딩되는 tag*/
+	.fcs_it 
+	{
+		outline:none;                   /* chrome html input 아웃라인 제거용. 130503 남민우.*/    
+		border: 0px; 
+		height:16px;
+		
+	}
+
+	/*input 입력*/
+	.fcs_itp
+	{
+		position:relative;                       
+		border:1px solid #dadada;
+		border-right-color:#e1e1e1;
+		border-bottom-color:#e1e1e1;
+		background-color: #F2F2F2;     
+		height:16px;
+	}
+
+
+	/*input box (date type)*/
+	.fcs_itd {
+		border: 0px;
+		vertical-align: top;
+		padding-top: 4px;
+	}
+	/*TD*/
+	.fcs_tdht TD {
+		height: 20px;
+		padding-top: 2px;
+	}
+	/*TH*/
+	.fcs_tdht TH {
+		height: 20px;
+		padding-top: 2px;
+	}
+	/*header label*/
+	.fcs_tdhd {
+		color: #3f3f3f;
+		background-color: #ededed;
+		text-align: center;
+	}
+	/*cell top*/
+	.fcs_tdt {
+		padding-left: 5px;
+	}
+	/*cell top*/
+	.fcs_tbt {
+		border-top: solid 1px #cbcbcb;
+		border-bottom: solid 1px #cbcbcb;
+		border-left: solid 1px #cbcbcb;
+	}
+	/*cell top right*/
+	.fcs_tbtr{
+		border-top: solid 1px #cbcbcb;
+		border-right: solid 1px #cbcbcb;
+		border-bottom: solid 1px #cbcbcb;
+		border-left: solid 1px #cbcbcb;
+	}
+	/*cell middle*/
+	.fcs_tbm {
+		border-bottom: solid 1px #cbcbcb;
+		border-left: solid 1px #cbcbcb;
+	}
+	/*cell middle right*/
+	.fcs_tbmr {
+		border-right: solid 1px #cbcbcb;
+		border-bottom: solid 1px #cbcbcb;
+		border-left: solid 1px #cbcbcb;
+	}
+	/*common end*/
+
+	/*custom start*/
+
+	/* 결재 양식 내 버튼-검정(소) */
+	.buttonGSWF {
+		cursor:pointer;
+		display: inline-block;
+		white-space: nowrap;
+		background-color: #909090;
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#818181), to(#585858));
+		background-image: -webkit-linear-gradient(top, #818181, #585858);
+		background-image: -moz-linear-gradient(top, #818181, #585858);
+		background-image: -ms-linear-gradient(top, #818181, #585858);
+		background-image: -o-linear-gradient(top, #818181, #585858);
+		background-image: linear-gradient(top, #818181, #585858);
+		/*filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#d3d3d3');  */     
+		border-left: 1px solid #686868;
+		border-top: 1px solid #6b6b6b;
+		border-right: 1px solid #575757;
+		border-bottom: 1px solid #4e4e4e;
+		padding: 0.2em 0.4em 0.2em 0.4em;
+		margin:0 0.1em;
+		text-align:center;
+		font: normal 11px '굴림', gulim;
+		vertical-align:middle;
+		text-decoration: none;
+		color: #ffffff;
+		text-shadow: 0 0px 0 rgba(255, 255, 255, .8);
+		-moz-border-radius:.3em;
+		-webkit-border-radius:.3em;
+		border-radius: .3em;
+		-moz-box-shadow: 0 0 1px 0px rgba(255, 255, 255, .4) inset, 0 1px 0 rgba(0, 0, 0, .1);
+		-webkit-box-shadow: 0 0 1px 0px rgba(255, 255, 255, .4) inset, 0 1px 0 rgba(0, 0, 0, .1);
+		box-shadow: 0 0 1px 0px rgba(255, 255, 255, .4) inset, 0 1px 0 rgba(0, 0, 0, .1);
+		}
+	.buttonGSWF:hover {
+		background-color: #414141;
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#414141), to(#1b1b1b));
+		background-image: -webkit-linear-gradient(top, #414141, #1b1b1b);
+		background-image: -moz-linear-gradient(top, #414141, #1b1b1b);
+		background-image: -ms-linear-gradient(top, #414141, #1b1b1b);
+		background-image: -o-linear-gradient(top, #414141, #1b1b1b);
+		background-image: linear-gradient(top, #414141, #1b1b1b);
+		/*filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#414141', EndColorStr='#d3d3d3');*/
+		color:#ffffff;
+		text-decoration:none;
+	}
+	.buttonGSWF:active {
+		background-color: #414141;
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#1b1b1b), to(#414141));
+		background-image: -webkit-linear-gradient(top, #1b1b1b, #414141);
+		background-image: -moz-linear-gradient(top, #1b1b1b, #414141);
+		background-image: -ms-linear-gradient(top, #1b1b1b, #414141);
+		background-image: -o-linear-gradient(top, #1b1b1b, #414141);
+		background-image: linear-gradient(top, #1b1b1b, #414141);
+		/*filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#e9e9e9', EndColorStr='#ffffff');*/
+		-moz-box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3) inset;
+		-webkit-box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3) inset;
+		box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3) inset;
+		position: relative;
+		color:#ffffff;
+		text-decoration:none;
+		top:1px;
+	}
+	.buttonGSWF:focus {
+		outline:0;
+		color:#ffffff;
+		text-decoration:none;
+	}
+	/* //버튼-검정(소) */
+
+	/* 결재 양식 에디터 영역*/
+	.editorBorder{
+		border-top: solid 1px #cbcbcb;
+		border-right: solid 1px #cbcbcb;
+		border-bottom: solid 1px #cbcbcb;
+		border-left: solid 1px #cbcbcb;
+	}
+	.editorBorder form{
+		margin:5px;
+	}
+	/* 결재 양식 에디터 영역*/
+
+	/* 결재 양식 input 일반 보여줘야할것*/
+	input.form_i_text{position:relative;border:1px solid #dadada;border-right-color:#e1e1e1;border-bottom-color:#e1e1e1;}
+
+	/*custom end*/
+    </style>
+    <meta name="GENERATOR" content="MSHTML 9.00.8112.16476">
+</head>
+<body>
+<div style="padding-bottom: 100px; padding-top: 20px; font-weight: 600; font-family: 굴림; font-size: 9pt;">
+	※ 자동메일 시스템입니다.</br>
+	   &nbsp;&nbsp;&nbsp;&nbsp;이 메시지가 표시되는 방식에 문제가 있으면 웹 브라우저에서 확인하시길 바랍니다. (ex: Explorer, Chrome)
+</div>
+    <div style="margin: 0px auto; width: 950px;">
+        <div style="height: 50px; text-align: center; font-size: 25pt; font-weight: 600;
+            text-decoration: underline;">
+            PURCHARSE ORDER(발주서)
+        </div>
+        <!--sign box start-->
+        <div style="width: inherit;">
+            <table style="width: inherit;" border="0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <table style="height: 129px; font-family: 굴림; font-size: 9pt;" border="0" width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td style="height: 1px;" width="500px" align="left">
+										</td>
+                                        <td style="height: 115px;" align="right">
+                                            <table style="font-family: 굴림; font-size: 11pt; border-collapse: collapse;" border="1" cellspacing="0" bordercolor="#3a7d99" cellpadding="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="SignLabel" height="20" width="130" align="center" nowrap>
+                                                        &nbsp;&nbsp;■ 발주 일자&nbsp;&nbsp;</th>
+                                                        <td height="20" width="350" align="center" nowrap>
+                                                        &nbsp;&nbsp;#orderDay&nbsp;&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="SignLabel" height="20" width="130" align="center" nowrap>
+                                                        &nbsp;&nbsp;■ 발주 번호&nbsp;&nbsp;</th>
+                                                        <td height="20" width="350" align="center" nowrap>
+                                                        &nbsp;&nbsp;#order_Gw_No&nbsp;&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--sign box end-->
+        <!--basic info start-->
+        <div style="width: 100%; padding-top: 1px;" class="fcs_tdht">
+            <table style="width: 100%;" cellspacing="0" cellpadding="0">
+                <colgroup>
+                    <col style="width: 100px;">
+                    <col>
+                </colgroup>
+                <tbody style="font-size:13px;font-family: 굴림;">
+                    <tr>
+                        <td width="40%" rowspan="4" class="fcs_tdt fcs_tbt" style="text-align:center">
+							<img width=340 height=75 src="http://www.nepes.co.kr/image/company_logo?img_id=13018" alt="네패스로고">
+						</td>
+						<th colspan="2" style="text-align: center;" class="fcs_tdhd fcs_tbtr">
+						납품 정보
+						</th>
+					</tr>	
+					<tr>
+                        <th class="fcs_tdhd fcs_tbm" width="15%" style="text-align:center">
+                            납품 장소
+                        </th>
+                        <td class="fcs_tdt fcs_tbmr" nowrap>
+                            &nbsp;&nbsp;#plant&nbsp;&nbsp;
+                        </td>						
+                    </tr>
+                    <tr>
+                        <th class="fcs_tdhd fcs_tbm" width="15%" style="text-align:center">
+                           담당자(구매)
+                        </th>
+                        <td class="fcs_tdt fcs_tbmr">
+                            &nbsp;&nbsp;#pr_Person&nbsp;&nbsp;
+                        </td>	
+                    </tr>
+                    <tr>
+                        <th class="fcs_tdhd fcs_tbm" width="15%" style="text-align:center">
+                            연락처(구매)
+                        </th>
+                        <td class="fcs_tdt fcs_tbmr">
+                            &nbsp;&nbsp;#pr_Telnumber&nbsp;&nbsp;
+                        </td>	
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		<div style="width: 100%; padding-top: 10px;" class="fcs_tdht">
+            <table style="width: 100%;" cellspacing="0" cellpadding="0">
+                <colgroup>
+                    <col style="width: 100px;">
+                    <col>
+                </colgroup>
+                <tbody style="font-size:13px;font-family: 굴림;">	
+					<tr>
+                        <th class="fcs_tdhd fcs_tbt" width="15%" style="text-align:center">
+                            발 주 처
+                        </th>
+                        <td class="fcs_tdt fcs_tbt" width="25%">
+                            &nbsp;&nbsp;#po_Dept&nbsp;&nbsp;
+                        </td>	
+                        <th class="fcs_tdhd fcs_tbt" width="15%" style="text-align:center">
+                            공 급 처
+                        </th>
+                        <td class="fcs_tdt fcs_tbtr">
+                            &nbsp;&nbsp;#partner_Name&nbsp;&nbsp;
+                        </td>						
+                    </tr>
+                    <tr>
+                        <th class="fcs_tdhd fcs_tbm" width="15%" style="text-align:center">
+                           담당자(발주)
+                        </th>
+                        <td class="fcs_tdt fcs_tbm">
+                            &nbsp;&nbsp;#po_Person&nbsp;#Person_Title&nbsp;&nbsp;
+                        </td>	
+						<th class="fcs_tdhd fcs_tbm" width="15%" style="text-align:center">
+                           담당자(공급처)
+                        </th>
+                        <td class="fcs_tdt fcs_tbmr">
+                            &nbsp;&nbsp;#partner_Person&nbsp;&nbsp;
+                        </td>	
+                    </tr>
+                    <tr>
+                        <th class="fcs_tdhd fcs_tbm" width="15%" style="text-align:center">
+                            지불 조건
+                        </th>
+                        <td class="fcs_tdt fcs_tbmr" colspan="3">
+                            &nbsp;&nbsp;천만원 이하 익월 말 현금, 천만원 이상  익익월말 현금
+                        </td>	
+                    </tr>
+					<tr>
+                        <th class="fcs_tdhd fcs_tbm" width="15%" style="text-align:center">
+                            요청 납기일
+                        </th>
+                        <td class="fcs_tdt fcs_tbmr" colspan="3">
+                            &nbsp;&nbsp;완료
+                        </td>	
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="width: 100%; padding-top: 5px;" class="fcs_tdht">
+                    <table style="width: 100%;" cellspacing="0" cellpadding="0">
+                <colgroup>
+                    <col style="width: 100px;">
+                    <col>
+                </colgroup>
+                <tbody style="font-size:13px;font-family: 굴림;">	
+					<tr>
+						<th colspan="4" class="fcs_tdhd fcs_tbt" style="text-align:center">
+							당 사
+						</th>
+						<th colspan="4" class="fcs_tdhd fcs_tbtr" style="text-align:center">
+							공 급 처
+						</th>
+					</tr>
+					<tr>
+                        <th class="fcs_tdhd fcs_tbm" style="text-align:center" width="12%">
+                           Phone
+                        </th>
+						<th class="fcs_tdhd fcs_tbm" style="text-align:center" width="12%">
+                           Fax
+                        </th>
+						<th class="fcs_tdhd fcs_tbm" style="text-align:center" width="12%">
+                           Mobile
+                        </th>
+						<th class="fcs_tdhd fcs_tbm" style="text-align:center" width="14%">
+                           E-Mail
+                        </th>
+                        <th class="fcs_tdhd fcs_tbm" style="text-align:center" width="12%">
+                           Phone
+                        </th>
+						<th class="fcs_tdhd fcs_tbm" style="text-align:center" width="12%">
+                           Fax
+                        </th>
+						<th class="fcs_tdhd fcs_tbm" style="text-align:center" width="12%">
+                           Mobile
+                        </th>
+						<th class="fcs_tdhd fcs_tbmr" style="text-align:center" width="14%">
+                           E-Mail
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="fcs_tdt fcs_tbm" style="text-align:center">
+                        #po_Tel
+                        </td>	
+						<td class="fcs_tdt fcs_tbm" style="text-align:center">
+                        #po_Fax
+                        </td>
+						<td class="fcs_tdt fcs_tbm" style="text-align:center">
+                        #po_HP_Tel
+                        </td>
+						<td class="fcs_tdt fcs_tbm" style="text-align:center">
+                        #po_Email
+                        </td>
+						<td class="fcs_tdt fcs_tbm" style="text-align:center">
+                        #partner_Tel
+                        </td>
+						<td class="fcs_tdt fcs_tbm" style="text-align:center">
+                        #partner_Fax
+                        </td>
+						<td class="fcs_tdt fcs_tbm" style="text-align:center">
+                        #partner_HP_Tel
+                        </td>
+						<td class="fcs_tdt fcs_tbmr" style="text-align:center">
+                        #partner_Email
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="fcs_tdhd fcs_tbmr" width="15%" style="text-align:center;" colspan="8">
+                            ※ 특 이 사 항 ※
+							</br>
+							(아래는 반드시 준수해야 할 사항으로 미준수 시 불이익 또는 무효처리가 될 수 있사오니 각별히 더 유념해주시기 바랍니다)
+                        </th>
+                    </tr>
+					<tr>
+                        <td class="fcs_tdt fcs_tbmr" width="15%" style="text-align:left;" colspan="8">
+							※ 본 주문서를 수령한 후 1일 이내 별도의 통보가 없는 경우에는 주문 내용을 수락한 것으로 간주합니다.
+                        </td>
+                    </tr>
+					<tr>
+                        <td class="fcs_tdt fcs_tbmr" width="15%" style="text-align:left;color:red" colspan="8">
+							※ P/O물품 납품시 P/O물품과 거래명세서에 정문 확인도장 찍어시고 자재창고 담당자에게 P/O물품과 거래명세서를 제출하여야 한다.
+                        </td>
+                    </tr>
+					<tr>
+                        <td class="fcs_tdt fcs_tbmr" width="15%" style="text-align:left;color:red" colspan="8">
+							※ 수리, 공사건(입고자재에 대한 거래명세서)도 상기 절차에 따라야 하며, 현장 수리시 자재창고에 입고자재와 거래명세서를 확인 받아야 하며
+                        </td>
+                    </tr>
+					<tr>
+                        <td class="fcs_tdt fcs_tbmr" width="15%" style="text-align:left;color:red" colspan="8">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;거래명세서는 자재창고에 보관 한다.
+                        </td>
+                    </tr>
+					<tr>
+                        <td class="fcs_tdt fcs_tbmr" width="15%" style="text-align:left;color:red" colspan="8" >
+							※ 납품완료 자재에 대해 구매요청 담당자에게 자재 창고에서 검수(거래명세서 확인)받아야 하며, 납품 완료시 구매 담당자에게 통보하여야 한다.
+                        </td>
+                    </tr>
+					<tr>
+                        <td class="fcs_tdt fcs_tbmr" width="15%" style="text-align:left;" colspan="8">
+							※ 납기일자 준수는 기본이며 불가항력인 사유로 인한 지연발생이 불 가피한 경우 반드시 사전 알람/공유하고 구매담당자와 조율하시기 바랍니다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		<div style="padding-top:20px;font-size: 13pt; font-weight: 600;" >
+			■ 상세 발주내역
+		</div>
+        <div style="width: 100%; padding-top:5px; padding-bottom: 5px; padding-right: 5px; padding-left: 5px;">
+            <div style="width: 99%; border: 1px solid rgb(203, 203, 203);font-size:13px;font-family:굴림;padding-top:5px; padding-bottom: 5px; padding-right: 5px; padding-left: 5px;">
+				#body
+			</div>
+        </div>
+	</div>
+</body>
+</html>

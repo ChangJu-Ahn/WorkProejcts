@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle1 NAME="txtWarrentAbleAmt" CLASS=FPDS140 tag="21X2ZX" ALT="가능담보액" Title="FPDOUBLESINGLE"></OBJECT>');

@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" name=txtAmtSum3 style="HEIGHT: 20px; RIGHT: 0px; TOP: 0px; WIDTH:100px" title="FPDOUBLESINGLE" ALT="감가상각액" tag="24X2" id=OBJECT3></OBJECT>');

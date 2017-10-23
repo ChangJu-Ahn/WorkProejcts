@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=hfa030t_tot_med_amt name=txttot_med_amt style="HEIGHT: 20px; LEFT: 0px; TOP: 0px; WIDTH: 125px" title=FPDOUBLESINGLE tag="24X2Z" ALT="일반의료비공제사항"></OBJECT>');

@@ -1,0 +1,8 @@
+E:\New_Project\NERPCUST\EXTEND\TextOfContext\bin\Release\TextOfContext.exe.config
+E:\New_Project\NERPCUST\EXTEND\TextOfContext\bin\Release\TextOfContext.exe
+E:\New_Project\NERPCUST\EXTEND\TextOfContext\bin\Release\TextOfContext.pdb
+E:\New_Project\NERPCUST\EXTEND\TextOfContext\bin\Release\NEPES_CONTEXT.dll
+E:\New_Project\NERPCUST\EXTEND\TextOfContext\bin\Release\NEPES_CONTEXT.pdb
+E:\New_Project\NERPCUST\EXTEND\TextOfContext\obj\Release\TextOfContext.exe
+E:\New_Project\NERPCUST\EXTEND\TextOfContext\obj\Release\TextOfContext.pdb
+E:\New_Project\NERPCUST\EXTEND\TextOfContext\obj\Release\TextOfContext.csprojResolveAssemblyReference.cache

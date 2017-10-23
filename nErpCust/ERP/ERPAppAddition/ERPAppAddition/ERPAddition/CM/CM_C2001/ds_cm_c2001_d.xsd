@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_cm_c2001_d" targetNamespace="http://tempuri.org/ds_cm_c2001_d.xsd" xmlns:mstns="http://tempuri.org/ds_cm_c2001_d.xsd" xmlns="http://tempuri.org/ds_cm_c2001_d.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_cm_c2001_d" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_cm_c2001_d" msprop:Generator_UserDSName="ds_cm_c2001_d">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="YYYYMM" msprop:Generator_ColumnVarNameInTable="columnYYYYMM" msprop:Generator_ColumnPropNameInRow="YYYYMM" msprop:Generator_ColumnPropNameInTable="YYYYMMColumn" msprop:Generator_UserColumnName="YYYYMM" type="xs:string" minOccurs="0" />
+              <xs:element name="acct_cd" msprop:Generator_ColumnVarNameInTable="columnacct_cd" msprop:Generator_ColumnPropNameInRow="acct_cd" msprop:Generator_ColumnPropNameInTable="acct_cdColumn" msprop:Generator_UserColumnName="acct_cd" type="xs:string" minOccurs="0" />
+              <xs:element name="acct_nm" msprop:Generator_ColumnVarNameInTable="columnacct_nm" msprop:Generator_ColumnPropNameInRow="acct_nm" msprop:Generator_ColumnPropNameInTable="acct_nmColumn" msprop:Generator_UserColumnName="acct_nm" type="xs:string" minOccurs="0" />
+              <xs:element name="acct_nm2" msprop:Generator_ColumnVarNameInTable="columnacct_nm2" msprop:Generator_ColumnPropNameInRow="acct_nm2" msprop:Generator_ColumnPropNameInTable="acct_nm2Column" msprop:Generator_UserColumnName="acct_nm2" type="xs:string" minOccurs="0" />
+              <xs:element name="amt" msprop:Generator_ColumnVarNameInTable="columnamt" msprop:Generator_ColumnPropNameInRow="amt" msprop:Generator_ColumnPropNameInTable="amtColumn" msprop:Generator_UserColumnName="amt" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

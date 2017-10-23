@@ -1,0 +1,11 @@
+E:\New_Project\nInterface\nInterface\bin\Release\nInterface_Icon.ico
+E:\New_Project\nInterface\nInterface\bin\Release\App.config
+E:\New_Project\nInterface\nInterface\bin\Release\nInterface.exe.config
+E:\New_Project\nInterface\nInterface\bin\Release\nInterface.exe
+E:\New_Project\nInterface\nInterface\bin\Release\nInterface.pdb
+E:\New_Project\nInterface\nInterface\obj\Release\nInterface.Form1.resources
+E:\New_Project\nInterface\nInterface\obj\Release\nInterface.Properties.Resources.resources
+E:\New_Project\nInterface\nInterface\obj\Release\nInterface.csproj.GenerateResource.Cache
+E:\New_Project\nInterface\nInterface\obj\Release\nInterface.exe
+E:\New_Project\nInterface\nInterface\obj\Release\nInterface.pdb
+E:\New_Project\nInterface\nInterface\obj\Release\nInterface.csprojResolveAssemblyReference.cache

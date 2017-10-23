@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ERPAppAddition.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ERP 추가 응용 프로그램</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    ERP 추가 응용 프로그램
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">로그인</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        환영합니다 <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="로그아웃" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="홈"/>
+                        <asp:MenuItem Text="생산관리" Value="생산관리">
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/PM/p1401ma6_nepes/PM_P1401MA6.aspx" 
+                                Text="BOM조회" Value="BOM조회"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/PM/PM_P1020/PM_P1020.aspx" 
+                                Text="자품목투입정보" Value="자품목투입정보"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/PM/PM_P1030/PM_P1030.aspx" 
+                                Text="라우팅조회" Value="라우팅조회"></asp:MenuItem>
+
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="구매관리" Value="구매관리">
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/MM/MM_M10001/MM_M10001.aspx" 
+                                Text="미입고상세조회(NEPES)" Value="미입고상세조회(NEPES)"></asp:MenuItem>                            
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/MM/MM_M5001/MM_M5001.aspx" 
+                                Text="발주서발행(NEPES)" Value="발주서발행(NEPES)"></asp:MenuItem>                            
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="영업관리" Value="영업관리">
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/SM/sm_s1001/web_sm_s10001.aspx" 
+                                Text="일일출하마감실적조회" Value="일일출하마감실적조회"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/SM/sm_s6001/sm_s6001.aspx"                                 
+                                Text="일일매출현황" Value="일일매출현황"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/SM/sm_s7001/sm_s7001.aspx"                                 
+                                Text="음성매출현황" Value="음성매출현황"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/SM/sm_s9001/sm_s9001.aspx"                                 
+                                Text="주차별전사재고" Value="주차별전사재고"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/SM/sm_s9011/sm_s9011.aspx"                                 
+                                Text="일별 손익레포트" Value="일별 손익레포트"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/SM/sm_s9021/sm_s9021.aspx"                                 
+                                Text="반출증관리" Value="반출증관리"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="회계관리" Value="회계관리">
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/AM/AM_A1001/am_a1001.aspx" 
+                                Text="손익계산서조회(관리항목별)" Value="손익계산서조회(관리항목별)"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/AM/AM_A7001/AM_A7001.aspx" 
+                                Text="채권잔액명세출력" Value="채권잔액명세출력"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ERPAddition/AM/AM_A8001/AM_A8001.aspx" 
+                                Text="채무잔액명세출력" Value="채무잔액명세출력"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_sm_s8001" targetNamespace="http://tempuri.org/ds_sm_s8001.xsd" xmlns:mstns="http://tempuri.org/ds_sm_s8001.xsd" xmlns="http://tempuri.org/ds_sm_s8001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_sm_s8001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_sm_s8001" msprop:Generator_UserDSName="ds_sm_s8001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="REPORT_DT" msprop:Generator_ColumnVarNameInTable="columnREPORT_DT" msprop:Generator_ColumnPropNameInRow="REPORT_DT" msprop:Generator_ColumnPropNameInTable="REPORT_DTColumn" msprop:Generator_UserColumnName="REPORT_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="RUN_DEP_COST" msprop:Generator_ColumnVarNameInTable="columnRUN_DEP_COST" msprop:Generator_ColumnPropNameInRow="RUN_DEP_COST" msprop:Generator_ColumnPropNameInTable="RUN_DEP_COSTColumn" msprop:Generator_UserColumnName="RUN_DEP_COST" type="xs:string" minOccurs="0" />
+              <xs:element name="LOSS_DEP_COST" msprop:Generator_ColumnVarNameInTable="columnLOSS_DEP_COST" msprop:Generator_ColumnPropNameInRow="LOSS_DEP_COST" msprop:Generator_ColumnPropNameInTable="LOSS_DEP_COSTColumn" msprop:Generator_UserColumnName="LOSS_DEP_COST" type="xs:string" minOccurs="0" />
+              <xs:element name="EQUIPMENT_GRP1" msprop:Generator_ColumnVarNameInTable="columnEQUIPMENT_GRP1" msprop:Generator_ColumnPropNameInRow="EQUIPMENT_GRP1" msprop:Generator_ColumnPropNameInTable="EQUIPMENT_GRP1Column" msprop:Generator_UserColumnName="EQUIPMENT_GRP1" type="xs:string" minOccurs="0" />
+              <xs:element name="DOWN_RATE" msprop:Generator_ColumnVarNameInTable="columnDOWN_RATE" msprop:Generator_ColumnPropNameInRow="DOWN_RATE" msprop:Generator_ColumnPropNameInTable="DOWN_RATEColumn" msprop:Generator_UserColumnName="DOWN_RATE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtOur_Stock_limit_amt" name=txtOur_Stock_limit_amt CLASS=FPDS115 title=FPDOUBLESINGLE tag="21X2Z" ALT="우리사주조합 출연금 소득공제 한도"></OBJECT>');

@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE='vbscript'>
+
+function GetLocalFileSize(sFilePath)
+	GetLocalFileSize = FileWizard.GetLocalFileSize( sFilePath)
+end function 
+
+function GetLocalFileDate(sFilePath)
+	GetLocalFileDate = FileWizard.GetLocalFileDate( sFilePath)
+end function 
+
+
+'//PC에 남아있는 파일을 지울 때 
+function DeleteLocalFile(sFileName)
+	DeleteLocalFile = FileWizard.DeleteLocalFile(sFileName) 
+end function 
+
+'//파일을 upload, download 할 때 UI를 보여줄 지 안보여줄 지.. 0이면 안보여준다. 기본값은 1
+function SetFileUIMode(nMode)
+	FileWizard.SetFileUIMode(nMode)
+end function 
+
+function SetAttachedFileInfo(sFileInfo)
+	FileWizard.SetAttachedFileInfo(sFileInfo)
+end function 
+
+function AttachURL()
+	Dim lReturn 
+	Dim i   
+	Dim sFiles
+	Dim vFileInfo 
+	Focus
+	SetAttachMode Mode
+	lReturn = FileWizard.AttachURL(vFileInfo) 
+	sFiles = "" 
+	for i = 0 to lReturn -1 
+		sFiles = sFiles & vFileInfo(i) & Chr(31)
+	next
+	alert lReturn & Chr(31) & sFiles 
+	AttachURL = lReturn & Chr(31) & sFiles 
+	
+end function
+
+
+function SetModUpload()
+	FileWizard.SetUploadAfterMod("N")
+end function 
+
+
+'첨부할 확장자를 정의한다.
+function SetExtension(sExt)
+	FileWizard.SetExtension(sExt)
+end function 
+
+'tempfilename을 얻는다.
+function GetTempFileName(sExt)
+	alert sExt
+	GetTempFileName = FileWizard.GetTempFileName(sExt)
+end function 
+
+
+' 서버의 ip와 port를 setting한다.
+function SetServerInfo(sSvrIp, sSvrPort)
+	FileWizard.SetServerInfo sSvrIp, sSvrPort
+end function 
+
+'파일을 upload할 디렉토리를 설정한다.
+function SetTempDir(sTempDir)
+	FileWizard.SetTempDir sTempDir
+end function 
+
+' 파일을 선택하는 즉시 upload할 경우 즉, 커뮤니케이션에서는 1을 
+' 파일만 선택하고 나중에 upload할 경우에는 0을 준다.
+function SetUploadMode(nMode)
+	FileWizard.SetUploadMode(nMode)
+end function
+
+
+' nMaxFileSize : 첨부파일의 최대 크기 제한 
+' nEncOption : 암호와 여부 1은 암호화 , 0 은 비 암호화 
+function SetServerOption(nMaxFileSize, nEncOption)
+	FileWizard.SetMaxFileSize nMaxFileSize
+	FileWizard.SetEncOption nEncOption
+end function 
+
+'ocx에 남아있는 정보를 모두 clear한다.
+function ClearFileInfos
+	FileWizard.ClearFileInfos 
+end function 
+ 
+function AttachFile(Mode)
+	Dim lReturn 
+	Dim i   
+	Dim sFiles
+	Dim vFileInfo 
+	Focus
+	SetAttachMode Mode
+
+	lReturn = FileWizard.AttachFile(vFileInfo) 
+	sFiles = "" 
+	for i = 0 to lReturn -1 
+		sFiles = sFiles & vFileInfo(i) & Chr(31)
+	next
+	
+	AttachFile = lReturn & Chr(31) & sFiles 
+end function
+
+'파일을 조회 또는 다운로드한다.
+'파일조회일 경우 Mode는 'F' , 다운로드일 경우에는 'W'라고 한다.
+'sFileInfo는 파일첨부시에 받은 정보와 동일한 형태로 주면 된다.
+'Check by Extension
+'Search Registry in Client PC & Return Result
+function CheckFileAssociation(ext)
+  dim lRet
+  lRet = FileWizard.CheckFileAssociation(ext)
+  CheckFileAssociation = lRet  
+end function
+
+function ViewFile(Mode, sFileInfo)
+	Dim sRet 
+	sRet = FileWizard.ViewFile(Mode, sFileInfo)
+	ViewFile = sRet	
+end function 
+
+'언어를 설정한다. K이면 한국어로 그 외에는 모두 영어로 출력된다.
+function SetLanguage(sLang)
+	FileWizard.SetLanguage sLang
+end function 
+
+'파일첨부할 때 Mode, 일반적으로 'NEW'이다.
+function SetAttachMode(prm)
+	if prm <> "" then
+		FileWizard.SetMode(prm)
+	end if  
+end function
+
+'sftp로 파일을 받아오면서 서버쪽의 파일을 지우는 모드입니다. 
+'1일 때는 자동으로 지우는 것이고 0일때는 지우지 않습니다.
+'기본값은 지우는 것으로 설정되어 있습니다. 
+function SetServerAutoDelete(nAuto)
+	FileWizard.SetServerAutoDelete(nAuto)
+end function 
+
+'===============================================================
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<script language =javascript src='./js/frattwiz_FileWizard_FileWizard.js'></script>
+</BODY>
+</HTML>
+
+
+

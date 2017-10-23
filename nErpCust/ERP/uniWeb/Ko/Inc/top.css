@@ -1,0 +1,62 @@
+/********************************************************************************/
+/*	       EIS ½Ã½ºÅÛ    Cascading Style Sheet                                                      */
+/*                                                                                                                    */
+/*******************************************************************************/
+
+.topmenu {font-family: "±¼¸²"; font-size: 9pt; font-weight: bold; color: #FFFFFF; padding-top: 4px; text-align: center;}
+
+.ftgray {font-family: "µ¸¿ò"; font-size: 9pt; color: 575757;}
+
+.submenu {font-family: "µ¸¿ò"; font-size: 9pt; color: #6F4931; padding-top: 3px;}
+
+.listitle01 {font-family: "µ¸¿ò"; font-size: 9pt; color: 2F2F2F; height: 30px; padding-top: 3px; text-align: center; background-color: E8F1DD;}
+
+.listitle02 {font-family: "±¼¸²"; font-size: 9pt; font-weight: bold; color: 002D3A; text-align: center; padding-top: 4px;}
+
+.listrow01 {font-family: "µ¸¿ò"; font-size: 9pt; color: 666666; text-align: center; height: 29px; padding-top: 3px;}
+
+.listrow02 {font-family: "µ¸¿ò"; font-size: 9pt; color: 666666; height: 29px; padding-top: 3px; padding-left: 10px;}
+
+.ftmvpage { font-family:"µ¸¿ò, Arial"; font-size:9pt; color:#3C3C3C; }
+
+.ctrow01 {font-family: "µ¸¿ò"; font-size: 9pt; color: #000000; background-color: F1F2E9; height: 30px; padding-top: 3px; padding-left: 20px;}
+
+.ctrow02 {font-family: "µ¸¿ò"; font-size: 9pt; color: #5D5D5D; background-color: #FFFFFF; height: 30px; padding-top: 3px; padding-left: 8px; padding-right: 8px;}
+
+.ctrow03 {font-family: "µ¸¿ò"; font-size: 9pt; color: #000000; background-color: F0F1DF; height: 30px; padding-top: 3px; padding-left: 20px;}
+
+
+/**************** Form ****************/
+
+/* Form_Select*/
+.fmselect {border:1px BCBCBC solid; font-size:9pt; color:#333333; font-family:"µ¸¿ò, Arial";}
+
+/* Form*/
+.form {border:1px BCBCBC solid; font-family: "µ¸¿ò"; font-size: 9pt; color: #6d6d6d; background-color: #FFFFFF;}
+
+.title {font-family: "µ¸¿ò"; font-size: 11pt; font-weight: bold; color: #000000; padding-top: 2px; text-align: left;}
+
+
+/* Main Menu ¸µÅ© */
+.topmenu A:link {color:#FFFFFF; font-size:9pt; font-family:"±¼¸²"; font-weight: bold; text-decoration: none;}
+.topmenu A:visited {color:#FFFFFF; font-size:9pt; font-family:"±¼¸²"; font-weight: bold; text-decoration: none; }
+.topmenu A:active {color:#FFE262; font-size:9pt; font-family:"±¼¸²"; font-weight: bold; text-decoration: none; }
+.topmenu A:hover {color:#FFE262; font-size:9pt; font-family:"±¼¸²"; font-weight: bold; text-decoration:none; }
+
+/* Sub Menu ¸µÅ© */
+.submenu A:link {color:#6F4931; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none;}
+.submenu A:visited {color:#6F4931; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none; }
+.submenu A:active {color:#B63400; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none; }
+.submenu A:hover {color:#B63400; font-size:9pt; font-family:"µ¸¿ò"; text-decoration:none; }
+
+/* List ¸µÅ© */
+.listrow02 A:link {color:#666666; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none;}
+.listrow02 A:visited {color:#666666; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none; }
+.listrow02 A:active {color:#AA6200; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none; }
+.listrow02 A:hover {color:#AA6200; font-size:9pt; font-family:"µ¸¿ò"; text-decoration:none; }
+
+/* Move Page ¸µÅ© */
+.ftmvpage A:link {color:#747474; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none;}
+.ftmvpage A:visited {color:#747474; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none; }
+.ftmvpage A:active {color:#BC6100; font-size:9pt; font-family:"µ¸¿ò"; text-decoration: none; }
+.ftmvpage A:hover {color:#BC6100; font-size:9pt; font-family:"µ¸¿ò"; text-decoration:none; }

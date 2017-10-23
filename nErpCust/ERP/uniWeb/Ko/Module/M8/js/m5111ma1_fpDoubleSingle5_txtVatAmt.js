@@ -1,0 +1,1 @@
+document.write('<OBJECT ALT=VAT±Ý¾× NAME="txtVatAmt" CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle5 style="HEIGHT: 20px; WIDTH: 250px" tag="24X2" Title="FPDOUBLESINGLE"></OBJECT>');

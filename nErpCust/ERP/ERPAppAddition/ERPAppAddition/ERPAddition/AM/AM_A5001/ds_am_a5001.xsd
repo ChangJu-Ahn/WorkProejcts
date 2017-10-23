@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_am_a5001" targetNamespace="http://tempuri.org/ds_am_a5001.xsd" xmlns:mstns="http://tempuri.org/ds_am_a5001.xsd" xmlns="http://tempuri.org/ds_am_a5001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_am_a5001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_am_a5001" msprop:Generator_UserDSName="ds_am_a5001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ACCT_NM" msprop:Generator_ColumnVarNameInTable="columnACCT_NM" msprop:Generator_ColumnPropNameInRow="ACCT_NM" msprop:Generator_ColumnPropNameInTable="ACCT_NMColumn" msprop:Generator_UserColumnName="ACCT_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="ASST_NO" msprop:Generator_ColumnVarNameInTable="columnASST_NO" msprop:Generator_ColumnPropNameInRow="ASST_NO" msprop:Generator_ColumnPropNameInTable="ASST_NOColumn" msprop:Generator_UserColumnName="ASST_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="ASST_NM" msprop:Generator_ColumnVarNameInTable="columnASST_NM" msprop:Generator_ColumnPropNameInRow="ASST_NM" msprop:Generator_ColumnPropNameInTable="ASST_NMColumn" msprop:Generator_UserColumnName="ASST_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="DEPT_NM" msprop:Generator_ColumnVarNameInTable="columnDEPT_NM" msprop:Generator_ColumnPropNameInRow="DEPT_NM" msprop:Generator_ColumnPropNameInTable="DEPT_NMColumn" msprop:Generator_UserColumnName="DEPT_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="REG_DT" msprop:Generator_ColumnVarNameInTable="columnREG_DT" msprop:Generator_ColumnPropNameInRow="REG_DT" msprop:Generator_ColumnPropNameInTable="REG_DTColumn" msprop:Generator_UserColumnName="REG_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="ACQ_QTY" msprop:Generator_ColumnVarNameInTable="columnACQ_QTY" msprop:Generator_ColumnPropNameInRow="ACQ_QTY" msprop:Generator_ColumnPropNameInTable="ACQ_QTYColumn" msprop:Generator_UserColumnName="ACQ_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="PREV_END_QTY" msprop:Generator_ColumnVarNameInTable="columnPREV_END_QTY" msprop:Generator_ColumnPropNameInRow="PREV_END_QTY" msprop:Generator_ColumnPropNameInTable="PREV_END_QTYColumn" msprop:Generator_UserColumnName="PREV_END_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="PREV_END_ACQ_AMT" msprop:Generator_ColumnVarNameInTable="columnPREV_END_ACQ_AMT" msprop:Generator_ColumnPropNameInRow="PREV_END_ACQ_AMT" msprop:Generator_ColumnPropNameInTable="PREV_END_ACQ_AMTColumn" msprop:Generator_UserColumnName="PREV_END_ACQ_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="PREV_END_ACCUM" msprop:Generator_ColumnVarNameInTable="columnPREV_END_ACCUM" msprop:Generator_ColumnPropNameInRow="PREV_END_ACCUM" msprop:Generator_ColumnPropNameInTable="PREV_END_ACCUMColumn" msprop:Generator_UserColumnName="PREV_END_ACCUM" type="xs:string" minOccurs="0" />
+              <xs:element name="PREV_END_RESID_AMT" msprop:Generator_ColumnVarNameInTable="columnPREV_END_RESID_AMT" msprop:Generator_ColumnPropNameInRow="PREV_END_RESID_AMT" msprop:Generator_ColumnPropNameInTable="PREV_END_RESID_AMTColumn" msprop:Generator_UserColumnName="PREV_END_RESID_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="CURRENT_INC_AMT" msprop:Generator_ColumnVarNameInTable="columnCURRENT_INC_AMT" msprop:Generator_ColumnPropNameInRow="CURRENT_INC_AMT" msprop:Generator_ColumnPropNameInTable="CURRENT_INC_AMTColumn" msprop:Generator_UserColumnName="CURRENT_INC_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="CURRENT_DEC_AMT" msprop:Generator_ColumnVarNameInTable="columnCURRENT_DEC_AMT" msprop:Generator_ColumnPropNameInRow="CURRENT_DEC_AMT" msprop:Generator_ColumnPropNameInTable="CURRENT_DEC_AMTColumn" msprop:Generator_UserColumnName="CURRENT_DEC_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="USEFUL_LIFE" msprop:Generator_ColumnVarNameInTable="columnUSEFUL_LIFE" msprop:Generator_ColumnPropNameInRow="USEFUL_LIFE" msprop:Generator_ColumnPropNameInTable="USEFUL_LIFEColumn" msprop:Generator_UserColumnName="USEFUL_LIFE" type="xs:string" minOccurs="0" />
+              <xs:element name="CURRENT_DEPR_AMT" msprop:Generator_ColumnVarNameInTable="columnCURRENT_DEPR_AMT" msprop:Generator_ColumnPropNameInRow="CURRENT_DEPR_AMT" msprop:Generator_ColumnPropNameInTable="CURRENT_DEPR_AMTColumn" msprop:Generator_UserColumnName="CURRENT_DEPR_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="SOLD_DISPOSAL_QTY" msprop:Generator_ColumnVarNameInTable="columnSOLD_DISPOSAL_QTY" msprop:Generator_ColumnPropNameInRow="SOLD_DISPOSAL_QTY" msprop:Generator_ColumnPropNameInTable="SOLD_DISPOSAL_QTYColumn" msprop:Generator_UserColumnName="SOLD_DISPOSAL_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="CURENT_ACQ_QTY" msprop:Generator_ColumnVarNameInTable="columnCURENT_ACQ_QTY" msprop:Generator_ColumnPropNameInRow="CURENT_ACQ_QTY" msprop:Generator_ColumnPropNameInTable="CURENT_ACQ_QTYColumn" msprop:Generator_UserColumnName="CURENT_ACQ_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="CURENT_ACQ_AMT" msprop:Generator_ColumnVarNameInTable="columnCURENT_ACQ_AMT" msprop:Generator_ColumnPropNameInRow="CURENT_ACQ_AMT" msprop:Generator_ColumnPropNameInTable="CURENT_ACQ_AMTColumn" msprop:Generator_UserColumnName="CURENT_ACQ_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="YEAR_END_ACCUM" msprop:Generator_ColumnVarNameInTable="columnYEAR_END_ACCUM" msprop:Generator_ColumnPropNameInRow="YEAR_END_ACCUM" msprop:Generator_ColumnPropNameInTable="YEAR_END_ACCUMColumn" msprop:Generator_UserColumnName="YEAR_END_ACCUM" type="xs:string" minOccurs="0" />
+              <xs:element name="CURRENT_RESID_AMT" msprop:Generator_ColumnVarNameInTable="columnCURRENT_RESID_AMT" msprop:Generator_ColumnPropNameInRow="CURRENT_RESID_AMT" msprop:Generator_ColumnPropNameInTable="CURRENT_RESID_AMTColumn" msprop:Generator_UserColumnName="CURRENT_RESID_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="STATUS" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" type="xs:string" minOccurs="0" />
+              <xs:element name="ASSET_DESC" msprop:Generator_ColumnVarNameInTable="columnASSET_DESC" msprop:Generator_ColumnPropNameInRow="ASSET_DESC" msprop:Generator_ColumnPropNameInTable="ASSET_DESCColumn" msprop:Generator_UserColumnName="ASSET_DESC" type="xs:string" minOccurs="0" />
+              <xs:element name="COST_CD" msprop:Generator_ColumnVarNameInTable="columnCOST_CD" msprop:Generator_ColumnPropNameInRow="COST_CD" msprop:Generator_ColumnPropNameInTable="COST_CDColumn" msprop:Generator_UserColumnName="COST_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="COST_NM" msprop:Generator_ColumnVarNameInTable="columnCOST_NM" msprop:Generator_ColumnPropNameInRow="COST_NM" msprop:Generator_ColumnPropNameInTable="COST_NMColumn" msprop:Generator_UserColumnName="COST_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="REF_NO" msprop:Generator_ColumnVarNameInTable="columnREF_NO" msprop:Generator_ColumnPropNameInRow="REF_NO" msprop:Generator_ColumnPropNameInTable="REF_NOColumn" msprop:Generator_UserColumnName="REF_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="REF_NM" msprop:Generator_ColumnVarNameInTable="columnREF_NM" msprop:Generator_ColumnPropNameInRow="REF_NM" msprop:Generator_ColumnPropNameInTable="REF_NMColumn" msprop:Generator_UserColumnName="REF_NM" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

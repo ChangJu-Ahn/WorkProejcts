@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.vc.ChooseItemsToCompareDialog">
+		<item value="65" key="VIEWS"/>
+		<item value="324" key="DIALOG_ORIGIN_Y"/>
+		<item value="686" key="DIALOG_ORIGIN_X"/>
+		<item value="615" key="DIALOG_WIDTH"/>
+		<item value="06/27/16 19:01:43" key="SINCE"/>
+		<item value="592016" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="325" key="DIALOG_HEIGHT"/>
+		<item value="65" key="TIME_COUNTS"/>
+	</section>
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.vc.CheckinDialog">
+		<item value="64" key="VIEWS"/>
+		<item value="310" key="DIALOG_ORIGIN_Y"/>
+		<item value="-1414" key="DIALOG_ORIGIN_X"/>
+		<item value="886" key="DIALOG_WIDTH"/>
+		<item value="06/29/16 09:29:04" key="SINCE"/>
+		<item value="1212557" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="428" key="DIALOG_HEIGHT"/>
+		<item value="64" key="TIME_COUNTS"/>
+	</section>
+	<section name="wizard-ShareWizard">
+	</section>
+	<section name="wizard-TfsImportWizard">
+	</section>
+	<section name="wizard-AddFilesWizard">
+	</section>
+	<section name="wizard-EclipseTeamProjectWizard">
+	</section>
+	<section name="wizard-EULAWizard">
+	</section>
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.vc.ShelveDialog">
+		<item value="7" key="VIEWS"/>
+		<item value="204" key="DIALOG_ORIGIN_Y"/>
+		<item value="683" key="DIALOG_ORIGIN_X"/>
+		<item value="621" key="DIALOG_WIDTH"/>
+		<item value="07/21/16 10:33:25" key="SINCE"/>
+		<item value="36547" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="504" key="DIALOG_HEIGHT"/>
+		<item value="7" key="TIME_COUNTS"/>
+	</section>
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.connect.CredentialsDialog">
+		<item value="1" key="VIEWS"/>
+		<item value="180" key="DIALOG_ORIGIN_Y"/>
+		<item value="564" key="DIALOG_ORIGIN_X"/>
+		<item value="538" key="DIALOG_WIDTH"/>
+		<item value="06/21/16 10:07:23" key="SINCE"/>
+		<item value="29854" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="287" key="DIALOG_HEIGHT"/>
+		<item value="1" key="TIME_COUNTS"/>
+	</section>
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.vc.UndoPendingChangesDialog">
+		<item value="26" key="VIEWS"/>
+		<item value="324" key="DIALOG_ORIGIN_Y"/>
+		<item value="749" key="DIALOG_ORIGIN_X"/>
+		<item value="882" key="DIALOG_WIDTH"/>
+		<item value="07/21/16 14:54:13" key="SINCE"/>
+		<item value="67134" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="325" key="DIALOG_HEIGHT"/>
+		<item value="26" key="TIME_COUNTS"/>
+	</section>
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.vc.CheckoutDialog">
+		<item value="6" key="VIEWS"/>
+		<item value="344" key="DIALOG_ORIGIN_Y"/>
+		<item value="703" key="DIALOG_ORIGIN_X"/>
+		<item value="580" key="DIALOG_WIDTH"/>
+		<item value="08/04/16 10:39:13" key="SINCE"/>
+		<item value="23767" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="294" key="DIALOG_HEIGHT"/>
+		<item value="6" key="TIME_COUNTS"/>
+	</section>
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.connect.ACSCredentialsDialog$VSTSCredentialsDialog">
+		<item value="1" key="VIEWS"/>
+		<item value="0" key="DIALOG_ORIGIN_Y"/>
+		<item value="589" key="DIALOG_ORIGIN_X"/>
+		<item value="488" key="DIALOG_WIDTH"/>
+		<item value="06/21/16 10:06:56" key="SINCE"/>
+		<item value="5725" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="616" key="DIALOG_HEIGHT"/>
+		<item value="1" key="TIME_COUNTS"/>
+	</section>
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.vc.DetectLocalChangesDialog">
+		<item value="1" key="VIEWS"/>
+		<item value="378" key="DIALOG_ORIGIN_Y"/>
+		<item value="728" key="DIALOG_ORIGIN_X"/>
+		<item value="1002" key="DIALOG_WIDTH"/>
+		<item value="02/16/17 15:50:18" key="SINCE"/>
+		<item value="34783" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="430" key="DIALOG_HEIGHT"/>
+		<item value="1" key="TIME_COUNTS"/>
+	</section>
+	<section name="com.microsoft.tfs.client.common.ui.dialogs.vc.FindChangesetDialog">
+		<item value="6" key="VIEWS"/>
+		<item value="0" key="DIALOG_ORIGIN_Y"/>
+		<item value="674" key="DIALOG_ORIGIN_X"/>
+		<item value="638" key="DIALOG_WIDTH"/>
+		<item value="08/26/16 10:48:26" key="SINCE"/>
+		<item value="44994" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="778" key="DIALOG_HEIGHT"/>
+		<item value="6" key="TIME_COUNTS"/>
+	</section>
+	<section name="com.microsoft.tfs.client.eclipse.ui.dialogs.vc.SwitchToBranchDialog">
+		<item value="1" key="VIEWS"/>
+		<item value="312" key="DIALOG_ORIGIN_Y"/>
+		<item value="749" key="DIALOG_ORIGIN_X"/>
+		<item value="488" key="DIALOG_WIDTH"/>
+		<item value="09/19/16 19:14:40" key="SINCE"/>
+		<item value="8426" key="ACCUMULATED_OPEN_TIME"/>
+		<item value="343" key="DIALOG_HEIGHT"/>
+		<item value="1" key="TIME_COUNTS"/>
+	</section>
+</section>

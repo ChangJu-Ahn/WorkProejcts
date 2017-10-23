@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C"fpDoubleSingle2="Object10" name=txtSupp_old_cnt_t style="HEIGHT: 20px; LEFT: 0px; TOP: 0px; WIDTH: 50px" title=FPDOUBLESINGLE tag="24X7Z" ALT="부양자(노)" id=OBJECT12></OBJECT>');

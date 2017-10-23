@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtW17_1" name=txtW17_1 CLASS=FPDS140 title=FPDOUBLESINGLE ALT="과세표준_법인세" tag="22X86" width = 100% ></OBJECT>');

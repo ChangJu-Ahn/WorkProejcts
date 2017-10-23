@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtW23_1" name=txtW23_1 CLASS=FPDS140 title=FPDOUBLESINGLE ALT="차감납부할세액_법인세" tag="24X86" width = 100% ></OBJECT>');

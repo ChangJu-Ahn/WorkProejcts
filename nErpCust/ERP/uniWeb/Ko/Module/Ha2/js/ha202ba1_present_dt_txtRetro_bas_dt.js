@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=present_dt NAME="txtRetro_bas_dt" CLASS=FPDTYYYYMMDD tag="12X1" ALT="소급기준일" Title="FPDATETIME"></OBJECT>');

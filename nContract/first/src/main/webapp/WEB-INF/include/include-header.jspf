@@ -1,0 +1,46 @@
+<%-- <%@ page pageEncoding="EUC-KR"%>
+ 
+<meta charset="EUC-KR"> --%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>ContractManage</title>
+ 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<!-- CSS --> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/ui.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/merge.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/menu.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/lobibox.min.css'/>">
+<link rel="stylesheet" type="text/css" href="../css/search/style.css">
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="<c:url value='/js/common.js'/>" charset="utf-8"></script>
+<script src="<c:url value='/js/menu.js'/>" charset="utf-8"></script>
+<script src="<c:url value='/js/lobibox.min.js'/>"></script>
+
+<!-- CKeditor -->
+<script src="<c:url value='/js/ckeditor/ckeditor.js'/>"></script>
+
+<!-- Jqgrid -->
+<link rel="stylesheet" type="text/css" media="screen" href="<c:url value='/css/jqgrid/ui.jqgrid.css'/>" />
+<%-- <link rel="stylesheet" type="text/css" media="screen" href="<c:url value='/css/jqgrid/ui.jqgrid-bootstrap.css'/>" /> --%>
+<%-- <link rel="stylesheet" type="text/css" media="screen" href="<c:url value='/css/jqgrid/ui.jqgrid-bootstrap-ui.css'/>" /> --%>
+<script type="text/javascript" src="<c:url value='/js/jqgrid/i18n/grid.locale-en.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/jqgrid/jquery.jqGrid.min.js'/>"></script> 
+
+<!-- D3.js -->
+<script src="<c:url value='/js/d3/d3.min.js'/>"></script>
+
+<!-- javascript -->
+<script src="<c:url value='/js/report.js'/>"></script>
+
+
+
+

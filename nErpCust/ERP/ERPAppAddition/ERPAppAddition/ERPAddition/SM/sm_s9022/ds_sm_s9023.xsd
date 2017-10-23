@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_sm_s9023" targetNamespace="http://tempuri.org/ds_sm_s9023.xsd" xmlns:mstns="http://tempuri.org/ds_sm_s9023.xsd" xmlns="http://tempuri.org/ds_sm_s9023.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_sm_s9023" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_sm_s9023" msprop:Generator_UserDSName="ds_sm_s9023">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WC_CD" msprop:Generator_ColumnVarNameInTable="columnWC_CD" msprop:Generator_ColumnPropNameInRow="WC_CD" msprop:Generator_ColumnPropNameInTable="WC_CDColumn" msprop:Generator_UserColumnName="WC_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="WC_NM" msprop:Generator_ColumnVarNameInTable="columnWC_NM" msprop:Generator_ColumnPropNameInRow="WC_NM" msprop:Generator_ColumnPropNameInTable="WC_NMColumn" msprop:Generator_UserColumnName="WC_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="CITEM_NM" msprop:Generator_ColumnVarNameInTable="columnCITEM_NM" msprop:Generator_ColumnPropNameInRow="CITEM_NM" msprop:Generator_ColumnPropNameInTable="CITEM_NMColumn" msprop:Generator_UserColumnName="CITEM_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEM_CD" msprop:Generator_ColumnVarNameInTable="columnITEM_CD" msprop:Generator_ColumnPropNameInRow="ITEM_CD" msprop:Generator_ColumnPropNameInTable="ITEM_CDColumn" msprop:Generator_UserColumnName="ITEM_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="OUTQTY" msprop:Generator_ColumnVarNameInTable="columnOUTQTY" msprop:Generator_ColumnPropNameInRow="OUTQTY" msprop:Generator_ColumnPropNameInTable="OUTQTYColumn" msprop:Generator_UserColumnName="OUTQTY" type="xs:string" minOccurs="0" />
+              <xs:element name="EXE_AMT" msprop:Generator_ColumnVarNameInTable="columnEXE_AMT" msprop:Generator_ColumnPropNameInRow="EXE_AMT" msprop:Generator_ColumnPropNameInTable="EXE_AMTColumn" msprop:Generator_UserColumnName="EXE_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="COLOR" msprop:Generator_ColumnVarNameInTable="columnCOLOR" msprop:Generator_ColumnPropNameInRow="COLOR" msprop:Generator_ColumnPropNameInTable="COLORColumn" msprop:Generator_UserColumnName="COLOR" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

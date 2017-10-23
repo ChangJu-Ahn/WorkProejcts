@@ -1,0 +1,393 @@
+<%@ LANGUAGE=VBSCript TRANSACTION=Required%>
+<% Option Explicit%>
+<!-- #Include file="../../inc/IncSvrMain.asp" -->
+<!-- #Include file="../../ComAsp/LoadInfTB19029.asp" -->
+<!-- #Include file="../../inc/adovbs.inc" -->
+<!-- #Include file="../../inc/lgSvrVariables.inc" -->
+<!-- #Include file="../../inc/incServeradodb.asp" -->
+<!-- #Include file="../../inc/incSvrDate.inc" -->
+<!-- #Include file="../../inc/incSvrNumber.inc" -->
+
+<%
+	Dim lgStrPrevKey
+	Const C_SHEETMAXROWS_D = 100
+
+    Call HideStatusWnd                                                               '☜: Hide Processing message
+    Call LoadBasisGlobalInf()  
+    Call LoadInfTB19029B("I", "H", "NOCOOKIE", "MB")
+
+    lgErrorStatus     = "NO"
+    lgErrorPos        = ""                                                           '☜: Set to space
+    lgOpModeCRUD      = Request("txtMode")                                           '☜: Read Operation Mode (CRUD)
+    lgKeyStream       = Split(Request("txtKeyStream"),gColSep)
+
+    lgLngMaxRow       = Request("txtMaxRows")                                        '☜: Read Operation Mode (CRUD)
+    lgStrPrevKey = UNICInt(Trim(Request("lgStrPrevKey")),0)                '☜: "0"(First),"1"(Second),"2"(Third),"3"(...)
+
+    Call SubOpenDB(lgObjConn)                                                        '☜: Make a DB Connection
+
+    Select Case lgOpModeCRUD
+        Case CStr(UID_M0001)                                                         '☜: Query
+             Call SubBizQuery()
+        Case CStr(UID_M0002)                                                         '☜: Save,Update
+             Call SubBizSaveMulti()
+        Case CStr(UID_M0003)                                                         '☜: Delete
+             Call SubBizDelete()
+    End Select
+
+    Call SubCloseDB(lgObjConn)                                                       '☜: Close DB Connection
+
+'============================================================================================================
+' Name : SubBizQuery
+' Desc : Query Data from Db
+'============================================================================================================
+Sub SubBizQuery()
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+    Call SubBizQueryMulti()
+End Sub
+'============================================================================================================
+' Name : SubBizDelete
+' Desc : Delete DB data
+'============================================================================================================
+Sub SubBizDelete()
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+End Sub
+
+'============================================================================================================
+' Name : SubBizQuery
+' Desc : Query Data from Db
+'============================================================================================================
+Sub SubBizQueryMulti()
+    Dim iDx
+    Dim iLoopMax
+    Dim iKey1
+    Dim strWhere
+    Dim strSave_type
+    Dim strEmp_no
+    Dim strInternal_cd
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+
+    iKey1 = FilterVar(lgKeyStream(0), "''", "S")             'save_cd
+    strSave_type = FilterVar(lgKeyStream(1),"'%'", "S")
+    strEmp_no = FilterVar(lgKeyStream(2),"'%'", "S")
+    strInternal_cd = "" & FilterVar("%", "''", "S") & ""     '자료권한이 생기면 ida.auth_internal_cd로 한다.
+
+    strWhere = iKey1
+    strWhere = strWhere & " And ( hdc010t.bank_cd *= b_bank.bank_cd) "
+    strWhere = strWhere & " And ( haa010t.internal_cd LIKE " & strInternal_cd & ")"
+    strWhere = strWhere & " And ( hdc010t.emp_no = haa010t.emp_no ) "
+    strwhere = strwhere & " And ( ( hdc010t.emp_no LIKE " & strEmp_no & ") "
+    strWhere = strWhere & " And ( hdc010t.save_type LIKE " & strSave_type & ") ) "
+    strWhere = strWhere & " And   haa010t.internal_cd Like  " & FilterVar(lgKeyStream(3) & "%", "''", "S") & ""
+
+    Call SubMakeSQLStatements("MR",strWhere,"X",C_EQ)                              '☆ : Make sql statements
+
+    If 	FncOpenRs("R",lgObjConn,lgObjRs,lgStrSQL,"X","X") = False Then
+        lgStrPrevKey = ""
+        Call DisplayMsgBox("900014", vbInformation, "", "", I_MKSCRIPT)            '☜ : No data is found.
+        Call SetErrorStatus()
+    Else
+
+        Call SubSkipRs(lgObjRs,C_SHEETMAXROWS_D * lgStrPrevKey)
+        lgstrData = ""
+        iDx       = 1
+
+        Do While Not lgObjRs.EOF
+            lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("emp_no"))
+            lgstrData = lgstrData & Chr(11) & ""
+            lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("name"))
+            lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("save_cd"))
+            lgstrData = lgstrData & Chr(11) & ""
+            lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("save_type"))
+            lgstrData = lgstrData & Chr(11) & ""
+            lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("bank_accnt"))
+            lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("bank_cd"))
+            lgstrData = lgstrData & Chr(11) & ""
+            lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("bank_nm"))
+            lgstrData = lgstrData & Chr(11) & UNINumClientFormat(lgObjRs("script_amt"), ggAmtOfMoney.DecPoint,0)
+            lgstrData = lgstrData & Chr(11) & UNINumClientFormat(lgObjRs("tot_script_cnt"), ggAmtOfMoney.DecPoint,0)
+            lgstrData = lgstrData & Chr(11) & UNINumClientFormat(lgObjRs("expir_amt"), ggAmtOfMoney.DecPoint,2)
+            lgstrData = lgstrData & Chr(11) & UNIConvDateDBToCompany(lgObjRs("new_dt"),Null)
+            lgstrData = lgstrData & Chr(11) & UNIConvDateDBToCompany(lgObjRs("expir_dt"),Null)
+            lgstrData = lgstrData & Chr(11) & UNIConvDateDBToCompany(lgObjRs("revoke_dt"),Null)
+            lgstrData = lgstrData & Chr(11) & UNINumClientFormat(lgObjRs("tax_rate"), ggAmtOfMoney.DecPoint,0)
+
+            lgstrData = lgstrData & Chr(11) & lgLngMaxRow + iDx
+            lgstrData = lgstrData & Chr(11) & Chr(12)
+		    lgObjRs.MoveNext
+
+            iDx =  iDx + 1
+            If iDx > C_SHEETMAXROWS_D Then
+               lgStrPrevKey = lgStrPrevKey + 1
+               Exit Do
+            End If
+        Loop
+    End If
+
+    If iDx <= C_SHEETMAXROWS_D Then
+       lgStrPrevKey = ""
+    End If
+
+	Call SubHandleError("MR",lgObjConn,lgObjRs,Err)
+    Call SubCloseRs(lgObjRs)                                                          '☜: Release RecordSSet
+
+End Sub
+
+'============================================================================================================
+' Name : SubBizSaveMulti
+' Desc : Save Data
+'============================================================================================================
+Sub SubBizSaveMulti()
+
+    Dim arrRowVal
+    Dim arrColVal
+    Dim iDx
+
+    On Error Resume Next                                                             '☜: Protect system from crashing
+
+    Err.Clear                                                                        '☜: Clear Error status
+
+	arrRowVal = Split(Request("txtSpread"), gRowSep)                                 '☜: Split Row    data
+
+    For iDx = 1 To lgLngMaxRow
+        arrColVal = Split(arrRowVal(iDx-1), gColSep)                                 '☜: Split Column data
+
+        Select Case arrColVal(0)
+            Case "C"
+                    Call SubBizSaveMultiCreate(arrColVal)                            '☜: Create
+            Case "U"
+                    Call SubBizSaveMultiUpdate(arrColVal)                            '☜: Update
+            Case "D"
+                    Call SubBizSaveMultiDelete(arrColVal)                            '☜: Delete
+        End Select
+
+        If lgErrorStatus    = "YES" Then
+           lgErrorPos = lgErrorPos & arrColVal(1) & gColSep
+           Exit For
+        End If
+
+    Next
+
+End Sub
+'SetErrorStatus()
+'============================================================================================================
+' Name : SubBizSaveCreate
+' Desc : Query Data from Db
+'============================================================================================================
+Sub SubBizSaveMultiCreate(arrColVal)
+
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+
+    lgStrSQL = "INSERT INTO HDC010T         ("
+    lgStrSQL = lgStrSQL & " emp_no              ,"
+    lgStrSQL = lgStrSQL & " save_cd             ,"
+    lgStrSQL = lgStrSQL & " save_type           ,"
+    lgStrSQL = lgStrSQL & " bank_accnt          ,"
+    lgStrSQL = lgStrSQL & " bank_cd             ,"
+          
+    lgStrSQL = lgStrSQL & " script_amt          ,"
+    lgStrSQL = lgStrSQL & " tot_script_cnt      ,"
+    lgStrSQL = lgStrSQL & " expir_amt           ,"
+    lgStrSQL = lgStrSQL & " new_dt              ,"
+    lgStrSQL = lgStrSQL & " expir_dt		    ,"
+    lgStrSQL = lgStrSQL & " revoke_dt           ,"
+    lgStrSQL = lgStrSQL & " tax_rate            ,"
+
+    lgStrSQL = lgStrSQL & " Isrt_emp_no         ,"
+    lgStrSQL = lgStrSQL & " isrt_dt             ,"
+    lgStrSQL = lgStrSQL & " updt_emp_no         ,"
+    lgStrSQL = lgStrSQL & " updt_dt             )"
+    lgStrSQL = lgStrSQL & " VALUES("
+    lgStrSQL = lgStrSQL & FilterVar(UCase(arrColVal(2)), "''", "S")                       & ","
+    lgStrSQL = lgStrSQL & FilterVar(UCase(arrColVal(3)), "''", "S")                       & ","
+    lgStrSQL = lgStrSQL & FilterVar(UCase(arrColVal(4)), "''", "S")                       & ","
+    lgStrSQL = lgStrSQL & FilterVar(UCase(arrColVal(5)), "''", "S")                       & ","
+    lgStrSQL = lgStrSQL & FilterVar(UCase(arrColVal(6)), "''", "S")                       & ","
+
+   	lgStrSQL = lgStrSQL & UNIConvNum(arrColVal(7),0)                                          & ","
+    lgStrSQL = lgStrSQL & UNIConvNum(arrColVal(8),0)                                          & ","
+    lgStrSQL = lgStrSQL & UNIConvNum(arrColVal(9),0)                                          & ","
+    lgStrSQL = lgStrSQL & FilterVar(UNIConvDateCompanyToDB(arrColVal(10),NULL),"NULL","S")    & ","
+    lgStrSQL = lgStrSQL & FilterVar(UNIConvDateCompanyToDB(arrColVal(11),NULL),"NULL","S")    & ","
+    lgStrSQL = lgStrSQL & FilterVar(UNIConvDateCompanyToDB(arrColVal(12),NULL),"NULL","S")    & ","
+    lgStrSQL = lgStrSQL & UNIConvNum(arrColVal(13),0)                                         & ","
+
+    lgStrSQL = lgStrSQL & FilterVar(gUsrId, "''", "S")                                            & ","
+    lgStrSQL = lgStrSQL & FilterVar(GetSvrDateTime,NULL,"S")                                  & ","
+    lgStrSQL = lgStrSQL & FilterVar(gUsrId, "''", "S")                                            & ","
+    lgStrSQL = lgStrSQL & FilterVar(GetSvrDateTime,NULL,"S")
+    lgStrSQL = lgStrSQL & ")"
+
+    lgObjConn.Execute lgStrSQL,,adCmdText+adExecuteNoRecords
+	Call SubHandleError("MC",lgObjConn,lgObjRs,Err)
+
+End Sub
+'============================================================================================================
+' Name : SubBizSaveMultiUpdate
+' Desc : Update Data from Db
+'============================================================================================================
+Sub SubBizSaveMultiUpdate(arrColVal)
+
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+
+    lgStrSQL = "UPDATE  HDC010T"
+    lgStrSQL = lgStrSQL & " SET "
+    lgStrSQL = lgStrSQL & " bank_cd        = " & FilterVar(UCase(arrColVal(6)), "''", "S")   & ","
+    lgStrSQL = lgStrSQL & " script_amt     = " & UNIConvNum(arrColVal(7),0)     & ","
+    lgStrSQL = lgStrSQL & " tot_script_cnt = " & UNIConvNum(arrColVal(8),0)     & ","
+   	lgStrSQL = lgStrSQL & " expir_amt      = " & UNIConvNum(arrColVal(9),0)     & ","
+    lgStrSQL = lgStrSQL & " new_dt         = " & FilterVar(UNIConvDateCompanyToDB(arrColVal(10),NULL),"NULL","S")   & ","
+    lgStrSQL = lgStrSQL & " expir_dt       = " & FilterVar(UNIConvDateCompanyToDB(arrColVal(11),NULL),"NULL","S")   & ","
+    lgStrSQL = lgStrSQL & " revoke_dt      = " & FilterVar(UNIConvDateCompanyToDB(arrColVal(12),NULL),"NULL","S")   & ","
+    lgStrSQL = lgStrSQL & " tax_rate       = " & UNIConvNum(arrColVal(13),0)     & ","
+
+    lgStrSQL = lgStrSQL & " updt_emp_no    = " & FilterVar(gUsrId, "''", "S")   & ","
+    lgStrSQL = lgStrSQL & " updt_dt        = " & FilterVar(GetSvrDateTime,NULL,"S")
+    lgStrSQL = lgStrSQL & " WHERE        "
+    lgStrSQL = lgStrSQL & " emp_no         = " & FilterVar(UCase(arrColVal(2)), "''", "S")
+    lgStrSQL = lgStrSQL & " And save_cd    = " & FilterVar(UCase(arrColVal(3)), "''", "S")
+    lgStrSQL = lgStrSQL & " And save_type  = " & FilterVar(UCase(arrColVal(4)), "''", "S")
+    lgStrSQL = lgStrSQL & " And bank_accnt = " & FilterVar(UCase(arrColVal(5)), "''", "S")
+
+    lgObjConn.Execute lgStrSQL,,adCmdText+adExecuteNoRecords
+	Call SubHandleError("MU",lgObjConn,lgObjRs,Err)
+
+End Sub
+
+
+'============================================================================================================
+' Name : SubBizSaveMultiDelete
+' Desc : Delete Data from Db
+'============================================================================================================
+Sub SubBizSaveMultiDelete(arrColVal)
+
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+
+    lgStrSQL = "DELETE  HDC010T "
+    lgStrSQL = lgStrSQL & " WHERE        "
+    lgStrSQL = lgStrSQL & " emp_no         = " & FilterVar(UCase(arrColVal(2)), "''", "S")
+    lgStrSQL = lgStrSQL & " And save_cd    = " & FilterVar(UCase(arrColVal(3)), "''", "S")
+    lgStrSQL = lgStrSQL & " And save_type  = " & FilterVar(UCase(arrColVal(4)), "''", "S")
+    lgStrSQL = lgStrSQL & " And bank_accnt = " & FilterVar(UCase(arrColVal(5)), "''", "S")
+
+    lgObjConn.Execute lgStrSQL,,adCmdText+adExecuteNoRecords
+	Call SubHandleError("MD",lgObjConn,lgObjRs,Err)
+
+End Sub
+
+'============================================================================================================
+' Name : SubMakeSQLStatements
+' Desc : Make SQL statements
+'============================================================================================================
+Sub SubMakeSQLStatements(pDataType,pCode,pCode1,pComp)
+    Dim iSelCount
+
+    Select Case Mid(pDataType,1,1)
+       Case "M"
+
+           iSelCount = C_SHEETMAXROWS_D + C_SHEETMAXROWS_D *  lgStrPrevKey + 1
+
+           Select Case Mid(pDataType,2,1)
+               Case "R"
+                       lgStrSQL = "Select TOP " & iSelCount
+                       lgStrSQL = lgStrSQL & " haa010t.name,hdc010t.emp_no,hdc010t.save_cd,hdc010t.save_type,hdc010t.bank_accnt, "
+                       lgStrSQL = lgStrSQL & " hdc010t.bank_cd,b_bank.bank_nm,hdc010t.script_amt,hdc010t.tot_script_cnt, "
+                       lgStrSQL = lgStrSQL & " hdc010t.expir_amt,hdc010t.new_dt,hdc010t.expir_dt,hdc010t.revoke_dt,hdc010t.tax_rate, "
+                       lgStrSQL = lgStrSQL & " hdc010t.isrt_emp_no,hdc010t.isrt_dt,hdc010t.updt_emp_no,hdc010t.updt_dt "
+                       lgStrSQL = lgStrSQL & " From  haa010t,hdc010t,b_bank  "
+                       lgStrSQL = lgStrSQL & " Where hdc010t.save_cd " & pComp & pCode
+          End Select
+    End Select
+End Sub
+
+'============================================================================================================
+' Name : CommonOnTransactionCommit
+' Desc : This Sub is called by OnTransactionCommit Error handler
+'============================================================================================================
+Sub CommonOnTransactionCommit()
+End Sub
+
+'============================================================================================================
+' Name : CommonOnTransactionAbort
+' Desc : This Sub is called by OnTransactionAbort Error handler
+'============================================================================================================
+Sub CommonOnTransactionAbort()
+    lgErrorStatus    = "YES"
+End Sub
+
+'============================================================================================================
+' Name : SetErrorStatus
+' Desc : This Sub set error status
+'============================================================================================================
+Sub SetErrorStatus()
+    lgErrorStatus     = "YES"                                                         '☜: Set error status
+End Sub
+'============================================================================================================
+' Name : SubHandleError
+' Desc : This Sub handle error
+'============================================================================================================
+Sub SubHandleError(pOpCode,pConn,pRs,pErr)
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+
+    Select Case pOpCode
+        Case "MC"
+                 If CheckSYSTEMError(pErr,True) = True Then
+                    ObjectContext.SetAbort
+                    Call SetErrorStatus
+                 Else
+                    If CheckSQLError(pConn,True) = True Then
+                       ObjectContext.SetAbort
+                       Call SetErrorStatus
+                    End If
+                 End If
+        Case "MD"
+        Case "MR"
+        Case "MU"
+                 If CheckSYSTEMError(pErr,True) = True Then
+                    ObjectContext.SetAbort
+                    Call SetErrorStatus
+                 Else
+                    If CheckSQLError(pConn,True) = True Then
+                       ObjectContext.SetAbort
+                       Call SetErrorStatus
+                    End If
+                 End If
+    End Select
+End Sub
+
+%>
+
+<Script Language="VBScript">
+
+    Select Case "<%=lgOpModeCRUD %>"
+       Case "<%=UID_M0001%>"                                                         '☜ : Query
+          If Trim("<%=lgErrorStatus%>") = "NO" Then
+              With Parent
+                .ggoSpread.Source     = .frm1.vspdData
+                .lgStrPrevKey    = "<%=lgStrPrevKey%>"
+                .ggoSpread.SSShowData "<%=lgstrData%>"                
+                .DBQueryOk
+	         End with
+          End If
+       Case "<%=UID_M0002%>"                                                         '☜ : Save
+          If Trim("<%=lgErrorStatus%>") = "NO" Then
+             Parent.DBSaveOk
+          Else
+             Parent.SubSetErrPos(Trim("<%=lgErrorPos%>"))
+          End If
+       Case "<%=UID_M0002%>"                                                         '☜ : Delete
+          If Trim("<%=lgErrorStatus%>") = "NO" Then
+             Parent.DbDeleteOk
+          Else
+          End If
+    End Select
+
+
+</Script>

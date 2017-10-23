@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=hfa050t_old_sub_amt1 name=txtold_sub_amt1 style="HEIGHT: 44px; LEFT: 0px; TOP: 0px; WIDTH: 125px" title=FPDOUBLESINGLE tag="24X2Z" ALT="경로우대정산결과1"></OBJECT>');

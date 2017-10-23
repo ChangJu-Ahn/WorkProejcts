@@ -1,0 +1,1663 @@
+/*
+	  Copyright (C) 2003-2014 GrapeCity Inc.	All rights reserved.
+*/
+
+DIV[FpSpread='Spread'] {
+  -webkit-tap-highlight-color: transparent; /* IPAD support */
+}
+
+DIV[FpSpread='Spread'] input {
+    max-width:none;
+    max-height:none;
+  }
+
+DIV[FpSpread='Spread'] .FilterBar input /*TFS 73581*/
+{
+  margin:0px;
+}
+
+DIV[FpSpread='Spread']:focus {
+ /* Prevent spread highlighted when clicked on chrome/safari */
+ outline: none;
+}
+
+DIV[FpSpread='Spread'] .SlideBar {
+  -webkit-user-drag: none;
+}
+
+DIV[FpSpread='Spread'] .DefaultInput {
+  outline-style:none;
+  resize:none;
+  margin:0px;
+}
+
+DIV[FpSpread='Spread'] .HiddenDiv {
+  border: none;
+  background-color:transparent;
+  color:transparent;  
+}
+
+DIV[FpSpread='Spread'] div.GrayAreaContainer {
+  width:9000px;
+  height:0px; /* TFS 73417 Prevent very strang behavior on Chrome that scroll column header*/
+  overflow:visible;
+  position:relative;
+}
+
+DIV[FpSpread='Spread'] .Unselectable {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+DIV[FpSpread='Spread'] .DefaultTextEditor {
+  padding-left: 1px;
+  padding-right:1px;
+}
+
+DIV[FpSpread='Spread'] .webkit_DefaultTextEditor {
+  /* Default editor get css style from cell that has no padding when display cell content */
+  padding-top:0px;
+  padding-bottom:0px;
+}
+
+  DIV[FpSpread='Spread'] .TextCellTypeShowEditor {
+    padding-right: 5px; /* in safari we need set default padding to make cursor not out of editor in case of space auto insert feature of safari keyboard. */
+  }
+
+  DIV[FpSpread='Spread'] .Button_Hover {
+    background-color: #757575 !important;
+  }
+
+DIV.SpreadContextMenuHolder {
+  display: none;
+  z-index: 999998;
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+
+UL.SpreadContextMenu {
+  list-style: none;
+  margin: 0;
+  width: auto;
+  color: Black;
+  padding: 1px;
+  background-color: White;
+  display: none;
+  border: 1px solid #a7abb0;
+  position: absolute;
+  font-family: Segoe UI, Verdana, Tahoma;
+  font-size: 0;
+  background-repeat: repeat-y;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  -moz-box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  background-image: url('<%=WebResource("FarPoint.Web.Spread.img.menu_vertical_sep.gif")%>');
+  z-index: 999998;
+  outline: none;   
+  box-sizing: content-box;
+}
+
+  UL.SpreadContextMenu LI {
+    font-size: 12px;
+  /* Support IPAD*/
+  -webkit-tap-highlight-color:transparent;
+  }
+
+
+    /*-------------------- support touch ----------------------------*/
+    UL.SpreadContextMenu LI.item {
+      line-height: 17px;
+    }
+
+UL.touch LI.item {
+  padding: 4px 2px 4px 2px;
+}
+
+UL.webkit_SpreadContextMenu > LI > a:hover, UL.webkit_SpreadContextMenu > LI > a.active {
+  background-color: #FDF9D9;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #F1CA58;
+}
+
+UL.webkit_SpreadContextMenu > LI.aspNetDisabled, UL.webkit_SpreadContextMenu > LI.aspNetDisabled:hover,  UL.webkit_SpreadContextMenu > LI.aspNetDisabled A:hover, UL.webkit_SpreadContextMenu > LI.aspNetDisabled > A.itemlink, UL.webkit_SpreadContextMenu > LI A.aspNetDisabled:active {
+  background-color: transparent;
+  color: #c5a7b6;
+  border:none;
+}
+
+UL.SpreadContextMenu LI.item.template {
+  padding: 2px 2px 2px 27px;
+}
+
+UL.touch LI.item.template {
+  padding: 4px 2px 4px 27px;
+}
+
+UL.SpreadContextMenu LI.item DIV.template {
+  margin-left: -27px;
+}
+
+UL.SpreadContextMenu LI A.itemlink {
+  color: #000;
+  border: 1px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  display: block;
+  padding: 2px 5px 2px 27px;
+  width: auto;
+  outline: 0;
+  overflow: hidden;
+  cursor: default;
+  padding-right: 16px;
+}
+
+UL.touch LI A.itemlink {
+  height: 23px;
+}
+
+UL.SpreadContextMenu LI A.aspNetDisabled {
+  /*Like normal menu A style above */
+  text-decoration: none;
+  white-space: nowrap;
+  display: block;
+  padding: 2px 5px 2px 27px;
+  width: auto;
+  outline: 0;
+  overflow: hidden;
+  cursor: default;
+  /* Disable color */
+  color: #c5a7b6;
+}
+
+UL.SpreadContextMenu LI A.active {
+  color: #000;
+  background-color: #FDF9D9;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #F1CA58;
+}
+
+UL.SpreadContextMenu LI A.popout  
+{
+  padding-right:30px;   
+  background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+  background-position: right -29px;
+  background-repeat: no-repeat;
+}
+
+UL.TouchStrip LI A.active {
+  background-color: #D3F0E0;
+  border-color: #D3F0E0;
+}
+
+UL.webkit_TouchStrip > LI > a:hover,  UL.webkit_TouchStrip > LI > a.active {
+  background-color: #D3F0E0;
+  border-color: #D3F0E0;
+}
+
+UL.touch LI A.active {
+  height: 23px;
+}
+
+UL.SpreadContextMenu LI A :first-child {
+  text-wrap: normal;
+  display: block;
+  top: 50%;
+  margin-top: 3px;
+}
+
+UL.SpreadContextMenu LI A :nth-child(2) {
+  background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+  background-position: right -32px;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  padding-right: 2px;
+  display: block;
+  left: 100%;
+  margin-top: -16px;
+  margin-left:100%;
+}
+
+UL.SpreadContextMenu LI.item .icon {
+  margin-left: 2px;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  border: 1px solid transparent;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  left: 2px;
+}
+
+/*------------------end of-- support touch ----------------------------*/
+UL.SpreadContextMenu LI A.caption {
+  background-color: #f0f2f5;
+  color: Black;
+  text-align: center;
+  vertical-align: middle;
+  padding: 2px 4px 2px 4px;
+  font-weight: bold;
+  display: block;
+  width: auto;
+  border: none;
+  border-top: 1px solid #e2e4e7;
+}
+
+UL.SpreadContextMenu LI.sep {
+  font-size: 0;
+  line-height: 0;
+}
+
+UL.SpreadContextMenu SPAN.sep {
+  width: auto;
+  height: 1px;
+  border-top: 1px dotted #a7abb0;
+  display: block;
+  margin: 2px 0 2px 27px;
+}
+
+
+
+UL.SpreadContextMenu LI.item DIV.checked {
+  border-color: #f29536;
+  background: #fcf1c2 url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat 0 -96px;
+  width: 17px;
+  height: 17px;
+  margin-left: 1px;
+  margin-top: 2px;
+}
+
+/* Enhanced filter CSS */
+DIV.FilterMenu {
+  z-index: 999998;
+  display: none;
+  outline: none;
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+  DIV.FilterMenu UL {
+    outline: none;
+  }
+
+  DIV.FilterMenu button {
+    width: 80px;
+    height: 25px !important;
+    font-family: Segoe UI, Verdana, Tahoma;
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  DIV.FilterMenu DIV.TreeHolder {
+    overflow: auto;
+    height: 180px;
+    border: 1px solid #e2e4e7;
+    margin: 2px 0 2px 0;
+    cursor: default;
+    line-height: 10px;
+    outline: none;
+  }
+
+    DIV.FilterMenu DIV.TreeHolder a {
+      outline: none;
+    }
+
+    DIV.FilterMenu DIV.TreeHolder td div {
+      /* 
+  Tip trick to fix broken rendering result of ASP.net tree view 
+  http://blogs.msdn.com/b/carloc/archive/2007/05/23/broken-line-in-asp-net-2-0-treeview-in-ie-7.aspx
+  */
+      height: 20px !important;
+    }
+
+  DIV.FilterMenu DIV.ColorMenuItem {
+    margin-left: 5px;
+    height: 15px;
+    text-align: left;
+  }
+
+    DIV.FilterMenu DIV.ColorMenuItem.ColorBox {
+      width: 50px;
+      border: 1px solid #828282;
+    }
+
+    DIV.FilterMenu DIV.ColorMenuItem.TextBox {
+      display: inline;
+    }
+
+DIV.FilterEditorDropDown {
+  position: absolute;
+  bottom: 50%;
+  margin-bottom: -8px !important;/* TFS98794 */
+  right: 1px;
+  cursor: pointer;
+  border: 1px solid #a6acb3;
+  width: 15px;
+  height: 15px;
+  background: #f6f7fa url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat -1px -144px;
+  font-size: 1px;
+  outline: none;
+}
+
+DIV.FilterBarDropDown {
+  bottom: 1px;
+  right: 2px;
+  margin-bottom: 0  !important;
+}
+
+DIV.FilteredEditorDropDown {
+  background: #f6f7fa url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat -1px -160px;
+}
+
+DIV.FilteredSortedAZEditorDropDown {
+  background: #f6f7fa url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat -1px -320px;
+}
+
+DIV.FilteredSortedZAEditorDropDown {
+  background: #f6f7fa url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat -1px -336px;
+}
+
+DIV.SortedAZEditorDropDown {
+  background: #f6f7fa url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat -1px -304px;
+}
+
+DIV.SortedZAEditorDropDown {
+  background: #f6f7fa url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat -1px -288px;
+}
+
+DIV.FilterEditor {
+  width: 100%;
+  position: relative;
+}
+
+  DIV.FilterEditor DIV.CLabel {
+    padding-right: 20px;
+  }
+
+TABLE.FilterBar {
+  width: 100%;
+}
+
+div[FpSpread='Spread'] .FilterBar * {
+  line-height:normal;
+  box-sizing:content-box;
+}
+
+  TABLE.FilterBar TR TD:first-child {
+    padding-left: 1px;
+  }
+
+.FilterBarDatePicker {
+  position: relative;
+  cursor: pointer;
+  width: 16px;
+  height: 15px;
+  background: transparent url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat 0 -64px;
+  overflow: hidden;
+  outline: none;
+}
+
+TABLE.FilterBar INPUT.FilterBarTextBox {
+  width: 100%;
+  border: 1px solid #9babc2;
+  margin-top: 1px;
+}
+
+TABLE.FilterBar INPUT.webkit_FilterBarTextBox {
+  box-sizing:border-box;
+}
+
+/* ----------support touch -----------*/
+DIV.GcDatePicker {
+  width: 200px;
+  border: 1px solid #9babc2;
+  background-color: #fff;
+  font-family: "segoe ui", arial, sans-serif;
+  font-size: 12px;
+  padding: 3px;
+  -webkit-box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  -moz-box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  z-index: 999999;
+  outline: none;
+}
+
+DIV.touch {
+  width: 240px;
+}
+
+  DIV.touch TR {
+    height: 23px;
+  }
+
+DIV.GcDatePicker A {
+  border: 1px solid transparent;
+  color: #000;
+  display: block;
+  text-align: right;
+  padding-right: 5px;
+  text-decoration: none;
+  cursor: default;
+  width: 20px;
+  height: 16px;
+  font-size: 12px;
+}
+
+DIV.touch A {
+  width: 23px;
+  height: 19px;
+}
+
+DIV.GcDatePicker TABLE.Navigation A.gcDatePickerPrev {
+  background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+  background-position: center -16px;
+}
+
+DIV.GcDatePicker TABLE.Navigation A.gcDatePickerPrev2 {
+  background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+  background-position: center 0;
+}
+
+DIV.GcDatePicker TABLE.Navigation A.gcDatePickerNext {
+  background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+  background-position: center -32px;
+}
+
+DIV.GcDatePicker TABLE.Navigation A.gcDatePickerNext2 {
+  background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+  background-position: center -48px;
+}
+
+DIV.touch TABLE.Navigation A.gcDatePickerPrev {
+  background-position: center -13px;
+}
+
+DIV.touch TABLE.Navigation A.gcDatePickerPrev2 {
+  background-position: center 3px;
+}
+
+DIV.touch TABLE.Navigation A.gcDatePickerNext {
+  background-position: center -29px;
+}
+
+DIV.touch TABLE.Navigation A.gcDatePickerNext2 {
+  background-position: center -45px;
+}
+/* ------------------------------------------*/
+
+DIV.GcDatePickerHidden {
+  border: none !important;
+  padding: 0px !important;
+  width: 0px !important;
+  height: 0px !important;
+}
+
+DIV.ieShadow {
+  zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.DropShadow(OffX=3, OffY=3, Color=#f0f0f0), progid:DXImageTransform.Microsoft.Chroma(Color='#ffffff');
+  z-index: 999998;
+}
+
+DIV.GcDatePicker A.WeekDay, DIV.GcDatePicker A.WeekDay:hover {
+  border: 1px solid transparent;
+  color: #000;
+  background-color: transparent;
+  outline: none;
+}
+
+DIV.GcDatePicker A.DP_Caption, DIV.GcDatePicker A.DP_Caption:hover {
+  background-color: transparent;
+  border: 1px solid transparent;
+  text-align: center;
+  outline: none;
+  width: 100%;
+}
+
+DIV.GcDatePicker A.today {
+  border: 1px solid #0066cc;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  color: #0066cc;
+}
+
+  DIV.GcDatePicker A.today:hover {
+    border: 1px solid #0066cc;
+    background-color: #f1f7ff;
+  }
+
+DIV.GcDatePicker A.selected {
+  border: 1px solid #84acdd;
+  color: #000;
+  background-color: #daebff;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+}
+
+  DIV.GcDatePicker A.selected:hover {
+    background-color: #c8e0fd;
+  }
+
+DIV.GcDatePicker A:hover {
+  border: 1px solid #b9d7fc;
+  color: #0066cc;
+  background-color: #f5f9ff;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+}
+
+DIV.GcDatePicker TABLE.Navigation A, DIV.GcDatePicker TABLE.Navigation A:hover {
+  outline: none;
+  background-repeat: no-repeat;
+}
+
+DIV.GcDatePicker A.Month {
+  height: 33px;
+  line-height: 33px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+DIV.GcDatePicker A.Year10 {
+  color: #000;
+  height: 33px;
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+DIV.GcDatePicker A.ExternalRange {
+  color: #646464;
+}
+
+  DIV.GcDatePicker A.ExternalRange:hover {
+    color: #b1c5fc;
+    background-color: #f1f7ff;
+  }
+
+DIV.DropDownTextBox {
+  position: relative;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #a2a6ab;
+}
+
+  DIV.DropDownTextBox input {
+    height: 17px;
+    border: 0 solid;
+    font-family: Segoe UI, Verdana, Tahoma;
+    font-size: 12px;
+    top: 0;
+    color: inherit;
+    -webkit-padding-before:1px;
+    -webkit-padding-after:1px;
+  }
+
+    DIV.DropDownTextBox input.Watermark {
+      color: #a2a6ab;
+    }
+
+  DIV.DropDownTextBox .DropDownButton {
+    background: #fff url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat -2px -175px;
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 12px;
+    border: 1px solid #707070;
+    height: 18px;
+    top: 0;
+  }
+
+  DIV.DropDownTextBox .InlineImage {
+    background: #fff url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat 0 -192px;
+    display: block;
+    position: absolute;
+    right: 14px;
+    width: 16px;
+    height: 20px;
+    top: 0;
+  }
+
+  DIV.DropDownTextBox .InlineImageCancel {
+    background-color: #f5f6f7;
+    display: block;
+    position: absolute;
+    right: 14px;
+    width: 16px;
+    height: 20px;
+    top: 0;
+    border-left: 1px solid #a2a6ab;
+  }
+
+    DIV.DropDownTextBox .InlineImageCancel DIV {
+      background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+      background-position: 0 -208px;
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+    }
+
+.SpreadCheckBoxOpacity {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+
+DIV.SpreadDialog {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #849dbd;
+  background-color: #cfddee;
+  color: #000;
+  font-family: Segoe UI, Verdana, Tahoma;
+  font-size: 12px;
+  position: absolute;
+  -webkit-box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  -moz-box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;   
+}
+
+  DIV.SpreadDialog DIV.DialogCaption {
+    padding: 5px;
+    border-bottom: 1px solid #849dbd;
+    font-size: 13px;
+    min-height: 20px;
+    cursor: default;
+    padding-left: 5px;
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: none;
+  }
+
+    DIV.SpreadDialog DIV.DialogCaption SPAN {
+      float: left;
+    }
+
+    DIV.SpreadDialog DIV.DialogCaption A.Close {
+      display: block;
+      width: 18px;
+      height: 18px;
+      border: 1px solid transparent;
+      background: transparent url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat 1px -79px;
+      float: right;
+    }
+
+      DIV.SpreadDialog DIV.DialogCaption A.Close:hover {
+        background-color: #FDF9D9;
+        border-color: #F1CA58;
+      }
+
+  DIV.SpreadDialog DIV.Window {
+    border: 1px solid #78addd;
+    background-color: #FCFCFC;
+    padding: 5px;
+    margin: 5px;
+  }
+
+  DIV.SpreadDialog INPUT.Text {
+    border: 1px solid #abbad0;
+    height: 18px;
+    font-size: 12px;
+  }
+
+  DIV.SpreadDialog SELECT {
+    height: 22px;
+    font-size: 12px;
+  }
+
+  DIV.SpreadDialog INPUT.Button {
+    background-color: #d9e5f3;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    border: 1px solid #abbad0;
+    height: 24px;
+    font-size: 12px;
+  }
+
+    DIV.SpreadDialog INPUT.Button:hover {
+      background-color: #FDF9D9;
+      border: 1px solid #F1CA58;
+    }
+
+  DIV.SpreadDialog DIV.ColorBlock A {
+    width: 20px;
+    height: 12px;
+    border: 1px solid transparent;
+    display: block;
+    float: left;
+    margin: 4px 3px 4px 3px;
+    padding: 2px;
+    cursor: default;
+  }
+
+    DIV.SpreadDialog DIV.ColorBlock A:hover, DIV.SpreadDialog DIV.IconBlock A:hover {
+      border: 1px solid rgb(241,209,77);
+      background-color: rgb(255,238,194);
+    }
+
+    DIV.SpreadDialog DIV.ColorBlock A.Selected, DIV.SpreadDialog DIV.IconBlock A.Selected {
+      border: 1px solid rgb(255,171,63);
+      background-color: rgb(255,192,111);
+    }
+
+      DIV.SpreadDialog DIV.ColorBlock A.Selected:hover, DIV.SpreadDialog DIV.IconBlock A.Selected:hover {
+        border: 1px solid rgb(251,140,60);
+        background-color: rgb(254,128,62);
+      }
+
+    DIV.SpreadDialog DIV.ColorBlock A DIV {
+      border: 1px solid rgb(102, 138, 173);
+      width: 18px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+  DIV.SpreadDialog DIV.IconBlock A {
+    border: 1px solid transparent;
+    width: 16px;
+    height: 16px;
+    margin: 3px;
+    float: left;
+    display: block;
+    cursor: default;
+    padding: 2px;
+  }
+
+DIV.SpreadMaskDialog {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);   
+}
+
+DIV.EditingFilterIndicator {
+  width: 16px;
+  height: 16px;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') 0 -272px no-repeat;
+}
+
+DIV.SpreadCFIcon0 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') 0 center no-repeat;
+}
+
+DIV.SpreadCFIcon1 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -16px center no-repeat;
+}
+
+DIV.SpreadCFIcon2 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -32px center no-repeat;
+}
+
+DIV.SpreadCFIcon3 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -48px center no-repeat;
+}
+
+DIV.SpreadCFIcon4 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -64px center no-repeat;
+}
+
+DIV.SpreadCFIcon5 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -80px center no-repeat;
+}
+
+DIV.SpreadCFIcon6 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -96px center no-repeat;
+}
+
+DIV.SpreadCFIcon7 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -112px center no-repeat;
+}
+
+DIV.SpreadCFIcon8 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -128px center no-repeat;
+}
+
+DIV.SpreadCFIcon9 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -144px center no-repeat;
+}
+
+DIV.SpreadCFIcon10 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -160px center no-repeat;
+}
+
+DIV.SpreadCFIcon11 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -176px center no-repeat;
+}
+
+DIV.SpreadCFIcon12 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -192px center no-repeat;
+}
+
+DIV.SpreadCFIcon13 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -208px center no-repeat;
+}
+
+DIV.SpreadCFIcon14 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -224px center no-repeat;
+}
+
+DIV.SpreadCFIcon15 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -240px center no-repeat;
+}
+
+DIV.SpreadCFIcon16 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -256px center no-repeat;
+}
+
+DIV.SpreadCFIcon17 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -272px center no-repeat;
+}
+
+DIV.SpreadCFIcon18 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -288px center no-repeat;
+}
+
+DIV.SpreadCFIcon19 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -304px center no-repeat;
+}
+
+DIV.SpreadCFIcon20 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -320px center no-repeat;
+}
+
+DIV.SpreadCFIcon21 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -336px center no-repeat;
+}
+
+DIV.SpreadCFIcon22 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -352px center no-repeat;
+}
+
+DIV.SpreadCFIcon23 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -368px center no-repeat;
+}
+
+DIV.SpreadCFIcon24 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -384px center no-repeat;
+}
+
+DIV.SpreadCFIcon25 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -400px center no-repeat;
+}
+
+DIV.SpreadCFIcon26 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -416px center no-repeat;
+}
+
+DIV.SpreadCFIcon27 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -432px center no-repeat;
+}
+
+DIV.SpreadCFIcon28 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -448px center no-repeat;
+}
+
+DIV.SpreadCFIcon29 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -464px center no-repeat;
+}
+
+DIV.SpreadCFIcon30 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -480px center no-repeat;
+}
+
+DIV.SpreadCFIcon31 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -496px center no-repeat;
+}
+
+DIV.SpreadCFIcon32 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -512px center no-repeat;
+}
+
+DIV.SpreadCFIcon33 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -528px center no-repeat;
+}
+
+DIV.SpreadCFIcon34 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -544px center no-repeat;
+}
+
+DIV.SpreadCFIcon35 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -560px center no-repeat;
+}
+
+DIV.SpreadCFIcon36 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -576px center no-repeat;
+}
+
+DIV.SpreadCFIcon37 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -592px center no-repeat;
+}
+
+DIV.SpreadCFIcon38 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -608px center no-repeat;
+}
+
+DIV.SpreadCFIcon39 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -624px center no-repeat;
+}
+
+DIV.SpreadCFIcon40 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -640px center no-repeat;
+}
+
+DIV.SpreadCFIcon41 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -656px center no-repeat;
+}
+
+DIV.SpreadCFIcon42 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -672px center no-repeat;
+}
+
+DIV.SpreadCFIcon43 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -688px center no-repeat;
+}
+
+DIV.SpreadCFIcon44 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -704px center no-repeat;
+}
+
+DIV.SpreadCFIcon45 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -720px center no-repeat;
+}
+
+DIV.SpreadCFIcon46 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -736px center no-repeat;
+}
+
+DIV.SpreadCFIcon47 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -752px center no-repeat;
+}
+
+DIV.SpreadCFIcon48 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -768px center no-repeat;
+}
+
+DIV.SpreadCFIcon49 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -784px center no-repeat;
+}
+
+DIV.SpreadCFIcon50 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -800px center no-repeat;
+}
+
+DIV.SpreadCFIcon51 {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: url('<%=WebResource("FarPoint.Web.Spread.img.cdf_icons.png")%>') -816px center no-repeat;
+}
+
+
+/*Temporary. Should be removed after complete Touch support feature.*/
+DIV.touchHandle {
+  width: 30px;
+  height: 30px;
+  margin: -14px 0 0 -14px;
+  display: none;
+  position: absolute;
+  background-color: rgba(255,255,255, 0.001);
+  z-index: 1;
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+  DIV.touchHandle DIV {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border: 2px solid black;
+    margin: -8px 0 0 -8px;
+    background-color: white;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+     box-sizing:content-box;
+  }
+
+DIV.touchResizeVerHandle {
+  width: 30px;
+  height: 16px; /*minimum size*/
+  position: absolute;
+  display: none;
+  background-color: rgba(255,255,255, 0.001);
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+  DIV.touchResizeVerHandle > DIV {
+    width: 16px;
+    height: 16px;
+    top: 100%;
+    left: 50%;
+    margin-top: -16px;
+    margin-left: -8px;
+    position: relative;
+  }
+
+    DIV.touchResizeVerHandle > DIV > DIV:nth-child(1) {
+      width: 0;
+      height: 0;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-right: 3px solid black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -3px;
+      margin-left: -8px;
+    }
+
+    DIV.touchResizeVerHandle > DIV > DIV:nth-child(2) {
+      width: 0;
+      height: 0;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-left: 3px solid black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -3px;
+      margin-left: 5px;
+    }
+
+    DIV.touchResizeVerHandle > DIV > DIV:nth-child(3) {
+      background-color: black;
+      width: 2px;
+      height: 16px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -1px;
+      margin-top: -8px;
+    }
+
+    DIV.touchResizeVerHandle > DIV > DIV:nth-child(4) {
+      background-color: black;
+      width: 10px;
+      height: 2px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -1px;
+      margin-left: -5px;
+    }
+
+DIV.touchResizeHorHandle {
+  height: 30px;
+  width: 16px; /*minimum size*/
+  position: absolute;
+  display: none;
+  background-color: rgba(255,255,255, 0.001);
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+  DIV.touchResizeHorHandle > DIV {
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 100%;
+    margin-top: -8px;
+    margin-left: -16px;
+    position: relative;
+  }
+
+    DIV.touchResizeHorHandle > DIV > DIV:nth-child(1) {
+      width: 0;
+      height: 0;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-bottom: 3px solid black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -3px;
+      margin-top: -8px;
+    }
+
+    DIV.touchResizeHorHandle > DIV > DIV:nth-child(2) {
+      width: 0;
+      height: 0;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top: 3px solid black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -3px;
+      margin-top: 5px;
+    }
+
+    DIV.touchResizeHorHandle > DIV > DIV:nth-child(3) {
+      background-color: black;
+      height: 2px;
+      width: 16px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -8px;
+      margin-top: -1px;
+    }
+
+    DIV.touchResizeHorHandle > DIV > DIV:nth-child(4) {
+      background-color: black;
+      height: 10px;
+      width: 2px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -5px;
+      margin-left: -1px;
+    }
+
+DIV[FpSpread=Spread], DIV[FpSpread=Spread] DIV {
+  -ms-content-zooming: none;
+}
+
+  DIV[FpSpread=Spread] DIV._gcTouchPanable {
+    -ms-touch-action: pan-x pan-y;
+    -ms-scroll-chaining: none;
+  }
+
+  DIV[FpSpread=Spread] span[name$="_slideBar"] {
+    -ms-touch-action: none;
+  }
+
+  DIV[fpspread=mccbContainer] IMG.resizeButton{
+    -ms-touch-action: none;
+  }
+
+UL.SpreadTouchStrip {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  width: auto;
+  color: Black;
+  background-color: White;
+  display: none;
+  border: 1px solid #a7abb0;
+  position: absolute;
+  font-family: Segoe UI, Verdana, Tahoma;
+  font-size: 0;
+  background-repeat: repeat-y;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  -moz-box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  box-shadow: 2px 2px 7px rgba(50,50,50,0.75);
+  z-index: 999998;
+  outline: none;
+}
+
+  UL.SpreadTouchStrip > LI {
+    font-size: 11.5px;
+    display: block;
+    width: 52px;
+    height: 65px;
+    float: left;
+    /* Support IPAD //TFS 87111 */
+  -webkit-tap-highlight-color:transparent;
+  }
+
+UL.SpreadTouchStrip > LI.active {
+   background-color: #D3F0E0 !important;
+}
+
+UL.SpreadTouchStrip > LI:hover {
+    background-color: #D3F0E0;
+}
+
+UL.webkit_SpreadContextMenu > LI:hover {
+    background-color: transparent;
+}
+
+UL.SpreadTouchStrip > LI.aspNetDisabled, UL.SpreadTouchStrip > LI.aspNetDisabled:hover,  UL.SpreadTouchStrip > LI.aspNetDisabled A:hover, UL.SpreadTouchStrip > LI.aspNetDisabled > A.itemlink, UL.SpreadTouchStrip > LI A.aspNetDisabled:active {
+  background-color: transparent;
+  color: #c5a7b6;
+}
+
+UL.SpreadTouchStrip > LI.item {
+  line-height: 17px;
+  position: relative;
+}
+
+
+UL.SpreadTouchStrip > LI > A.itemlink {
+  background-color: transparent;
+  color: #000;
+  border: none;
+  text-decoration: none;
+  vertical-align: bottom;
+  display: block;
+  width: 100%;
+  height: 65px;
+  outline: 0;
+  overflow: hidden;
+  cursor: default;
+  position: relative;
+}
+
+UL.SpreadTouchStrip > LI > A.selected {
+  background-color: #86BFA0;
+}
+
+UL.SpreadTouchStrip > LI > A.active {
+  background-color: #9FD5B7;
+}
+
+UL.SpreadTouchStrip > LI > A.itemlink > SPAN, UL.SpreadTouchStrip > LI A.aspNetDisabled > SPAN {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  height: 22px;
+  position: absolute;
+  top: 100%;
+  margin-top: -25px;
+}
+
+    UL.SpreadTouchStrip > LI A.aspNetDisabled {
+      /*Like normal menu A style above */
+      text-decoration: none;
+      vertical-align: bottom;
+      white-space: nowrap;
+      display: block;
+      width: 100%;
+      height: 65px;
+      outline: 0;
+      overflow: hidden;
+      cursor: default;
+      position: relative;
+      /* Disable color */
+      color: #c5a7b6;
+    }
+
+    UL.SpreadTouchStrip > LI > A :first-child {
+      text-wrap: normal;
+      display: block;
+      top: 50%;
+      margin-top: 3px;
+    }
+
+    UL.SpreadTouchStrip > LI > A SPAN.nth_child_2 {
+      background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+      background-position: right -29px;
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+      padding-right: 2px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      margin-top: -10px;
+      margin-left: -16px;
+    }
+
+    UL.SpreadTouchStrip > LI > A :nth-child(2) {
+      background-image: url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>');
+      background-position: right -29px;
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+      padding-right: 2px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      margin-top: -10px;
+      margin-left: -16px;
+    }
+
+    UL.SpreadTouchStrip > LI.item > .icon {
+      left: 50%;
+      margin-left: -16px;
+      margin-top: 3px;
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      border: none;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+    }
+
+    UL.SpreadTouchStrip > LI > A.caption {
+      background-color: #f0f2f5;
+      color: Black;
+      text-align: center;
+      vertical-align: middle;
+      padding: 2px 4px 2px 4px;
+      font-weight: bold;
+      display: block;
+      width: auto;
+      border: none;
+      border-top: 1px solid #e2e4e7;
+    }
+
+    UL.SpreadTouchStrip > LI.sep {
+      font-size: 0;
+      line-height: 0;
+      width: 15px;
+      position: relative;
+    }
+
+    UL.SpreadTouchStrip > LI.sep:hover {
+      background-color: transparent;
+    }
+
+  UL.SpreadTouchStrip > LI.sep > SPAN.sep {
+    width: 1px;
+    top: 5%;
+    height: 90%;
+    border-left: 1px solid rgb(226, 228, 231);
+    display: block;
+    margin: 0px 7px 0px 7px;
+    position: absolute;
+  }
+
+
+
+  UL.SpreadTouchStrip > LI.item > DIV.checked {
+    border-color: #f29536;
+    background: #fcf1c2 url('<%=WebResource("FarPoint.Web.Spread.img.Icons16.png")%>') no-repeat 0 -96px;
+    width: 17px;
+    height: 17px;
+    margin-left: 1px;
+    margin-top: 2px;
+  }
+
+  
+UL.SpreadTouchStrip > LI.item DIV.paste {
+  background: transparent url('<%=WebResource("FarPoint.Web.Spread.img.Icons32.png")%>') no-repeat 0px 0px;
+}
+
+
+UL.SpreadTouchStrip > LI.item DIV.cut {
+  background: transparent url('<%=WebResource("FarPoint.Web.Spread.img.Icons32.png")%>') no-repeat 0px -32px;
+}
+
+
+UL.SpreadTouchStrip > LI.item DIV.copy {
+  background: transparent url('<%=WebResource("FarPoint.Web.Spread.img.Icons32.png")%>') no-repeat 0px -64px;
+}
+
+/* For popup element */
+  DIV[HostSpreadID] input {
+    max-width: none;
+    max-height: none;
+  }
+
+  DIV[HostSpreadID] table, DIV[HostSpreadID] ul, DIV[HostSpreadID] a {  
+  box-sizing: content-box;
+}
+
+
+div[FpSpread=Spread] .spread-touch-viewport {
+  touch-action:inherit;
+  -ms-touch-action:inherit;
+  -ms-overflow-style:auto;
+}
+
+div[FpSpread=Spread] .spread-touch-header {
+  touch-action:none;
+  -ms-touch-action:none;
+}
+
+div[FpSpread=Spread] .spread-touch-none {
+  touch-action:none;
+  -ms-touch-action:none;
+}
+div[FpSpread=Spread] .spread-touch-pan-x {
+  touch-action:pan-x pinch-zoom;
+  -ms-touch-action:pan-x pinch-zoom;
+  /*-webkit-overflow-scrolling:touch;*/
+}
+div[FpSpread=Spread] .spread-touch-pan-y {
+  touch-action:pan-y pinch-zoom;
+  -ms-touch-action:pan-y pinch-zoom;
+  /*-webkit-overflow-scrolling:touch;*/
+}
+div[FpSpread=Spread] .spread-touch-pan-xy {
+  touch-action:pan-x pan-y pinch-zoom;
+  -ms-touch-action:pan-x pan-y pinch-zoom;
+  /*-webkit-overflow-scrolling:touch;*/
+}
+div[FpSpread=Spread] .spread-touch-pinch-zoom {
+  touch-action:pinch-zoom;
+  -ms-touch-action: pinch-zoom;
+  /*-webkit-overflow-scrolling:touch;*/
+}
+
+div[FpSpread=Spread] .scrollable-without-scrollbar {
+  overflow:auto;
+  -ms-overflow-style:none;
+}
+
+div[FpSpread=Spread] .scrollable-without-scrollbar::-webkit-scrollbar{
+  display:none;
+}
+
+.spread-webkit-scroll {
+  -webkit-overflow-scrolling: touch;  
+
+  /*
+    TFS 100321 100314
+    This is bad issue of Safari when enable webkit-overflow-scroll that change the behavior of render
+    Seem safari using too many graphic optimizing when try to make good scroll experiences.
+  */
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.spread-webkit-scroll-shield { /* TFS 100065 */
+  -webkit-overflow-scrolling: touch;
+  overflow:auto;
+  background-color:white; /* transparent make scrollbar display */
+  position:absolute;   /* Layout fixed in viewport */
+  left: 0px;
+  top: 0px;
+  z-index:99;  
+  opacity:0.1;
+}
+
+.spread-webkit-scroll-shield::-webkit-scrollbar {
+  display: none;    
+}
+
+/*----MCCB------*/
+input[mccbparttype='DropDownButton'][type='button'] {
+  -webkit-border-radius: 0px;
+  -webkit-appearance:none;
+}

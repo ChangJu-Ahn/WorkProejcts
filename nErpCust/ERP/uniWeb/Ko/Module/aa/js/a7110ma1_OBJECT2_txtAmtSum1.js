@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" name=txtAmtSum1 style="HEIGHT: 20px; RIGHT: 0px; TOP: 0px; WIDTH:100px" title="FPDOUBLESINGLE" ALT="변동금액" tag="24X2" id=OBJECT2></OBJECT>');

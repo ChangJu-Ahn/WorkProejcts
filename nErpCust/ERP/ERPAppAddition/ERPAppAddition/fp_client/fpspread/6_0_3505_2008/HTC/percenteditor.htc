@@ -1,0 +1,51 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:METHOD NAME="isValid">
+</PUBLIC:METHOD>
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+//<!--
+   	                    
+    function isValid(val) {
+      if (val!=null) {
+        var pc = element.percentchar;
+        if (pc==null) pc = "%";                
+        val = val.replace(pc, "");     
+        
+        var neg = element.getAttribute("negsign");
+        var pos = element.getAttribute("possign");
+        
+        if (neg!=null) val = val.replace(neg, "-"); 
+        if (pos!=null) val = val.replace(pos, "+"); 
+                
+        var gc = element.groupchar;
+        if (gc==null) gc = ",";
+        
+        var length = val.length;
+        while (true) {          
+          val = val.replace(gc, "");
+          if (val.length==length) break;
+          length = val.length;
+        }
+        
+        var dc = element.decimalchar;
+        if (dc!=null)                
+          val = val.replace(dc, ".");
+        
+        if (isNaN(val)) {
+          if (element.error!=null)
+            return element.error;
+          else
+            return "Percent: (ex, 10" + pc + ")";
+        }
+      }
+      
+      return "";
+    }
+                
+//-->
+</script>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_im_i1002" targetNamespace="http://tempuri.org/ds_im_i1002.xsd" xmlns:mstns="http://tempuri.org/ds_im_i1002.xsd" xmlns="http://tempuri.org/ds_im_i1002.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_im_i1002" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_im_i1002" msprop:Generator_UserDSName="ds_im_i1002">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="plant_cd" msprop:Generator_ColumnVarNameInTable="columnplant_cd" msprop:Generator_ColumnPropNameInRow="plant_cd" msprop:Generator_ColumnPropNameInTable="plant_cdColumn" msprop:Generator_UserColumnName="plant_cd" type="xs:string" minOccurs="0" />
+              <xs:element name="dt" msprop:Generator_ColumnVarNameInTable="columndt" msprop:Generator_ColumnPropNameInRow="dt" msprop:Generator_ColumnPropNameInTable="dtColumn" msprop:Generator_UserColumnName="dt" type="xs:string" minOccurs="0" />
+              <xs:element name="item_cd" msprop:Generator_ColumnVarNameInTable="columnitem_cd" msprop:Generator_ColumnPropNameInRow="item_cd" msprop:Generator_ColumnPropNameInTable="item_cdColumn" msprop:Generator_UserColumnName="item_cd" type="xs:string" minOccurs="0" />
+              <xs:element name="item_acct" msprop:Generator_ColumnVarNameInTable="columnitem_acct" msprop:Generator_ColumnPropNameInRow="item_acct" msprop:Generator_ColumnPropNameInTable="item_acctColumn" msprop:Generator_UserColumnName="item_acct" type="xs:string" minOccurs="0" />
+              <xs:element name="item_nm" msprop:Generator_ColumnVarNameInTable="columnitem_nm" msprop:Generator_ColumnPropNameInRow="item_nm" msprop:Generator_ColumnPropNameInTable="item_nmColumn" msprop:Generator_UserColumnName="item_nm" type="xs:string" minOccurs="0" />
+              <xs:element name="sl_cd" msprop:Generator_ColumnVarNameInTable="columnsl_cd" msprop:Generator_ColumnPropNameInRow="sl_cd" msprop:Generator_ColumnPropNameInTable="sl_cdColumn" msprop:Generator_UserColumnName="sl_cd" type="xs:string" minOccurs="0" />
+              <xs:element name="item_unit" msprop:Generator_ColumnVarNameInTable="columnitem_unit" msprop:Generator_ColumnPropNameInRow="item_unit" msprop:Generator_ColumnPropNameInTable="item_unitColumn" msprop:Generator_UserColumnName="item_unit" type="xs:string" minOccurs="0" />
+              <xs:element name="remain_good_qty" msprop:Generator_ColumnVarNameInTable="columnremain_good_qty" msprop:Generator_ColumnPropNameInRow="remain_good_qty" msprop:Generator_ColumnPropNameInTable="remain_good_qtyColumn" msprop:Generator_UserColumnName="remain_good_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="amt" msprop:Generator_ColumnVarNameInTable="columnamt" msprop:Generator_ColumnPropNameInRow="amt" msprop:Generator_ColumnPropNameInTable="amtColumn" msprop:Generator_UserColumnName="amt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="part" msprop:Generator_ColumnVarNameInTable="columnpart" msprop:Generator_ColumnPropNameInRow="part" msprop:Generator_ColumnPropNameInTable="partColumn" msprop:Generator_UserColumnName="part" type="xs:string" minOccurs="0" />
+              <xs:element name="operation" msprop:Generator_ColumnVarNameInTable="columnoperation" msprop:Generator_ColumnPropNameInRow="operation" msprop:Generator_ColumnPropNameInTable="operationColumn" msprop:Generator_UserColumnName="operation" type="xs:string" minOccurs="0" />
+              <xs:element name="boh" msprop:Generator_ColumnVarNameInTable="columnboh" msprop:Generator_ColumnPropNameInRow="boh" msprop:Generator_ColumnPropNameInTable="bohColumn" msprop:Generator_UserColumnName="boh" type="xs:decimal" minOccurs="0" />
+              <xs:element name="eoh" msprop:Generator_ColumnVarNameInTable="columneoh" msprop:Generator_ColumnPropNameInRow="eoh" msprop:Generator_ColumnPropNameInTable="eohColumn" msprop:Generator_UserColumnName="eoh" type="xs:decimal" minOccurs="0" />
+              <xs:element name="oper_in_qty" msprop:Generator_ColumnVarNameInTable="columnoper_in_qty" msprop:Generator_ColumnPropNameInRow="oper_in_qty" msprop:Generator_ColumnPropNameInTable="oper_in_qtyColumn" msprop:Generator_UserColumnName="oper_in_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="oper_out_qty" msprop:Generator_ColumnVarNameInTable="columnoper_out_qty" msprop:Generator_ColumnPropNameInRow="oper_out_qty" msprop:Generator_ColumnPropNameInTable="oper_out_qtyColumn" msprop:Generator_UserColumnName="oper_out_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rework_in_qty" msprop:Generator_ColumnVarNameInTable="columnrework_in_qty" msprop:Generator_ColumnPropNameInRow="rework_in_qty" msprop:Generator_ColumnPropNameInTable="rework_in_qtyColumn" msprop:Generator_UserColumnName="rework_in_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rework_out_qty" msprop:Generator_ColumnVarNameInTable="columnrework_out_qty" msprop:Generator_ColumnPropNameInRow="rework_out_qty" msprop:Generator_ColumnPropNameInTable="rework_out_qtyColumn" msprop:Generator_UserColumnName="rework_out_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="loss_qty" msprop:Generator_ColumnVarNameInTable="columnloss_qty" msprop:Generator_ColumnPropNameInRow="loss_qty" msprop:Generator_ColumnPropNameInTable="loss_qtyColumn" msprop:Generator_UserColumnName="loss_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="bonus_qty" msprop:Generator_ColumnVarNameInTable="columnbonus_qty" msprop:Generator_ColumnPropNameInRow="bonus_qty" msprop:Generator_ColumnPropNameInTable="bonus_qtyColumn" msprop:Generator_UserColumnName="bonus_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="give_part" msprop:Generator_ColumnVarNameInTable="columngive_part" msprop:Generator_ColumnPropNameInRow="give_part" msprop:Generator_ColumnPropNameInTable="give_partColumn" msprop:Generator_UserColumnName="give_part" type="xs:decimal" minOccurs="0" />
+              <xs:element name="take_part" msprop:Generator_ColumnVarNameInTable="columntake_part" msprop:Generator_ColumnPropNameInRow="take_part" msprop:Generator_ColumnPropNameInTable="take_partColumn" msprop:Generator_UserColumnName="take_part" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" name=txtIssuedDt CLASS=FPDTYYYYMMDD title=FPDATETIME ALT="계산서발행일" tag="21X1" id=fpDateTime3> </OBJECT>');

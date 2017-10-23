@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_CM_C4001" targetNamespace="http://tempuri.org/ds_CM_C4001.xsd" xmlns:mstns="http://tempuri.org/ds_CM_C4001.xsd" xmlns="http://tempuri.org/ds_CM_C4001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_CM_C4001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_CM_C4001" msprop:Generator_UserDSName="ds_CM_C4001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtBomCompare" msprop:Generator_TableClassName="dtBomCompareDataTable" msprop:Generator_TableVarName="tabledtBomCompare" msprop:Generator_RowChangedName="dtBomCompareRowChanged" msprop:Generator_TablePropName="dtBomCompare" msprop:Generator_RowDeletingName="dtBomCompareRowDeleting" msprop:Generator_RowChangingName="dtBomCompareRowChanging" msprop:Generator_RowEvHandlerName="dtBomCompareRowChangeEventHandler" msprop:Generator_RowDeletedName="dtBomCompareRowDeleted" msprop:Generator_RowClassName="dtBomCompareRow" msprop:Generator_UserTableName="dtBomCompare" msprop:Generator_RowEvArgName="dtBomCompareRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No" msprop:Generator_ColumnVarNameInTable="columnNo" msprop:Generator_ColumnPropNameInRow="No" msprop:Generator_ColumnPropNameInTable="NoColumn" msprop:Generator_UserColumnName="No" type="xs:string" minOccurs="0" />
+              <xs:element name="PLANT_CD" msprop:Generator_ColumnVarNameInTable="columnPLANT_CD" msprop:Generator_ColumnPropNameInRow="PLANT_CD" msprop:Generator_ColumnPropNameInTable="PLANT_CDColumn" msprop:Generator_UserColumnName="PLANT_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="ACCT_CD" msprop:Generator_ColumnVarNameInTable="columnACCT_CD" msprop:Generator_ColumnPropNameInRow="ACCT_CD" msprop:Generator_ColumnPropNameInTable="ACCT_CDColumn" msprop:Generator_UserColumnName="ACCT_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="CHILD_ITEM_CD" msprop:Generator_ColumnVarNameInTable="columnCHILD_ITEM_CD" msprop:Generator_ColumnPropNameInRow="CHILD_ITEM_CD" msprop:Generator_ColumnPropNameInTable="CHILD_ITEM_CDColumn" msprop:Generator_UserColumnName="CHILD_ITEM_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="CHILD_ITEM_NM" msprop:Generator_ColumnVarNameInTable="columnCHILD_ITEM_NM" msprop:Generator_ColumnPropNameInRow="CHILD_ITEM_NM" msprop:Generator_ColumnPropNameInTable="CHILD_ITEM_NMColumn" msprop:Generator_UserColumnName="CHILD_ITEM_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="INSERT_QTY" msprop:Generator_ColumnVarNameInTable="columnINSERT_QTY" msprop:Generator_ColumnPropNameInRow="INSERT_QTY" msprop:Generator_ColumnPropNameInTable="INSERT_QTYColumn" msprop:Generator_UserColumnName="INSERT_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="INSERT_AMT" msprop:Generator_ColumnVarNameInTable="columnINSERT_AMT" msprop:Generator_ColumnPropNameInRow="INSERT_AMT" msprop:Generator_ColumnPropNameInTable="INSERT_AMTColumn" msprop:Generator_UserColumnName="INSERT_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="USAGE_QTY" msprop:Generator_ColumnVarNameInTable="columnUSAGE_QTY" msprop:Generator_ColumnPropNameInRow="USAGE_QTY" msprop:Generator_ColumnPropNameInTable="USAGE_QTYColumn" msprop:Generator_UserColumnName="USAGE_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="USAGE_AMT" msprop:Generator_ColumnVarNameInTable="columnUSAGE_AMT" msprop:Generator_ColumnPropNameInRow="USAGE_AMT" msprop:Generator_ColumnPropNameInTable="USAGE_AMTColumn" msprop:Generator_UserColumnName="USAGE_AMT" type="xs:string" minOccurs="0" />
+              <xs:element name="QTY_CONTRAST_BOM" msprop:Generator_ColumnVarNameInTable="columnQTY_CONTRAST_BOM" msprop:Generator_ColumnPropNameInRow="QTY_CONTRAST_BOM" msprop:Generator_ColumnPropNameInTable="QTY_CONTRAST_BOMColumn" msprop:Generator_UserColumnName="QTY_CONTRAST_BOM" type="xs:string" minOccurs="0" />
+              <xs:element name="AMT_CONTRAST_BOM" msprop:Generator_ColumnVarNameInTable="columnAMT_CONTRAST_BOM" msprop:Generator_ColumnPropNameInRow="AMT_CONTRAST_BOM" msprop:Generator_ColumnPropNameInTable="AMT_CONTRAST_BOMColumn" msprop:Generator_UserColumnName="AMT_CONTRAST_BOM" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

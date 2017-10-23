@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" name=txtW12_1 CLASS=FPDTYYYYMMDD title=FPDATETIME ALT="½ÅÃ»ÀÏ" tag="21X1" id=txtW12_1 Change = "Call DataChange() "></OBJECT>');

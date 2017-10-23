@@ -1,0 +1,82 @@
+
+ A			  {	font-family:verdana; font-size:11px ;text-decoration: none; color:black}  
+ A:hover      { font-family:verdana; font-size:11px; text-decoration: none; color:blue}
+ A:visited    { font-family:verdana; font-size:11px; text-decoration: none; color:black}    
+ 
+
+.verdana		
+	{
+		font-family:verdana; 
+		font-size:11px;
+	}
+FONT
+	{
+		font-family:verdana; 
+		font-size:11px;
+	} 
+
+PRE
+	{
+		font-family:verdana; 
+		font-size:11px;
+	} 
+	
+.verdana_s
+	{
+		font-family:verdana; 
+		font-size:7pt;
+	}
+	
+.buttonPE
+	{
+		width:18; 
+		height:18; 
+		background-color :#d0d0d0;
+		border: 1 solid white;
+		color : slategray
+	}
+
+.buttonPD
+	{
+		width:18; 
+		height:18; 
+		background-color :#d0d0d0;
+		border: 1 solid white;
+		color : silver
+	}
+		
+TD
+	{
+		font-family:verdana;
+		font-size:11px;
+		line-Height:150%
+	}
+	
+Input
+	{
+		font-family:verdana;
+		font-size:11px;
+		border:1px solid silver;
+		padding:1px;
+		padding-left:5px;
+	}	
+	
+h3
+	{
+	font-family:verdana;
+	font-size:15px;
+	}		
+.TDFAMILY_TITLE
+{
+    BORDER-RIGHT: black 1px;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: black 1px;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: black 1px;
+    COLOR: #2e4287;
+    PADDING-TOP: 3px;
+    BORDER-BOTTOM: 1px;
+    BACKGROUND-COLOR: #d0d6e4;
+    FONT-FAMILY: µ¸¿òÃ¼;
+}

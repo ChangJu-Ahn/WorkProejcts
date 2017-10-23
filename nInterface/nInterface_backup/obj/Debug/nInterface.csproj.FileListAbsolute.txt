@@ -1,0 +1,9 @@
+E:\New_Project\nInterface\nInterface\bin\Debug\nInterface.exe.config
+E:\New_Project\nInterface\nInterface\bin\Debug\nInterface.exe
+E:\New_Project\nInterface\nInterface\bin\Debug\nInterface.pdb
+E:\New_Project\nInterface\nInterface\obj\Debug\nInterface.Form1.resources
+E:\New_Project\nInterface\nInterface\obj\Debug\nInterface.Properties.Resources.resources
+E:\New_Project\nInterface\nInterface\obj\Debug\nInterface.csproj.GenerateResource.Cache
+E:\New_Project\nInterface\nInterface\obj\Debug\nInterface.exe
+E:\New_Project\nInterface\nInterface\obj\Debug\nInterface.pdb
+E:\New_Project\nInterface\nInterface\obj\Debug\nInterface.csprojResolveAssemblyReference.cache

@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtW19_1" name=txtW19_1 CLASS=FPDS140 title=FPDOUBLESINGLE ALT="醚何淬技咀_过牢技" tag="22X86" width = 100% ></OBJECT>');

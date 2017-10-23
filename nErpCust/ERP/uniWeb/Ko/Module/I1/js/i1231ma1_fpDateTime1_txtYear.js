@@ -1,0 +1,1 @@
+document.write('<OBJECT id=fpDateTime1 title=FPDATETIME CLASS=FPDTYYYY name=txtYear CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" tag="12X1" ALT="³âµµ"> <PARAM Name="AllowNull" Value="-1"><PARAM Name="Text" Value=""> </OBJECT>');

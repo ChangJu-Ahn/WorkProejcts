@@ -1,0 +1,31 @@
+<LINK REL="stylesheet" TYPE="Text/css" HREF="./SheetStyle.css">	
+<style>
+TD
+{
+    FONT-SIZE: 9pt;
+    CURSOR: default;
+    FONT-FAMILY:굴림체 
+}
+</style>	
+<html>
+<SCRIPT LANGUAGE="VBScript">
+Function Document_OnSelectStart()
+       Document_onselectstart  = False
+End Function
+
+Function showProgress(Byval pMsg)
+	txtResult.innerText = ""
+	txtResult.innerText = pMsg
+End Function
+</Script>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF">
+<div id="Layer1" style="position:absolute; left:414px; top:160px; width:146px; height:67px; z-index:1; overflow: auto"></div>
+<table width="100%" height="30" border=2 cellpadding=1 cellspacing=1 bordercolor=#CCCCCC bordercolorlight=#CCCCCC bgcolor="buttonface" bordercolordark="#000000" vspace="0" hspace="0">
+  <tr bgcolor="#CED3E7"> 
+    <td colspan="2" bgcolor="#FFFFFF"> <font size=2><img src="../image/net.gif" width="32" height="31" vspace="0" hspace="0" align="absmiddle"></font> 
+      <b>&nbsp;&nbsp;작업을 처리중입니다... <span id=txtResult></span></b></font></td>
+  </tr>
+</table>
+</body>
+</html>

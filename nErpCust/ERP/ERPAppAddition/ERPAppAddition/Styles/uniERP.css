@@ -1,0 +1,866 @@
+﻿BODY
+{
+    MARGIN: 0px 1px 1px 0px;
+    BACKGROUND-COLOR: #ffffff
+}
+.BasicTB
+{
+    border: 0px solid buttonshadow;
+    padding: 0px;
+    /*WIDTH: 100%;*/
+    /*HEIGHT: 100%;*/
+    margin-right: 0px;
+    border-collapse:collapse;
+}
+.BatchTB1
+{
+    BORDER-RIGHT: buttonshadow 0px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonshadow 0px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonshadow 0px solid;
+    WIDTH: 50%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 0px solid;
+    HEIGHT: 35%
+}
+.BatchTB2
+{
+    BORDER-RIGHT: buttonshadow 0px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonshadow 0px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonshadow 0px solid;
+    WIDTH: 50%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 0px solid;
+    HEIGHT: 70%
+}
+.BatchTB3
+{
+    BORDER-RIGHT: buttonshadow 0px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonshadow 0px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonshadow 0px solid;
+    WIDTH: 50%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 0px solid;
+    HEIGHT: 100%
+}
+.BatchTB4
+{
+    BORDER-RIGHT: buttonshadow 0px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonshadow 0px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonshadow 0px solid;
+    WIDTH: 100%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 0px solid;
+    HEIGHT: 35%
+}
+.BatchTB5
+{
+    BORDER-RIGHT: buttonshadow 0px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonshadow 0px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonshadow 0px solid;
+    WIDTH: 100%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 0px solid;
+    HEIGHT: 70%
+}
+.BatchTB6
+{
+    BORDER-RIGHT: buttonshadow 0px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonshadow 0px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonshadow 0px solid;
+    WIDTH: 100%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 0px solid;
+    HEIGHT: 100%
+}
+.toolBarTB
+{
+    BORDER-RIGHT: #dddfe6 1px solid;
+    BORDER-TOP: #dddfe6 1px solid;
+    FONT: menu;
+    BORDER-LEFT: #dddfe6 1px solid;
+    CURSOR: default;
+    BORDER-BOTTOM: #dddfe6 1px solid;
+    POSITION: relative;
+    BACKGROUND-COLOR: #dddfe6
+}
+.toolBarPress
+{
+    BORDER-RIGHT: buttonhighlight 1px solid;
+    BORDER-TOP: buttonshadow 1px solid;
+    FONT: menu;
+    BORDER-LEFT: buttonshadow 1px solid;
+    CURSOR: default;
+    BORDER-BOTTOM: buttonhighlight 1px solid;
+    POSITION: relative;
+    BACKGROUND-COLOR: #dddfe6
+}
+.TB2
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    WIDTH: 100%;
+    PADDING-TOP: 0px
+}
+.TB3
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonshadow 1px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonshadow 1px solid;
+    WIDTH: 100%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+    HEIGHT: 100%
+}
+.TB4
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonshadow 1px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonshadow 1px solid;
+    WIDTH: 100%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 1px solid
+}
+.TRCOND
+{
+    HEIGHT: 10%
+}
+.TRBODY
+{
+    HEIGHT: 90%
+}
+.ClsText
+{
+    BORDER-RIGHT: 1px solid;
+    BORDER-TOP: 1px solid;
+    BORDER-LEFT: 1px solid;
+    BORDER-BOTTOM: 1px solid;
+    BACKGROUND-COLOR: #ffffff
+}
+.ClsDiv
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    BORDER-TOP: buttonhighlight 1px solid;
+    BORDER-LEFT: buttonhighlight 1px solid;
+    BORDER-BOTTOM: buttonshadow 1px solid
+}
+.TD2
+{
+    WIDTH: 33%
+}
+.TD3
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 15%;
+    TEXT-ALIGN: right
+}
+.TD4
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 35%
+}
+.TD5
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 14%;
+    BACKGROUND-COLOR: #e7e5ce;
+    TEXT-ALIGN: right;
+    padding:0px;
+}
+.TD51
+{
+    BACKGROUND-COLOR: #e7e5ce;
+    TEXT-ALIGN: center
+}
+.TD5E
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 14%;
+    BACKGROUND-COLOR: #eaeada;
+    TEXT-ALIGN: right
+}
+.TD5Y1
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 14%;
+    HEIGHT: 17pt;
+    BACKGROUND-COLOR: #eeeeec;
+    TEXT-ALIGN: right
+}
+.TD5Y2
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 14%;
+    HEIGHT: 17pt;
+    BACKGROUND-COLOR: #d1e8f9;
+    TEXT-ALIGN: center
+}
+.TD5Y3
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 14%;
+    HEIGHT: 17pt;
+    BACKGROUND-COLOR: #f7f7f7;
+    TEXT-ALIGN: center
+}
+.TD5Y4
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 14%;
+    HEIGHT: 17pt;
+    BACKGROUND-COLOR: #f7f7f7;
+    TEXT-ALIGN: center
+}
+.TD6
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 36%;
+    BACKGROUND-COLOR: #f5f5f5;
+    padding:0px;
+}
+.TD61
+{
+    BACKGROUND-COLOR: #f5f5f5
+}
+.TD6E
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 36%;
+    BACKGROUND-COLOR: #eaeada
+}
+.TD6Y1
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 31%;
+    BACKGROUND-COLOR: #eeeeec
+}
+.TD6Y2
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 10%;
+    BACKGROUND-COLOR: #eeeeec
+}
+.TD6Y3
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 36%;
+    BACKGROUND-COLOR: #d1e8f9
+}
+.TD6Y4
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 36%;
+    BACKGROUND-COLOR: #f7f7f7
+}
+.TD6Y5
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 31%;
+    BACKGROUND-COLOR: #d1e8f9
+}
+.TD6Y6
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 10%;
+    BACKGROUND-COLOR: #d1e8f9
+}
+.TDT
+{
+    PADDING-RIGHT: 5px;
+    WIDTH: 14%;
+    BACKGROUND-COLOR: #eeeeec;
+    TEXT-ALIGN: right
+}
+.TD7
+{
+    PADDING-RIGHT: 2px;
+    WIDTH: 16.5%;
+    TEXT-ALIGN: right
+}
+.TD7Y1
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 16%;
+    BACKGROUND-COLOR: #d1e8f9
+}
+.TD7Y2
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 16%;
+    BACKGROUND-COLOR: #f7f7f7
+}
+.TD8
+{
+    WIDTH: 33.5%
+}
+.TD10
+{
+    WIDTH: 100%
+}
+.TD11
+{
+    WIDTH: 50%
+}
+.TD15
+{
+    PADDING-RIGHT: 2px;
+    WIDTH: 30%;
+    BACKGROUND-COLOR: #eeeeee;
+    TEXT-ALIGN: right
+}
+.TD16
+{
+    PADDING-RIGHT: 2px;
+    WIDTH: 30%;
+    BACKGROUND-COLOR: #f7f7f7;
+    TEXT-ALIGN: right
+}
+.TD17
+{
+    WIDTH: 40%;
+    BACKGROUND-COLOR: #f7f7f7
+}
+.TD18
+{
+    PADDING-RIGHT: 2px;
+    WIDTH: 10%;
+    TEXT-ALIGN: right
+}
+.TD18Y1
+{
+    PADDING-RIGHT: 2px;
+    WIDTH: 10%;
+    BACKGROUND-COLOR: #d1e8f9;
+    TEXT-ALIGN: center
+}
+.TD18Y2
+{
+    PADDING-RIGHT: 2px;
+    WIDTH: 10%;
+    BACKGROUND-COLOR: #f7f7f7;
+    TEXT-ALIGN: center
+}
+.TD19
+{
+    WIDTH: 23%
+}
+.TD656
+{
+    PADDING-LEFT: 5px;
+    WIDTH: 86%;
+    BACKGROUND-COLOR: #eeeeec
+}
+.TitleTD1
+{
+    PADDING-LEFT: 20px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    WIDTH: 50%;
+    PADDING-TOP: 2px
+}
+.TitleTD2
+{
+    PADDING-RIGHT: 10px;
+    WIDTH: 50%;
+    TEXT-ALIGN: right
+}
+.ClsTD1
+{
+    PADDING-LEFT: 20px;
+    FONT-SIZE: 10pt;
+    WIDTH: 50%;
+    PADDING-TOP: 2px
+}
+.ClsTD2
+{
+    PADDING-RIGHT: 10px;
+    WIDTH: 50%;
+    TEXT-ALIGN: right
+}
+A
+{
+    FONT-SIZE: 9pt;
+    CURSOR: hand;
+    COLOR: blue;
+    TEXT-DECORATION: none
+}
+A:link :unknown
+{
+    FONT-SIZE: 9pt;
+    COLOR: blue;
+    TEXT-DECORATION: underline
+}
+A:unknown
+{
+    CURSOR: hand;
+    COLOR: red
+}
+A:hover:unknown
+{
+    CURSOR: hand;
+    COLOR: blue;
+    TEXT-DECORATION: underline
+}
+A:active :unknown
+{
+    CURSOR: hand;
+    COLOR: blue;
+    TEXT-DECORATION: underline
+}
+.Radio
+{
+    BORDER-RIGHT: 0px solid;
+    BORDER-TOP: 0px solid;
+    BORDER-LEFT: 0px solid;
+    BORDER-BOTTOM: 0px solid
+}
+.Check
+{
+    BORDER-RIGHT: 0px solid;
+    BORDER-TOP: 0px solid;
+    BORDER-LEFT: 0px solid;
+    BORDER-BOTTOM: 0px solid
+}
+BUTTON
+{
+    TEXT-VALIGN: MIDDLE
+}
+.enablepop
+{
+    FONT-SIZE: 10pt;
+    CURSOR: hand
+}
+.disablepop
+{
+    FONT-SIZE: 9pt;
+    COLOR: #777777
+}
+.badValue
+{
+    BACKGROUND: red;
+    COLOR: white
+}
+.normal
+{
+}
+.required
+{
+    BACKGROUND-COLOR: #ffffb4;
+    /*height:17px;*/
+}
+.protected
+{
+    BACKGROUND-COLOR: #dddddd;
+    height: 19px;
+    width: 148px;
+}
+.protectedbak
+{
+    BACKGROUND-COLOR: #d1d3d4
+}
+.normalbutton
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 9pt;
+    WIDTH: 65pt;
+    HEIGHT: 16pt;
+    BACKGROUND-COLOR: buttonface
+}
+.tabS2
+{
+    BORDER-RIGHT: gray 2px solid;
+    BORDER-TOP: #e0e0e0 2px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #e0e0e0 1px solid;
+    FONT-FAMILY: arial;
+    TEXT-ALIGN: center
+}
+.TabSample
+{
+    BORDER-RIGHT: silver thin;
+    BORDER-TOP: silver thin;
+    BORDER-LEFT: silver thin;
+    BORDER-BOTTOM: silver thin outset
+}
+.Tab1
+{
+    BORDER-TOP: silver thin outset;
+    BORDER-LEFT: silver thin outset
+}
+.Tab2
+{
+    BORDER-TOP: silver thin outset
+}
+.Tab3
+{
+    BORDER-RIGHT: silver outset;
+    BORDER-TOP: silver thin outset
+}
+.Tab4
+{
+    BORDER-LEFT: silver thin outset
+}
+.Tab5
+{
+    BORDER-RIGHT: silver outset
+}
+.Tab6
+{
+    BORDER-LEFT: silver thin outset;
+    BORDER-BOTTOM: silver thin outset
+}
+.Tab7
+{
+    BORDER-BOTTOM: silver outset
+}
+.Tab8
+{
+    BORDER-RIGHT: silver outset;
+    BORDER-BOTTOM: silver outset
+}
+.Tab9
+{
+    BORDER-RIGHT: silver outset;
+    BORDER-LEFT: silver thin outset
+}
+.Tab10
+{
+    BORDER-TOP: silver thin outset;
+    BORDER-BOTTOM: silver thin outset
+}
+.Tab11
+{
+    BORDER-RIGHT: silver 2px outset;
+    BORDER-TOP: silver 2px outset;
+    BORDER-LEFT: silver 2px outset;
+    BORDER-BOTTOM: silver 2px outset
+}
+.Tab111
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    PADDING-RIGHT: 5px;
+    BORDER-TOP: buttonshadow 1px solid;
+    PADDING-LEFT: 5px;
+    PADDING-BOTTOM: 10px;
+    BORDER-LEFT: buttonshadow 1px solid;
+    WIDTH: 100%;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+    HEIGHT: 100%
+}
+.Tab12
+{
+    BORDER-RIGHT: silver outset;
+    BORDER-TOP: silver thin outset;
+    BORDER-LEFT: silver thin outset
+}
+.selTab1
+{
+    BORDER-RIGHT: silver outset;
+    BORDER-TOP: silver outset;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: silver thin outset;
+    TEXT-ALIGN: center
+}
+#myTableB
+{
+    PADDING-RIGHT: 2px;
+    PADDING-LEFT: 2px;
+    PADDING-BOTTOM: 2px;
+    PADDING-TOP: 2px
+}
+#foldheader
+{
+    LIST-STYLE-IMAGE: url(../image/fold.gif)
+}
+#foldinglist
+{
+    LIST-STYLE-IMAGE: url(../image/list.gif)
+}
+.hidden
+{
+    DISPLAY: none
+}
+.FPDS140
+{
+    LEFT: 0px;
+    WIDTH: 140px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDS115
+{
+    LEFT: 0px;
+    WIDTH: 115px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDS100
+{
+    LEFT: 0px;
+    WIDTH: 100px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDS90
+{
+    LEFT: 0px;
+    WIDTH: 90px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDS65
+{
+    LEFT: 0px;
+    WIDTH: 65px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDS40
+{
+    LEFT: 0px;
+    WIDTH: 40px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDTYYYYMMDDHHMMSS
+{
+    LEFT: 0px;
+    WIDTH: 130px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDTYYYYMMDD
+{
+    LEFT: 0px;
+    WIDTH: 100px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDTYYYYMM
+{
+    LEFT: 0px;
+    WIDTH: 82px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.FPDTYYYY
+{
+    LEFT: 0px;
+    WIDTH: 64px;
+    TOP: 0px;
+    HEIGHT: 20px
+}
+.CLSPBTN
+{
+    WIDTH: 20px;
+    HEIGHT: 17px
+}
+.CLSSBTN
+{
+    BORDER-RIGHT: lightsteelblue 2px outset;
+    BORDER-TOP: lightsteelblue 2px outset;
+    BORDER-LEFT: lightsteelblue 2px outset;
+    WIDTH: 100px;
+    BORDER-BOTTOM: lightsteelblue 2px outset
+}
+.CLSMBTN
+{
+    BORDER-RIGHT: lightsteelblue 2px outset;
+    BORDER-TOP: lightsteelblue 2px outset;
+    BORDER-LEFT: lightsteelblue 2px outset;
+    WIDTH: 150px;
+    BORDER-BOTTOM: lightsteelblue 2px outset
+}
+.CLSLBTN
+{
+    BORDER-RIGHT: lightsteelblue 2px outset;
+    BORDER-TOP: lightsteelblue 2px outset;
+    BORDER-LEFT: lightsteelblue 2px outset;
+    WIDTH: 200px;
+    BORDER-BOTTOM: lightsteelblue 2px outset
+}
+.CLSSTAB
+{
+    WIDTH: 150px
+}
+.CLSSTABP
+{
+    WIDTH: 160px
+}
+.CLSMTAB
+{
+    WIDTH: 190px
+}
+.CLSMTABP
+{
+    WIDTH: 200px
+}
+.CLSMTABPP
+{
+    WIDTH: 208px
+}
+.CLSLTAB
+{
+    WIDTH: 200px
+}
+.CLSLTABP
+{
+    WIDTH: 210px
+}
+.CLSFLD
+{
+    MARGIN-LEFT: 2px;
+    MARGIN-RIGHT: 2px
+}
+.cboNormal
+{
+    WIDTH: 150px
+}
+.cboLarge
+{
+    WIDTH: 200px
+}
+.cboSmall
+{
+    WIDTH: 92px
+}
+.TBPOSIT
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: buttonhighlight 1px solid;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: buttonhighlight 1px solid;
+    WIDTH: 100%;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+    HEIGHT: 30px
+}
+#MousePT
+{
+    Z-INDEX: 1;
+    LEFT: 0px;
+    ;
+    LEFT: expression(document.body.clientWidth/2-100);
+    VISIBILITY: hidden;
+    POSITION: absolute;
+    TOP: 0px;
+    ;
+    TOP: expression(document.body.clientHeight/3);
+    BACKGROUND-COLOR: black;
+    layer-background-color: black
+}
+.toolBarOver
+{
+    BORDER-RIGHT: 1px ridge;
+    BORDER-TOP: 1px ridge;
+    FONT: menu;
+    BORDER-LEFT: 1px ridge;
+    CURSOR: default;
+    COLOR: white;
+    BORDER-BOTTOM: 1px ridge;
+    POSITION: relative;
+    BACKGROUND-COLOR: #dddfe6
+}
+.toolbarOut
+{
+    BORDER-RIGHT: #dddfe6 1px solid;
+    BORDER-TOP: #dddfe6 1px solid;
+    FONT: menu;
+    BORDER-LEFT: #dddfe6 1px solid;
+    CURSOR: default;
+    COLOR: white;
+    BORDER-BOTTOM: #dddfe6 1px solid;
+    POSITION: relative;
+    BACKGROUND-COLOR: #dddfe6
+}
+.MenuBarOut
+{
+    BORDER-RIGHT: #063c78 1px solid;
+    BORDER-TOP: #063c78 1px solid;
+    FONT: menu;
+    BORDER-LEFT: #063c78 1px solid;
+    CURSOR: default;
+    COLOR: white;
+    BORDER-BOTTOM: #063c78 1px solid;
+    POSITION: relative;
+    BACKGROUND-COLOR: #063c78
+}
+.MenuBarOver
+{
+    BORDER-RIGHT: #98afc8 1px solid;
+    BORDER-TOP: #98afc8 1px solid;
+    FONT: menu;
+    BORDER-LEFT: #98afc8 1px solid;
+    CURSOR: default;
+    COLOR: white;
+    BORDER-BOTTOM: #98afc8 1px solid;
+    POSITION: relative;
+    BACKGROUND-COLOR: #37659a
+}
+.TabBarOut
+{
+    BORDER-RIGHT: 1px solid;
+    BORDER-TOP: 1px solid;
+    FONT: menu;
+    BORDER-LEFT: 1px solid;
+    CURSOR: default;
+    COLOR: white;
+    BORDER-BOTTOM: 1px solid;
+    POSITION: relative;
+    BACKGROUND-COLOR: #999999
+}
+.TabBarOver
+{
+    BORDER-RIGHT: buttonshadow 1px solid;
+    BORDER-TOP: buttonhighlight 1px solid;
+    FONT: menu;
+    BORDER-LEFT: buttonhighlight 1px solid;
+    CURSOR: default;
+    COLOR: white;
+    BORDER-BOTTOM: buttonshadow 1px solid;
+    POSITION: relative;
+    BACKGROUND-COLOR: #3366cc
+}
+.MenubarI
+{
+    BACKGROUND-IMAGE: url(../../CShared/Image/top_bg_01.gif)
+}
+.ToolbarI
+{
+    BACKGROUND-IMAGE: url(../../CShared/Image/top_bg_02.gif);
+    HEIGHT: 46pt
+}
+.fontsize{
+    font-size:smaller;
+    font-family:'Malgun Gothic';
+}

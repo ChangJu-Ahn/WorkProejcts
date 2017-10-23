@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtW21" name=txtW21 CLASS=FPDS140 title=FPDOUBLESINGLE ALT="(21)퇴직보험예치금등 계(18-19+20)" tag="24X2Z" width = 100%></OBJECT>');

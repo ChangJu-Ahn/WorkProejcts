@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle1 NAME="txtCnt" style="HEIGHT: 20px; WIDTH: 100px" tag="11X" ALT="영세율건수" Title="FPDOUBLESINGLE"></OBJECT>');

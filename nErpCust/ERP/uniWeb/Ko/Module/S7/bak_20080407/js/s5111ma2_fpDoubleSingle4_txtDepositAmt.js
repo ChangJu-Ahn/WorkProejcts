@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle4 NAME="txtDepositAmt" CLASS=FPDS140 Alt="적립금액" tag="24X2" Title="FPDOUBLESINGLE"></OBJECT>');

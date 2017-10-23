@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_cm_c2001_sys_b4" targetNamespace="http://tempuri.org/ds_cm_c2001_sys_b4.xsd" xmlns:mstns="http://tempuri.org/ds_cm_c2001_sys_b4.xsd" xmlns="http://tempuri.org/ds_cm_c2001_sys_b4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_cm_c2001_sys_b4" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_cm_c2001_sys_b4" msprop:Generator_UserDSName="ds_cm_c2001_sys_b4">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PROC_TYPE" msprop:Generator_ColumnVarNameInTable="columnPROC_TYPE" msprop:Generator_ColumnPropNameInRow="PROC_TYPE" msprop:Generator_ColumnPropNameInTable="PROC_TYPEColumn" msprop:Generator_UserColumnName="PROC_TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="ROUTE_SET" msprop:Generator_ColumnVarNameInTable="columnROUTE_SET" msprop:Generator_ColumnPropNameInRow="ROUTE_SET" msprop:Generator_ColumnPropNameInTable="ROUTE_SETColumn" msprop:Generator_UserColumnName="ROUTE_SET" type="xs:string" minOccurs="0" />
+              <xs:element name="INCH" msprop:Generator_ColumnVarNameInTable="columnINCH" msprop:Generator_ColumnPropNameInRow="INCH" msprop:Generator_ColumnPropNameInTable="INCHColumn" msprop:Generator_UserColumnName="INCH" type="xs:string" minOccurs="0" />
+              <xs:element name="COST_ITEM_GP" msprop:Generator_ColumnVarNameInTable="columnCOST_ITEM_GP" msprop:Generator_ColumnPropNameInRow="COST_ITEM_GP" msprop:Generator_ColumnPropNameInTable="COST_ITEM_GPColumn" msprop:Generator_UserColumnName="COST_ITEM_GP" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,280 @@
+
+<% Option Explicit%>
+<!-- #Include file="../../inc/IncSvrMain.asp" -->
+<!-- #Include file="../../inc/IncSvrDate.inc" -->
+<!-- #Include file="../../inc/IncSvrNumber.inc" -->
+<!-- #Include file="../../comasp/loadinftb19029.asp" -->
+<!-- #Include file="../../inc/adovbs.inc" -->
+<!-- #Include file="../../inc/lgsvrvariables.inc" -->
+<!-- #Include file="../../inc/incServeradodb.asp" -->
+
+<% 
+
+    Call loadInfTB19029B("I", "*","NOCOOKIE","MB") 
+    Call LoadBasisGlobalInf()
+
+    Dim lgStrPrevKey
+    Dim txtBizArea	
+	Dim txtFromDt	
+	Dim txtToDt	
+	Dim strRdo	
+
+    On Error Resume Next                                                   '☜: Protect prorgram from crashing
+
+    Err.Clear                                                              '☜: Clear Error status
+    
+    Call HideStatusWnd                                                     '☜: Hide Processing message
+
+    lgErrorStatus  = ""
+    lgKeyStream    = Split(Request("txtKeyStream"),gColSep) 
+    lgStrPrevKey   = UNICInt(Trim(Request("lgStrPrevKey")), 0)                   '☜: Next Key
+    
+    txtBizArea	   = Trim(Request("txtBizArea"))
+    txtFromDt	   = Trim(Request("txtFromDt"))
+    txtToDt		   = Trim(Request("txtToDt"))        
+	strRdo		   = Request("txtRdoFg")								   '본지점계정외' 1:미포함, 2:포함
+	'------ Developer Coding part (Start ) ------------------------------------------------------------------
+
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------ 
+
+    Call SubOpenDB(lgObjConn)                                                        '☜: Make a DB Connection
+    
+    Select Case CStr(Request("txtMode"))
+        Case CStr(UID_M0001)                                                         '☜: Query
+             Call SubBizQuery()
+    End Select
+
+    Call SubCloseDB(lgObjConn)                                                       '☜: Close DB Connection
+
+'============================================================================================================
+' Name : SubBizQuery
+' Desc : Query Data from Db
+'============================================================================================================
+Sub SubBizQuery()
+    Dim lgStrSQL
+    
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+    '---------- Developer Coding part (Start) ---------------------------------------------------------------
+    'If lgStrPrevKey = 0 Then
+
+       'lgStrSQL = "Select plant_cd,plant_nm " 
+       'lgStrSQL = lgStrSQL & " From B_Plant (Nolock) " 
+       'lgStrSQL = lgStrSQL & " WHERE plant_cd  = " & FilterVar(lgKeyStream(0),"''", "S")
+
+       'If FncOpenRs("R",lgObjConn,lgObjRs,lgStrSQL,"X","X") = True Then
+       '   Response.Write  " <Script Language=vbscript>            " & vbCr
+       '   Response.Write  "   Parent.Frm1.txtPlantCd.Value  = """ & lgObjRs("plant_cd") & """" & vbCr             ' Set condition area
+       '   Response.Write  "   Parent.Frm1.txtPlantNm.Value  = """ & lgObjRs("plant_nm") & """" & vbCr 
+       '   Response.Write  "   Parent.Frm1.htxtPlantCd.Value = """ & lgObjRs("plant_cd") & """" & vbCr             ' Set next key data
+       '   Response.Write  " </Script> " & vbCr
+       '   Call SubCloseRs(lgObjRs)                                                    '☜ : Release RecordSSet
+          Call SubBizQueryMulti()
+       'Else
+       '   Call DisplayMsgBox("900014", vbInformation, "", "", I_MKSCRIPT)                  '☜: No data is found. 
+       'End If
+    'Else
+    '   Call SubBizQueryMulti()
+    'End If 
+    '---------- Developer Coding part (End  ) ---------------------------------------------------------------
+End Sub    
+'============================================================================================================
+' Name : SubBizSave
+' Desc : Save Data 
+'============================================================================================================
+Sub SubBizSave()
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+End Sub
+'============================================================================================================
+' Name : SubBizDelete
+' Desc : Delete DB data
+'============================================================================================================
+Sub SubBizDelete()
+    On Error Resume Next                                                             '☜: Protect system from crashing
+    Err.Clear                                                                        '☜: Clear Error status
+End Sub
+
+'============================================================================================================
+' Name : SubBizQuery
+' Desc : Query Data from Db
+'============================================================================================================
+Sub SubBizQueryMulti()
+    Dim lgStrSQL
+    Dim lgstrData
+    Dim iDx
+    Dim iSelCount
+    
+    Const C_SHEETMAXROWS_D  = 100                                          '☆: Server에서 한번에 fetch할 최대 데이타 건수        
+    
+    On Error Resume Next                                                                 '☜: Protect system from crashing
+    Err.Clear                                                                            '☜: Clear Error status
+
+	iSelCount = C_SHEETMAXROWS_D + C_SHEETMAXROWS_D *  lgStrPrevKey + 1
+	
+    '---------- Developer Coding part (Start) ---------------------------------------------------------------
+
+	lgStrSQL = ""
+	lgStrSQL = lgStrSQL & " SELECT   TOP " & iSelCount & " CONVERT(CHAR(20),A.TEMP_GL_DT,20) 'TEMP_GL_DT', "
+	lgStrSQL = lgStrSQL & " 		 C.BIZ_AREA_CD, "
+	lgStrSQL = lgStrSQL & "          C.BIZ_AREA_NM, "
+	lgStrSQL = lgStrSQL & " 		 A.TEMP_GL_NO,  "
+	lgStrSQL = lgStrSQL & " 		 B.ACCT_CD,		"
+	lgStrSQL = lgStrSQL & " 		 D.ACCT_NM,		"
+	lgStrSQL = lgStrSQL & " 		 B.DR_CR_FG,	"
+	lgStrSQL = lgStrSQL & " 		 E.MINOR_NM 'DR_CR_FG_NM',	"
+	lgStrSQL = lgStrSQL & " 		 B.ITEM_LOC_AMT,			"
+	lgStrSQL = lgStrSQL & " 		 B.ITEM_DESC,				"
+	lgStrSQL = lgStrSQL & "          A.GL_INPUT_TYPE,			"
+	lgStrSQL = lgStrSQL & " 		 F.MINOR_NM 'GL_INPUT_TYPE_NM' "
+	lgStrSQL = lgStrSQL & " FROM     A_TEMP_GL		A(NOLOCK),	"
+	lgStrSQL = lgStrSQL & " 		 A_TEMP_GL_ITEM B(NOLOCK),	"
+	lgStrSQL = lgStrSQL & "          B_BIZ_AREA		C(NOLOCK),	"
+	lgStrSQL = lgStrSQL & " 		 A_ACCT			D(NOLOCK),	"
+	lgStrSQL = lgStrSQL & " 		 B_MINOR		E(NOLOCK),	"
+	lgStrSQL = lgStrSQL & " 		 B_MINOR		F(NOLOCK)	"
+	lgStrSQL = lgStrSQL & " WHERE    A.TEMP_GL_NO = B.TEMP_GL_NO	"
+	lgStrSQL = lgStrSQL & " 		 AND A.TEMP_GL_DT >= " & FilterVar(txtFromDt,"''", "S")
+	lgStrSQL = lgStrSQL & "          AND A.TEMP_GL_DT <= " & FilterVar(txtToDt,"''", "S")
+	lgStrSQL = lgStrSQL & "          AND A.BIZ_AREA_CD like " & FilterVar(txtBizArea & "%","''", "S")	
+	lgStrSQL = lgStrSQL & "          AND A.HQ_BRCH_NO = ''				"
+	lgStrSQL = lgStrSQL & "          AND A.BIZ_AREA_CD = C.BIZ_AREA_CD	"
+	lgStrSQL = lgStrSQL & " 		 AND B.ACCT_CD = D.ACCT_CD			"
+	lgStrSQL = lgStrSQL & " 		 AND E.MAJOR_CD = 'A1012'			"
+	lgStrSQL = lgStrSQL & " 		 AND B.DR_CR_FG = E.MINOR_CD		"
+	lgStrSQL = lgStrSQL & " 		 AND F.MAJOR_CD = 'A1001'			"
+	lgStrSQL = lgStrSQL & " 		 AND A.GL_INPUT_TYPE = F.MINOR_CD	"
+	lgStrSQL = lgStrSQL & "          AND A.HQ_BRCH_FG = 'Y' 			"
+	
+	IF strRdo = "1" Then
+		lgStrSQL = lgStrSQL & " AND D.HQ_BRCH_FG = 'Y' "
+	End If
+	
+	lgStrSQL = lgStrSQL & "          AND (A.GL_INPUT_TYPE = 'TG' 		"
+	lgStrSQL = lgStrSQL & "                OR A.GL_INPUT_TYPE = 'UX'	"
+	lgStrSQL = lgStrSQL & "                OR A.GL_INPUT_TYPE = 'PR'	"
+	lgStrSQL = lgStrSQL & "                OR A.GL_INPUT_TYPE = 'CH'	"
+	lgStrSQL = lgStrSQL & "                OR A.GL_INPUT_TYPE = 'OD')	"
+	lgStrSQL = lgStrSQL & " ORDER BY A.TEMP_GL_DT,	"
+	lgStrSQL = lgStrSQL & " 		 C.BIZ_AREA_NM,	"
+	lgStrSQL = lgStrSQL & " 		 A.TEMP_GL_NO	"
+	
+        
+    If 	FncOpenRs("R",lgObjConn,lgObjRs,lgStrSQL,"X","X") = False Then                   'R(Read) X(CursorType) X(LockType) 
+        Call DisplayMsgBox("900014", vbInformation, "", "", I_MKSCRIPT)                  '☜: No data is found. 
+        lgStrPrevKey  = ""
+        lgErrorStatus = "YES"
+        Exit Sub 
+    Else    
+	   If CDbl(lgStrPrevKey) > 0 Then
+		  lgObjRs.Move     = CDbl(C_SHEETMAXROWS_D) * CDbl(lgStrPrevKey)                  'lgMaxCount:Max Fetched Count at once , lgStrPrevKeyIndex : Previous PageNo
+	   End If   
+       iDx = 1		
+       
+       lgstrData = ""
+       lgLngMaxRow       = CLng(Request("txtMaxRows"))
+
+'Call ServerMesgBox("b" , vbInformation, I_MKSCRIPT)          
+       Do While Not lgObjRs.EOF
+'Call ServerMesgBox("c" , vbInformation, I_MKSCRIPT)               	
+          lgstrData = lgstrData & Chr(11) & UNIDateClientFormat(lgObjRs("TEMP_GL_DT"))
+'Call ServerMesgBox(lgstrData , vbInformation, I_MKSCRIPT)          
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("BIZ_AREA_CD"))      
+'Call ServerMesgBox(lgstrData , vbInformation, I_MKSCRIPT)              
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("BIZ_AREA_NM"))
+'Call ServerMesgBox(lgstrData , vbInformation, I_MKSCRIPT)          
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("TEMP_GL_NO"))
+'Call ServerMesgBox(lgstrData , vbInformation, I_MKSCRIPT)          
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("ACCT_CD"))
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("ACCT_NM"))
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("DR_CR_FG"))
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("DR_CR_FG_NM"))
+          lgstrData = lgstrData & Chr(11) & UNINumClientFormat(lgObjRs("ITEM_LOC_AMT"), ggAmtOfMoney.DecPoint, 0)
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("ITEM_DESC"))
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("GL_INPUT_TYPE"))
+          lgstrData = lgstrData & Chr(11) & ConvSPChars(lgObjRs("GL_INPUT_TYPE_NM"))
+          lgstrData = lgstrData & Chr(11) & lgLngMaxRow + iDx
+          lgstrData = lgstrData & Chr(11) & Chr(12)
+'Call ServerMesgBox(lgstrData , vbInformation, I_MKSCRIPT)	
+          lgObjRs.MoveNext
+
+          iDx =  iDx + 1
+         If iDx > C_SHEETMAXROWS_D Then
+			 lgStrPrevKey = lgStrPrevKey + 1
+             Exit Do
+         End If        
+      Loop 
+    End If
+         
+    If iDx <= C_SHEETMAXROWS_D Then
+	    lgStrPrevKey = ""            
+    End If            
+    
+    Call SubCloseRs(lgObjRs)                                                          '☜: Release RecordSSet
+
+    If CheckSYSTEMError(Err,True) = True Then
+       ObjectContext.SetAbort
+       Exit Sub
+    End If   
+       
+    If lgErrorStatus = "" Then
+       Response.Write  " <Script Language=vbscript>                                  " & vbCr
+       Response.Write  "    Parent.ggoSpread.Source     = Parent.frm1.vspdData       " & vbCr
+       Response.Write  "    Parent.lgStrPrevKey         = """ & lgStrPrevKey    & """" & vbCr
+       Response.Write  "    Parent.ggoSpread.SSShowData   """ & lgstrData       & """" & vbCr
+       Response.Write  "    Parent.DBQueryOk   " & vbCr      
+       Response.Write  " </Script>             " & vbCr
+    End If
+
+End Sub    
+
+'============================================================================================================
+' Name : SubBizSaveMulti
+' Desc : Save Data 
+'============================================================================================================
+Sub SubBizSaveMulti()
+    
+End Sub    
+
+'============================================================================================================
+' Name : SubBizSaveCreate
+' Desc : Query Data from Db
+'============================================================================================================
+Sub SubBizSaveMultiCreate(arrColVal)
+End Sub
+
+'============================================================================================================
+' Name : SubBizSaveMultiUpdate
+' Desc : Update Data from Db
+'============================================================================================================
+Sub SubBizSaveMultiUpdate(arrColVal)
+End Sub
+
+'============================================================================================================
+' Name : SubBizSaveMultiDelete
+' Desc : Delete Data from Db
+'============================================================================================================
+Sub SubBizSaveMultiDelete(arrColVal)
+End Sub
+
+'============================================================================================================
+' Name : CommonOnTransactionCommit
+' Desc : This Sub is called by OnTransactionCommit Error handler
+'============================================================================================================
+Sub CommonOnTransactionCommit()
+	'------ Developer Coding part (Start ) ------------------------------------------------------------------
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------
+End Sub
+
+'============================================================================================================
+' Name : CommonOnTransactionAbort
+' Desc : This Sub is called by OnTransactionAbort Error handler
+'============================================================================================================
+Sub CommonOnTransactionAbort()
+	'------ Developer Coding part (Start ) ------------------------------------------------------------------
+	'------ Developer Coding part (End   ) ------------------------------------------------------------------
+End Sub
+
+%>
+
+

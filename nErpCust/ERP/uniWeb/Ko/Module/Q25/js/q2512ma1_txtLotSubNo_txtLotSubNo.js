@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" ID="txtLotSubNo" NAME="txtLotSubNo" align=top CLASS=FPDS65 title=FPDOUBLESINGLE ALT="로트순번" TAG="21X6"> <PARAM Name="AllowNull" Value="-1"> <PARAM Name="Text" Value=""> </OBJECT>');

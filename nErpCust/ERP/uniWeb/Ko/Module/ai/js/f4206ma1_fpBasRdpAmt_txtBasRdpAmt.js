@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpBasRdpAmt name=txtBasRdpAmt style="HEIGHT: 20px; RIGHT: 0px; TOP: 0px; WIDTH: 135px" title=FPDOUBLESINGLE ALT="원금상환기초액" tag="22X2Z"></OBJECT>');

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_cm_c2001_f" targetNamespace="http://tempuri.org/ds_cm_c2001_f.xsd" xmlns:mstns="http://tempuri.org/ds_cm_c2001_f.xsd" xmlns="http://tempuri.org/ds_cm_c2001_f.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_cm_c2001_f" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_cm_c2001_f" msprop:Generator_UserDSName="ds_cm_c2001_f">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="YYYYMM" msprop:Generator_ColumnVarNameInTable="columnYYYYMM" msprop:Generator_ColumnPropNameInRow="YYYYMM" msprop:Generator_ColumnPropNameInTable="YYYYMMColumn" msprop:Generator_UserColumnName="YYYYMM" type="xs:string" minOccurs="0" />
+              <xs:element name="M_GUBUN" msprop:Generator_ColumnVarNameInTable="columnM_GUBUN" msprop:Generator_ColumnPropNameInRow="M_GUBUN" msprop:Generator_ColumnPropNameInTable="M_GUBUNColumn" msprop:Generator_UserColumnName="M_GUBUN" type="xs:string" minOccurs="0" />
+              <xs:element name="M_GUBUN_DETAIL" msprop:Generator_ColumnVarNameInTable="columnM_GUBUN_DETAIL" msprop:Generator_ColumnPropNameInRow="M_GUBUN_DETAIL" msprop:Generator_ColumnPropNameInTable="M_GUBUN_DETAILColumn" msprop:Generator_UserColumnName="M_GUBUN_DETAIL" type="xs:string" minOccurs="0" />
+              <xs:element name="M_GUBUN_DETAIL_NM" msprop:Generator_ColumnVarNameInTable="columnM_GUBUN_DETAIL_NM" msprop:Generator_ColumnPropNameInRow="M_GUBUN_DETAIL_NM" msprop:Generator_ColumnPropNameInTable="M_GUBUN_DETAIL_NMColumn" msprop:Generator_UserColumnName="M_GUBUN_DETAIL_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="DDI_VAL" msprop:Generator_ColumnVarNameInTable="columnDDI_VAL" msprop:Generator_ColumnPropNameInRow="DDI_VAL" msprop:Generator_ColumnPropNameInTable="DDI_VALColumn" msprop:Generator_UserColumnName="DDI_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WLP_VAL" msprop:Generator_ColumnVarNameInTable="columnWLP_VAL" msprop:Generator_ColumnPropNameInRow="WLP_VAL" msprop:Generator_ColumnPropNameInTable="WLP_VALColumn" msprop:Generator_UserColumnName="WLP_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="P_TEST_VAL" msprop:Generator_ColumnVarNameInTable="columnP_TEST_VAL" msprop:Generator_ColumnPropNameInRow="P_TEST_VAL" msprop:Generator_ColumnPropNameInTable="P_TEST_VALColumn" msprop:Generator_UserColumnName="P_TEST_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COG_VAL" msprop:Generator_ColumnVarNameInTable="columnCOG_VAL" msprop:Generator_ColumnPropNameInRow="COG_VAL" msprop:Generator_ColumnPropNameInTable="COG_VALColumn" msprop:Generator_UserColumnName="COG_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COF_VAL" msprop:Generator_ColumnVarNameInTable="columnCOF_VAL" msprop:Generator_ColumnPropNameInRow="COF_VAL" msprop:Generator_ColumnPropNameInTable="COF_VALColumn" msprop:Generator_UserColumnName="COF_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="F_TEST_VAL" msprop:Generator_ColumnVarNameInTable="columnF_TEST_VAL" msprop:Generator_ColumnPropNameInRow="F_TEST_VAL" msprop:Generator_ColumnPropNameInTable="F_TEST_VALColumn" msprop:Generator_UserColumnName="F_TEST_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WLCSP_VAL" msprop:Generator_ColumnVarNameInTable="columnWLCSP_VAL" msprop:Generator_ColumnPropNameInRow="WLCSP_VAL" msprop:Generator_ColumnPropNameInTable="WLCSP_VALColumn" msprop:Generator_UserColumnName="WLCSP_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TWELVE_VAL" msprop:Generator_ColumnVarNameInTable="columnTWELVE_VAL" msprop:Generator_ColumnPropNameInRow="TWELVE_VAL" msprop:Generator_ColumnPropNameInTable="TWELVE_VALColumn" msprop:Generator_UserColumnName="TWELVE_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SANGPUM_VAL" msprop:Generator_ColumnVarNameInTable="columnSANGPUM_VAL" msprop:Generator_ColumnPropNameInRow="SANGPUM_VAL" msprop:Generator_ColumnPropNameInTable="SANGPUM_VALColumn" msprop:Generator_UserColumnName="SANGPUM_VAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ISRT_DT" msprop:Generator_ColumnVarNameInTable="columnISRT_DT" msprop:Generator_ColumnPropNameInRow="ISRT_DT" msprop:Generator_ColumnPropNameInTable="ISRT_DTColumn" msprop:Generator_UserColumnName="ISRT_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="seq" msprop:Generator_ColumnVarNameInTable="columnseq" msprop:Generator_ColumnPropNameInRow="seq" msprop:Generator_ColumnPropNameInTable="seqColumn" msprop:Generator_UserColumnName="seq" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

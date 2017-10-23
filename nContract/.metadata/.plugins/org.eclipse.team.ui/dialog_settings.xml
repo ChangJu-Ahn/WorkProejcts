@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ConfigureProjectWizard">
+	</section>
+	<section name="SynchronizeViewSettings">
+		<item value="1474280311800" key="lastactiveparticipant_sec_id"/>
+		<item value="com.microsoft.tfs.client.eclipse.ui.sync.SynchronizeParticipant" key="lastactiveparticipant_id"/>
+		<item value="false" key="linkWithEditor"/>
+		<section name="com.microsoft.tfs.client.eclipse.ui.sync.SynchronizeParticipant.1474280311800">
+			<item value="org.eclipse.team.ui.modelprovider_compressedfolders" key="org.eclipse.team.ui.P_LAST_MODELPROVIDER"/>
+		</section>
+	</section>
+</section>

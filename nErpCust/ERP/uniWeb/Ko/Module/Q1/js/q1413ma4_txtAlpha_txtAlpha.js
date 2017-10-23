@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=txtAlpha name=txtAlpha CLASS=FPDS140 title=FPDOUBLESINGLE ALT="생산자 위험(α)" tag="22X6Z"> <PARAM Name="AllowNull" Value="-1"> <PARAM Name="Text" Value=""> </OBJECT>');

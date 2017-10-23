@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle1 NAME="txtPoNoSeq" class=required style="HEIGHT: 20px; WIDTH: 50px" tag="11X2" Title="FPDOUBLESINGLE" alt="발주순번" ></OBJECT>');

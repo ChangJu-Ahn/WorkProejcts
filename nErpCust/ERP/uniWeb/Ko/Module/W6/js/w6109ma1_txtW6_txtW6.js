@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtW6" name=txtW6 CLASS=FPDS140 title=FPDOUBLESINGLE ALT="(6)공 제 세 액((3)과 (5) 중 적은 금액)" tag="24X26" width = 100% ></OBJECT>');

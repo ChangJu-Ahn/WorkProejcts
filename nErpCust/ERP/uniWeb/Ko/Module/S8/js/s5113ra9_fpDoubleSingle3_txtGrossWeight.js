@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle3 NAME="txtGrossWeight" CLASS=FPDS140 tag="24X3" ALT="ÃÑÁß·®" Title="FPDOUBLESINGLE"></OBJECT>');

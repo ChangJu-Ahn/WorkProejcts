@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" ID=txtTot_duty_mm NAME=txtTot_duty_mm CLASS=FPDS115 title=FPDOUBLESINGLE tag="24X3" ALT="총근속개월수"></OBJECT>');

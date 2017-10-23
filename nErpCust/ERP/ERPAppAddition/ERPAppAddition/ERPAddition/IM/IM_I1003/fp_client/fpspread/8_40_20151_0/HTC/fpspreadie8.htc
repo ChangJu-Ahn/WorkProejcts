@@ -1,0 +1,45 @@
+﻿<!--
+  Copyright (C) 2003-2014 GrapeCity Inc.	All rights reserved.
+-->
+<public:component>
+
+
+<PUBLIC:PROPERTY NAME="ActiveRow" GET="getActiveRow" />
+<PUBLIC:PROPERTY NAME="ActiveCol" GET="getActiveCol" />
+
+<PUBLIC:PROPERTY NAME="getAttribute" GET="getAttribute" />
+
+
+<PUBLIC:EVENT NAME="onScroll" ID="Scroll" />
+<PUBLIC:EVENT NAME="onActiveCellChanging" ID="ActiveCellChanging" />
+<PUBLIC:EVENT NAME="onActiveCellChanged" ID="ActiveCellChanged" />
+<PUBLIC:EVENT NAME="onDataChanged" ID="DataChanged" />
+<PUBLIC:EVENT NAME="onSelectionChanged" ID="SelectionChanged" />
+<PUBLIC:EVENT NAME="onEditStart" ID="EditStart" />
+<PUBLIC:EVENT NAME="onEditStopped" ID="EditStopped" />
+<PUBLIC:EVENT NAME="onCallBackStart" ID="CallBackStart" />
+<PUBLIC:EVENT NAME="onCallBackStopped" ID="CallBackStopped" />
+<PUBLIC:EVENT NAME="onColumnDragMove" ID="ColumnDragMove" />
+<PUBLIC:EVENT NAME="onColumnDragMoveCompleted" ID="ColumnDragMoveCompleted" />
+
+<PUBLIC:EVENT NAME="onErrorMessageShown" ID="ErrorMessageShown" />
+<PUBLIC:EVENT NAME="onAutoFilteringColumn" ID="AutoFilteringColumn" />
+<PUBLIC:EVENT NAME="onAutoFilteredColumn" ID="AutoFilteredColumn" />
+
+<PUBLIC:EVENT NAME="onColWidthChanged" ID="ColWidthChanged" />
+<PUBLIC:EVENT NAME="onRowHeightChanged" ID="RowHeightChanged" />
+<PUBLIC:EVENT NAME="onCopyData" ID="CopyData" />
+<PUBLIC:EVENT NAME="onLoadRowsStart" ID="LoadRowsStart"/>
+<PUBLIC:EVENT NAME="onLoadRowsStopped" ID="LoadRowsStopped"/>
+
+<PUBLIC:EVENT NAME="onMenuItemClicked" ID="MenuItemClicked" />
+<PUBLIC:EVENT NAME="onContextMenuClosed" ID="ContextMenuClosed" />
+<PUBLIC:EVENT NAME="onContextMenuOpening" ID="ContextMenuOpening" />
+<PUBLIC:EVENT NAME="onContextMenuOpened" ID="ContextMenuOpened" />  
+
+<PUBLIC:ATTACH EVENT="ondocumentready" ONEVENT="documentOnReady()"  />
+  
+  <!-- Internal methods -->
+<PUBLIC:METHOD NAME="fireSpreadEvent" />
+
+</public:component><script language="javascript">function documentOnReady(){if(typeof mvcSpread=="undefined"||typeof GrapeCity=="undefined"||GrapeCity.Web==null||GrapeCity.Web.Spread==null||GrapeCity.Web.Spread.SpreadView==null){setTimeout(documentOnReady,10);return}else init()}function init(){var b=GrapeCity.Web.Spread.FpSpread.CreateBehavior(element);if(element.getAttribute("mcctCellType")==null&&b&&b.getParentSpread()==null){var a=$&&typeof $.holdReady!="undefined"?$:window.jQuery&&typeof window.jQuery.holdReady!="undefined"?window.jQuery:$$.j;a&&a.holdReady(false)}}function getActiveRow(){return element.Behavior.getActiveRow()}function getActiveCol(){return element.Behavior.getActiveCol()}function getAttribute(which){if(!which)return"getAttribute() { }";var ele=window.document!=null?window.document.getElementById(element.id):null;if(ele!=null)return ele[which];else{var t=null;try{t=eval(element.id+"."+which)}catch(e){}return t}}function fireSpreadEvent(name,evt){var eventObj=eval(name);eventObj!=null&&eventObj.fire(evt)}</script>

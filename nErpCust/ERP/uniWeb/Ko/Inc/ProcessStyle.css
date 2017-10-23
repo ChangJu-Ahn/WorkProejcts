@@ -1,0 +1,76 @@
+.ProcessTD
+{
+    BORDER-RIGHT: medium none;
+    PADDING-RIGHT: 3px;
+    BORDER-TOP: medium none;
+    PADDING-LEFT: 3px;
+    FONT-SIZE: 9pt;
+    BACKGROUND-IMAGE: url(..\image\Process\c1.gif);
+    PADDING-BOTTOM: 5px;
+    BORDER-LEFT: medium none;
+    WIDTH: 105px;
+    CURSOR: auto;
+    COLOR: black;
+    PADDING-TOP: 5px;
+    BORDER-BOTTOM: medium none;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 100px;
+    BACKGROUND-COLOR: transparent;
+    TEXT-ALIGN: center
+}
+.ProcessTR
+{
+    BORDER-RIGHT: blue thin outset;
+    BORDER-TOP: blue thin outset;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: blue thin outset;
+    BORDER-BOTTOM: blue thin outset;
+    TEXT-ALIGN: center
+}
+.ProcessTD2
+{
+    BORDER-RIGHT: thin;
+    PADDING-RIGHT: 3px;
+    BORDER-TOP: thin;
+    PADDING-LEFT: 3px;
+    FONT-SIZE: 9pt;
+    BACKGROUND-IMAGE: url(..\image\Process\c6.gif);
+    PADDING-BOTTOM: 5px;
+    MARGIN-LEFT: 10px;
+    BORDER-LEFT: thin;
+    WIDTH: 105px;
+    CURSOR: auto;
+    MARGIN-RIGHT: 10px;
+    PADDING-TOP: 5px;
+    BORDER-BOTTOM: thin;
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 100px;
+    BACKGROUND-COLOR: transparent;
+    TEXT-ALIGN: center
+}
+A:link
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+.ProcessTD A:link
+{
+    COLOR: white
+}
+.ProcessTD A:visited
+{
+    COLOR: white
+}
+.ProcessTD2 A:link
+{
+    COLOR: black
+}
+.ProcessTD2 A:visited
+{
+    COLOR: black
+}

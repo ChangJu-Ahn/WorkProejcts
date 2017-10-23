@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle1 NAME="txtNetWeight" TABINDEX = "-1" style="HEIGHT: 20px; WIDTH: 150px" tag="24X3Z" ALT="ÃÑ¼øÁß·®" Title="FPDOUBLESINGLE"></OBJECT>');

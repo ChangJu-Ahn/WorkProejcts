@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpBasIntPayAmt name=txtBasIntPayAmt CLASS=FPDS140 title=FPDOUBLESINGLE ALT="이자지급기초액" tag="22X2Z"></OBJECT>');

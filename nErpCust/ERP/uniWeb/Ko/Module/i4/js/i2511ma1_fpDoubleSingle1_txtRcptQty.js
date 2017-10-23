@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" name=txtRcptQty style="HEIGHT: 20px; LEFT: 0px; TOP: 0px; WIDTH: 115px" title=FPDOUBLESINGLE ALT="입고수량" tag="24X3Z" VIEWASTEXT id=fpDoubleSingle1 ></OBJECT>');

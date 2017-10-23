@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MM_MM002_DS" targetNamespace="http://tempuri.org/MM_MM002_DS.xsd" xmlns:mstns="http://tempuri.org/MM_MM002_DS.xsd" xmlns="http://tempuri.org/MM_MM002_DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MM_MM002_DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MM_MM002_DS" msprop:Generator_UserDSName="MM_MM002_DS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BIZ_AREA_NM" msprop:Generator_ColumnVarNameInTable="columnBIZ_AREA_NM" msprop:Generator_ColumnPropNameInRow="BIZ_AREA_NM" msprop:Generator_ColumnPropNameInTable="BIZ_AREA_NMColumn" msprop:Generator_UserColumnName="BIZ_AREA_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="ID_DT" msprop:Generator_ColumnVarNameInTable="columnID_DT" msprop:Generator_ColumnPropNameInRow="ID_DT" msprop:Generator_ColumnPropNameInTable="ID_DTColumn" msprop:Generator_UserColumnName="ID_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="BAS_NO" msprop:Generator_ColumnVarNameInTable="columnBAS_NO" msprop:Generator_ColumnPropNameInRow="BAS_NO" msprop:Generator_ColumnPropNameInTable="BAS_NOColumn" msprop:Generator_UserColumnName="BAS_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="DISCHGE_PORT" msprop:Generator_ColumnVarNameInTable="columnDISCHGE_PORT" msprop:Generator_ColumnPropNameInRow="DISCHGE_PORT" msprop:Generator_ColumnPropNameInTable="DISCHGE_PORTColumn" msprop:Generator_UserColumnName="DISCHGE_PORT" type="xs:string" minOccurs="0" />
+              <xs:element name="TRANSPORT" msprop:Generator_ColumnVarNameInTable="columnTRANSPORT" msprop:Generator_ColumnPropNameInRow="TRANSPORT" msprop:Generator_ColumnPropNameInTable="TRANSPORTColumn" msprop:Generator_UserColumnName="TRANSPORT" type="xs:string" minOccurs="0" />
+              <xs:element name="IP_NO" msdata:Caption="SPC03_VAT" msprop:Generator_ColumnVarNameInTable="columnIP_NO" msprop:Generator_ColumnPropNameInRow="IP_NO" msprop:Generator_ColumnPropNameInTable="IP_NOColumn" msprop:Generator_UserColumnName="IP_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC05" msprop:Generator_ColumnVarNameInTable="columnSPC05" msprop:Generator_ColumnPropNameInRow="SPC05" msprop:Generator_ColumnPropNameInTable="SPC05Column" msprop:Generator_UserColumnName="SPC05" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC05_VAT" msprop:Generator_ColumnVarNameInTable="columnSPC05_VAT" msprop:Generator_ColumnPropNameInRow="SPC05_VAT" msprop:Generator_ColumnPropNameInTable="SPC05_VATColumn" msprop:Generator_UserColumnName="SPC05_VAT" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC03" msprop:Generator_ColumnVarNameInTable="columnSPC03" msprop:Generator_ColumnPropNameInRow="SPC03" msprop:Generator_ColumnPropNameInTable="SPC03Column" msprop:Generator_UserColumnName="SPC03" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC03_VAT" msprop:Generator_ColumnVarNameInTable="columnSPC03_VAT" msprop:Generator_ColumnPropNameInRow="SPC03_VAT" msprop:Generator_ColumnPropNameInTable="SPC03_VATColumn" msprop:Generator_UserColumnName="SPC03_VAT" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC14" msprop:Generator_ColumnVarNameInTable="columnSPC14" msprop:Generator_ColumnPropNameInRow="SPC14" msprop:Generator_ColumnPropNameInTable="SPC14Column" msprop:Generator_UserColumnName="SPC14" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC14_VAT" msprop:Generator_ColumnVarNameInTable="columnSPC14_VAT" msprop:Generator_ColumnPropNameInRow="SPC14_VAT" msprop:Generator_ColumnPropNameInTable="SPC14_VATColumn" msprop:Generator_UserColumnName="SPC14_VAT" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC02" msprop:Generator_ColumnVarNameInTable="columnSPC02" msprop:Generator_ColumnPropNameInRow="SPC02" msprop:Generator_ColumnPropNameInTable="SPC02Column" msprop:Generator_UserColumnName="SPC02" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC02_VAT" msprop:Generator_ColumnVarNameInTable="columnSPC02_VAT" msprop:Generator_ColumnPropNameInRow="SPC02_VAT" msprop:Generator_ColumnPropNameInTable="SPC02_VATColumn" msprop:Generator_UserColumnName="SPC02_VAT" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC12" msprop:Generator_ColumnVarNameInTable="columnSPC12" msprop:Generator_ColumnPropNameInRow="SPC12" msprop:Generator_ColumnPropNameInTable="SPC12Column" msprop:Generator_UserColumnName="SPC12" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC12_VAT" msprop:Generator_ColumnVarNameInTable="columnSPC12_VAT" msprop:Generator_ColumnPropNameInRow="SPC12_VAT" msprop:Generator_ColumnPropNameInTable="SPC12_VATColumn" msprop:Generator_UserColumnName="SPC12_VAT" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC01" msprop:Generator_ColumnVarNameInTable="columnSPC01" msprop:Generator_ColumnPropNameInRow="SPC01" msprop:Generator_ColumnPropNameInTable="SPC01Column" msprop:Generator_UserColumnName="SPC01" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC18" msprop:Generator_ColumnVarNameInTable="columnSPC18" msprop:Generator_ColumnPropNameInRow="SPC18" msprop:Generator_ColumnPropNameInTable="SPC18Column" msprop:Generator_UserColumnName="SPC18" type="xs:string" minOccurs="0" />
+              <xs:element name="SPC19" msprop:Generator_ColumnVarNameInTable="columnSPC19" msprop:Generator_ColumnPropNameInRow="SPC19" msprop:Generator_ColumnPropNameInTable="SPC19Column" msprop:Generator_UserColumnName="SPC19" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

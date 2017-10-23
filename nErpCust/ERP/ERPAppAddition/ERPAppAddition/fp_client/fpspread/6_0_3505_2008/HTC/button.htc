@@ -1,0 +1,31 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc. 	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:ATTACH EVENT="onmousedown" ONEVENT="btnClick()"  />
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+//<!--
+  function btnClick() {
+    var spread = null;
+    var w = element;      
+    while (w!=null && w.tagName!="BODY") {
+      if (w.FpSpread=="Spread") {        
+        spread = w;
+        break;
+      }        
+      w = w.parentElement;
+    }
+    
+    if (spread!=null) {
+      try {
+        spread.onclickCell();
+        spread.UpdatePostbackData();          
+      } catch (e) {}
+    }
+  }
+          
+//-->
+</script>

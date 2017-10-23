@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=hdf020t_supp_old_cnt name=txtsupp_old_cnt style="HEIGHT: 20px; LEFT: 0px; TOP: 0px; WIDTH: 125px" title=FPDOUBLESINGLE tag="24X3Z" ALT="부양자공제사항"></OBJECT>');

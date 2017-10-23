@@ -1,0 +1,1492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample">
+
+	<!--***************************** select 문 start ***********************************-->
+	
+	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre"/> 
+		<![CDATA[
+			SELECT
+				ROW_NUMBER() OVER (ORDER BY CONTRACT_NO DESC) RNUM,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = BU_CODE AND CODE_VALID = 'Y') AS BU_CODE,
+				CONTRACT_NO,
+				B.CODE_SNM AS BP_CD1,
+				C.CODE_SNM AS BP_CD2,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = CONTRACT_TYPE AND LVL = 3 AND CODE_VALID = 'Y') AS CONTRACT_TYPE,
+				PURPOSE,
+				CONTRACT_NM,
+				(SELECT VALID_DT FROM TB_CONTRACT_REG_HST WHERE CONTRACT_NO = A.CONTRACT_NO AND HST_SEQ = '1') AS VALID_DT,
+				EXPIRE_DT,
+				EXPIRE_FLAG,
+				EXTEND_FLAG,
+				P_CONTRACT,
+				EXPIRE_CONDITION,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_CONDITION AND CODE_VALID = 'Y') AS EXPIRE_CONDITIONNM
+			FROM TB_CONTRACT_REG A
+			INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE AND B.CODE_VALID = 'Y'
+			LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE AND C.CODE_VALID = 'Y'
+			WHERE A.BU_CODE LIKE (
+				SELECT 
+					CASE WHEN USER_DEPT = 'ALL' THEN '%'
+						 ELSE USER_DEPT + '%'
+					END
+				FROM TB_USER_INFO WHERE USER_NO = #{USERID}
+			)
+			  AND A.EXPIRE_FLAG <> 'Y'
+		]]>
+		<include refid="common.pagingPost"/> 
+	</select>
+	
+	<select id="selectBoardSearchList" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre"/> 
+		<![CDATA[
+			SELECT 
+				ROW_NUMBER() OVER (ORDER BY CONTRACT_NO DESC) RNUM,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = BU_CODE AND CODE_VALID = 'Y') AS BU_CODE,
+				CONTRACT_NO,
+				B.CODE_SNM AS BP_CD1,
+				C.CODE_SNM AS BP_CD2,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = CONTRACT_TYPE AND LVL = 3 AND CODE_VALID = 'Y') AS CONTRACT_TYPE,
+				PURPOSE,
+				CONTRACT_NM,
+				VALID_DT,
+				EXPIRE_DT,
+				EXPIRE_FLAG,
+				EXTEND_FLAG,
+				P_CONTRACT,
+				EXPIRE_CONDITION,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_CONDITION AND CODE_VALID = 'Y') AS EXPIRE_CONDITIONNM
+			FROM TB_CONTRACT_REG A
+			INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE AND B.CODE_VALID = 'Y'
+			LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE AND C.CODE_VALID = 'Y'
+			WHERE A.CONTRACT_NO LIKE #{CONTRACT_NO} +'%'
+			AND A.CONTRACT_NM LIKE '%' + #{CONTRACT_NM} + '%'
+			AND (UPPER(B.CODE_SNM) LIKE UPPER('%' + #{CODE_SNM} +'%')
+					OR UPPER(B.CODE_NM) LIKE UPPER('%' + #{CODE_SNM} +'%'))
+			AND A.BU_CODE LIKE (
+				SELECT 
+					CASE WHEN USER_DEPT = 'ALL' THEN '%'
+						 ELSE USER_DEPT + '%'
+					END
+				FROM TB_USER_INFO WHERE USER_NO = #{USERID}
+			)
+		]]>
+		<include refid="common.pagingPost"/> 
+	</select>
+	
+	<select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT 
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = BU_CODE AND CODE_VALID = 'Y') AS BU_CODE,
+				CONTRACT_NO,
+				B.CODE_NM AS BP_CD1,
+				C.CODE_NM AS BP_CD2,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.BP_TYPE AND CODE_VALID = 'Y')  AS BP_TYPE,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = CONTRACT_TYPE AND LVL = 3 AND CODE_VALID = 'Y') AS CONTRACT_TYPE,
+				PURPOSE,
+				CONTRACT_NM,
+				(SELECT VALID_DT FROM TB_CONTRACT_REG_HST WHERE CONTRACT_NO = A.CONTRACT_NO AND HST_SEQ = '1') AS FIRST_VALID_DT,
+				VALID_DT AS LAST_VALID_DT,
+				EXPIRE_DT,
+				EXTEND_FLAG,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.EXTEND_TERM AND HIGH_CODE = 'F' AND CODE_VALID = 'Y') AS EXTEND_TERM,
+				P_CONTRACT,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_TERM AND HIGH_CODE = 'G' AND CODE_VALID = 'Y') AS EXPIRE_TERM,
+				MODIFY_FLAG,
+				EXPIRE_FLAG,
+				END_DT,
+				SYS_REMARK,
+				REMARK,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_CONDITION AND CODE_VALID = 'Y') AS EXPIRE_CONDITION,
+				CONTENTS,
+				A.INSERT_USER
+				,A.MODIFY_CONTENT
+			FROM TB_CONTRACT_REG A
+			INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE AND B.CODE_VALID = 'Y'
+			LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE AND C.CODE_VALID = 'Y'  
+			WHERE A.CONTRACT_NO = #{CONTRACT_NO}
+		]]>
+	</select>
+	
+	<select id="selectBoardUpdateDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT 
+				CONTRACT_NO,
+				BU_CODE,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = BU_CODE AND CODE_VALID = 'Y') AS BU_NM,
+				A.BP_CD1,
+				B.CODE_NM AS BP_NM1,
+				A.BP_CD2,
+				C.CODE_NM AS BP_NM2,
+				A.BP_TYPE,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.BP_TYPE AND CODE_VALID = 'Y')  AS BP_TYPENM,
+				A.CONTRACT_TYPE,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = CONTRACT_TYPE AND LVL = 3 AND CODE_VALID = 'Y') AS CONTRACT_TYPENM,
+				PURPOSE,
+				CONTRACT_NM,
+				VALID_DT,
+				EXPIRE_DT,
+				EXPIRE_FLAG,
+				EXTEND_FLAG,
+				EXTEND_TERM,
+				P_CONTRACT,
+				EXPIRE_CONDITION,
+				(SELECT CODE FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_TERM AND CODE_VALID = 'Y') AS EXPIRE_TERM,
+				END_DT,
+				SYS_REMARK,
+				REMARK,
+				A.FILE_SEQ
+			FROM TB_CONTRACT_REG A
+			INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE AND B.CODE_VALID = 'Y'
+			LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE AND C.CODE_VALID = 'Y'
+			WHERE A.CONTRACT_NO = #{CONTRACT_NO}
+		]]>
+	</select>
+	
+	<select id="selectBoardUpdateHstDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT 
+				CONTRACT_NO,
+				A.HST_SEQ,
+				BU_CODE,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = BU_CODE AND CODE_VALID = 'Y') AS BU_NM,
+				A.BP_CD1,
+				B.CODE_NM AS BP_NM1,
+				A.BP_CD2,
+				C.CODE_NM AS BP_NM2,
+				A.BP_TYPE,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.BP_TYPE AND CODE_VALID = 'Y')  AS BP_TYPENM,
+				A.CONTRACT_TYPE,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = CONTRACT_TYPE AND LVL = 3 AND CODE_VALID = 'Y') AS CONTRACT_TYPENM,
+				PURPOSE,
+				CONTRACT_NM,
+				VALID_DT,
+				EXPIRE_DT,
+				EXPIRE_FLAG,
+				EXTEND_FLAG,
+				EXTEND_TERM,
+				P_CONTRACT,
+				EXPIRE_CONDITION,
+				(SELECT CODE FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_TERM AND CODE_VALID = 'Y') AS EXPIRE_TERM,
+				END_DT,
+				SYS_REMARK,
+				REMARK,
+				A.FILE_SEQ
+				,A.MODIFY_CONTENT
+			FROM TB_CONTRACT_REG_HST A
+			INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE
+			LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE  
+			WHERE A.CONTRACT_NO = #{CONTRACT_NO} AND A.HST_SEQ = #{HST_SEQ}
+		]]>
+	</select>
+	
+	<select id="selectHstList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT 
+			    CONTRACT_NO
+			   ,HST_SEQ
+			   ,CONTRACT_NM
+			   ,EXPIRE_FLAG
+			   ,MODIFY_FLAG
+			  FROM TB_CONTRACT_REG_HST
+			WHERE CONTRACT_NO = #{CONTRACT_NO}
+			AND HST_SEQ <> ( SELECT MAX(HST_SEQ)
+								FROM TB_CONTRACT_REG_HST
+								WHERE CONTRACT_NO =  #{CONTRACT_NO})
+			ORDER BY HST_SEQ		
+		]]>
+	</select>
+	
+	<select id="selectBoardHstDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT 
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.BU_CODE) AS BU_CODE,
+				A.CONTRACT_NO,
+				B.CODE_NM AS BP_CD1,
+				C.CODE_NM AS BP_CD2,
+				A.HST_SEQ,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.BP_TYPE)  AS BP_TYPE,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.CONTRACT_TYPE AND LVL = 3 AND HIGH_CODE LIKE 'A%') AS CONTRACT_TYPE,
+				A.PURPOSE,
+				A.CONTRACT_NM,
+				A.VALID_DT,
+				A.EXPIRE_DT,
+				A.EXTEND_FLAG,
+				A.P_CONTRACT,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.EXTEND_TERM AND HIGH_CODE = 'F') AS EXTEND_TERM,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.EXPIRE_TERM AND HIGH_CODE = 'G') AS EXPIRE_TERM,
+				A.MODIFY_FLAG,
+				A.EXPIRE_FLAG,
+				A.END_DT,
+				A.SYS_REMARK,
+				A.REMARK,
+				(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.EXPIRE_CONDITION AND HIGH_CODE = 'D') AS EXPIRE_CONDITION
+				,A.INSERT_USER
+				,(SELECT EXPIRE_FLAG FROM TB_CONTRACT_REG WHERE CONTRACT_NO = A.CONTRACT_NO) AS MAIN_EXPIRE_FLAG
+				,A.MODIFY_CONTENT 
+			FROM TB_CONTRACT_REG_HST A
+			INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE
+			LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE   
+			WHERE A.CONTRACT_NO = #{CONTRACT_NO}	
+ 			AND CONVERT(VARCHAR,A.HST_SEQ) = #{HST_SEQ} 
+		]]>
+	</select>
+	
+	<select id="openPopupList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			With CTE(CODE, CODE_NM, HIGH_CODE, Lv,sort)
+			As (       
+					SELECT 
+					CODE,
+					CODE_NM,
+					HIGH_CODE,	
+					1 AS Lv,
+					CONVERT(varchar(MAX),CODE + ''+ CONVERT(VARCHAR(MAX), CODE_NM) ) as sort		
+					FROM TB_ADMIN_CODE
+					WHERE CODE LIKE #{GUBUNTYPE}+'%'	  
+					AND LVL = 2 
+					Union all      
+					Select 
+					C.CODE,  
+					C.CODE_NM,
+					C.HIGH_CODE,
+					D.Lv + 1,
+					CONVERT(varchar(MAX),RTRIM(sort) + '|' + D.CODE + '' + CONVERT(VARCHAR(MAX),D.CODE_NM)) as sort
+					From TB_ADMIN_CODE C INNER JOIN CTE D ON C.HIGH_CODE = D.CODE
+			)
+			Select 
+				CODE, 
+				CODE_NM, 
+				HIGH_CODE,
+				Lv AS LVL
+				From CTE 
+			ORDER BY sort
+		]]>
+	</select>
+
+	<select id="openPopupList1" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT 
+			 	CODE,
+			 	CODE_NM,
+			 	CODE_SNM
+			FROM TB_ADMIN_CODE
+			WHERE HIGH_CODE = 'E'
+		]]>
+	</select>
+<!-- openPopupList 쿼리에 파라메터를 넘겨받아 통합처리
+	<select id="openPopupList2" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			With CTE(CODE, CODE_NM, HIGH_CODE, Lv,sort)
+			As (       
+				 SELECT 
+			 		CODE,
+			 		CODE_NM,
+			 		HIGH_CODE,	
+			 		1 AS Lv,
+			 		CONVERT(varchar(MAX),CODE + ''+ CONVERT(VARCHAR(MAX), CODE_NM) ) as sort		
+				 FROM TB_ADMIN_CODE
+				 WHERE CODE like 'A%'	  
+				 AND LVL = 2 
+			     Union all      
+				 Select 
+					C.CODE,  
+					C.CODE_NM,
+					C.HIGH_CODE,
+					D.Lv + 1,
+					CONVERT(varchar(MAX),RTRIM(sort) + '|' + D.CODE + '' + CONVERT(VARCHAR(MAX),D.CODE_NM)) as sort
+				 From TB_ADMIN_CODE C INNER JOIN CTE D ON C.HIGH_CODE = D.CODE
+			)
+			Select 
+				CODE, 
+				CODE_NM, 
+				HIGH_CODE,
+				Lv AS LVL
+			 From CTE 
+			ORDER BY sort
+		]]>
+	</select>
+ -->
+	<select id="openPopupList3" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT 
+				A.CONTRACT_NO,
+				CONTRACT_NM,
+				A.BP_CD1,
+				B.CODE_SNM AS BP_NM1,
+				A.BP_CD2,
+				ISNULL(C.CODE_SNM,'') AS BP_NM2,
+				VALID_DT,
+				EXPIRE_DT,
+				FILE_SEQ
+			FROM TB_CONTRACT_REG A
+			INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE
+			LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE 
+			WHERE 1=1
+				AND A.EXPIRE_FLAG <> 'Y'
+				AND A.BU_CODE LIKE (
+								SELECT 
+								CASE WHEN USER_DEPT = 'ALL' THEN '%'
+									 ELSE USER_DEPT + '%'
+								END
+								FROM TB_USER_INFO WHERE USER_NO = #{userid}
+							)
+			ORDER BY CONTRACT_NO
+		]]>
+	</select>
+	
+	<select id="selectFileList" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[	
+		SELECT 
+			A.CONTRACT_NO,
+			A.SEQ,
+			A.ORIGINAL_FILE_NAME,
+			A.STORED_FILE_NAME,
+			A.FILE_SIZE,
+			A.DEL_GB
+		FROM TB_FILE A INNER JOIN TB_CONTRACT_REG B 
+			 ON A.CONTRACT_NO = B.CONTRACT_NO AND A.FILE_SEQ = B.FILE_SEQ
+		WHERE DEL_GB = 'N'
+		AND A.CONTRACT_NO = #{CONTRACT_NO}
+	]]>
+	</select>
+	
+	<select id="selectHstFileList" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[	
+		SELECT 
+			A.CONTRACT_NO,
+			A.SEQ,
+			A.ORIGINAL_FILE_NAME,
+			A.STORED_FILE_NAME,
+			A.FILE_SIZE,
+			A.DEL_GB
+		FROM TB_FILE A INNER JOIN TB_CONTRACT_REG_HST B 
+			 ON A.CONTRACT_NO = B.CONTRACT_NO AND A.FILE_SEQ = B.FILE_SEQ
+		WHERE 1=1
+		AND A.CONTRACT_NO = #{CONTRACT_NO}
+		AND B.HST_SEQ = #{HST_SEQ}
+		AND A.DEL_GB = 'N'
+	]]>
+	</select>
+	
+	<select id="selectBoardAdminCode" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[	
+		With CTE(CODE, CODE_NM, CODE_SNM, HIGH_CODE, Lv,sort)
+		As (       
+				SELECT 
+				CODE,
+				CODE_NM,
+				CODE_SNM,
+				HIGH_CODE,	
+				1 AS Lv,
+				CONVERT(varchar(MAX),CODE + ''+ CONVERT(VARCHAR(MAX), CODE_NM) ) as sort		
+				FROM TB_ADMIN_CODE
+				WHERE CODE like #{CODE}+'%'	  
+				AND LVL = 2
+				AND CODE_VALID = 'Y'
+				Union all      
+				Select 
+				C.CODE,  
+				C.CODE_NM,
+				C.CODE_SNM,
+				C.HIGH_CODE,
+				D.Lv + 1,
+				CONVERT(varchar(MAX),RTRIM(sort) + '|' + D.CODE + '' + CONVERT(VARCHAR(MAX),D.CODE_NM)) as sort
+				From TB_ADMIN_CODE C INNER JOIN CTE D ON C.HIGH_CODE = D.CODE AND C.CODE_VALID = 'Y'
+		)
+	]]>
+    <include refid="common.pagingPre"/> 
+	<![CDATA[
+		Select 
+			ROW_NUMBER() OVER (ORDER BY CODE) RNUM,
+			CODE, 
+			CODE_NM, 
+			ISNULL(CODE_SNM,'') AS CODE_SNM,
+			HIGH_CODE,
+			Lv AS LVL
+			From CTE		
+	]]>
+	<include refid="common.pagingPost"/> 
+	</select>
+	
+	<select id="NtotalContractGraph" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		SELECT
+			C.CODE_NM AS GUBUN
+			,COUNT(B.HIGH_CODE) AS 	G_COUNT
+		FROM TB_CONTRACT_REG A
+				INNER JOIN TB_ADMIN_CODE B ON A.CONTRACT_TYPE = B.CODE 
+				INNER JOIN TB_ADMIN_CODE C ON B.HIGH_CODE = C.CODE
+		WHERE A.BU_CODE LIKE (
+								SELECT 
+								CASE WHEN USER_DEPT = 'ALL' THEN '%'
+									 ELSE USER_DEPT + '%'
+								END
+								FROM TB_USER_INFO WHERE USER_NO = #{userid}
+							)
+			AND DATEPART(YYYY, A.VALID_DT) = #{year}
+		GROUP BY C.CODE_NM
+	]]>
+	</select>
+	
+<!-- 	<select id="NtotalContractGrid" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+			CONVERT(VARCHAR,DATEPART(YYYY,INSERT_DT)) AS year,
+			COUNT(DATEPART(YYYY,INSERT_DT)) AS count
+		FROM TB_CONTRACT_REG
+		WHERE BU_CODE LIKE (
+				SELECT ISNULL(USER_DEPT,'')+'%' FROM TB_USER_INFO WHERE USER_NO = #{user_id})
+		GROUP BY DATEPART(YYYY,INSERT_DT)		
+		ORDER BY DATEPART(YYYY,INSERT_DT) DESC
+	]]>
+	</select> -->
+	<select id="NtotalContractGrid" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		SELECT
+			CONVERT(VARCHAR,DATEPART(YYYY,A.VALID_DT)) AS year
+			,COUNT(DATEPART(YYYY,A.VALID_DT)) AS count
+		FROM TB_CONTRACT_REG A
+		WHERE A.BU_CODE LIKE (
+								SELECT 
+									CASE WHEN USER_DEPT = 'ALL' THEN '%'
+										 ELSE USER_DEPT + '%'
+									END
+								FROM TB_USER_INFO WHERE USER_NO = #{userid}
+							)
+			AND DATEPART(YYYY,A.VALID_DT) = #{year}
+		GROUP BY DATEPART(YYYY,A.VALID_DT)		
+	]]>
+	</select>
+	
+	<select id="NperiodContract" parameterType="String" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+			 #{year}+'_'+CONVERT(VARCHAR,DATEPART(QQ,VALID_DT))+'Q' as 'group',
+			 '신규체결' as 'gubun',
+			 COUNT(VALID_DT) as 'value'
+			 FROM TB_CONTRACT_REG
+		WHERE DATEPART(YEAR,VALID_DT) = #{year}
+		AND BU_CODE LIKE (SELECT 
+								CASE WHEN USER_DEPT = 'ALL' THEN '%'
+									 ELSE USER_DEPT + '%'
+								END
+							FROM TB_USER_INFO WHERE USER_NO = #{userid})
+		GROUP BY CONVERT(VARCHAR,DATEPART(QQ,VALID_DT))
+		UNION 
+		SELECT
+			#{year}+'_'+CONVERT(VARCHAR,DATEPART(QQ,A.EXPIRE_DT))+'Q' as 'group',
+			'자동연장' as 'gubun',
+			 COUNT(A.EXPIRE_DT) as 'value'
+		FROM TB_CONTRACT_REG_HST A 
+			INNER JOIN (SELECT 
+							HST_SEQ -1 AS HST_SEQ --최근 계약서의 바로 직전의 데이터를 가지고 옴
+							, CONTRACT_NO
+							,BU_CODE
+						FROM TB_CONTRACT_REG
+						WHERE 1=1
+							AND EXPIRE_FLAG = 'N'
+							AND HST_SEQ <> '1'
+							AND EXTEND_FLAG = 'Y') B 
+				ON A.CONTRACT_NO = B.CONTRACT_NO AND A.HST_SEQ = B.HST_SEQ
+		WHERE DATEPART(YEAR, A.EXPIRE_DT) = #{year}
+		AND B.BU_CODE LIKE (
+				SELECT 
+					CASE WHEN USER_DEPT = 'ALL' THEN '%'
+						 ELSE USER_DEPT + '%'
+					END
+				FROM TB_USER_INFO WHERE USER_NO = #{userid}
+			)
+		GROUP BY CONVERT(VARCHAR,DATEPART(QQ,A.EXPIRE_DT))
+	]]>
+	</select>
+	
+	<select id="AtotalContract_Simple" resultType="hashmap">
+	<![CDATA[
+		WITH VALUE_TABLE AS (
+					SELECT 
+				 D.CODE_NM AS CONTRACT_NM
+				,COUNT(D.CODE_NM) AS CNT
+				,TEMP.BU_NM AS BU_NM
+			FROM (
+					SELECT 
+						   C.HIGH_CODE
+						   ,(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = B.HIGH_CODE) AS BU_NM
+					FROM TB_CONTRACT_REG A
+						   INNER JOIN TB_ADMIN_CODE B ON A.BU_CODE = B.CODE
+						   INNER JOIN TB_ADMIN_CODE C ON A.CONTRACT_TYPE = C.CODE
+				) TEMP 
+				INNER JOIN TB_ADMIN_CODE D ON TEMP.HIGH_CODE = D.CODE
+			GROUP BY D.CODE_NM, TEMP.BU_NM
+		)
+			
+		SELECT 
+			 CONTRACT_NM
+			,ISNULL([SEMI], 0) AS 'SEMI'
+			,ISNULL([AMC], 0) AS 'AMC'
+			,ISNULL([DISPLAY], 0) AS 'DISPLAY'
+			,ISNULL([ENC], 0) AS 'ENC'
+			,ISNULL([EM], 0) AS 'EM'
+			,ISNULL([LED], 0) AS 'LED'
+			,ISNULL([Rigmah], 0) AS 'Rigmah'
+			,ISNULL([기술원], 0) AS '기술원'
+			,ISNULL([Solvr], 0) AS 'SOLVR'
+			,ISNULL([관리/지원(NC)], 0) AS '관리지원'
+		    ,( ISNULL([SEMI], 0) + ISNULL([AMC], 0) + ISNULL([DISPLAY], 0) + ISNULL([ENC], 0) + ISNULL([EM], 0) 
+				+ ISNULL([기술원], 0) + ISNULL([Solvr], 0) + ISNULL([Rigmah], 0) + ISNULL([LED], 0) + ISNULL([관리/지원(NC)], 0) 
+			) AS TOTAL
+		FROM VALUE_TABLE
+		PIVOT
+		( 
+			SUM(CNT) FOR BU_NM IN ([SEMI], [AMC], [DISPLAY], [ENC], [EM], [기술원], [Solvr], [Rigmah], [LED], [관리/지원(NC)]) 
+		)PV
+	]]>
+	</select>
+	
+	<select id="AtotalContract_Detail" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+		 CONTRACT_NM
+		,ISNULL([SEMI], 0) AS 'SEMI'
+		,ISNULL([AMC], 0) AS 'AMC'
+		,ISNULL([DISPLAY], 0) AS 'DISPLAY'
+		,ISNULL([ENC], 0) AS 'ENC'
+		,ISNULL([EM], 0) AS 'EM'
+		,ISNULL([LED], 0) AS 'LED'
+		,ISNULL([Rigmah], 0) AS 'Rigmah'
+		,ISNULL([기술원], 0) AS '기술원'
+		,ISNULL([Solvr], 0) AS 'SOLVR'
+		,ISNULL([관리/지원(NC)], 0) AS '관리지원'
+	    ,( ISNULL([SEMI], 0) + ISNULL([AMC], 0) + ISNULL([DISPLAY], 0) + ISNULL([ENC], 0) + ISNULL([EM], 0) 
+			+ ISNULL([기술원], 0) + ISNULL([Solvr], 0) + ISNULL([Rigmah], 0) + ISNULL([LED], 0) + ISNULL([관리/지원(NC)], 0) 
+		) AS TOTAL
+		FROM (
+				SELECT C.CODE_NM AS CONTRACT_NM,
+					   COUNT(C.CODE_NM) AS CNT,
+					   D.CODE_NM AS BU_NM
+					   FROM TB_CONTRACT_REG A
+					   INNER JOIN TB_ADMIN_CODE B ON A.BU_CODE = B.CODE
+					   INNER JOIN TB_ADMIN_CODE C ON A.CONTRACT_TYPE = C.CODE
+					   INNER JOIN TB_ADMIN_CODE D ON B.HIGH_CODE = D.CODE
+					GROUP BY C.CODE_NM,D.CODE_NM 
+			)A
+		PIVOT
+		(SUM(CNT) FOR BU_NM IN ([SEMI], [AMC], [DISPLAY], [ENC], [EM], [기술원], [Solvr], [Rigmah], [LED], [관리/지원(NC)]))PV
+	]]>
+	</select>
+	
+	<select id="AperiodContract" parameterType="String" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+				CODE_NM,
+				gubun,
+				Q1,
+				Q2, 
+				Q3, 
+				Q4 
+			 FROM ( --AAA
+					SELECT 
+						C.CODE_NM,
+						ISNULL(D.gubun,'신규체결') AS gubun,
+						ISNULL(D.Q1,0) AS Q1,
+						ISNULL(D.Q2,0) AS Q2,
+						ISNULL(D.Q3,0) AS Q3,
+						ISNULL(D.Q4,0) AS Q4
+					FROM TB_ADMIN_CODE C
+					LEFT OUTER JOIN ( --2
+								SELECT 
+									CODE
+									,gubun
+									,Q1
+									,Q2
+									,Q3
+									,Q4
+								 FROM ( --1
+									SELECT 
+										C.CODE,
+										'Q'+CONVERT(VARCHAR,DATEPART(QQ,A.VALID_DT)) as qq,
+										'신규체결' as gubun,
+										COUNT(A.VALID_DT) as 'value'
+										FROM TB_CONTRACT_REG A
+											INNER JOIN TB_ADMIN_CODE B ON A.BU_CODE = B.CODE AND HIGH_CODE LIKE 'B%'
+											INNER JOIN TB_ADMIN_CODE C ON B.HIGH_CODE = C.CODE AND C.HIGH_CODE = 'B'
+									WHERE DATEPART(YEAR,A.VALID_DT) = #{year}
+									GROUP BY C.CODE,CONVERT(VARCHAR,DATEPART(QQ,A.VALID_DT))
+								)B	--1
+								PIVOT
+								(SUM(value) FOR qq IN (Q1,Q2,Q3,Q4))PV
+					)D	--2
+					ON C.CODE = D.CODE
+					WHERE C.HIGH_CODE = 'B'
+					UNION ALL
+					SELECT 
+						C.CODE_NM,
+						ISNULL(D.gubun,'자동연장') AS gubun,
+						ISNULL(D.Q1,0) AS Q1,
+						ISNULL(D.Q2,0) AS Q2,
+						ISNULL(D.Q3,0) AS Q3,
+						ISNULL(D.Q4,0) AS Q4
+					FROM TB_ADMIN_CODE C
+					LEFT OUTER JOIN ( --BBB
+								SELECT 
+									CODE
+									,gubun
+									,Q1
+									,Q2
+									,Q3
+									,Q4
+								 FROM (	--CCC
+				 						SELECT
+											D.CODE,
+											'Q'+ CONVERT(VARCHAR,DATEPART(QQ,A.EXPIRE_DT)) as qq,
+											'자동연장' as 'gubun',
+											 COUNT(A.EXPIRE_DT) as 'value'
+										FROM TB_CONTRACT_REG_HST A 
+											INNER JOIN ( --DDD
+														SELECT 
+															HST_SEQ -1 AS HST_SEQ --최근 계약서의 바로 직전의 데이터를 가지고 옴
+															, CONTRACT_NO
+															,BU_CODE
+														FROM TB_CONTRACT_REG
+														WHERE 1=1
+															AND EXPIRE_FLAG = 'N'
+															AND HST_SEQ <> '1'
+															AND EXTEND_FLAG = 'Y'
+												) B --DDD
+												ON A.CONTRACT_NO = B.CONTRACT_NO AND A.HST_SEQ = B.HST_SEQ
+											INNER JOIN TB_ADMIN_CODE C ON B.BU_CODE = C.CODE
+											INNER JOIN TB_ADMIN_CODE D ON C.HIGH_CODE = D.CODE AND D.HIGH_CODE = 'B'
+										WHERE DATEPART(YEAR, A.EXPIRE_DT) = #{year}
+										GROUP BY D.CODE,CONVERT(VARCHAR,DATEPART(QQ,A.EXPIRE_DT))
+								)B	--CCC
+								PIVOT
+								(SUM(value) FOR qq IN (Q1,Q2,Q3,Q4))PV
+					)D	--BBB
+					ON C.CODE = D.CODE
+					WHERE C.HIGH_CODE = 'B'
+			)E	--AAA
+			GROUP BY CODE_NM,gubun,Q1,Q2,Q3,Q4
+	]]>
+	</select>
+	
+	<select id="selectBoxList" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+			CODE,
+			HIGH_CODE,
+			CODE_NM
+		FROM TB_ADMIN_CODE
+		WHERE CODE_SNM = 'SELECTBOX'
+		ORDER BY SEQ
+	]]>
+	</select>
+	
+	<select id="getAllData" resultType="hashmap" parameterType="hashmap">
+	<![CDATA[
+		SELECT 
+			isnull((SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = BU_CODE), '') AS BU_CODE,
+			isnull(CONTRACT_NO, '') AS CONTRACT_NO,
+			isnull(B.CODE_NM,'') AS BP_CD1,
+			isnull(C.CODE_NM,'') AS BP_CD2,
+			isnull((SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.BP_TYPE), '')  AS BP_TYPE,
+			isnull((SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = CONTRACT_TYPE AND LVL = 3), '') AS CONTRACT_TYPE,
+			isnull(PURPOSE,'') AS PURPOSE,
+			isnull(CONTRACT_NM, '') AS CONTRACT_NM,
+			isnull(VALID_DT, '') AS VALID_DT,
+			isnull(EXPIRE_DT, '') AS EXPIRE_DT,
+			isnull(EXTEND_FLAG, '') AS EXTEND_FLAG,
+			isnull((SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXTEND_TERM), '') AS EXTEND_TERM,
+			isnull(P_CONTRACT,'') AS P_CONTRACT,
+			isnull((SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_TERM), '') AS EXPIRE_TERM,
+			isnull(MODIFY_FLAG, '') AS MODIFY_FLAG, 
+			isnull(EXPIRE_FLAG, '') AS EXPIRE_FLAG,
+			isnull(REMARK,'') AS REMARK,
+			isnull((SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_CONDITION), '') AS EXPIRE_CONDITION,
+			isnull(CONTENTS,'') AS CONTENTS
+		FROM TB_CONTRACT_REG A
+		INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE
+		LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE
+		WHERE 1=1  
+			AND A.BU_CODE LIKE (
+					SELECT 
+						CASE WHEN USER_DEPT = 'ALL' THEN '%'
+							 ELSE USER_DEPT + '%'
+						END
+					FROM TB_USER_INFO WHERE USER_NO = #{userid}
+				)
+		ORDER BY BU_CODE
+	]]>
+	
+	<!-- SELECT 
+			(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = BU_CODE) AS 사업부,
+			CONTRACT_NO AS 계약번호,
+			B.CODE_NM AS 고객사1,
+			C.CODE_NM AS 고객사2,
+			(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = A.BP_TYPE)  AS 구분,
+			(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = CONTRACT_TYPE) AS 계약구분,
+			PURPOSE AS 목적사업,
+			CONTRACT_NM AS 계약서명,
+			VALID_DT AS 효력발생일,
+			EXPIRE_DT AS 기간만료일,
+			EXTEND_FLAG AS 자동연장,
+			P_CONTRACT AS 부속계약서,
+			(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_TERM) AS 해지통지기간,
+			EXPIRE_FLAG AS 해지여부,
+			REMARK AS 비고,
+			(SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = EXPIRE_CONDITION) AS 해지조건
+		FROM TB_CONTRACT_REG A
+		INNER JOIN TB_ADMIN_CODE B ON A.BP_CD1 = B.CODE
+		LEFT OUTER JOIN TB_ADMIN_CODE C ON A.BP_CD2 = C.CODE
+		WHERE BU_CODE LIKE '%'
+		ORDER BY BU_CODE -->
+	
+	</select>
+	
+	<select id="selectUserList" resultType="hashmap">
+		<include refid="common.pagingPre"/> 
+		<![CDATA[
+ 			SELECT
+ 				 ROW_NUMBER() OVER(ORDER BY USER_NO) AS RNUM
+				,USER_NO
+				,USER_NM
+				,USER_DEPT
+				,USER_ROLE
+				,USER_EMAIL
+				,VALID_FLAG
+			FROM TB_USER_INFO
+		]]>
+		<include refid="common.pagingPost"/> 
+	</select>
+	
+	<!--***************************** select 문 end *************************************-->
+	
+	<!--***************************** Insert 문 start ***********************************-->
+	
+	<insert id="insertBoard" parameterType="hashmap">
+		<selectKey resultType="String" keyProperty="CONTRACT_NO"
+			order="BEFORE">
+			<!-- SELECT ('TEST' +
+			ISNULL(REPLICATE('0',3-LEN(CONVERT(VARCHAR,MAX(SUBSTRING(CONTRACT_NO,5,3))+1)))+CONVERT(VARCHAR,MAX(SUBSTRING(CONTRACT_NO,5,3))+1),'001'))
+			as CONTRACT_NO FROM TB_CONTRACT_REG -->
+		SELECT [dbo].[FN_CONTRACTNO](
+	  								 (SELECT CODE_NM FROM TB_ADMIN_CODE WHERE CODE = #{BU_CODE}) + '-' + 
+	   								 (SELECT CODE_SNM FROM TB_ADMIN_CODE WHERE CODE = #{BP_CD1})) as CONTRACT_NO
+		</selectKey>   
+    <![CDATA[
+        INSERT INTO TB_CONTRACT_REG
+         (
+            CONTRACT_NO
+           ,HST_SEQ
+           ,BU_CODE
+           ,BP_CD1
+           ,BP_CD2
+           ,BP_TYPE
+           ,CONTRACT_NM
+           ,CONTRACT_TYPE
+           ,PURPOSE
+           ,VALID_DT
+           ,EXPIRE_DT
+           ,EXTEND_FLAG
+           ,EXTEND_TERM
+           ,P_CONTRACT
+           ,EXPIRE_CONDITION
+           ,EXPIRE_TERM
+           ,EXPIRE_FLAG
+           ,MODIFY_FLAG
+           ,MODIFY_CONTENT
+           ,SYS_REMARK
+           ,REMARK
+           ,INSERT_DT
+           ,INSERT_USER
+         )
+     	VALUES
+        (
+            #{CONTRACT_NO}
+           ,1
+           ,#{BU_CODE}
+           ,#{BP_CD1}
+           ,#{BP_CD2}
+           ,#{BP_TYPE}
+           ,#{CONTRACT_NM}
+           ,#{CONTRACT_TYPE}
+           ,#{PURPOSE}
+           ,CONVERT(DATE,#{VALID_DT})
+           ,CONVERT(DATE,#{EXPIRE_DT})
+           ,#{EXTEND_FLAG}  
+           ,#{EXTEND_TERM}         
+           ,#{P_CONTRACT}
+           ,#{EXPIRE_CONDITION}
+           ,#{EXPIRE_TERM}
+           ,'N'
+           ,'N'
+           ,''
+           ,''
+           ,#{REMARK}
+           ,GETDATE()
+           ,#{userid}
+        )
+	    ]]>
+	</insert>
+	
+	<insert id="insertHst" parameterType="hashmap">
+    	<![CDATA[
+        	INSERT INTO TB_CONTRACT_REG_HST( 
+        		 CONTRACT_NO
+				,HST_SEQ
+				,BU_CODE
+				,BP_CD1
+				,BP_CD2
+				,BP_TYPE
+				,CONTRACT_NM
+				,CONTRACT_TYPE
+				,PURPOSE
+				,VALID_DT
+				,EXPIRE_DT
+				,EXTEND_FLAG
+				,EXTEND_TERM
+				,P_CONTRACT
+				,EXPIRE_CONDITION
+				,EXPIRE_TERM
+				,EXPIRE_FLAG
+				,MODIFY_FLAG
+				,MODIFY_CONTENT
+				,FILE_SEQ
+				,REMARK
+				,INSERT_DT
+				,INSERT_USER
+				,SYS_REMARK
+			)
+        	(
+        		SELECT 
+        			CONTRACT_NO
+					,HST_SEQ
+					,BU_CODE
+					,BP_CD1
+					,BP_CD2
+					,BP_TYPE
+					,CONTRACT_NM
+					,CONTRACT_TYPE
+					,PURPOSE
+					,VALID_DT
+					,EXPIRE_DT
+					,EXTEND_FLAG
+					,EXTEND_TERM
+					,P_CONTRACT
+					,EXPIRE_CONDITION
+					,EXPIRE_TERM
+					,EXPIRE_FLAG
+					,MODIFY_FLAG
+					,MODIFY_CONTENT
+					,FILE_SEQ
+					,REMARK
+					,GETDATE()
+					,#{userid}
+					,SYS_REMARK
+        		FROM TB_CONTRACT_REG
+        		WHERE CONTRACT_NO = #{CONTRACT_NO}
+			)
+	    ]]>
+	</insert>
+
+	<insert id="insertFile" parameterType="hashmap">
+    <![CDATA[
+        INSERT INTO TB_FILE
+        (
+            CONTRACT_NO,
+            FILE_SEQ,
+            SEQ,
+            ORIGINAL_FILE_NAME,
+            STORED_FILE_NAME,
+            FILE_SIZE,
+            CREA_DTM,
+            CREA_ID
+        )
+        VALUES
+        (
+            #{CONTRACT_NO},
+            (SELECT ISNULL(MAX(FILE_SEQ),1) FROM TB_FILE WHERE CONTRACT_NO = #{CONTRACT_NO}),
+            (SELECT (ISNULL(MAX(SEQ),0)+1) FROM TB_FILE WHERE CONTRACT_NO = #{CONTRACT_NO}),
+            #{ORIGINAL_FILE_NAME},
+            #{STORED_FILE_NAME},
+            #{FILE_SIZE},
+            GETDATE(),
+            #{userid}
+        )
+    ]]>
+	</insert>
+	
+	<insert id="insertHstFile" parameterType="hashmap">
+    <![CDATA[
+        INSERT INTO TB_FILE
+        (
+            CONTRACT_NO,
+            FILE_SEQ,
+            SEQ,
+            ORIGINAL_FILE_NAME,
+            STORED_FILE_NAME,
+            FILE_SIZE,
+            CREA_DTM,
+            CREA_ID
+        )
+        VALUES
+        (
+            #{CONTRACT_NO},
+            #{FILE_SEQ},
+            (SELECT (ISNULL(MAX(SEQ),0)+1) FROM TB_FILE WHERE CONTRACT_NO = #{CONTRACT_NO}),
+            #{ORIGINAL_FILE_NAME},
+            #{STORED_FILE_NAME},
+            #{FILE_SIZE},
+            GETDATE(),
+            #{userid}
+        )
+    ]]>
+	</insert>
+	
+	<insert id="modifyFile" parameterType="hashmap">
+    <![CDATA[
+        INSERT INTO TB_FILE
+        (
+            CONTRACT_NO,
+            FILE_SEQ,
+            SEQ,
+            ORIGINAL_FILE_NAME,
+            STORED_FILE_NAME,
+            FILE_SIZE,
+            CREA_DTM,
+            CREA_ID
+        )
+        VALUES
+        (
+            #{CONTRACT_NO},
+            #{FILE_SEQ}+1,
+            (SELECT ISNULL(MAX(SEQ),1)+1 FROM TB_FILE WHERE CONTRACT_NO = #{CONTRACT_NO}),
+            #{ORIGINAL_FILE_NAME},
+            #{STORED_FILE_NAME},
+            #{FILE_SIZE},
+            GETDATE(),
+            #{userid}
+        )
+    ]]>
+	</insert>
+	
+<!-- 	<insert id="addGrid" parameterType="hashmap"> -->
+<!--     <![CDATA[ -->
+<!--         INSERT INTO TB_ADMIN_CODE -->
+<!-- 		SELECT	 -->
+<!-- 			CAST(LEFT(CODE,1) AS NVARCHAR) -->
+<!-- 				+ CAST( -->
+<!-- 						REPLICATE('0', (LEN(CODE)-1) - LEN(CAST(SUBSTRING(CODE, 2, LEN(CODE))+1 AS INT))) AS NVARCHAR -->
+<!-- 			) + CAST(SUBSTRING(CODE, 2, LEN(CODE))+1 AS NVARCHAR), -->
+<!-- 			HIGH_CODE, -->
+<!-- 			SEQ+1 AS SEQ, -->
+<!-- 			#{CODE_NM}, -->
+<!-- 			#{CODE_SNM}, -->
+<!-- 			'Y', -->
+<!-- 			LVL, -->
+<!-- 			GETDATE(), -->
+<!-- 			#{userid}, -->
+<!-- 			GETDATE(), -->
+<!-- 			#{userid} -->
+<!-- 		FROM TB_ADMIN_CODE A -->
+<!-- 		WHERE HIGH_CODE = #{HIGH_CODE} -->
+<!-- 		AND SEQ = ( -->
+<!-- 				SELECT MAX(B.SEQ) -->
+<!-- 					FROM TB_ADMIN_CODE B -->
+<!-- 				WHERE B.HIGH_CODE = A.HIGH_CODE -->
+<!-- 		) -->
+<!--     ]]> -->
+<!-- 	</insert> -->
+	
+	<insert id="addGrid" parameterType="hashmap">
+    <![CDATA[
+		SELECT TOP 1 A.*
+		FROM TB_ADMIN_CODE A
+		WHERE HIGH_CODE = #{HIGH_CODE}
+		AND SEQ = (
+				SELECT MAX(B.SEQ)
+					FROM TB_ADMIN_CODE B
+				WHERE B.HIGH_CODE = A.HIGH_CODE
+		)
+		
+		--상위 SEQ가 있을 경우(Major코드가 등록되고, 해당 Major에 Minor코드가 한 개라도 등록이 되어있을 경우 / 그래야  seq+1을 할 수있기 때문에..)
+		IF @@ROWCOUNT <> 0
+		BEGIN 
+			INSERT INTO TB_ADMIN_CODE (
+				CODE
+				,HIGH_CODE
+				,SEQ
+				,CODE_NM
+				,CODE_SNM
+				,CODE_VALID
+				,LVL
+				,INSERT_DT
+				,INSERT_USER
+				,UPDT_DT
+				,UPDATE_USER
+		)
+				SELECT TOP 1
+					CAST(LEFT(CODE,1) AS NVARCHAR) --상위 코드 중 첫번째 알파벳 
+						+ CAST(
+								REPLICATE('0', (LEN(CODE)-1) - LEN(SUBSTRING(CODE, 2, LEN(CODE))+1)) AS NVARCHAR --지정문자 반복구간 (현재 코드의 숫자를 파악하여 그와 맞게 채워 줌) 
+					) + CAST(SUBSTRING(CODE, 2, LEN(CODE))+1 AS NVARCHAR), --상위코드 + 자릿수 반복코드 + 이후 실제 적용되어야 하는 코드
+					HIGH_CODE,
+					SEQ+1 AS SEQ,
+					#{CODE_NM},
+					#{CODE_SNM},
+					'Y',
+					LVL,
+					GETDATE(),
+					#{userid},
+					GETDATE(),
+					#{userid}
+				FROM TB_ADMIN_CODE A
+				WHERE HIGH_CODE = #{HIGH_CODE}
+				AND SEQ = (
+						SELECT MAX(B.SEQ)
+							FROM TB_ADMIN_CODE B
+						WHERE B.HIGH_CODE = A.HIGH_CODE
+				)
+		END		--IF @@ROWCOUNT <> 0
+		--기준정보를 아예 최초로 등록하는 정보는 신규로 진행되어야 함 (상위 시퀀스로 조회하면 데이터가 없기 때문에 신규로 채번되어야 함)
+		ELSE
+		BEGIN
+			INSERT INTO TB_ADMIN_CODE (
+				CODE
+				,HIGH_CODE
+				,SEQ
+				,CODE_NM
+				,CODE_SNM
+				,CODE_VALID
+				,LVL
+				,INSERT_DT
+				,INSERT_USER
+				,UPDT_DT
+				,UPDATE_USER
+		)
+				SELECT	TOP 1
+					#{HIGH_CODE} --상위 코드 중 첫번째 알파벳 
+						+ CAST(
+								REPLICATE('0', (LEN(CODE) - LEN(#{HIGH_CODE})) - '1') AS NVARCHAR --지정문자 반복구간 (현재 코드의 숫자를 파악하여 그와 맞게 채워 줌) 
+					) + '1', --상위코드 + 자릿수 반복코드 + 이후 실제 적용되어야 하는 코드
+					#{HIGH_CODE},
+					1 AS SEQ,
+					#{CODE_NM},
+					#{CODE_SNM},
+					'Y',
+					LVL,
+					GETDATE(),
+					#{userid},
+					GETDATE(),
+					#{userid}
+				FROM TB_ADMIN_CODE A
+				WHERE A.CODE LIKE LEFT(#{HIGH_CODE}, 1) + '%'	--하위코드 중 가장 왼쪽(구분자 알파벳)을 기준으로 LIKE
+				AND LVL = (										--입력된 상위코드의 하위 레벨
+						SELECT MAX(LVL)+1
+							FROM TB_ADMIN_CODE B
+						WHERE B.CODE = #{HIGH_CODE}
+				)
+		END	--ELSE
+    ]]>
+	</insert>
+	
+	<insert id="addUserGrid" parameterType="hashmap">
+    <![CDATA[
+	       INSERT INTO TB_USER_INFO
+           (
+           		[USER_NO]
+	           ,[USER_PWD]
+	           ,[USER_NM]
+	           ,[USER_DEPT]
+	           ,[USER_ROLE]
+	           ,[USER_EMAIL]
+	           ,[VALID_FLAG]
+	           ,[INSERT_DT]
+	           ,[INSERT_USER]
+	           ,[UPDT_DT]
+	           ,[UPDT_USER]
+	        )
+	     	VALUES
+	     	(
+     			 #{USER_NO}
+	     		,#{USER_NO}
+	     		,#{USER_NM}
+	     		,#{USER_DEPT}
+	     		,#{USER_ROLE}
+	     		,#{USER_EMAIL}
+	     		,#{VALID_FLAG}
+	     		,GETDATE()
+	     		,#{userid}
+	     		,GETDATE()
+	     		,#{userid}
+	     	)
+    ]]>
+	</insert>
+	
+	<!--***************************** Insert 문 end *************************************-->
+	
+	<!--***************************** Update 문 start ***********************************-->
+	
+	<update id="updateBoard" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_CONTRACT_REG
+        	SET  
+        		 BU_CODE = #{BU_CODE}
+				,BP_CD1  = #{BP_CD1}
+				,BP_CD2  = #{BP_CD2}
+				,BP_TYPE  = #{BP_TYPE}
+				,CONTRACT_NM  = #{CONTRACT_NM}
+				,CONTRACT_TYPE  = #{CONTRACT_TYPE}
+				,PURPOSE  = #{PURPOSE}
+				,VALID_DT  = CONVERT(DATE,#{VALID_DT})
+				,EXPIRE_DT  = CONVERT(DATE,#{EXPIRE_DT})
+				,EXTEND_FLAG  = #{EXTEND_FLAG}
+				,EXTEND_TERM  = #{EXTEND_TERM}
+				,P_CONTRACT  = #{P_CONTRACT}
+				,EXPIRE_CONDITION  = #{EXPIRE_CONDITION}
+				,EXPIRE_TERM  = #{EXPIRE_TERM}
+				,EXPIRE_FLAG  = #{EXPIRE_FLAG}
+				,REMARK  = #{REMARK}
+        	   	,UPDT_DT = GETDATE()
+        	   	,UPDATE_USER = #{userid}
+          WHERE CONTRACT_NO = #{CONTRACT_NO}
+    ]]>
+	</update>
+	
+	<update id="modifyBoard" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_CONTRACT_REG
+        	SET HST_SEQ = (SELECT MAX(HST_SEQ)+1 FROM TB_CONTRACT_REG WHERE CONTRACT_NO = #{CONTRACT_NO})
+        	   ,BP_CD1 = #{BP_CD1}
+        	   ,BP_CD2 = #{BP_CD2}
+        	   ,VALID_DT = CONVERT(DATE,#{VALID_DT})
+        	   ,EXPIRE_DT = CONVERT(DATE,#{EXPIRE_DT})
+        	   ,MODIFY_FLAG = 'Y'
+        	   ,MODIFY_CONTENT = #{MODIFY_CONTENT}
+        	   ,REMARK = #{REMARK}
+        	   ,UPDT_DT = GETDATE()
+        	   ,UPDATE_USER = #{userid}
+          WHERE CONTRACT_NO = #{CONTRACT_NO}
+    ]]>
+	</update>
+
+	<update id="updateFileDel" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_FILE
+        	SET 
+        	    UPDT_DT = GETDATE()
+        	   ,UPDT_USER = #{userid}
+          WHERE CONTRACT_NO = #{CONTRACT_NO}
+            AND FILE_SEQ = (SELECT FILE_SEQ FROM TB_CONTRACT_REG WHERE CONTRACT_NO = #{CONTRACT_NO})
+    ]]>
+	</update>
+	
+	<update id="updateFileSeq" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_CONTRACT_REG
+        	SET FILE_SEQ = (SELECT MAX(FILE_SEQ) FROM TB_FILE WHERE CONTRACT_NO = #{CONTRACT_NO})
+          WHERE CONTRACT_NO = #{CONTRACT_NO}
+    ]]>
+	</update>
+	
+	<update id="endBoard" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_CONTRACT_REG
+        	SET HST_SEQ = (SELECT MAX(HST_SEQ)+1 FROM TB_CONTRACT_REG WHERE CONTRACT_NO = #{CONTRACT_NO})
+        		,MODIFY_FLAG = 'Y'
+        		,EXPIRE_FLAG = 'Y'
+        		,END_DT = #{END_DT}
+        		,REMARK = #{REMARK}
+        		,UPDT_DT = GETDATE()
+        	    ,UPDATE_USER = #{userid}
+          WHERE CONTRACT_NO = #{CONTRACT_NO}
+    ]]>
+	</update>
+	
+	<update id="deleteFileList" parameterType="hashmap">
+    <![CDATA[
+        UPDATE TB_FILE SET
+              DEL_GB = 'Y'
+            , UPDT_DT = GETDATE()
+            , UPDT_USER = #{userid}
+        WHERE
+           	 CONTRACT_NO = #{CONTRACT_NO} 
+           AND FILE_SEQ = (CASE WHEN #{FILE_SEQ} = '' THEN 1
+           						ELSE CONVERT(NUMERIC, #{FILE_SEQ})
+           				   END)
+    ]]>
+	</update>
+	 
+	<update id="updateFile" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_FILE SET
+	            DEL_GB = 'N'
+	        WHERE
+	          CONTRACT_NO = #{CONTRACT_NO}  
+	        AND FILE_SEQ = CONVERT(NUMERIC,#{FILE_SEQ}) 
+	        AND SEQ = CONVERT(NUMERIC,#{SEQ})
+	    ]]>
+	</update>
+	
+	<update id="updateContents" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_CONTRACT_REG SET
+	            CONTENTS = #{CONTENTS}  
+	        WHERE
+	          CONTRACT_NO = #{CONTRACT_NO}
+	    ]]>
+	</update>
+	
+	<update id="updateGrid" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_ADMIN_CODE SET
+	           CODE_NM = #{CODE_NM},
+	           CODE_SNM = #{CODE_SNM},
+	           HIGH_CODE = #{HIGH_CODE},
+	           UPDT_DT = GETDATE(),
+	           UPDATE_USER = #{userid}
+	        WHERE
+	            CODE = #{id}
+	    ]]>
+	</update>
+	
+	<update id="updateUserGrid" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_USER_INFO SET
+	           USER_NM = #{USER_NM},
+	           USER_DEPT = #{USER_DEPT},
+	           USER_ROLE = #{USER_ROLE},
+	           USER_EMAIL = #{USER_EMAIL},
+	           VALID_FLAG = #{VALID_FLAG},
+	           UPDT_USER = #{userid},
+	           UPDT_DT = GETDATE()
+	        WHERE
+	            USER_NO = #{id}
+	    ]]>
+	</update>
+	
+	<update id="updateContractHst" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_CONTRACT_REG_HST SET
+	       		 BU_CODE = #{BU_CODE}
+				,BP_CD1  = #{BP_CD1}
+				,BP_CD2  = #{BP_CD2}
+				,BP_TYPE  = #{BP_TYPE}
+				,CONTRACT_NM  = #{CONTRACT_NM}
+				,CONTRACT_TYPE  = #{CONTRACT_TYPE}
+				,PURPOSE  = #{PURPOSE}
+				,VALID_DT  = CONVERT(DATE,#{VALID_DT})
+				,EXPIRE_DT  = CONVERT(DATE,#{EXPIRE_DT})
+				,EXTEND_FLAG  = #{EXTEND_FLAG}
+				,EXTEND_TERM  = #{EXTEND_TERM}
+				,P_CONTRACT  = #{P_CONTRACT}
+				,EXPIRE_CONDITION  = #{EXPIRE_CONDITION}
+				,EXPIRE_TERM  = #{EXPIRE_TERM}
+				,EXPIRE_FLAG  = #{EXPIRE_FLAG}
+				,MODIFY_CONTENT = #{MODIFY_CONTENT}
+				,REMARK  = #{REMARK}
+	       	   	,UPDT_DT = GETDATE()
+	       	   	,UPDATE_USER = #{userid}
+	        WHERE
+	            CONTRACT_NO = #{CONTRACT_NO}
+	            AND HST_SEQ = #{HST_SEQ}
+ 	    ]]>
+	</update>
+
+	<update id="updateUserInfo_initial" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_USER_INFO SET
+	           USER_PWD = USER_NO
+	           , UPDT_DT = GETDATE()
+	           , UPDT_USER = #{userid}
+	        WHERE
+	            USER_NO = #{userKey}
+ 	    ]]>
+	</update>
+	
+	<update id="updateUserInfo_update" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_USER_INFO SET
+	           USER_PWD = #{CHANGE_PASSWORD}
+	           , UPDT_DT = GETDATE()
+	           , UPDT_USER = #{USER_NO}
+	        WHERE
+	             USER_NO = #{USER_NO}
+	         AND (USER_PWD = #{USER_PWD} AND USER_PWD = #{REPEAT_PASSWORD})
+ 	    ]]>
+	</update>
+	
+	<delete id="delGrid" parameterType="hashmap">
+	    <![CDATA[
+	        UPDATE TB_ADMIN_CODE SET
+	        	CODE_VALID = 'N'
+	        	,UPDATE_USER = #{userid}
+	        	,UPDT_DT = GETDATE() 
+	        WHERE 
+ 	            CODE = #{id}
+ 	    ]]> 
+	</delete>
+	
+	<!--***************************** Update 문 end ***********************************-->
+	
+	<!--***************************** Delete 문 Stare ***********************************-->
+	
+<!-- 	<delete id="delGrid" parameterType="hashmap"> -->
+<!-- 	    <![CDATA[ -->
+<!-- 	        DELETE FROM TB_ADMIN_CODE -->
+<!-- 	        WHERE -->
+<!-- 	            CODE = #{id} -->
+<!-- 	    ]]> -->
+<!-- 	</delete> -->
+	
+	<delete id="delUserGrid" parameterType="hashmap">
+	    <![CDATA[
+	        DELETE FROM TB_USER_INFO
+	        WHERE USER_NO = #{id}
+	    ]]>
+	    
+	</delete>
+		<delete id="deleteContractHst" parameterType="hashmap">
+	    <![CDATA[
+				INSERT INTO TB_CONTRACT_HST_DEL_HISTORY 
+				(
+		    			CONTRACT_NO
+						,HST_SEQ
+						,BU_CODE
+						,BP_CD1
+						,BP_CD2
+						,BP_TYPE
+						,CONTRACT_NM
+						,CONTRACT_TYPE
+						,PURPOSE
+						,VALID_DT
+						,EXPIRE_DT
+						,EXTEND_FLAG
+						,EXTEND_TERM
+						,P_CONTRACT
+						,EXPIRE_CONDITION
+						,EXPIRE_TERM
+						,EXPIRE_FLAG
+						,END_DT
+						,MODIFY_FLAG
+						,MODIFY_CONTENT
+						,FILE_SEQ
+						,REMARK
+						,SYS_REMARK
+						,INSERT_DT
+						,INSERT_USER
+			)
+			(
+		     	SELECT
+		    	 		CONTRACT_NO
+						,HST_SEQ
+						,BU_CODE
+						,BP_CD1
+						,BP_CD2
+						,BP_TYPE
+						,CONTRACT_NM
+						,CONTRACT_TYPE
+						,PURPOSE
+						,VALID_DT
+						,EXPIRE_DT
+						,EXTEND_FLAG
+						,EXTEND_TERM
+						,P_CONTRACT
+						,EXPIRE_CONDITION
+						,EXPIRE_TERM
+						,EXPIRE_FLAG
+						,END_DT
+						,MODIFY_FLAG
+						,MODIFY_CONTENT
+						,FILE_SEQ
+						,REMARK
+						,SYS_REMARK
+						,INSERT_DT
+						,#{userid}
+			FROM TB_CONTRACT_REG_HST
+			WHERE CONTRACT_NO = #{CONTRACT_NO} AND HST_SEQ = #{HST_SEQ}
+			)
+			
+			DELETE FROM TB_FILE
+			WHERE CONTRACT_NO = #{CONTRACT_NO} AND FILE_SEQ = #{HST_SEQ}
+				
+			DELETE FROM TB_CONTRACT_REG_HST
+			WHERE CONTRACT_NO = #{CONTRACT_NO} AND HST_SEQ = #{HST_SEQ}
+	    ]]>
+	</delete>
+	
+	<delete id="deleteContract" parameterType="hashmap">
+	    <![CDATA[
+	    	INSERT INTO TB_CONTRACT_DEL_HISTORY (
+		    			CONTRACT_NO
+			           ,HST_SEQ
+			           ,BU_CODE
+			           ,BP_CD1
+			           ,BP_CD2
+			           ,BP_TYPE
+			           ,CONTRACT_NM
+			           ,CONTRACT_TYPE
+			           ,PURPOSE
+			           ,VALID_DT
+			           ,EXPIRE_DT
+			           ,EXTEND_FLAG
+			           ,EXTEND_TERM
+			           ,P_CONTRACT
+			           ,EXPIRE_CONDITION
+			           ,EXPIRE_TERM
+			           ,EXPIRE_FLAG
+			           ,END_DT
+			           ,MODIFY_FLAG
+			           ,MODIFY_CONTENT
+			           ,FILE_SEQ
+			           ,REMARK
+			           ,SYS_REMARK
+			           ,CONTENTS
+			           ,INSERT_DT
+			           ,INSERT_USER)
+		     SELECT
+		     			CONTRACT_NO
+			           ,HST_SEQ
+			           ,BU_CODE
+			           ,BP_CD1
+			           ,BP_CD2
+			           ,BP_TYPE
+			           ,CONTRACT_NM
+			           ,CONTRACT_TYPE
+			           ,PURPOSE
+			           ,VALID_DT
+			           ,EXPIRE_DT
+			           ,EXTEND_FLAG
+			           ,EXTEND_TERM
+			           ,P_CONTRACT
+			           ,EXPIRE_CONDITION
+			           ,EXPIRE_TERM
+			           ,EXPIRE_FLAG
+			           ,END_DT
+			           ,MODIFY_FLAG
+			           ,MODIFY_CONTENT
+			           ,FILE_SEQ
+			           ,REMARK
+			           ,SYS_REMARK
+			           ,CONTENTS
+			           ,GETDATE() AS INSERT_DT
+			           ,#{userid} AS INSERT_USER
+			 FROM TB_CONTRACT_REG
+			 WHERE CONTRACT_NO = #{CONTRACT_NO}
+			    
+	    	DELETE FROM TB_CONTRACT_REG WHERE CONTRACT_NO = #{CONTRACT_NO}
+	    	DELETE FROM TB_CONTRACT_REG_HST WHERE CONTRACT_NO = #{CONTRACT_NO}
+	    	DELETE FROM TB_FILE WHERE CONTRACT_NO = #{CONTRACT_NO}
+	    ]]>
+	</delete>
+	
+	<!--***************************** Delete 문 end ***********************************-->
+	
+	<update  id="sendEmail" statementType="CALLABLE">
+	    <![CDATA[
+	        EXEC USP_CONTRACT_SEND_MAIL #{EMAIL, mode=IN}
+	    ]]>
+	</update>
+
+</mapper>

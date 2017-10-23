@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:9C40F053-0D27-11d2-8810-0000C0E5948C" name=txtLAW_RGST_NO CLASS=FPDS100 title=FPDOUBLESINGLE ALT="법인등록번호" tag="22X2Z" Onchange="ChangeEvents()"></OBJECT>');

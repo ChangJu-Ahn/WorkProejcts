@@ -1,0 +1,1 @@
+document.write('<OBJECT id=txtDisbEndDt title=FPDATETIME CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" CLASS=FPDTYYYYMM name=txtDisbEndDt tag="14N1" ALT="최종배부년월"></OBJECT>');

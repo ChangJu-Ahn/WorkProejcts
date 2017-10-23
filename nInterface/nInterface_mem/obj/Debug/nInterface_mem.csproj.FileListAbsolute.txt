@@ -1,0 +1,11 @@
+E:\New_Project\nInterface\nInterface_mem\bin\Debug\nInterface_Icon.ico
+E:\New_Project\nInterface\nInterface_mem\bin\Debug\App.config
+E:\New_Project\nInterface\nInterface_mem\obj\Debug\nInterface.Form1.resources
+E:\New_Project\nInterface\nInterface_mem\obj\Debug\nInterface_mem.csproj.GenerateResource.Cache
+E:\New_Project\nInterface\nInterface_mem\bin\Debug\nInterface_mem.exe.config
+E:\New_Project\nInterface\nInterface_mem\bin\Debug\nInterface_mem.exe
+E:\New_Project\nInterface\nInterface_mem\bin\Debug\nInterface_mem.pdb
+E:\New_Project\nInterface\nInterface_mem\obj\Debug\nInterface_mem.Properties.Resources.resources
+E:\New_Project\nInterface\nInterface_mem\obj\Debug\nInterface_mem.exe
+E:\New_Project\nInterface\nInterface_mem\obj\Debug\nInterface_mem.pdb
+E:\New_Project\nInterface\nInterface_mem\obj\Debug\nInterface_mem.csprojResolveAssemblyReference.cache

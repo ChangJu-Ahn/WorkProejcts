@@ -1,0 +1,67 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:PROPERTY NAME="value">
+  <get internalName="getValue"/>
+  <put internalName="setValue"/>
+</PUBLIC:PROPERTY>
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+//<!--
+   	               
+    function getValue() {
+      var t = element.innerText;
+      if (t==null) return t;
+      
+      var pc = element.percentchar;
+      if (pc==null) pc = "%";
+          
+      t = t.replace(pc, "");
+      
+      var neg = element.getAttribute("negsign");
+      var pos = element.getAttribute("possign");            
+              
+      var gc = element.groupchar;
+      if (gc==null) gc = ",";
+      
+      var length = t.length;
+      while (true) {          
+        t = t.replace(gc, "");
+        if (t.length==length) break;
+        length = t.length;
+      }
+      
+      var ret = t;
+      if (neg!=null)
+        t = t.replace(neg, "-"); 
+      if (pos!=null)
+        t = t.replace(pos, "+"); 
+      
+      var dc = element.decimalchar;
+      if (dc!=null)                
+        t = t.replace(dc, ".");
+          
+      if (!isNaN(t))
+        return ret;
+      else
+        return element.innerText;
+    }
+    
+    function setValue(val) {
+      if (val!=null && val!="") {
+        var pc = element.percentchar;
+        if (pc==null) pc = "%";
+          
+        val = val.replace(" ", "");      
+        val = val.replace(pc, "");
+        element.innerText = val+pc;
+      } else {
+        element.innerHTML = "&nbsp;";
+      }
+    }
+                    
+//-->
+</script>

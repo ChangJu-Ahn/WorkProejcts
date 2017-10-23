@@ -1,0 +1,61 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:ATTACH EVENT="onmousedown" ONEVENT="mouseDown()"  />
+<PUBLIC:ATTACH EVENT="onmouseup" ONEVENT="mouseUp()"  />
+<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="mouseOut()"  />
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="mouseOver()"  />
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+// <!--
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    // Event handler
+    ///////////////////////////////////////////////////////////////////////////////////////////
+      
+    var btn = null;  
+        
+    function mouseDown() {
+      if (event.srcElement!=null && event.srcElement.tagName=="IMG" && !event.srcElement.disabled) {
+        btn = event.srcElement;         
+        btn.style.borderLeft = "1px solid black";
+        btn.style.borderTop = "1px solid black";
+        btn.style.borderRight = "1px solid white";
+        btn.style.borderBottom = "1px solid white";
+      }                              
+    }  
+        
+    function mouseUp() {
+      if (btn!=null) {
+        btn.style.borderLeftColor = "white";
+        btn.style.borderTopColor = "white";
+        btn.style.borderRightColor = "black";
+        btn.style.borderBottomColor = "black";
+      }
+    }
+    
+    function mouseOut() {
+      if (btn!=null) {
+        btn.style.borderLeftColor = element.style.backgroundColor;
+        btn.style.borderTopColor = element.style.backgroundColor;
+        btn.style.borderRightColor = element.style.backgroundColor;
+        btn.style.borderBottomColor = element.style.backgroundColor;
+        
+        btn = null;
+      }
+    }
+    
+    function mouseOver() {
+      if (btn==null && event.srcElement!=null && event.srcElement.tagName=="IMG" && !event.srcElement.disabled) {
+        btn = event.srcElement; 
+        btn.style.borderLeft = "1px solid white";
+        btn.style.borderTop = "1px solid white";
+        btn.style.borderRight = "1px solid black";
+        btn.style.borderBottom = "1px solid black";
+      }      
+    }
+             
+//-->
+</script>

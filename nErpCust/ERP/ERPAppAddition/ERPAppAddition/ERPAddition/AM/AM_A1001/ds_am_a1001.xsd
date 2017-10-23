@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_am_a1001" targetNamespace="http://tempuri.org/ds_am_a1001.xsd" xmlns:mstns="http://tempuri.org/ds_am_a1001.xsd" xmlns="http://tempuri.org/ds_am_a1001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_am_a1001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_am_a1001" msprop:Generator_UserDSName="ds_am_a1001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CLASS_CD" msprop:Generator_ColumnVarNameInTable="columnCLASS_CD" msprop:Generator_ColumnPropNameInRow="CLASS_CD" msprop:Generator_ColumnPropNameInTable="CLASS_CDColumn" msprop:Generator_UserColumnName="CLASS_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="CLASS_NM" msprop:Generator_ColumnVarNameInTable="columnCLASS_NM" msprop:Generator_ColumnPropNameInRow="CLASS_NM" msprop:Generator_ColumnPropNameInTable="CLASS_NMColumn" msprop:Generator_UserColumnName="CLASS_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="THIS_LAMT" msprop:Generator_ColumnVarNameInTable="columnTHIS_LAMT" msprop:Generator_ColumnPropNameInRow="THIS_LAMT" msprop:Generator_ColumnPropNameInTable="THIS_LAMTColumn" msprop:Generator_UserColumnName="THIS_LAMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="THIS_RAMT" msprop:Generator_ColumnVarNameInTable="columnTHIS_RAMT" msprop:Generator_ColumnPropNameInRow="THIS_RAMT" msprop:Generator_ColumnPropNameInTable="THIS_RAMTColumn" msprop:Generator_UserColumnName="THIS_RAMT" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CRTL_CD" msprop:Generator_ColumnVarNameInTable="columnCRTL_CD" msprop:Generator_ColumnPropNameInRow="CRTL_CD" msprop:Generator_ColumnPropNameInTable="CRTL_CDColumn" msprop:Generator_UserColumnName="CRTL_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="CTRL_VAL" msprop:Generator_ColumnVarNameInTable="columnCTRL_VAL" msprop:Generator_ColumnPropNameInRow="CTRL_VAL" msprop:Generator_ColumnPropNameInTable="CTRL_VALColumn" msprop:Generator_UserColumnName="CTRL_VAL" type="xs:string" minOccurs="0" />
+              <xs:element name="CTRL_NM" msprop:Generator_ColumnVarNameInTable="columnCTRL_NM" msprop:Generator_ColumnPropNameInRow="CTRL_NM" msprop:Generator_ColumnPropNameInTable="CTRL_NMColumn" msprop:Generator_UserColumnName="CTRL_NM" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

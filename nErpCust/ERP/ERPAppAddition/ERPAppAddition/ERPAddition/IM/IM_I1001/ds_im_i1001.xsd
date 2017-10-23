@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_im_i1001" targetNamespace="http://tempuri.org/ds_im_i1001.xsd" xmlns:mstns="http://tempuri.org/ds_im_i1001.xsd" xmlns="http://tempuri.org/ds_im_i1001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_im_i1001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_im_i1001" msprop:Generator_UserDSName="ds_im_i1001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="plant_cd" msprop:Generator_ColumnVarNameInTable="columnplant_cd" msprop:Generator_ColumnPropNameInRow="plant_cd" msprop:Generator_ColumnPropNameInTable="plant_cdColumn" msprop:Generator_UserColumnName="plant_cd" type="xs:string" minOccurs="0" />
+              <xs:element name="item_cd" msprop:Generator_ColumnVarNameInTable="columnitem_cd" msprop:Generator_ColumnPropNameInRow="item_cd" msprop:Generator_ColumnPropNameInTable="item_cdColumn" msprop:Generator_UserColumnName="item_cd" type="xs:string" minOccurs="0" />
+              <xs:element name="item_nm" msprop:Generator_ColumnVarNameInTable="columnitem_nm" msprop:Generator_ColumnPropNameInRow="item_nm" msprop:Generator_ColumnPropNameInTable="item_nmColumn" msprop:Generator_UserColumnName="item_nm" type="xs:string" minOccurs="0" />
+              <xs:element name="rcpt_dt" msprop:Generator_ColumnVarNameInTable="columnrcpt_dt" msprop:Generator_ColumnPropNameInRow="rcpt_dt" msprop:Generator_ColumnPropNameInTable="rcpt_dtColumn" msprop:Generator_UserColumnName="rcpt_dt" type="xs:string" minOccurs="0" />
+              <xs:element name="diff_dt" msprop:Generator_ColumnVarNameInTable="columndiff_dt" msprop:Generator_ColumnPropNameInRow="diff_dt" msprop:Generator_ColumnPropNameInTable="diff_dtColumn" msprop:Generator_UserColumnName="diff_dt" type="xs:long" minOccurs="0" />
+              <xs:element name="rcpt_qty" msprop:Generator_ColumnVarNameInTable="columnrcpt_qty" msprop:Generator_ColumnPropNameInRow="rcpt_qty" msprop:Generator_ColumnPropNameInTable="rcpt_qtyColumn" msprop:Generator_UserColumnName="rcpt_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="inv_qty" msprop:Generator_ColumnVarNameInTable="columninv_qty" msprop:Generator_ColumnPropNameInRow="inv_qty" msprop:Generator_ColumnPropNameInTable="inv_qtyColumn" msprop:Generator_UserColumnName="inv_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="moving_avg_prc" msprop:Generator_ColumnVarNameInTable="columnmoving_avg_prc" msprop:Generator_ColumnPropNameInRow="moving_avg_prc" msprop:Generator_ColumnPropNameInTable="moving_avg_prcColumn" msprop:Generator_UserColumnName="moving_avg_prc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_aa" msprop:Generator_ColumnVarNameInTable="columndiff_aa" msprop:Generator_ColumnPropNameInRow="diff_aa" msprop:Generator_ColumnPropNameInTable="diff_aaColumn" msprop:Generator_UserColumnName="diff_aa" type="xs:string" minOccurs="0" />
+              <xs:element name="diff_a" msprop:Generator_ColumnVarNameInTable="columndiff_a" msprop:Generator_ColumnPropNameInRow="diff_a" msprop:Generator_ColumnPropNameInTable="diff_aColumn" msprop:Generator_UserColumnName="diff_a" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_b" msprop:Generator_ColumnVarNameInTable="columndiff_b" msprop:Generator_ColumnPropNameInRow="diff_b" msprop:Generator_ColumnPropNameInTable="diff_bColumn" msprop:Generator_UserColumnName="diff_b" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_c" msprop:Generator_ColumnVarNameInTable="columndiff_c" msprop:Generator_ColumnPropNameInRow="diff_c" msprop:Generator_ColumnPropNameInTable="diff_cColumn" msprop:Generator_UserColumnName="diff_c" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_d" msprop:Generator_ColumnVarNameInTable="columndiff_d" msprop:Generator_ColumnPropNameInRow="diff_d" msprop:Generator_ColumnPropNameInTable="diff_dColumn" msprop:Generator_UserColumnName="diff_d" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_e" msprop:Generator_ColumnVarNameInTable="columndiff_e" msprop:Generator_ColumnPropNameInRow="diff_e" msprop:Generator_ColumnPropNameInTable="diff_eColumn" msprop:Generator_UserColumnName="diff_e" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_f" msprop:Generator_ColumnVarNameInTable="columndiff_f" msprop:Generator_ColumnPropNameInRow="diff_f" msprop:Generator_ColumnPropNameInTable="diff_fColumn" msprop:Generator_UserColumnName="diff_f" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_g" msprop:Generator_ColumnVarNameInTable="columndiff_g" msprop:Generator_ColumnPropNameInRow="diff_g" msprop:Generator_ColumnPropNameInTable="diff_gColumn" msprop:Generator_UserColumnName="diff_g" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_h" msprop:Generator_ColumnVarNameInTable="columndiff_h" msprop:Generator_ColumnPropNameInRow="diff_h" msprop:Generator_ColumnPropNameInTable="diff_hColumn" msprop:Generator_UserColumnName="diff_h" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_i" msprop:Generator_ColumnVarNameInTable="columndiff_i" msprop:Generator_ColumnPropNameInRow="diff_i" msprop:Generator_ColumnPropNameInTable="diff_iColumn" msprop:Generator_UserColumnName="diff_i" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diff_j" msprop:Generator_ColumnVarNameInTable="columndiff_j" msprop:Generator_ColumnPropNameInRow="diff_j" msprop:Generator_ColumnPropNameInTable="diff_jColumn" msprop:Generator_UserColumnName="diff_j" type="xs:decimal" minOccurs="0" />
+              <xs:element name="order_unit_pur" msprop:Generator_ColumnVarNameInTable="columnorder_unit_pur" msprop:Generator_ColumnPropNameInRow="order_unit_pur" msprop:Generator_ColumnPropNameInTable="order_unit_purColumn" msprop:Generator_UserColumnName="order_unit_pur" type="xs:string" minOccurs="0" />
+              <xs:element name="avg_days" msprop:Generator_ColumnVarNameInTable="columnavg_days" msprop:Generator_ColumnPropNameInRow="avg_days" msprop:Generator_ColumnPropNameInTable="avg_daysColumn" msprop:Generator_UserColumnName="avg_days" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

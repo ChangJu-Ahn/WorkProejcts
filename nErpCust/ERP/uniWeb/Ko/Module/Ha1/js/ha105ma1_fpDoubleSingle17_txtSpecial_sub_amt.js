@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" ID=fpDoubleSingle17 NAME=txtSpecial_sub_amt CLASS=FPDS115 title=FPDOUBLESINGLE tag="24X2" ALT="특별공제"></OBJECT>');

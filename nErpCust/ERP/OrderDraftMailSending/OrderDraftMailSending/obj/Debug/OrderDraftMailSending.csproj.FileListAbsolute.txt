@@ -1,0 +1,14 @@
+E:\New_Project\NERP\OrderDraftMailSending\OrderDraftMailSending\bin\Debug\OrderDraftMailSending.exe.config
+E:\New_Project\NERP\OrderDraftMailSending\OrderDraftMailSending\bin\Debug\OrderDraftMailSending.exe
+E:\New_Project\NERP\OrderDraftMailSending\OrderDraftMailSending\bin\Debug\OrderDraftMailSending.pdb
+E:\New_Project\NERP\OrderDraftMailSending\OrderDraftMailSending\obj\Debug\OrderDraftMailSending.Properties.Resources.resources
+E:\New_Project\NERP\OrderDraftMailSending\OrderDraftMailSending\obj\Debug\OrderDraftMailSending.csproj.GenerateResource.Cache
+E:\New_Project\NERP\OrderDraftMailSending\OrderDraftMailSending\obj\Debug\OrderDraftMailSending.exe
+E:\New_Project\NERP\OrderDraftMailSending\OrderDraftMailSending\obj\Debug\OrderDraftMailSending.pdb
+D:\Projects\NERPCUST\ERP\OrderDraftMailSending\OrderDraftMailSending\bin\Debug\OrderDraftMailSending.exe.config
+D:\Projects\NERPCUST\ERP\OrderDraftMailSending\OrderDraftMailSending\obj\Debug\OrderDraftMailSending.exe
+D:\Projects\NERPCUST\ERP\OrderDraftMailSending\OrderDraftMailSending\obj\Debug\OrderDraftMailSending.pdb
+D:\Projects\NERPCUST\ERP\OrderDraftMailSending\OrderDraftMailSending\bin\Debug\OrderDraftMailSending.exe
+D:\Projects\NERPCUST\ERP\OrderDraftMailSending\OrderDraftMailSending\bin\Debug\OrderDraftMailSending.pdb
+D:\Projects\NERPCUST\ERP\OrderDraftMailSending\OrderDraftMailSending\obj\Debug\OrderDraftMailSending.Properties.Resources.resources
+D:\Projects\NERPCUST\ERP\OrderDraftMailSending\OrderDraftMailSending\obj\Debug\OrderDraftMailSending.csproj.GenerateResource.Cache

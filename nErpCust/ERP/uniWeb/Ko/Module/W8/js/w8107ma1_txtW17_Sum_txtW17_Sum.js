@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtW17_Sum" name=txtW17_Sum CLASS=FPDS140 title=FPDOUBLESINGLE ALT="과세표준_계" tag="24X86" width = 100% ></OBJECT>');

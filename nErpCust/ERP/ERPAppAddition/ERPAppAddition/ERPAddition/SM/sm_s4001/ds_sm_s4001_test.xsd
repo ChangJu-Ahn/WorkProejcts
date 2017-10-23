@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_sm_s4001_test" targetNamespace="http://tempuri.org/ds_sm_s4001_test.xsd" xmlns:mstns="http://tempuri.org/ds_sm_s4001_test.xsd" xmlns="http://tempuri.org/ds_sm_s4001_test.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_sm_s4001_test" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_sm_s4001_test" msprop:Generator_UserDSName="ds_sm_s4001_test">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="L_ITEM_AMT_GROUP" msprop:Generator_ColumnVarNameInTable="columnL_ITEM_AMT_GROUP" msprop:Generator_ColumnPropNameInRow="L_ITEM_AMT_GROUP" msprop:Generator_ColumnPropNameInTable="L_ITEM_AMT_GROUPColumn" msprop:Generator_UserColumnName="L_ITEM_AMT_GROUP" type="xs:string" minOccurs="0" />
+              <xs:element name="M_ITEM_AMT_GROUP" msprop:Generator_ColumnVarNameInTable="columnM_ITEM_AMT_GROUP" msprop:Generator_ColumnPropNameInRow="M_ITEM_AMT_GROUP" msprop:Generator_ColumnPropNameInTable="M_ITEM_AMT_GROUPColumn" msprop:Generator_UserColumnName="M_ITEM_AMT_GROUP" type="xs:string" minOccurs="0" />
+              <xs:element name="S_ITEM_AMT_GROUP" msprop:Generator_ColumnVarNameInTable="columnS_ITEM_AMT_GROUP" msprop:Generator_ColumnPropNameInRow="S_ITEM_AMT_GROUP" msprop:Generator_ColumnPropNameInTable="S_ITEM_AMT_GROUPColumn" msprop:Generator_UserColumnName="S_ITEM_AMT_GROUP" type="xs:string" minOccurs="0" />
+              <xs:element name="REAMRK" msprop:Generator_ColumnVarNameInTable="columnREAMRK" msprop:Generator_ColumnPropNameInRow="REAMRK" msprop:Generator_ColumnPropNameInTable="REAMRKColumn" msprop:Generator_UserColumnName="REAMRK" type="xs:string" minOccurs="0" />
+              <xs:element name="INSRT_USER_ID" msprop:Generator_ColumnVarNameInTable="columnINSRT_USER_ID" msprop:Generator_ColumnPropNameInRow="INSRT_USER_ID" msprop:Generator_ColumnPropNameInTable="INSRT_USER_IDColumn" msprop:Generator_UserColumnName="INSRT_USER_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="INSRT_DT" msprop:Generator_ColumnVarNameInTable="columnINSRT_DT" msprop:Generator_ColumnPropNameInRow="INSRT_DT" msprop:Generator_ColumnPropNameInTable="INSRT_DTColumn" msprop:Generator_UserColumnName="INSRT_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="UPDT_USER_ID" msprop:Generator_ColumnVarNameInTable="columnUPDT_USER_ID" msprop:Generator_ColumnPropNameInRow="UPDT_USER_ID" msprop:Generator_ColumnPropNameInTable="UPDT_USER_IDColumn" msprop:Generator_UserColumnName="UPDT_USER_ID" type="xs:string" minOccurs="0" />
+              <xs:element name="UPDT_DT" msprop:Generator_ColumnVarNameInTable="columnUPDT_DT" msprop:Generator_ColumnPropNameInRow="UPDT_DT" msprop:Generator_ColumnPropNameInTable="UPDT_DTColumn" msprop:Generator_UserColumnName="UPDT_DT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

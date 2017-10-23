@@ -1,0 +1,1 @@
+document.write('<OBJECT title=FPDATETIME CLASS=FPDTYYYYMMDD name=txtOrder_change_dt CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" tag="21X1" ALT="인사변동일" VIEWASTEXT id=txtOrder_change_dt> </OBJECT>');

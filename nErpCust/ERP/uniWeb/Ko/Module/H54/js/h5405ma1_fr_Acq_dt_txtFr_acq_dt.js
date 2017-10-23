@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=fr_Acq_dt Name="txtFr_acq_dt" CLASS=FPDTYYYYMMDD title=FPDATETIME Date}} ALT="해당시작일" tag="12X1" VIEWASTEXT></OBJECT>');

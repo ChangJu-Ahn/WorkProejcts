@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle8 NAME="txtTariffRate" style="HEIGHT: 20px; WIDTH: 150px" tag="21X5Z" Title="FPDOUBLESINGLE"></OBJECT>');

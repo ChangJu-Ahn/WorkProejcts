@@ -1,0 +1,123 @@
+DIV.TOPMENUBAR
+{
+    PADDING-TOP: 0px;
+    HEIGHT: 100%
+}
+DIV.TOPSUBBAR
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    VISIBILITY: hidden;
+    BORDER-LEFT: medium none;
+    PADDING-TOP: 15px;
+    BORDER-BOTTOM: medium none;
+    POSITION: absolute;
+    HEIGHT: 100%
+}
+DIV.LEFTMENUBAR
+{
+    PADDING-LEFT: 0px;
+    VISIBILITY: hidden;
+    WIDTH: 150px;
+    POSITION: absolute;
+    TEXT-ALIGN: left
+}
+A.MAINMENU
+{
+    PADDING-RIGHT: 3px;
+    PADDING-LEFT: 3px;
+    FONT-SIZE: 9pt;
+    VISIBILITY: hidden;
+    COLOR: #0242ac;
+    PADDING-TOP: 2px;
+    POSITION: absolute;
+    TEXT-DECORATION: none
+}
+SPAN.SUBMENU
+{
+    FONT-SIZE: 9pt;
+    COLOR: #065d88;
+    PADDING-TOP: 3px;
+    TEXT-DECORATION: none
+}
+A.LEFTSUB
+{
+    PADDING-LEFT: 30px;
+    FONT-SIZE: 9pt;
+    WIDTH: 150px;
+    COLOR: #017fa8;
+    PADDING-TOP: 7px;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+DIV.LEFTMAIN
+{
+    PADDING-LEFT: 20px;
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 9pt;
+    WIDTH: 100%;
+    COLOR: #185280;
+    PADDING-TOP: 3px;
+    TEXT-ALIGN: left;
+    TEXT-DECORATION: none
+}
+SPAN.GUBUN
+{
+    FONT-SIZE: 10pt;
+    VISIBILITY: hidden;
+    COLOR: #0d5abf;
+    PADDING-TOP: 1px;
+    POSITION: absolute;
+    TEXT-DECORATION: none
+}
+.MENU
+{
+    FONT-SIZE: 9pt;
+    COLOR: #065d88;
+    PADDING-TOP: 11px;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+A.SUBMENU
+{
+    FONT-SIZE: 9pt;
+    TEXT-DECORATION: none
+}
+.MENUOVER
+{
+    FONT-SIZE: 9pt;
+    COLOR: #e07000;
+    TEXT-DECORATION: none
+}
+.inputbox
+{
+    BORDER-RIGHT: #3d4373 1px solid;
+    BORDER-TOP: #3d4373 1px solid;
+    FONT-SIZE: 9pt;
+    MARGIN-BOTTOM: 4px;
+    BORDER-LEFT: #3d4373 1px solid;
+    BORDER-BOTTOM: #3d4373 1px solid;
+    HEIGHT: 14pt;
+    BACKGROUND-COLOR: white
+}
+.TXTCHK
+{
+    FONT-SIZE: 9pt;
+    MARGIN-BOTTOM: 4px;
+    HEIGHT: 12pt;
+    TEXT-DECORATION: none
+}
+#MousePT
+{
+    Z-INDEX: 1;
+    LEFT: 0px;
+    ;
+    LEFT: expression(document.body.clientWidth/2-50);
+    VISIBILITY: hidden;
+    POSITION: absolute;
+    TOP: 0px;
+    ;
+    TOP: expression(document.body.clientHeight/3);
+    BACKGROUND-COLOR: black;
+    layer-background-color: black
+}

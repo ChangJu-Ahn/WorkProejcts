@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_cm_c2001_prodqty" targetNamespace="http://tempuri.org/ds_cm_c2001_prodqty.xsd" xmlns:mstns="http://tempuri.org/ds_cm_c2001_prodqty.xsd" xmlns="http://tempuri.org/ds_cm_c2001_prodqty.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_cm_c2001_prodqty" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_cm_c2001_prodqty" msprop:Generator_UserDSName="ds_cm_c2001_prodqty">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="yyyymm" msprop:Generator_ColumnVarNameInTable="columnyyyymm" msprop:Generator_ColumnPropNameInRow="yyyymm" msprop:Generator_ColumnPropNameInTable="yyyymmColumn" msprop:Generator_UserColumnName="yyyymm" type="xs:string" minOccurs="0" />
+              <xs:element name="m_gubun" msprop:Generator_ColumnVarNameInTable="columnm_gubun" msprop:Generator_ColumnPropNameInRow="m_gubun" msprop:Generator_ColumnPropNameInTable="m_gubunColumn" msprop:Generator_UserColumnName="m_gubun" type="xs:string" minOccurs="0" />
+              <xs:element name="m_gubun_detail" msprop:Generator_ColumnVarNameInTable="columnm_gubun_detail" msprop:Generator_ColumnPropNameInRow="m_gubun_detail" msprop:Generator_ColumnPropNameInTable="m_gubun_detailColumn" msprop:Generator_UserColumnName="m_gubun_detail" type="xs:string" minOccurs="0" />
+              <xs:element name="m_gubun_detail_nm" msprop:Generator_ColumnVarNameInTable="columnm_gubun_detail_nm" msprop:Generator_ColumnPropNameInRow="m_gubun_detail_nm" msprop:Generator_ColumnPropNameInTable="m_gubun_detail_nmColumn" msprop:Generator_UserColumnName="m_gubun_detail_nm" type="xs:string" minOccurs="0" />
+              <xs:element name="ddl_val" msprop:Generator_ColumnVarNameInTable="columnddl_val" msprop:Generator_ColumnPropNameInRow="ddl_val" msprop:Generator_ColumnPropNameInTable="ddl_valColumn" msprop:Generator_UserColumnName="ddl_val" type="xs:decimal" minOccurs="0" />
+              <xs:element name="p_test_val" msprop:Generator_ColumnVarNameInTable="columnp_test_val" msprop:Generator_ColumnPropNameInRow="p_test_val" msprop:Generator_ColumnPropNameInTable="p_test_valColumn" msprop:Generator_UserColumnName="p_test_val" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cog_val" msprop:Generator_ColumnVarNameInTable="columncog_val" msprop:Generator_ColumnPropNameInRow="cog_val" msprop:Generator_ColumnPropNameInTable="cog_valColumn" msprop:Generator_UserColumnName="cog_val" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cof_val" msprop:Generator_ColumnVarNameInTable="columncof_val" msprop:Generator_ColumnPropNameInRow="cof_val" msprop:Generator_ColumnPropNameInTable="cof_valColumn" msprop:Generator_UserColumnName="cof_val" type="xs:decimal" minOccurs="0" />
+              <xs:element name="f_test_val" msprop:Generator_ColumnVarNameInTable="columnf_test_val" msprop:Generator_ColumnPropNameInRow="f_test_val" msprop:Generator_ColumnPropNameInTable="f_test_valColumn" msprop:Generator_UserColumnName="f_test_val" type="xs:decimal" minOccurs="0" />
+              <xs:element name="wlcsp_val" msprop:Generator_ColumnVarNameInTable="columnwlcsp_val" msprop:Generator_ColumnPropNameInRow="wlcsp_val" msprop:Generator_ColumnPropNameInTable="wlcsp_valColumn" msprop:Generator_UserColumnName="wlcsp_val" type="xs:decimal" minOccurs="0" />
+              <xs:element name="twelve_val" msprop:Generator_ColumnVarNameInTable="columntwelve_val" msprop:Generator_ColumnPropNameInRow="twelve_val" msprop:Generator_ColumnPropNameInTable="twelve_valColumn" msprop:Generator_UserColumnName="twelve_val" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sangpum_val" msprop:Generator_ColumnVarNameInTable="columnsangpum_val" msprop:Generator_ColumnPropNameInRow="sangpum_val" msprop:Generator_ColumnPropNameInTable="sangpum_valColumn" msprop:Generator_UserColumnName="sangpum_val" type="xs:decimal" minOccurs="0" />
+              <xs:element name="isrt_dt" msprop:Generator_ColumnVarNameInTable="columnisrt_dt" msprop:Generator_ColumnPropNameInRow="isrt_dt" msprop:Generator_ColumnPropNameInTable="isrt_dtColumn" msprop:Generator_UserColumnName="isrt_dt" type="xs:string" minOccurs="0" />
+              <xs:element name="seq" msprop:Generator_ColumnVarNameInTable="columnseq" msprop:Generator_ColumnPropNameInRow="seq" msprop:Generator_ColumnPropNameInTable="seqColumn" msprop:Generator_UserColumnName="seq" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

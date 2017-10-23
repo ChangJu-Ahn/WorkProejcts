@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_sm_s6001" targetNamespace="http://tempuri.org/ds_sm_s6001.xsd" xmlns:mstns="http://tempuri.org/ds_sm_s6001.xsd" xmlns="http://tempuri.org/ds_sm_s6001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_sm_s6001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_sm_s6001" msprop:Generator_UserDSName="ds_sm_s6001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NATURAL_DATE" msprop:Generator_ColumnVarNameInTable="columnNATURAL_DATE" msprop:Generator_ColumnPropNameInRow="NATURAL_DATE" msprop:Generator_ColumnPropNameInTable="NATURAL_DATEColumn" msprop:Generator_UserColumnName="NATURAL_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="BF_DAY" msprop:Generator_ColumnVarNameInTable="columnBF_DAY" msprop:Generator_ColumnPropNameInRow="BF_DAY" msprop:Generator_ColumnPropNameInTable="BF_DAYColumn" msprop:Generator_UserColumnName="BF_DAY" type="xs:string" minOccurs="0" />
+              <xs:element name="매출실적" msprop:Generator_ColumnVarNameInTable="column매출실적" msprop:Generator_ColumnPropNameInRow="매출실적" msprop:Generator_ColumnPropNameInTable="매출실적Column" msprop:Generator_UserColumnName="매출실적" type="xs:string" minOccurs="0" />
+              <xs:element name="누적실적" msprop:Generator_ColumnVarNameInTable="column누적실적" msprop:Generator_ColumnPropNameInRow="누적실적" msprop:Generator_ColumnPropNameInTable="누적실적Column" msprop:Generator_UserColumnName="누적실적" type="xs:string" minOccurs="0" />
+              <xs:element name="이동계획" msprop:Generator_ColumnVarNameInTable="column이동계획" msprop:Generator_ColumnPropNameInRow="이동계획" msprop:Generator_ColumnPropNameInTable="이동계획Column" msprop:Generator_UserColumnName="이동계획" type="xs:string" minOccurs="0" />
+              <xs:element name="전월실적" msprop:Generator_ColumnVarNameInTable="column전월실적" msprop:Generator_ColumnPropNameInRow="전월실적" msprop:Generator_ColumnPropNameInTable="전월실적Column" msprop:Generator_UserColumnName="전월실적" type="xs:string" minOccurs="0" />
+              <xs:element name="N_DT" msprop:Generator_ColumnVarNameInTable="columnN_DT" msprop:Generator_ColumnPropNameInRow="N_DT" msprop:Generator_ColumnPropNameInTable="N_DTColumn" msprop:Generator_UserColumnName="N_DT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

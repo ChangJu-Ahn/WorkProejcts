@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:9C40F053-0D27-11d2-8810-0000C0E5948C" name=txtREPRE_RGST_NO CLASS=FPDS100 title=FPDOUBLESINGLE ALT="대표자주민번호번호" tag="21X2Z" Onchange="ChangeEvents()" id=OBJECT1></OBJECT>');

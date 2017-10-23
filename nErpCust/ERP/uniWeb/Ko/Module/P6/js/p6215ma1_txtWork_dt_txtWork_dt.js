@@ -1,0 +1,1 @@
+document.write('<OBJECT ALT="°èÈ¹ÀÏÀÚ" NAME="txtWork_dt" CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=txtWork_dt style="HEIGHT: 20px; WIDTH: 100px" tag="11XXU" Title="FPDATETIME"></OBJECT>');

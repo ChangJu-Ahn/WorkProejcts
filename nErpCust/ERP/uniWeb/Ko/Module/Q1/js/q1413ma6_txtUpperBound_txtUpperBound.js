@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=txtUpperBound name=txtUpperBound CLASS=FPDS140 title=FPDOUBLESINGLE ALT="상한규격" tag="12X7"> <PARAM Name="AllowNull" Value="-1"> <PARAM Name="Text" Value=""> </OBJECT>');

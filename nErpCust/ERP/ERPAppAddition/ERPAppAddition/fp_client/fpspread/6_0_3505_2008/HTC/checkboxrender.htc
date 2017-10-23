@@ -1,0 +1,93 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:PROPERTY NAME="value">
+  <get internalName="getValue"/>
+  <put internalName="setValue"/>
+</PUBLIC:PROPERTY>
+<PUBLIC:METHOD NAME="focus">
+</PUBLIC:METHOD>
+<PUBLIC:METHOD NAME="isValid">
+</PUBLIC:METHOD>
+<PUBLIC:ATTACH EVENT="ondocumentready" ONEVENT="init()"  />
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+
+    var checkedImg, uncheckedImg;
+    var checked;
+                   	   
+    function init() {
+      checkedImg = element.all["checked"];
+      uncheckedImg = element.all["unchecked"];       
+    }
+    
+    function focus() {   	  
+   	  var checkbox = element.getElementsByTagName("INPUT");
+      if (checkbox!=null && checkbox.length>0 && checkbox[0].type=="checkbox") {  
+        checkbox[0].focus();        
+      }       	  
+   	}
+    
+    function getCheckBoxEditor(cell) {
+      var checkbox = cell.getElementsByTagName("INPUT");
+      if (checkbox!=null && checkbox.length>0 && checkbox[0].type=="checkbox") {  
+        return checkbox[0];        
+      } 
+      
+      return null;
+    }
+    
+    function isValid(val) {
+      if (val==null) return "";            
+      val = trim(val);           
+      if (val=="") return "";
+      
+      if (val.toLowerCase()=="true" || val.toLowerCase()=="false") 
+        return "";
+      else
+        return "invalid value";
+    }
+    
+    function trim(s) {
+        var m = s.match(/^\s*(\S+(\s+\S+)*)\s*$/);
+        return (m == null) ? "" : m[1];
+    }
+    
+    function getValue() {
+      var checkbox = getCheckBoxEditor(element);
+      if (checkbox!=null) {
+        return checkbox.checked;
+      }
+      if ((checkedImg!=null && checkedImg.style.display!="none") || checked) return true;       
+      else return false;      
+    }
+    
+    function setValue(val) {
+      var checkbox = getCheckBoxEditor(element);
+      if (checkbox!=null) {
+        checkbox.checked = (val!=null && val.toLowerCase()=="true");
+        return;
+      }
+      
+      if (val!=null && val.toLowerCase()=="true") {
+        if (checkedImg!=null) {
+          if (checkedImg.parentElement!=element) element.insertBefore(checkedImg);
+          checkedImg.style.display = "inline";
+        }
+        if (uncheckedImg!=null) uncheckedImg.style.display = "none";
+        checked = true;
+      } else {
+        if (uncheckedImg!=null) {
+          if (uncheckedImg.parentElement!=element) element.insertBefore(uncheckedImg);
+          uncheckedImg.style.display = "inline";
+        }
+        if (checkedImg!=null) checkedImg.style.display = "none";
+        checked = false;
+      }
+    }
+          
+//-->
+</script>

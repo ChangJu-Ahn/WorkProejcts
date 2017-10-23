@@ -1,0 +1,1 @@
+document.write('<OBJECT ALT=¹ßÁÖ·® NAME="txtPoQty" CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle2 style="HEIGHT: 20px; WIDTH: 250px" CLASS=protected readonly=true tag="24X3" Title="FPDOUBLESINGLE" tabindex = -1></OBJECT>');

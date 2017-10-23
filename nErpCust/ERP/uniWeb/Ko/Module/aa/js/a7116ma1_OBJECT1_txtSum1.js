@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" name=txtSum1 style="HEIGHT: 20px; RIGHT: 0px; TOP: 0px; WIDTH:180px" title="FPDOUBLESINGLE" ALT="당기상각액" tag="24X2" id=OBJECT1></OBJECT>');

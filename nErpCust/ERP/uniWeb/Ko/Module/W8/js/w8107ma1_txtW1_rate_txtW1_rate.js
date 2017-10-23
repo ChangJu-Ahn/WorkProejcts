@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id="txtW1_rate" name=txtW1_rate CLASS=FPDS140 title=FPDOUBLESINGLE tag="24X86" alt ="외투비율" width=50 onChange = "Call DataChange() " ></OBJECT>');

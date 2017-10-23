@@ -1,0 +1,1652 @@
+Option Explicit					
+
+'==============================================================================================================================
+Function ChangeTag(Byval Changeflg)
+	
+	frm1.vspdData.ReDraw = false
+
+	If Changeflg = true then
+		ggoOper.SetReqAttr	frm1.txtMvmtNo1, "Q"
+		Call SetSpreadLock 
+	Else
+		ggoOper.SetReqAttr	frm1.txtMvmtNo1, "N"
+		Call ggoOper.LockField(Document, "N")	
+		ggoOper.SetReqAttr	frm1.txtMvmtNo1, "D"
+		Call SetSpreadLock 
+	End if 
+
+	frm1.vspdData.ReDraw = true
+	
+End Function 
+'==============================================================================================================================
+Sub InitSpreadPosVariables()
+	C_PlantCd		= 1
+	C_PlantNm		= 2
+	C_ItemCd		= 3
+	C_ItemNm		= 4
+	C_Spec			= 5 
+	C_TrackingNo	= 6
+	C_InspFlg		= 7
+	C_MvmtRcptLookUpBtn = 8
+	C_GrQty			= 9
+	C_StockQty		= 10
+	C_GRUnit		= 11
+	C_Cur		    = 12
+	C_MvmtPrc	    = 13
+	C_DocAmt		= 14
+	C_LocAmt		= 15
+	C_SlCd			= 16
+	C_SlCdPop		= 17
+	C_SlNm			= 18
+	C_InspSts		= 19
+	C_GRMeth		= 20
+	C_LotNo			= 21
+	C_LotSeqNo		= 22
+	C_MakerLotNo	= 23
+	C_MakerLotSeqNo	= 24
+	C_GRNo			= 25
+	C_GRSeqNo		= 26
+	C_InspReqNo		= 27
+	C_InspResultNo	= 28
+	C_PoNo			= 29
+	C_PoSeqNo		= 30
+	C_CCNo			= 31
+	C_CCSeqNo		= 32
+	C_LLCNo			= 33
+	C_LLCSeqNo		= 34
+	C_Stateflg		= 35
+	C_InspMethCd	= 36
+	C_MvmtNo		= 37
+	C_IvNo			= 38
+	C_IvSeqNo		= 39
+	C_RetOrdQty		= 40
+	C_SplitSeqNo	= 41
+	
+End Sub
+
+Sub SetDefaultVal()
+	
+	frm1.txtGmDt.Text = EndDate
+	frm1.txtGroupCd.Value = Parent.gPurGrp
+    Call SetToolBar("1110000000001111")
+    frm1.txtMvmtNo.focus 
+    Set gActiveElement = document.activeElement    
+    interface_Account = GetSetupMod(Parent.gSetupMod, "a")
+	frm1.btnGlSel.disabled = true
+	frm1.btnGlSel_1.disabled = true    
+End Sub
+
+Sub InitSpreadSheet()
+
+	Call InitSpreadPosVariables()
+	
+	With frm1.vspdData
+	
+		ggoSpread.Source = frm1.vspdData
+		ggoSpread.Spreadinit "V20030811",,Parent.gAllowDragDropSpread  
+		
+		.ReDraw = false
+		
+		.MaxCols = C_SplitSeqNo + 1
+    	.MaxRows = 0
+		
+		Call AppendNumberPlace("6", "5", "0")
+    	Call GetSpreadColumnPos("A")
+			
+		ggoSpread.SSSetEdit 		C_PlantCd,	"공장", 10
+		ggoSpread.SSSetEdit 		C_PlantNm,	"공장명", 20
+		ggoSpread.SSSetEdit 		C_ItemCd,	"품목", 18
+		ggoSpread.SSSetEdit 		C_ItemNm,	"품목명", 20 
+		ggoSpread.SSSetEdit 		C_Spec,	    "품목규격", 20 	
+		ggoSpread.SSSetEdit 		C_TrackingNo,	"Tracking No.", 15 	
+		ggoSpread.SSSetCheck 		C_InspFlg,	"검사품여부",10,,,true
+		ggoSpread.SSSetButton 		C_MvmtRcptLookUpBtn	
+		SetSpreadFloatLocal 		C_GrQty,	"입고수량",15,1, 3
+		SetSpreadFloatLocal 		C_StockQty,	"재고처리수량",15,1, 3
+		ggoSpread.SSSetEdit 		C_GRUnit,	"단위", 10
+		ggoSpread.SSSetEdit 		C_Cur,	    "화폐", 10
+		
+		ggoSpread.SSSetFloat		C_MvmtPrc,	"입고단가"		, 15	,"C" ,ggStrIntegeralPart ,ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec
+		ggoSpread.SSSetFloat 		C_DocAmt,	"입고금액"		, 15	,"A" ,ggStrIntegeralPart ,ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec
+		ggoSpread.SSSetFloat 		C_LocAmt,	"입고자국금액"	, 15	,"A" ,ggStrIntegeralPart ,ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec		    
+		
+		ggoSpread.SSSetEdit			C_SlCd,		"창고", 10
+		ggoSpread.SSSetButton 		C_SlCdPop
+		ggoSpread.SSSetEdit 		C_SlNm,		"창고명", 20	    
+		ggoSpread.SSSetEdit 		C_InspSts,	"검사상태", 10
+		ggoSpread.SSSetEdit 		C_GRMeth,	"납입시검사방법", 20
+		ggoSpread.SSSetEdit 		C_LotNo,	"Lot No.", 20, , , 25, 2    
+		SetSpreadFloatLocal 		C_LotSeqNo, "LOT NO 순번", 20,1,6
+		
+		ggoSpread.SSSetEdit 		C_MakerLotNo,	"MAKER LOT NO.", 20,,,12,2    
+		SetSpreadFloatLocal 		C_MakerLotSeqNo,"Maker Lot 순번", 20,1,6
+		ggoSpread.SSSetEdit 		C_GRNo,		"재고처리번호", 20
+		ggoSpread.SSSetFloat 		C_GRSeqNo,	"재고처리순번",10,"6",ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec,0
+		
+		ggoSpread.SSSetEdit 		C_InspReqNo,"검사요청번호", 20
+		ggoSpread.SSSetEdit 		C_InspResultNo,"검사결과등록번호", 20
+		ggoSpread.SSSetEdit 		C_PoNo,		"발주번호", 20
+		ggoSpread.SSSetFloat 		C_PoSeqNo,	"발주순번",10,"6",ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec,0
+		ggoSpread.SSSetEdit 		C_CCNo,		"통관번호", 20
+		ggoSpread.SSSetFloat 		C_CCSeqNo,	"통관순번",10,"6",ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec,0    
+		ggoSpread.SSSetEdit 		C_LLCNo,	"LOCAL L/C번호", 20
+		ggoSpread.SSSetFloat 		C_LLCSeqNo,	"LOCAL L/C순번",10,"6",ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec,0
+		
+		ggoSpread.SSSetEdit 		C_Stateflg,	 "State Flag"	, 10
+		ggoSpread.SSSetEdit 		C_InspMethCd,"Insp.Meth."	, 10
+		ggoSpread.SSSetEdit 		C_MvmtNo,	 "Movmt.No."	, 10
+		ggoSpread.SSSetEdit 		C_IvNo,	     "매입번호", 20
+		ggoSpread.SSSetFloat 		C_IvSeqNo,	"매입순번",10,"6",ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec,0
+		SetSpreadFloatLocal 		C_RetOrdQty, "반품수량",15,1, 3
+		ggoSpread.SSSetEdit 		C_SplitSeqNo, "SplitSeqNo"	, 10
+		
+		Call ggoSpread.MakePairsColumn(C_SlCd,C_SlCdPop)
+		Call ggoSpread.SSSetColHidden(C_Stateflg,C_MvmtNo,True)
+		Call ggoSpread.SSSetColHidden(C_RetOrdQty,C_RetOrdQty,True)
+		Call ggoSpread.SSSetColHidden(C_SplitSeqNo,C_SplitSeqNo,True)
+		Call ggoSpread.SSSetColHidden(.MaxCols,.MaxCols,True)		
+		
+		Call SetSpreadLock()
+		
+		.ReDraw = true
+		
+    End With
+End Sub
+'==============================================================================================================================
+Sub SetSpreadLock()
+    ggoSpread.Source = frm1.vspdData
+    ggoSpread.SpreadLock -1, -1
+	ggoSpread.SpreadUnlock C_MvmtRcptLookUpBtn,	-1,	C_MvmtRcptLookUpBtn,-1
+End Sub
+'==============================================================================================================================
+Sub SetSpreadColor(ByVal pvStartRow, ByVal pvEndRow)
+    ggoSpread.Source = frm1.vspdData
+    ggoSpread.SpreadLock	-1, pvStartRow, -1, pvEndRow
+	ggoSpread.SpreadUnlock C_MakerLotNo,	pvStartRow,		C_MvmtRcptLookUpBtn,	pvEndRow
+	ggoSpread.SpreadUnlock C_MakerLotSeqNo,	pvStartRow,		C_MvmtRcptLookUpBtn,	pvEndRow
+	ggoSpread.SpreadUnlock C_MvmtRcptLookUpBtn,	pvStartRow,		C_MvmtRcptLookUpBtn,	pvEndRow
+	ggoSpread.SpreadUnlock C_SlCd,				pvStartRow,		C_SlCdPop,				pvEndRow
+	ggoSpread.SpreadUnlock C_GrQty,				pvStartRow,		C_GrQty,				pvEndRow
+	ggoSpread.SSSetRequired 	C_GrQty,	pvStartRow, pvEndRow
+	ggoSpread.SSSetRequired 	C_SlCd ,	pvStartRow, pvEndRow
+End Sub
+'==============================================================================================================================
+Sub GetSpreadColumnPos(ByVal pvSpdNo)
+	Dim iCurColumnPos
+	
+	Select Case UCase(pvSpdNo)
+		Case "A"
+			ggoSpread.Source = frm1.vspdData
+			
+			Call ggoSpread.GetSpreadColumnPos(iCurColumnPos)
+
+			C_PlantCd		= iCurColumnPos(1)
+			C_PlantNm		= iCurColumnPos(2)
+			C_ItemCd		= iCurColumnPos(3)
+			C_ItemNm		= iCurColumnPos(4)
+			C_Spec			= iCurColumnPos(5) 
+			C_TrackingNo	= iCurColumnPos(6)
+			C_InspFlg		= iCurColumnPos(7)
+			C_MvmtRcptLookUpBtn = iCurColumnPos(8)
+			C_GrQty			= iCurColumnPos(9)
+			C_StockQty		= iCurColumnPos(10)
+			C_GRUnit		= iCurColumnPos(11)
+			C_Cur		    = iCurColumnPos(12)
+			C_MvmtPrc	    = iCurColumnPos(13)
+			C_DocAmt		= iCurColumnPos(14)
+			C_LocAmt		= iCurColumnPos(15)
+			C_SlCd			= iCurColumnPos(16)
+			C_SlCdPop		= iCurColumnPos(17)
+			C_SlNm			= iCurColumnPos(18)
+			C_InspSts		= iCurColumnPos(19)
+			C_GRMeth		= iCurColumnPos(20)
+			C_LotNo			= iCurColumnPos(21)
+			C_LotSeqNo		= iCurColumnPos(22)
+			C_MakerLotNo	= iCurColumnPos(23)
+			C_MakerLotSeqNo	= iCurColumnPos(24)
+			C_GRNo			= iCurColumnPos(25)
+			C_GRSeqNo		= iCurColumnPos(26)
+			C_InspReqNo		= iCurColumnPos(27)
+			C_InspResultNo  = iCurColumnPos(28)
+			C_PoNo			= iCurColumnPos(29)
+			C_PoSeqNo		= iCurColumnPos(30)
+			C_CCNo			= iCurColumnPos(31)
+			C_CCSeqNo		= iCurColumnPos(32)
+			C_LLCNo			= iCurColumnPos(33)
+			C_LLCSeqNo		= iCurColumnPos(34)
+			C_Stateflg		= iCurColumnPos(35)
+			C_InspMethCd	= iCurColumnPos(36)
+			C_MvmtNo		= iCurColumnPos(37)
+			C_IvNo			= iCurColumnPos(38)
+			C_IvSeqNo		= iCurColumnPos(39)
+			C_RetOrdQty		= iCurColumnPos(40)
+			C_SplitSeqNo	= iCurColumnPos(41)
+			
+	End Select
+
+End Sub	
+'==============================================================================================================================
+Function OpenGLRef()
+
+	Dim strRet
+	Dim arrParam(1)
+	Dim iCalledAspName
+	Dim IntRetCD
+	
+	If lblnWinEvent = True Then Exit Function
+		
+	lblnWinEvent = True
+	
+	arrParam(0) = Trim(frm1.hdnGlNo.value)
+	arrParam(1) = ""
+	
+   If frm1.hdnGlType.Value = "A" Then               '회계전표팝업 
+		iCalledAspName = AskPRAspName("a5120ra1")
+		If Trim(iCalledAspName) = "" Then
+			IntRetCD = DisplayMsgBox("900040", parent.VB_INFORMATION, "a5120ra1" ,"x")
+			lblnWinEvent = False
+			Exit Function
+		End If
+	   strRet = window.showModalDialog(iCalledAspName, Array(window.parent, arrParam), _
+			"dialogWidth=760px; dialogHeight=420px; center: Yes; help: No; resizable: No; status: No;")
+
+    Elseif frm1.hdnGlType.Value = "T" Then          '결의전표팝업 
+		iCalledAspName = AskPRAspName("a5130ra1")
+		If Trim(iCalledAspName) = "" Then
+			IntRetCD = DisplayMsgBox("900040", parent.VB_INFORMATION, "a5130ra1" ,"x")
+			lblnWinEvent = False
+			Exit Function
+		End If
+	   strRet = window.showModalDialog(iCalledAspName, Array(window.parent, arrParam), _
+			"dialogWidth=760px; dialogHeight=420px; center: Yes; help: No; resizable: No; status: No;")
+
+    Elseif frm1.hdnGlType.Value = "B" Then
+     	Call DisplayMsgBox("205154","X" , "X","X")   '아직 전표가 생성되지 않았습니다. 
+    End if
+
+	lblnWinEvent = False
+	
+End Function
+'==============================================================================================================================
+Function OpenFirmPORcpt()
+
+	Dim strRet
+	Dim arrParam(13)
+	Dim iCalledAspName
+	Dim IntRetCD
+	
+	If lblnWinEvent = True Then Exit Function
+	
+	if lgIntFlgMode = Parent.OPMD_UMODE then
+		Call DisplayMsgBox("17A012", "X","신규등록이 아닌 경우","입고예정참조" )
+		Exit Function
+	End if 
+
+	if Trim(frm1.txtMvmtType.Value) = "" then
+		Call DisplayMsgBox("17A002","X" , "입고형태","X")
+		frm1.txtMvmtType.focus
+		Set gActiveElement = document.activeElement
+		Exit Function	
+	elseif Trim(frm1.txtSupplierCd.Value) = "" then
+		Call DisplayMsgBox("17A002","X" , "공급처","X")
+		frm1.txtSupplierCd.focus
+		Set gActiveElement = document.activeElement
+		Exit Function
+	End if
+
+	if (UCase(Trim(frm1.hdnImportflg.Value))="Y" and UCase(Trim(frm1.hdnRcptflg.Value))="Y") or _
+	   (UCase(Trim(frm1.hdnSubcontraflg.Value))="Y" and UCase(Trim(frm1.hdnRcptflg.Value))="N") then
+		Call DisplayMsgBox("17A012", "X","입고형태" & frm1.txtMvmtType.Value & "(" & frm1.txtMvmtTypeNm.value & ")","입고예정참조" )
+		'입고형태 는(은) 입고예정참조를 할수 없습니다."
+		Exit Function
+	End if
+	
+	Dim IntRow
+	Dim strVal
+	
+	strVal = ""
+	
+	With Frm1.vspddata
+		If .MaxRows > 0 Then
+			For IntRow = 1 To .MaxRows
+				
+				.Row = intRow
+				.Col = C_PONO
+				strVal = strVal & UCase(Trim(.Text)) & parent.gColSep
+				.Col = C_POSEQNO
+				strVal = strVal & UCase(Trim(.Text)) & parent.gColSep
+				.Col = C_SPLITSEQNO
+				strVal = strVal & UCase(Trim(.Text)) & parent.gColSep & intRow & parent.gRowSep
+				
+			Next
+		End If
+	End With
+
+	lblnWinEvent = True
+	
+	arrParam(0) = Trim(frm1.txtSupplierCd.value)
+	arrParam(1) = Trim(frm1.txtSupplierNm.value)
+	arrParam(2) = Trim(frm1.txtGroupCd.value)
+	arrParam(3) = Trim(frm1.txtGroupNm.value)
+	arrParam(4) = "N"		'Clsflg
+	arrParam(5) = "Y"		'Releaseflg
+	arrParam(8) = "GR"		'Rcptflg
+	arrParam(9) = Trim(frm1.txtMvmtType.Value)
+	arrParam(10)= Trim(frm1.txtGmDt.Text)
+	arrParam(11)= ""
+	arrParam(12)= ""
+	arrParam(13)= strVal
+
+	iCalledAspName = AskPRAspName("U1112RA1")
+	
+	If Trim(iCalledAspName) = "" Then
+		IntRetCD = DisplayMsgBox("900040", parent.VB_INFORMATION, "U1112RA1", "X")
+		lblnWinEvent = False
+		Exit Function
+	End If
+	
+	strRet = window.showModalDialog(iCalledAspName, Array(window.parent,arrParam), _
+		"dialogWidth=760px; dialogHeight=420px; center: Yes; help: No; resizable: No; status: No;")
+	
+	lblnWinEvent = False
+	
+	If isEmpty(strRet) Then Exit Function				'페이지를 찾을 수 없는 에러발생시.	
+	
+	If strRet(0,0) = "" Then
+		frm1.txtMvmtNo.focus
+		Set gActiveElement = document.activeElement
+		Exit Function
+	Else
+		Call SetFirmPoRef(strRet)
+	End If	
+		
+End Function
+'==============================================================================================================================
+Function SetFirmPoRef(strRet)
+
+	Dim Index1, Count1, Row1
+	Dim temp
+			
+	Const C_PoNo_Ref			= 0
+	Const C_PoSeq_Ref			= 1
+	Const C_PlantCd_Ref			= 2
+	Const C_SLCd_Ref			= 3
+	Const C_ItemCd_Ref			= 4
+	Const C_ItemNm_Ref			= 5
+	Const C_Spec_Ref			= 6	
+	Const C_TrackingNo_Ref		= 7
+	Const C_POQty_Ref			= 8
+	Const C_Unit_Ref			= 9
+	Const C_POPrc_Ref			= 10
+	Const C_POAmt_Ref			= 11
+	Const C_POCur_Ref			= 12
+	Const C_PODlvyDt_Ref		= 13
+	Const C_GRQty_Ref			= 14
+	Const C_LCQty_Ref			= 15
+	Const C_PreIvQty_Ref		= 16
+    Const C_InspectQty_Ref		= 17
+    Const C_IvQty_Ref			= 18
+    Const C_InspFlg_Ref			= 19
+	Const C_InspMeth_Ref		= 20
+	Const C_InspMethCd_Ref		= 21
+	Const C_PlantNm_Ref			= 22
+	Const C_SLNm_Ref			= 23
+	Const C_Pur_Grp_Ref			= 24
+	Const C_LCRCPTQTY_Ref		= 25
+    Const C_Lot_flg_Ref			= 26
+    Const C_Lot_gen_mtd_Ref		= 27
+	Const C_MakerLotNo_Ref		= 28
+	Const C_MakerLotSeqNo_Ref	= 29
+	Const C_PlanDvryDt_Ref		= 30
+	Const C_PlanDvryQty_Ref		= 31
+	Const C_SplitSeqNo_Ref		= 32
+    
+	Count1 = Ubound(strRet,1)
+	
+	With frm1.vspdData
+		
+		.Redraw = False
+	
+		Call fncinsertrow(Count1 + 1)
+		
+		For index1 = 0 to Count1
+			
+			Row1 = .ActiveRow + Index1
+			
+			'C_LCRCPTQTY_Ref 는 히든필드(HH)이므로 
+			temp = UNICDbl(strRet(index1,C_POQty_Ref)) - (UNICDbl(strRet(index1,C_GRQty_Ref)) + UNICDbl(strRet(index1,C_PreIvQty_Ref)) _
+				 + UNICDbl(strRet(index1, C_InspectQty_Ref)) + UNICDbl(strRet(index1, C_LCQty_Ref)) - CDbl(strRet(index1, C_LCRCPTQTY_Ref))  )
+
+			Call .SetText(C_PlantCd,	Row1, strRet(index1,C_PlantCd_Ref))
+			Call .SetText(C_PlantNm,	Row1, strRet(index1,C_PlantNm_Ref))
+			Call .SetText(C_itemCd,		Row1, strRet(index1,C_ItemCd_Ref))
+			Call .SetText(C_itemNm,		Row1, strRet(index1,C_ItemNm_Ref))
+			Call .SetText(C_Spec,		Row1, strRet(index1,C_Spec_Ref))
+			Call .SetText(C_TrackingNo, Row1, strRet(index1,C_TrackingNo_Ref))
+			Call .SetText(C_GRQty,		Row1, strRet(index1,C_PlanDvryQty_Ref)) ' UNIFormatNumber(temp,ggQty.DecPoint,-2,0,ggQty.RndPolicy,ggQty.RndUnit))
+			Call .SetText(C_GRUnit,		Row1, strRet(index1,C_Unit_Ref))
+			Call .SetText(C_Cur,		Row1, strRet(index1,C_POCur_Ref))
+			Call .SetText(C_MvmtPrc,	Row1, 0)
+			Call .SetText(C_DocAmt,		Row1, 0)
+			Call .SetText(C_LocAmt,		Row1, 0)
+			Call .SetText(C_SLCd,		Row1, strRet(index1,C_SLCd_Ref))
+			Call .SetText(C_SLNm,		Row1, strRet(index1,C_SLNm_Ref))
+			Call .SetText(C_PoNo,		Row1, strRet(index1,C_PoNo_Ref))
+			Call .SetText(C_PoSeqNo,	Row1, strRet(index1,C_PoSeq_Ref))
+			Call .SetText(C_InspMethCd, Row1, strRet(index1,C_InspMethCd_Ref))
+			Call .SetText(C_Stateflg,	Row1, "PO")
+			Call .SetText(C_MakerLotNo,	Row1, strRet(index1,C_MakerLotNo_Ref))
+			Call .SetText(C_SplitSeqNo,	Row1, strRet(index1,C_SplitSeqNo_Ref))
+			
+			.Row = Row1	
+			.Col = C_InspFlg										
+			If strRet(index1,C_InspFlg_Ref) = "Y" Then
+				Call .SetText(C_InspFlg,	Row1, "1")
+				Call .SetText(C_GRMeth,		Row1, strRet(index1,C_InspMeth_Ref))
+			Else
+				Call .SetText(C_InspFlg,	Row1, "0")
+				Call .SetText(C_GRMeth,		Row1, "")
+			End if
+	
+			If UCase(Trim(strRet(index1,C_Lot_flg_Ref))) = "Y" and UCase(Trim(strRet(index1,C_Lot_gen_mtd_Ref))) = "M" Then
+				ggoSpread.spreadUnlock	C_LotNo, Row1, C_LotSeqNo, Row1
+				ggoSpread.SSSetRequired	C_LotNo, Row1, Row1
+				
+				Call .SetText(C_LotNo,			Row1, strRet(index1,C_MakerLotNo_Ref))
+				Call .SetText(C_LotSeqNo,		Row1, strRet(index1,C_MakerLotSeqNo_Ref))
+				Call .SetText(C_MakerLotNo,		Row1, strRet(index1,C_MakerLotNo_Ref))
+				Call .SetText(C_MakerLotSeqNo,	Row1, strRet(index1,C_MakerLotSeqNo_Ref))
+				
+			ElseIf UCase(Trim(strRet(index1,C_Lot_flg_Ref))) = "N" Then
+				Call .SetText(C_LotNo,	Row1, "*")
+			End If
+		
+			'C_Pur_Grp_Ref
+			IF index1 = 0 Then
+				frm1.txtGroupCd.value = strRet(index1,C_Pur_Grp_Ref)		
+			End IF
+
+		Next
+	
+		Call LocalReFormatSpreadCellByCellByCurrency()
+		Call setReference()
+		
+		.ReDraw = True
+		
+	End with
+	
+End Function
+'==============================================================================================================================
+Function OpenSlCd()
+	Dim arrRet
+	Dim arrParam(5), arrField(6), arrHeader(6)
+	Dim iCalledAspName
+	Dim IntRetCD
+	Dim iCurRow
+	
+	If IsOpenPop = True Then Exit Function
+
+	IsOpenPop = True
+	
+	iCurRow = frm1.vspdData.ActiveRow
+	
+	arrParam(0) = "창고"						
+	arrParam(1) = "B_STORAGE_LOCATION"			
+	arrParam(2) = Trim(GetSpreadText(frm1.vspdData,C_SlCd,iCurRow,"X","X"))
+'	arrParam(3) = Trim(frm1.txtSlNm.Value)
+	arrParam(4) = "PLANT_CD= " & FilterVar(Trim(GetSpreadText(frm1.vspdData,C_PlantCd,iCurRow,"X","X")), " " , "S") & " "
+	arrParam(5) = "창고"						
+	
+    arrField(0) = "SL_CD"						
+    arrField(1) = "SL_NM"						
+    
+    arrHeader(0) = "창고"					
+    arrHeader(1) = "창고명"					
+    
+	arrRet = window.showModalDialog("../../comasp/CommonPopup.asp", Array(arrParam, arrField, arrHeader), _
+		"dialogWidth=420px; dialogHeight=450px; center: Yes; help: No; resizable: No; status: No;")
+	
+	IsOpenPop = False
+	
+	If isEmpty(arrRet) Then Exit Function				'페이지를 찾을 수 없는 에러발생시.
+	If arrRet(0) <> "" Then
+		Call frm1.vspdData.SetText(C_SlCd,	iCurRow, arrRet(0))
+		Call frm1.vspdData.SetText(C_SlNm,	iCurRow, arrRet(1))
+	End If	
+	
+End Function
+'==============================================================================================================================
+Function OpenMvmtType()
+	Dim arrRet
+	Dim arrParam(5), arrField(6), arrHeader(6)
+	Dim iCalledAspName
+	Dim IntRetCD
+	
+	If IsOpenPop = True Or UCase(frm1.txtMvmtType.className) = UCase(Parent.UCN_PROTECTED) Then Exit Function
+
+	IsOpenPop = True
+	
+	arrParam(0) = "입고형태"	
+	arrParam(1) = "( select distinct  IO_Type_Cd, io_type_nm from  M_CONFIG_PROCESS a,  m_mvmt_type b where a.rcpt_type = b.io_type_cd    and a.sto_flg = " & FilterVar("N", "''", "S") & "  AND a.USAGE_FLG=" & FilterVar("Y", "''", "S") & "  and ((b.RCPT_FLG=" & FilterVar("Y", "''", "S") & "  AND b.RET_FLG=" & FilterVar("N", "''", "S") & " ) or (b.RET_FLG=" & FilterVar("N", "''", "S") & "  And b.SUBCONTRA_FLG=" & FilterVar("N", "''", "S") & " )) ) c"
+	arrParam(2) = Trim(frm1.txtMvmtType.Value)
+	'arrParam(4) = "((RCPT_FLG='Y' AND RET_FLG='N') or (RET_FLG='N' And SUBCONTRA_FLG='N')) AND USAGE_FLG='Y' "
+	arrParam(5) = "입고형태"			
+	
+    arrField(0) = "IO_Type_Cd"
+    arrField(1) = "IO_Type_NM"
+    
+    arrHeader(0) = "입고형태"		
+    arrHeader(1) = "입고형태명"
+    
+	arrRet = window.showModalDialog("../../comasp/CommonPopup.asp", Array(arrParam, arrField, arrHeader), _
+		"dialogWidth=420px; dialogHeight=450px; center: Yes; help: No; resizable: No; status: No;")
+				
+	IsOpenPop = False
+	
+	If isEmpty(arrRet) Then Exit Function				'페이지를 찾을 수 없는 에러발생시.
+	If arrRet(0) = "" Then
+		frm1.txtMvmtType.focus	
+		Set gActiveElement = document.activeElement
+		Exit Function
+	Else
+		frm1.txtMvmtType.Value	= arrRet(0)		
+		frm1.txtMvmtTypeNm.Value= arrRet(1)
+		Call changeMvmtType()
+		lgBlnFlgChgValue = True
+		frm1.txtMvmtType.focus	
+		Set gActiveElement = document.activeElement
+	End If	
+End Function
+'==============================================================================================================================
+Function OpenMvmtNo()
+	
+		Dim strRet
+		Dim arrParam(3)
+		Dim iCalledAspName
+		Dim IntRetCD
+	
+		If IsOpenPop = True Or UCase(frm1.txtMvmtNo.className) = UCase(Parent.UCN_PROTECTED) Then Exit Function
+		
+		IsOpenPop = True
+
+		arrParam(0) = ""'Trim(frm1.hdnSupplierCd.Value)
+		arrParam(1) = ""'Trim(frm1.hdnGroupCd.Value)
+		arrParam(2) = ""'Trim(frm1.hdnMvmtType.Value)		
+		arrParam(3) = ""'This is for Inspection check, must be nothing.
+		
+		'iCalledAspName = AskPRAspName("M4111PA3")
+		iCalledAspName = AskPRAspName("U1122PA1")
+	    
+		If Trim(iCalledAspName) = "" Then
+			'IntRetCD = DisplayMsgBox("900040", parent.VB_INFORMATION, "M4111PA3", "X")
+			IntRetCD = DisplayMsgBox("900040", parent.VB_INFORMATION, "U1122PA1", "X")
+			IsOpenPop = False
+			Exit Function
+		End If
+	
+		strRet = window.showModalDialog(iCalledAspName, Array(window.parent,arrParam), _
+			"dialogWidth=760px; dialogHeight=420px; center: Yes; help: No; resizable: No; status: No;")
+		
+		IsOpenPop = False
+		
+		If isEmpty(strRet) Then Exit Function				'페이지를 찾을 수 없는 에러발생시.
+		
+		If strRet(0) = "" Then
+			frm1.txtMvmtNo.focus	
+			Set gActiveElement = document.activeElement
+			Exit Function
+		Else
+			frm1.txtMvmtNo.value = strRet(0)
+			frm1.txtMvmtNo.focus	
+			Set gActiveElement = document.activeElement
+		End If	
+		
+End Function
+'==============================================================================================================================
+Function OpenGroup()
+	Dim arrRet
+	Dim arrParam(5), arrField(6), arrHeader(6)
+	Dim iCalledAspName
+	Dim IntRetCD
+	
+	If IsOpenPop = True Or UCase(frm1.txtGroupCd.className) = UCase(Parent.UCN_PROTECTED) Then Exit Function
+
+	IsOpenPop = True
+
+	arrParam(0) = "구매그룹"	
+	arrParam(1) = "B_Pur_Grp"
+	
+	arrParam(2) = Trim(frm1.txtGroupCd.Value)
+	
+	arrParam(4) = "B_Pur_Grp.USAGE_FLG=" & FilterVar("Y", "''", "S") & " "
+	arrParam(5) = "구매그룹"			
+	
+    arrField(0) = "PUR_GRP"	
+    arrField(1) = "PUR_GRP_NM"	
+    
+    arrHeader(0) = "구매그룹"		
+    arrHeader(1) = "구매그룹명"
+    arrHeader(2) = "구매조직"		
+    arrHeader(3) = "구매조직명"		
+    
+	arrRet = window.showModalDialog("../../comasp/CommonPopup.asp", Array(arrParam, arrField, arrHeader), _
+		"dialogWidth=420px; dialogHeight=450px; center: Yes; help: No; resizable: No; status: No;")
+			
+	IsOpenPop = False
+	If isEmpty(arrRet) Then Exit Function				'페이지를 찾을 수 없는 에러발생시.
+	
+	If arrRet(0) = "" Then
+		frm1.txtGroupCd.focus	
+		Set gActiveElement = document.activeElement
+		Exit Function
+	Else
+		frm1.txtGroupCd.Value= arrRet(0)		
+		frm1.txtGroupNm.Value= arrRet(1)		
+		lgBlnFlgChgValue = True
+		frm1.txtGroupCd.focus	
+		Set gActiveElement = document.activeElement
+	End If
+	
+End Function
+'==============================================================================================================================
+Function OpenSppl()
+	Dim arrRet
+	Dim arrParam(5), arrField(6), arrHeader(6)
+	Dim iCalledAspName
+	Dim IntRetCD
+	
+	If IsOpenPop = True Or UCase(frm1.txtSupplierCd.className)=UCase(Parent.UCN_PROTECTED) Then Exit Function
+
+	IsOpenPop = True
+
+	arrParam(0) = "공급처"				
+	arrParam(1) = "(SELECT distinct B.BP_CD,C.BP_NM FROM M_SCM_FIRM_PUR_RCPT A(NOLOCK),M_PUR_ORD_HDR B(NOLOCK),B_BIZ_PARTNER C(NOLOCK) "
+	arrParam(1) = arrParam(1) & " WHERE A.PO_NO = B.PO_NO "
+	arrParam(1) = arrParam(1) & "    AND B.BP_CD = C.BP_CD "
+	arrParam(1) = arrParam(1) & "    AND PLAN_DVRY_QTY > 0 "
+	arrParam(1) = arrParam(1) & "    AND RCPT_QTY = 0 AND RET_FLG = 'N' AND DLVY_NO <> '')A "
+	arrParam(2) = Trim(frm1.txtSupplierCd.Value)
+	arrParam(3) = ""							
+	arrParam(4) = ""	
+	arrParam(5) = "공급처"				
+	
+    arrField(0) = "BP_CD"					
+    arrField(1) = "BP_NM"					
+
+	arrHeader(0) = "공급처"				
+	arrHeader(1) = "공급처명"			
+    
+	arrRet = window.showModalDialog("../../comasp/CommonPopup.asp", Array(arrParam, arrField, arrHeader), _
+		"dialogWidth=420px; dialogHeight=450px; center: Yes; help: No; resizable: No; status: No;")
+	
+	
+	IsOpenPop = False
+	
+	If isEmpty(arrRet) Then Exit Function				'페이지를 찾을 수 없는 에러발생시.
+	If arrRet(0) = "" Then
+		frm1.txtSupplierCd.focus	
+		Set gActiveElement = document.activeElement
+		Exit Function
+	Else
+		frm1.txtSupplierCd.Value = arrRet(0)
+		frm1.txtSupplierNm.Value = arrRet(1)
+		frm1.txtSupplierCd.focus	
+		Set gActiveElement = document.activeElement
+	End If	
+	
+End Function
+'==============================================================================================================================
+Function OpenMvmtRcpt(lgCurRow)
+	
+		Dim strRet
+		Dim arrParam(5)
+		Dim iCalledAspName
+		Dim IntRetCD
+	
+		If IsOpenPop = True Then Exit Function
+		
+		IsOpenPop = True
+		
+		frm1.vspdData.Row = frm1.vspdData.ActiveRow
+		
+		arrParam(0) = Trim(GetSpreadText(frm1.vspdData,C_PlantCd,lgCurRow,"X","X"))
+		arrParam(1) = Trim(GetSpreadText(frm1.vspdData,C_PlantNm,lgCurRow,"X","X"))
+		arrParam(2) = Trim(GetSpreadText(frm1.vspdData,C_ItemCd,lgCurRow,"X","X"))
+		arrParam(3) = Trim(GetSpreadText(frm1.vspdData,C_ItemNm,lgCurRow,"X","X"))
+		arrParam(4) = UCase(Trim(frm1.txtSupplierCd.value))
+		arrParam(5) = UCase(Trim(frm1.txtSupplierNm.value))
+		
+		iCalledAspName = AskPRAspName("M4111PA5")
+	
+		If Trim(iCalledAspName) = "" Then
+			IntRetCD = DisplayMsgBox("900040", parent.VB_INFORMATION, "M4111PA5", "X")
+			IsOpenPop = False
+			Exit Function
+		End If
+	
+		strRet = window.showModalDialog(iCalledAspName, Array(window.parent,arrParam), _
+			"dialogWidth=760px; dialogHeight=420px; center: Yes; help: No; resizable: No; status: No;")
+		
+		IsOpenPop = False
+		If isEmpty(strRet) Then Exit Function				'페이지를 찾을 수 없는 에러발생시.
+		If strRet(0) <> "" Then
+			'Call SetMvmtNo(strRet)
+		End If	
+		
+End Function
+'------------------------------------------  OpenBackFlushRef()  -----------------------------------------
+'	Name : OpenBackFlushRef()
+'	Description : BackFlush Simmulation Reference
+'---------------------------------------------------------------------------------------------------------
+Function OpenBackFlushRef()
+	
+	Dim arrRet,arrParam_1(1)
+	Dim IntRows
+	Dim strVal
+	Dim iCalledAspName
+	
+	If IsOpenPop = True Then Exit Function
+	
+	strVal = ""
+	
+	With frm1.vspdData
+		For IntRows = 1 To .MaxRows
+			.Row = IntRows
+			.Col = C_GrQty		' Produced Qty
+			If UNICDbl(.Text) > CDbl(0) Then
+				.Col = C_PlantCd	
+				strVal = strVal & UCase(Trim(.Text)) & parent.gColSep
+				.Col = C_PoNo			
+				strVal = strVal & UCase(Trim(.Text)) & parent.gColSep
+				.Col = C_PoSeqNo		
+				strVal = strVal & Trim(.Text) & parent.gColSep
+				.Col = C_GrQty
+				strVal = strVal & UniConvNum(.Text,0) & parent.gRowSep
+			End If
+		Next
+	End With
+
+	arrParam_1(0) = strVal
+	arrParam_1(1) = UCase(Trim(frm1.txtSupplierCd.Value))
+
+	iCalledAspName = AskPRAspName("m4111ra5")
+	
+	If Trim(iCalledAspName) = "" Then
+		IntRetCD = DisplayMsgBox("900040", parent.VB_INFORMATION, "m4111qra1", "X")
+		IsOpenPop = False
+		Exit Function
+	End If
+	
+	IsOpenPop = True
+
+	arrRet = window.showModalDialog(iCalledAspName, Array(Window.Parent, arrParam_1), _
+		"dialogWidth=720px; dialogHeight=450px; center: Yes; help: No; resizable: No; status: No;")
+
+	IsOpenPop = False
+	
+End Function
+
+'==============================================================================================================================
+Sub CurFormatNumSprSheet()
+
+	With frm1
+		ggoSpread.Source = frm1.vspdData
+		'입고금액(화폐단위가 있을시에만 포텟팅)
+		
+		if .hdnMvmtCur.value <> "" Then
+		ggoSpread.SSSetFloatByCellOfCur C_DocAmt,-1, .hdnMvmtCur.Value,  Parent.ggAmtOfMoneyNo, gBCurrency, gBDataType, gBDecimals, Parent.gComNum1000, Parent.gComNumDec,,,"Z"
+		End if
+		'입고자국금액 
+		ggoSpread.SSSetFloatByCellOfCur C_LocAmt,-1, parent.gCurrency,  Parent.ggAmtOfMoneyNo, gBCurrency, gBDataType, gBDecimals, Parent.gComNum1000, Parent.gComNumDec,,,"Z"
+	End With
+End Sub
+'==============================================================================================================================
+Sub SetSpreadFloatLocal(ByVal iCol , ByVal Header , _
+                    ByVal dColWidth , ByVal HAlign , _
+                    ByVal iFlag )
+	        
+   Select Case iFlag
+        Case 2                                                              '금액 
+            ggoSpread.SSSetFloat iCol, Header, dColWidth, Parent.ggAmtOfMoneyNo,ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec, HAlign,,"Z"
+        Case 3                                                              '수량 
+            ggoSpread.SSSetFloat iCol, Header, dColWidth, Parent.ggQtyNo       ,ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec, HAlign,,"Z"
+        Case 4                                                              '단가 
+            ggoSpread.SSSetFloat iCol, Header, dColWidth, Parent.ggUnitCostNo  ,ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec, HAlign,,"Z"
+        Case 5                                                              '환율 
+            ggoSpread.SSSetFloat iCol, Header, dColWidth, Parent.ggExchRateNo  ,ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec, HAlign,,"Z"
+        Case 6                                                              'Lot 순번 Maker Lot 순번 
+            ggoSpread.SSSetFloat iCol, Header, dColWidth, "6"				  ,ggStrIntegeralPart, ggStrDeciPointPart,Parent.gComNum1000,Parent.gComNumDec,,,,"0","99999"
+    End Select
+         
+End Sub
+'==============================================================================================================================
+Function setReference()
+
+	ggoOper.SetReqAttr	frm1.txtMvmtType, "Q"
+	ggoOper.SetReqAttr	frm1.txtSupplierCd, "Q"
+	Call SetToolBar("11101001000111")
+End Function
+'==============================================================================================================================
+Function CookiePage(Byval Kubun)
+
+	Dim strTemp
+
+	If Kubun = 1 Then
+	    
+	    WriteCookie "MvmtNo" , Trim(frm1.txtMvmtNo1.value)				
+		Call PgmJump(BIZ_PGM_JUMP_ID)
+		
+	Else
+		strTemp = ReadCookie("MvmtNo")
+		If strTemp = "" then Exit Function
+		frm1.txtMvmtNo.value = ReadCookie("MvmtNo")
+		Call WriteCookie("MvmtNo" , "")
+		MainQuery()
+	End if
+	
+End Function
+
+Sub vspdData_Click(ByVal Col, ByVal Row)
+    
+    IF lgIntFlgMode <> Parent.OPMD_UMODE And frm1.vspdData.MaxRows <= 0 Then
+		Call SetPopupMenuItemInf("0000111111")
+	ElseIf lgIntFlgMode <> Parent.OPMD_UMODE And frm1.vspdData.MaxRows > 0 Then	'참조시 
+		Call SetPopupMenuItemInf("0001111111")
+	Else
+		Call SetPopupMenuItemInf("0101111111")
+	End If
+   
+   gMouseClickStatus = "SPC"   
+	Set gActiveSpdSheet = frm1.vspdData
+	   
+	If frm1.vspdData.MaxRows = 0 Then Exit Sub
+	   
+	If Row <= 0 Then
+		ggoSpread.Source = frm1.vspdData
+		If lgSortKey = 1 Then
+			ggoSpread.SSSort Col				'Sort in Ascending
+			lgSortkey = 2
+		Else
+			ggoSpread.SSSort Col, lgSortKey	'Sort in Descending
+			lgSortkey = 1
+		End If
+		
+		Exit Sub
+	End If    	
+	
+End Sub
+'==============================================================================================================================
+Sub vspdData_DblClick(ByVal Col, ByVal Row)				
+    
+    If Row <= 0 Then Exit Sub
+    
+    If frm1.vspdData.MaxRows = 0 Then Exit Sub
+End Sub
+'==============================================================================================================================
+Sub vspdData_ButtonClicked(ByVal Col, ByVal Row, Byval ButtonDown)
+   
+	ggoSpread.Source = frm1.vspdData
+    
+	If Col = C_SlCdPop Then
+    	Call OpenSlCd()
+    ElseIf Col = C_MvmtRcptLookUpBtn Then
+		Call OpenMvmtRcpt(frm1.vspdData.ActiveRow)
+	End If	
+    
+End Sub
+'==============================================================================================================================
+Sub vspdData_MouseDown(Button , Shift , x , y)
+
+   If Button = 2 And gMouseClickStatus = "SPC" Then
+      gMouseClickStatus = "SPCR"
+   End If
+End Sub    
+'==============================================================================================================================
+Sub vspdData_ColWidthChange(ByVal pvCol1, ByVal pvCol2)		
+    ggoSpread.Source = frm1.vspdData
+    Call ggoSpread.SSSetColWidth(pvCol1,pvCol2)
+End Sub
+'==============================================================================================================================
+Sub FncSplitColumn()
+
+    If UCase(Trim(TypeName(gActiveSpdSheet))) = "EMPTY" Then
+       Exit Sub
+    End If
+
+    ggoSpread.Source = gActiveSpdSheet
+    ggoSpread.SSSetSplit(gActiveSpdSheet.ActiveCol)   
+End Sub
+'==============================================================================================================================
+Sub PopSaveSpreadColumnInf()
+    ggoSpread.Source = gActiveSpdSheet
+    Call ggoSpread.SaveSpreadColumnInf()
+End Sub
+'==============================================================================================================================
+Sub PopRestoreSpreadColumnInf()
+    
+    ggoSpread.Source = gActiveSpdSheet
+    Call ggoSpread.RestoreSpreadInf()
+    Call InitSpreadSheet()
+    Call ggoSpread.ReOrderingSpreadData()
+    
+    Call ReFormatSpreadCellByCellByCurrency(frm1.vspdData, -1, -1 ,C_Cur			,C_MvmtPrc	,"C" ,"I","X","X")
+    Call ReFormatSpreadCellByCellByCurrency(frm1.vspdData, -1, -1 ,C_Cur			,C_DocAmt	,"A" ,"I","X","X")
+    Call ReFormatSpreadCellByCellByCurrency2(frm1.vspdData, -1, -1 ,parent.gCurrency	,C_LocAmt	,"A" ,"I","X","X")
+    Call ChangeTag(True)
+    
+End Sub
+'==============================================================================================================================
+Sub txtGmDt_DblClick(Button)
+	if Button = 1 then
+		frm1.txtGmDt.Action = 7
+		Call SetFocusToDocument("M")	
+		frm1.txtGmDt.focus
+	End if
+End Sub
+'==============================================================================================================================
+Sub txtGmDt_Change()
+	lgBlnFlgChgValue = true	
+End Sub
+'==============================================================================================================================
+Sub vspdData_Change(ByVal Col , ByVal Row )
+
+    ggoSpread.Source = frm1.vspdData
+    
+    Frm1.vspdData.Row = Row
+	Frm1.vspdData.Col = Col
+    
+    Call CheckMinNumSpread(frm1.vspdData, Col, Row)
+End Sub
+'==============================================================================================================================
+Sub vspdData_TopLeftChange(ByVal OldLeft , ByVal OldTop , ByVal NewLeft , ByVal NewTop )
+    
+    If OldLeft <> NewLeft Then
+        Exit Sub
+    End If
+    
+    If frm1.vspdData.MaxRows < NewTop + VisibleRowCnt(frm1.vspdData,NewTop) Then	    '☜: 재쿼리 체크 
+		If lgStrPrevKey <> "" Then							
+			If CheckRunningBizProcess = True Then
+				Exit Sub
+			End If	
+			
+			Call DisableToolBar(Parent.TBC_QUERY)
+			If DBQuery = False Then
+				Call RestoreToolBar()
+				Exit Sub
+			End If
+		End If
+    End if
+    
+End Sub
+'==============================================================================================================================
+Function FncQuery() 
+    Dim IntRetCD 
+    
+    FncQuery = False                                        
+    
+    On Error Resume Next                                                 
+    Err.Clear                                               
+    
+	ggoSpread.Source = frm1.vspdData
+	
+    If lgBlnFlgChgValue = true or ggoSpread.SSCheckChange = true Then
+		IntRetCD = DisplayMsgBox("900013", Parent.VB_YES_NO,"X","X")
+		If IntRetCD = vbNo Then
+			Exit Function
+		End If
+    End If
+	
+    ggoSpread.ClearSpreadData        
+    Call InitVariables
+
+    If Not chkFieldByCell(frm1.txtMvmtNo, "A",1) Then Exit Function
+   
+    If 	CommonQueryRs(" IsNull(DLVY_ORD_FLG, ''), B.ret_flg "," M_PUR_GOODS_MVMT A inner join M_MVMT_TYPE B ON (A.io_type_cd = B.io_type_cd) ", " MVMT_RCPT_NO = " & FilterVar(frm1.txtMvmtNo.Value, "''", "S"), _
+		lgF0,lgF1,lgF2,lgF3,lgF4,lgF5,lgF6) = False Then
+					
+		Call DisplayMsgBox("174100","X","X","X")
+		Call SetDefaultVal
+		lgBlnFlgChgValue = false
+		'frm1.txtMvmtNo.focus
+		Set gActiveElement = document.activeElement
+		Call ggoOper.ClearField(Document, "2") 'Clear field only when error rise.
+		Exit function
+	End If
+	lgF0 = Split(lgF0, Chr(11))
+	lgF1 = Split(lgF1, Chr(11))
+
+	'-- Modify for Isuue 8867 by Byun Jee Hyun
+	If Trim(lgF0(0)) = "Y" Then
+		Call DisplayMsgBox("17a014", "X","납입지시","조회" )
+		frm1.txtMvmtNo.focus
+		Set gActiveElement = document.activeElement
+		Call ggoOper.ClearField(Document, "2") 'Clear field only when error rise.
+		Exit function
+	End If 
+
+	If Trim(lgF1(0)) = "Y" Then
+		Call DisplayMsgBox("17a014", "X","반품","조회" )
+		frm1.txtMvmtNo.focus
+		Set gActiveElement = document.activeElement
+		Call ggoOper.ClearField(Document, "2") 'Clear field only when error rise.
+		Exit function
+	End If
+	'-- End of Isuue 8867
+
+    If DbQuery = False Then Exit Function
+    FncQuery = True											
+    
+    Set gActiveElement = document.ActiveElement   
+    
+End Function
+'==============================================================================================================================
+Function FncNew() 
+    Dim IntRetCD 
+    
+    FncNew = False                                          
+    
+    On Error Resume Next                                   
+    Err.Clear                                               
+    
+    ggoSpread.Source = frm1.vspdData
+    
+    If lgBlnFlgChgValue = True Or ggoSpread.SSCheckChange = True Then
+		IntRetCD = DisplayMsgBox("900015", Parent.VB_YES_NO,"X","X")
+		If IntRetCD = vbNo Then
+			Exit Function
+		End If
+    End If
+    
+    Call ggoOper.ClearField(Document, "1")                  
+    Call ggoOper.ClearField(Document, "2")
+    ggoSpread.ClearSpreadData                  
+    Call SetDefaultVal
+    Call InitVariables
+        
+    FncNew = True                     
+	Set gActiveElement = document.ActiveElement   
+End Function
+'==============================================================================================================================
+Function FncSave() 
+    Dim IntRetCD 
+    Dim intIndex
+    
+    FncSave = False                                 
+    
+    On Error Resume Next                           
+    Err.Clear                                       
+    
+	ggoSpread.Source = frm1.vspdData				
+    
+    If lgBlnFlgChgValue = False And ggoSpread.SSCheckChange = False  Then
+        IntRetCD = DisplayMsgBox("900001","X","X","X")					
+        Exit Function
+    End If
+
+    'If Not chkField(Document, "2") Then	Exit Function
+    '-----------------------
+    'Check condition area
+    '-----------------------
+    If Not chkFieldByCell(frm1.txtMvmtType, "A",1)	then
+       Exit Function
+    End If
+    
+    If Not chkFieldByCell(frm1.txtGmDt, "A",1)	then
+       Exit Function
+    End If
+    
+    If Not chkFieldByCell(frm1.txtSupplierCd, "A",1)	then
+       Exit Function
+    End If
+    
+	With frm1
+		if CompareDateByFormat(.txtGmDt.text,EndDate,.txtGmDt.Alt,"현재일", _
+                   "970025",.txtGmDt.UserDefinedFormat,Parent.gComDateType,True) = False Then	
+			Exit Function
+		End if   
+        
+        '------------------------------------------------------------------------
+		'SR 번호 : 10198
+	    '내   용 : 입고시 입고번호 수동일 경우 기 입고번호가 있으면 에러 메세지 처리 
+	    'date    : 2005/08/17
+	    'Modifier: Kim Duk Hyun 
+	    '------------------------------------------------------------------------
+		.vspdData.Col = 0  
+		If .vspdData.Text <> ggoSpread.DeleteFlag Then
+			If .txtMvmtNo1.Value <> "" Then
+				If 	CommonQueryRs(" MVMT_RCPT_NO "," M_PUR_GOODS_MVMT ", " MVMT_RCPT_NO = " & FilterVar(.txtMvmtNo1.Value, "''", "S"), _
+					lgF0,lgF1,lgF2,lgF3,lgF4,lgF5,lgF6) = True Then
+							
+					Call DisplayMsgBox("174112","X",.txtMvmtNo1.Value,"X")
+					.txtMvmtNo1.Value = ""
+					Call SetFocusToDocument("M") 
+					.txtMvmtNo1.focus
+					Exit function
+				End If
+			End If
+		End If
+		           
+		ggoSpread.Source = .vspdData									
+		If Not ggoSpread.SSDefaultCheck Then Exit Function
+    
+		If .vspdData.Maxrows < 1 then Exit Function
+		
+		For intIndex = 1 to .vspdData.MaxCols 
+			.vspdData.SetColItemData intindex,0	
+		Next
+	End with
+	    
+    If DbSave = False Then Exit Function
+    
+    FncSave = True                                                      
+    Set gActiveElement = document.ActiveElement   
+End Function
+'==============================================================================================================================
+Function FncCancel()
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+    	
+	if frm1.vspdData.Maxrows < 1	then exit function
+	ggoSpread.Source = frm1.vspdData
+    ggoSpread.EditUndo
+    
+    Set gActiveElement = document.ActiveElement                                                   
+End Function
+'==============================================================================================================================
+Function FncInsertRow(ByVal pvRowCnt) 
+	
+	Dim imRow
+
+	On Error Resume Next
+	Err.Clear
+	
+	FncInsertRow = False
+	
+	If IsNumeric(Trim(pvRowCnt)) Then
+		imRow = Cint(pvRowCnt)
+	Else
+		imRow = AskSpdSheetAddRowCount()
+		If imRow = "" Then Exit Function
+    End IF
+	
+	With frm1
+
+		.vspdData.focus
+		ggoSpread.Source = .vspdData
+		ggoSpread.InsertRow , imRow
+		SetSpreadColor .vspdData.ActiveRow, .vspdData.ActiveRow + imRow - 1
+		
+    End With
+	
+	If Err.number = 0 Then FncInsertRow = True
+	Set gActiveElement = document.ActiveElement
+	
+End Function
+'==============================================================================================================================
+Function LocalReFormatSpreadCellByCellByCurrency() 
+
+	On Error Resume Next
+	Err.Clear
+	
+	With frm1
+		
+		Call ReFormatSpreadCellByCellByCurrency(.vspdData,-1, -1,C_Cur,C_MvmtPrc,		"C" ,"I","X","X")
+		Call ReFormatSpreadCellByCellByCurrency(.vspdData,-1, -1,C_Cur,C_DocAmt,		"A" ,"I","X","X") 
+		Call ReFormatSpreadCellByCellByCurrency2(.vspdData,-1, -1,parent.gCurrency,C_LocAmt,	"A" ,"I","X","X") 
+		
+    End With
+	
+	Set gActiveElement = document.ActiveElement
+	
+End Function
+'==============================================================================================================================
+Function FncDeleteRow() 
+    Dim lDelRows
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+    
+    ggoSpread.Source = frm1.vspdData
+    if frm1.vspdData.Maxrows < 1	then exit function
+    
+    frm1.vspdData .focus
+	ggoSpread.Source = frm1.vspdData 
+    
+	lDelRows = ggoSpread.DeleteRow
+	
+    Set gActiveElement = document.ActiveElement   
+End Function
+'==============================================================================================================================
+Function FncPrint()
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+    
+	ggoSpread.Source = frm1.vspdData 
+	Call parent.FncPrint()
+	Set gActiveElement = document.ActiveElement   
+End Function
+'==============================================================================================================================
+Function FncExcel()
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+    
+	ggoSpread.Source = frm1.vspdData
+    Call parent.FncExport(Parent.C_SINGLEMULTI)		
+    Set gActiveElement = document.ActiveElement   						
+End Function
+'==============================================================================================================================
+Function FncFind() 
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+    
+	ggoSpread.Source = frm1.vspdData
+    Call parent.FncFind(Parent.C_MULTI , False)  
+    Set gActiveElement = document.ActiveElement                                 
+End Function
+'==============================================================================================================================
+Function FncExit()
+	Dim IntRetCD
+    
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+    
+	FncExit = False
+	
+    ggoSpread.Source = frm1.vspdData	    	
+	
+	If lgBlnFlgChgValue = True Or ggoSpread.SSCheckChange = True Then
+    
+		IntRetCD = DisplayMsgBox("900016", Parent.VB_YES_NO,"X","X")           
+		
+		If IntRetCD = vbNo Then Exit Function
+		
+    End If
+    
+    FncExit = True
+    Set gActiveElement = document.ActiveElement   
+End Function
+'==============================================================================================================================
+Function DbQuery() 
+    Dim LngLastRow      
+    Dim LngMaxRow       
+    Dim LngRow          
+    Dim strTemp         
+    Dim StrNextKey
+    Dim strVal
+    
+    DbQuery = False  
+    
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+  
+    If LayerShowHide(1) = False Then Exit Function
+    
+    With frm1
+		If lgIntFlgMode = Parent.OPMD_UMODE Then
+		    strVal = BIZ_PGM_ID & "?txtMode=" & Parent.UID_M0001
+		    strVal = strVal & "&lgStrPrevKey=" & lgStrPrevKey
+		    strVal = strVal & "&txtRcptNo=" & .hdnRcptNo.value
+		    strVal = strVal & "&txtMvmtNo=" & .hdnMvmtNo.value
+		else
+		    strVal = BIZ_PGM_ID & "?txtMode=" & Parent.UID_M0001
+		    strVal = strVal & "&lgStrPrevKey=" & lgStrPrevKey
+		    strVal = strVal & "&txtMvmtNo=" & Trim(.txtMvmtNo.value)
+		End if
+    
+		Call RunMyBizASP(MyBizASP, strVal)									
+    End With
+    
+    DbQuery = True
+End Function
+'==============================================================================================================================
+Function DbQueryOk()													
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+
+	lgIntFlgMode = Parent.OPMD_UMODE											
+    Call ggoOper.LockField(Document, "Q")								
+	lgBlnFlgChgValue = False	
+	
+	Call SetToolBar("11101011000111")
+	Call RemovedivTextArea
+	Call ChangeTag(True)
+	
+	if interface_Account = "N" then		
+		frm1.btnGlSel.disabled = true
+	Else 
+		frm1.btnGlSel.disabled = False		
+	End if
+	frm1.btnGlSel_1.disabled = true
+	
+	frm1.vspdData.focus
+End Function
+'==============================================================================================================================
+Function DbSave() 
+
+    Dim lRow        
+    Dim strVal, strDel , strVal2
+	Dim iColSep, iRowSep
+	
+	Dim strCUTotalvalLen '버퍼에 채워지는 양이 102399byte를 넘어 가는가를 체크하기위한 누적 데이타 크기 저장[수정,신규] 
+	Dim strDTotalvalLen  '버퍼에 채워지는 양이 102399byte를 넘어 가는가를 체크하기위한 누적 데이타 크기 저장[삭제]
+	
+	Dim objTEXTAREA '동적인 HTML객체(TEXTAREA)를 만들기위한 임시 버퍼 
+
+	Dim iTmpCUBuffer         '현재의 버퍼 [수정,신규] 
+	Dim iTmpCUBufferCount    '현재의 버퍼 Position
+	Dim iTmpCUBufferMaxCount '현재의 버퍼 Chunk Size
+
+	Dim iTmpDBuffer          '현재의 버퍼 [삭제] 
+	Dim iTmpDBufferCount     '현재의 버퍼 Position
+	Dim iTmpDBufferMaxCount  '현재의 버퍼 Chunk Size
+			
+    DbSave = False                                                      
+	
+	Call DisableToolBar(Parent.TBC_SAVE)                                          '☜: Disable Save Button Of ToolBar
+    
+    If LayerShowHide(1) = False Then
+		Exit Function
+	End If 
+    
+    On Error Resume Next                                                          '☜: If process fails
+    Err.Clear                                                                     '☜: Clear error status
+	
+	iColSep = Parent.gColSep													
+	iRowSep = Parent.gRowSep													
+	
+	iTmpCUBufferMaxCount = parent.C_CHUNK_ARRAY_COUNT '한번에 설정한 버퍼의 크기 설정[수정,신규]
+	iTmpDBufferMaxCount  = parent.C_CHUNK_ARRAY_COUNT '한번에 설정한 버퍼의 크기 설정[삭제]
+	
+	ReDim iTmpCUBuffer(iTmpCUBufferMaxCount) '최기 버퍼의 설정[수정,신규]
+	ReDim iTmpDBuffer (iTmpDBufferMaxCount)  '최기 버퍼의 설정[수정,신규]
+
+	iTmpCUBufferCount = -1
+	iTmpDBufferCount = -1
+	
+	strCUTotalvalLen = 0
+	strDTotalvalLen  = 0
+	
+	frm1.txtMode.value = Parent.UID_M0002
+	frm1.txtFlgMode.value = lgIntFlgMode
+	
+	strVal = ""
+	strVal2 = ""
+	strDel = ""
+	    
+    With frm1
+		For lRow = 1 To .vspdData.MaxRows
+			.vspdData.Row = lRow
+			.vspdData.Col = 0  
+			
+			Select Case .vspdData.Text
+				Case ggoSpread.InsertFlag, ggoSpread.UpdateFlag
+					If Trim(UNICDbl(GetSpreadText(frm1.vspdData,C_GrQty,lRow, "X","X"))) = "" Or Trim(UNICDbl(GetSpreadText(frm1.vspdData,C_GrQty,lRow, "X","X"))) = "0" then 
+						Call DisplayMsgBox("970021","X","입고수량","X")
+						Call RemovedivTextArea
+						Call LayerShowHide(0)
+						Exit Function
+					End if
+							
+					strVal = "C"																			& iColSep				
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_PlantCd,lRow, "X","X"))			& iColSep & iColSep
+        			strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_ItemCd,lRow, "X","X"))				& iColSep & iColSep & iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_TrackingNo,lRow, "X","X"))			& iColSep
+					If Trim(GetSpreadText(frm1.vspdData,C_InspFlg,lRow, "X","X")) = "0" Then
+						strVal = strVal & "N"																& iColSep
+					Else
+						strVal = strVal & "Y"																& iColSep
+					End If
+					If Trim(GetSpreadText(frm1.vspdData,C_GrQty,lRow, "X","X")) = "" Then
+						strVal = strVal & "0"																& iColSep & iColSep
+					Else
+						strVal = strVal & UNIConvNum(GetSpreadText(frm1.vspdData,C_GrQty,lRow, "X","X"),0)	& iColSep & iColSep
+					End If
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_GRUnit,lRow, "X","X"))				& iColSep & iColSep & iColSep & iColSep & iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_SlCd,lRow, "X","X"))				& iColSep & iColSep & iColSep & iColSep & iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_LotNo,lRow, "X","X"))				& iColSep
+					strVal = strVal & UNIConvNum(Trim(GetSpreadText(frm1.vspdData,C_LotSeqNo,lRow, "X","X")), 0)			& iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_MakerLotNo,lRow, "X","X"))			& iColSep
+					strVal = strVal & UNIConvNum(Trim(GetSpreadText(frm1.vspdData,C_MakerLotSeqNo,lRow, "X","X")), 0)		& iColSep & iColSep & iColSep & iColSep & iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_PoNo,lRow, "X","X"))				& iColSep
+					strVal = strVal & UNIConvNum(Trim(GetSpreadText(frm1.vspdData,C_PoSeqNo,lRow, "X","X")), 0)		& iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_CCNo,lRow, "X","X"))				& iColSep
+					strVal = strVal & UNIConvNum(Trim(GetSpreadText(frm1.vspdData,C_CCSeqNo,lRow, "X","X")), 0)		& iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_LLCNo,lRow, "X","X"))				& iColSep
+					strVal = strVal & UNIConvNum(Trim(GetSpreadText(frm1.vspdData,C_LLCSeqNo,lRow, "X","X")), 0)			& iColSep & iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_InspMethCd,lRow, "X","X"))			& iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_MvmtNo,lRow, "X","X"))				& iColSep
+					strVal = strVal & Trim(GetSpreadText(frm1.vspdData,C_IvNo,lRow, "X","X"))				& iColSep
+					strVal = strVal & UNIConvNum(Trim(GetSpreadText(frm1.vspdData,C_IvSeqNo,lRow, "X","X")), 0)			& iColSep
+					
+					strVal = strVal & lRow	& iRowSep
+					
+					strVal2 = strVal2 & UNIConvNum(Trim(GetSpreadText(frm1.vspdData,C_SplitSeqNo,lRow, "X","X")), 0)		& iColSep
+					strVal2 = strVal2 & lRow	& iRowSep
+					
+				Case ggoSpread.DeleteFlag
+					strDel = "D" & iColSep   '0
+					strDel = strDel & iColSep & iColSep & iColSep & iColSep & iColSep  ' 1 - 5
+					strDel = strDel & iColSep & iColSep & iColSep & iColSep & iColSep  ' 6 - 10
+					strDel = strDel & iColSep & iColSep & iColSep & iColSep & iColSep  ' 11 - 15
+					strDel = strDel & iColSep & iColSep & iColSep & iColSep & iColSep  ' 16 - 20
+					strDel = strDel & iColSep & iColSep & iColSep & iColSep & iColSep  ' 21 - 25
+					strDel = strDel & iColSep & iColSep & iColSep & iColSep & iColSep  ' 26 - 30
+					strDel = strDel & iColSep & iColSep & iColSep & iColSep & iColSep  ' 31 - 35
+					strDel = strDel & UCase(GetSpreadText(frm1.vspdData,C_MvmtNo,lRow, "X","X")) & iColSep & iColSep & iColSep
+					If Trim(UNICDbl(GetSpreadText(frm1.vspdData,C_RetOrdQty,lRow, "X","X"))) >  "0" then 
+						Call DisplayMsgBox("172126","X",lRow & "행","X")
+						Call RemovedivTextArea
+						Call LayerShowHide(0)
+						Exit Function
+					End if
+					strDel = strDel & lRow & iRowSep	'39
+					
+			End Select
+				
+			.vspdData.Row = lRow
+			.vspdData.Col = 0
+			Select Case .vspdData.Text
+			    Case ggoSpread.InsertFlag,ggoSpread.UpdateFlag
+			         If strCUTotalvalLen + Len(strVal) >  parent.C_FORM_LIMIT_BYTE Then  '한개의 form element에 넣을 Data 한개치가 넘으면 
+					                            
+			            Set objTEXTAREA = document.createElement("TEXTAREA")                 '동적으로 한개의 form element를 동저으로 생성후 그곳에 데이타 넣음 
+			            objTEXTAREA.name = "txtCUSpread"
+			            objTEXTAREA.value = Join(iTmpCUBuffer,"")
+			            divTextArea.appendChild(objTEXTAREA)     
+					 
+			            iTmpCUBufferMaxCount = parent.C_CHUNK_ARRAY_COUNT                  ' 임시 영역 새로 초기화 
+			            ReDim iTmpCUBuffer(iTmpCUBufferMaxCount)
+			            iTmpCUBufferCount = -1
+			            strCUTotalvalLen  = 0
+			         End If
+					       
+			         iTmpCUBufferCount = iTmpCUBufferCount + 1
+					      
+			         If iTmpCUBufferCount > iTmpCUBufferMaxCount Then                              '버퍼의 조정 증가치를 넘으면 
+			            iTmpCUBufferMaxCount = iTmpCUBufferMaxCount + parent.C_CHUNK_ARRAY_COUNT '버퍼 크기 증성 
+			            ReDim Preserve iTmpCUBuffer(iTmpCUBufferMaxCount)
+			         End If   
+			         iTmpCUBuffer(iTmpCUBufferCount) =  strVal         
+			         strCUTotalvalLen = strCUTotalvalLen + Len(strVal)
+			   Case ggoSpread.DeleteFlag
+			         If strDTotalvalLen + Len(strDel) >  parent.C_FORM_LIMIT_BYTE Then   '한개의 form element에 넣을 한개치가 넘으면 
+			            Set objTEXTAREA   = document.createElement("TEXTAREA")
+			            objTEXTAREA.name  = "txtDSpread"
+			            objTEXTAREA.value = Join(iTmpDBuffer,"")
+			            divTextArea.appendChild(objTEXTAREA)     
+					          
+			            iTmpDBufferMaxCount = parent.C_CHUNK_ARRAY_COUNT              
+			            ReDim iTmpDBuffer(iTmpDBufferMaxCount)
+			            iTmpDBufferCount = -1
+			            strDTotalvalLen = 0 
+			         End If
+					       
+			         iTmpDBufferCount = iTmpDBufferCount + 1
+
+			         If iTmpDBufferCount > iTmpDBufferMaxCount Then                         '버퍼의 조정 증가치를 넘으면 
+			            iTmpDBufferMaxCount = iTmpDBufferMaxCount + parent.C_CHUNK_ARRAY_COUNT
+			            ReDim Preserve iTmpDBuffer(iTmpDBufferMaxCount)
+			         End If   
+					         
+			         iTmpDBuffer(iTmpDBufferCount) =  strDel         
+			         strDTotalvalLen = strDTotalvalLen + Len(strDel)
+			End Select
+		Next
+	End With
+	
+	If iTmpCUBufferCount > -1 Then   ' 나머지 데이터 처리 
+	   Set objTEXTAREA = document.createElement("TEXTAREA")
+	   objTEXTAREA.name   = "txtCUSpread"
+	   objTEXTAREA.value = Join(iTmpCUBuffer,"")
+	   divTextArea.appendChild(objTEXTAREA)     
+	End If  
+	
+	If iTmpDBufferCount > -1 Then    ' 나머지 데이터 처리 
+	   Set objTEXTAREA = document.createElement("TEXTAREA")
+	   objTEXTAREA.name = "txtDSpread"
+	   objTEXTAREA.value = Join(iTmpDBuffer,"")
+	   divTextArea.appendChild(objTEXTAREA)     
+	End If
+	
+	Frm1.txtSpread2.value = strVal2
+	
+	'------ Developer Coding part (End ) -------------------------------------------------------------- 
+	Frm1.txtMaxRows.value = Frm1.vspddata.MaxRows
+	
+	Call ExecMyBizASP(frm1, BIZ_PGM_ID)
+
+	If Err.number = 0 Then	 
+	   DbSave = True                                                             '☜: Processing is OK
+	End If
+
+	Set gActiveElement = document.ActiveElement 
+End Function
+'==============================================================================================================================
+Function DbSaveOk()													'☆: 저장 성공후 실행 로직 
+   
+	Call InitVariables
+	Call MainQuery()
+End Function
+'==============================================================================================================================
+Sub vspdData_ScriptDragDropBlock( Col ,  Row,  Col2,  Row2,  NewCol,  NewRow,  NewCol2,  NewRow2,  Overwrite , Action , DataOnly , Cancel )
+    ggoSpread.Source = frm1.vspdData
+    Call ggoSpread.SpreadDragDropBlock(Col , Row, Col2, Row2, NewCol, NewRow, NewCol2, NewRow2, Overwrite , Action , DataOnly , Cancel )    
+    Call GetSpreadColumnPos("A")
+End Sub
+'==============================================================================================================================
+Function changeMvmtType()
+
+    changeMvmtType = False                 
+
+	With frm1
+		If 	CommonQueryRs(" A.IO_TYPE_NM, A.RCPT_FLG, A.IMPORT_FLG, A.RET_FLG, A.SUBCONTRA_FLG ", _
+					" M_MVMT_TYPE A, M_CONFIG_PROCESS B ", _
+					" A.IO_TYPE_CD = B.RCPT_TYPE AND B.STO_FLG = " & FilterVar("N", "''", "S") & "  AND B.USAGE_FLG= " & FilterVar("Y", "''", "S") & "  AND (A.RET_FLG = " & FilterVar("N", "''", "S") & "   AND (A.RCPT_FLG = " & FilterVar("Y", "''", "S") & "  OR A.SUBCONTRA_FLG = " & FilterVar("N", "''", "S") & " )) AND A.USAGE_FLG = " & FilterVar("Y", "''", "S") & "  AND A.IO_TYPE_CD = " & FilterVar(.txtMvmtType.Value, "''", "S"), _
+					lgF0,lgF1,lgF2,lgF3,lgF4,lgF5,lgF6) = False Then
+					
+			Call DisplayMsgBox("171900","X","X","X")
+			.txtMvmtTypeNm.Value = ""
+			Call SetFocusToDocument("M") 
+			.txtMvmtType.focus
+			Exit function
+		End If
+		lgF0 = Split(lgF0, Chr(11))
+		lgF1 = Split(lgF1, Chr(11))
+		lgF2 = Split(lgF2, Chr(11))
+		lgF3 = Split(lgF3, Chr(11))
+		lgF4 = Split(lgF4, Chr(11))
+		
+		.txtMvmtTypeNm.Value	= lgF0(0)
+		.hdnRcptflg.Value 		= lgF1(0)
+		.hdnImportflg.Value		= lgF2(0)
+		.hdnRetflg.Value 		= lgF3(0)
+		.hdnSubcontraflg.Value  = lgF4(0)
+		
+		if frm1.hdnSubcontraflg.value = "Y" then
+			frm1.btnGlSel_1.disabled = false
+		end if
+
+	End With
+
+	lgBlnFlgChgValue = true
+    
+    changeMvmtType = True                  
+
+End Function
+'==============================================================================================================================
+Function changeSpplCd()
+
+	With frm1
+		If 	CommonQueryRs(" BP_NM, BP_TYPE, usage_flag, in_out_flag "," B_Biz_Partner ", " BP_CD = " & FilterVar(.txtSuppliercd.Value, "''", "S"), _
+			lgF0,lgF1,lgF2,lgF3,lgF4,lgF5,lgF6) = False Then
+					
+			Call DisplayMsgBox("229927","X","X","X")
+			.txtSupplierNm.Value = ""
+			Call SetFocusToDocument("M") 
+			.txtSuppliercd.focus
+			Exit function
+		End If
+		lgF0 = Split(lgF0, Chr(11))
+		lgF1 = Split(lgF1, Chr(11))
+		lgF2 = Split(lgF2, Chr(11))
+		lgF3 = Split(lgF3, Chr(11))
+		.txtSupplierNm.Value = lgF0(0)
+
+		If Trim(lgF2(0)) <> "Y" Then
+			Call DisplayMsgBox("179021","X","X","X")
+			Call SetFocusToDocument("M") 
+			.txtSuppliercd.focus
+			Exit function
+		End If
+		If Trim(lgF1(0)) <> "S" and Trim(lgF1(0)) <> "CS" Then
+			Call DisplayMsgBox("179020","X","X","X")
+			Call SetFocusToDocument("M") 
+			.txtSuppliercd.focus
+			Exit function
+		End If
+		If Trim(lgF3(0)) <> "O" Then
+			Call DisplayMsgBox("17C003","X","X","X")
+			Call SetFocusToDocument("M") 
+			.txtSuppliercd.focus
+			Exit function
+		End If
+	End With        
+
+End Function
+'==============================================================================================================================
+Function RemovedivTextArea()
+	Dim ii
+	For ii = 1 To divTextArea.children.length
+	    divTextArea.removeChild(divTextArea.children(0))
+	Next
+End Function
+'==============================================================================================================================
+Function changeGroupCd()
+
+	changeGroupCd = False
+	
+	With frm1
+		If 	CommonQueryRs("PUR_GRP_NM, USAGE_FLG "," B_PUR_GRP ", "PUR_GRP = " & FilterVar(.txtGroupCd.Value, "''", "S"), _
+			lgF0,lgF1,lgF2,lgF3,lgF4,lgF5,lgF6) = False Then
+						
+			Call DisplayMsgBox("125100","X","X","X") ' 구매그룹이 없다.
+			.txtGroupNm.Value = ""
+			Call SetFocusToDocument("M") 
+			.txtGroupCd.focus 
+			Exit function
+		End If
+		lgF0 = Split(lgF0, Chr(11))
+		lgF1 = Split(lgF1, Chr(11))
+		.txtGroupNm.Value = lgF0(0)
+
+		If Trim(lgF1(0)) <> "Y" Then
+			Call DisplayMsgBox("125114","X","X","X")
+			Call SetFocusToDocument("M") 
+			.txtGroupCd.focus
+			Exit function
+		End If
+	End With
+	
+	changeGroupCd = True        
+
+End Function                     

@@ -1,0 +1,69 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:PROPERTY NAME="value">
+  <get internalName="getValue"/>
+  <put internalName="setValue"/>
+</PUBLIC:PROPERTY>
+<PUBLIC:ATTACH EVENT="ondocumentready" ONEVENT="init()"  />
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+    var selectedBackColor = "darkblue";
+    var selectedForeColor = "white";
+    
+    function init() { 
+      if (typeof(element.SelectedBackColor)!="undefined") selectedBackColor = element.SelectedBackColor;     
+      if (typeof(element.SelectedForeColor)!="undefined") selectedForeColor = element.SelectedForeColor;
+    }
+        
+    function getValue() {
+      var children = element.children;
+      for (var i=0; i<children.length; i++) {
+        if (children[i].tagName=="TABLE") {          
+          var rows = children[i].rows;
+          for (var j=0; j<rows.length; j++) {
+            var cell = rows(j).cells(0);
+            if (cell.selected=="true") {
+              return trim(cell.innerText);
+            }
+          }
+        }
+      }              
+
+      return null;      
+    }
+    
+    function setValue(val) {               
+      var children = element.children;
+      for (var i=0; i<children.length; i++) {
+        if (children[i].tagName=="TABLE") {          
+          var rows = children[i].rows;
+          for (var j=0; j<rows.length; j++) {            
+            var cell = rows(j).cells(0);
+            var tmp = trim(cell.innerText);
+            if (tmp==val) {
+              cell.selected = "true";
+              if (typeof(selectedBackColor)!="undefined") 
+                cell.style.background = selectedBackColor;
+              if (typeof(selectedForeColor)!="undefined") 
+                cell.style.color = selectedForeColor;
+            } else {
+              cell.style.background = "";
+              cell.style.color = "";
+              cell.selected = null;
+            }
+          }
+        }
+      }              
+    }        
+      
+    function trim(s) {
+        var m = s.match(/^\s*(\S+(\s+\S+)*)\s*$/);
+        return (m == null) ? "" : m[1];
+    }
+                
+//-->
+</script>

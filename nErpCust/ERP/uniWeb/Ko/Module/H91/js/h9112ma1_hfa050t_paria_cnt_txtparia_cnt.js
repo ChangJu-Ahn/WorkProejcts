@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=hfa050t_paria_cnt name=txtparia_cnt style="HEIGHT: 20px; LEFT: 0px; TOP: 0px; WIDTH: 125px" title=FPDOUBLESINGLE tag="24X3Z" ALT="장애인수공제사항"></OBJECT>');

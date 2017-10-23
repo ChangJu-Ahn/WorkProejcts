@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=txtFr_retire_dt name=txtFr_retire_dt CLASS=FPDTYYYYMMDD title=FPDATETIME ALT="ÅðÁ÷½ÃÀÛÀÏ" tag="11X1" VIEWASTEXT></OBJECT>');

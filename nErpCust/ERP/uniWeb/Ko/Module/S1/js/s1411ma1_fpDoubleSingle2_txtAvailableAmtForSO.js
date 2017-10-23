@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle2 NAME="txtAvailableAmtForSO" CLASS=FPDS140 tag="24X2X" ALT="여신사용가능액" Title="FPDOUBLESINGLE"></OBJECT>');

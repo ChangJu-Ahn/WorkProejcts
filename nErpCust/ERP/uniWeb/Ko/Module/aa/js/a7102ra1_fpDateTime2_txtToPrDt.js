@@ -1,0 +1,1 @@
+document.write('<OBJECT id=fpDateTime2 title=FPDATETIME CLASS=FPDTYYYYMMDD name=txtToPrDt CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" ALT="종료취득일자}}" tag="11"> </OBJECT>');

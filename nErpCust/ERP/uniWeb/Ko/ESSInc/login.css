@@ -1,0 +1,7 @@
+A.a:link { font-size:9pt; font-family:"µ¸¿ò"; color:#666666; text-decoration:none;}
+A.a:visited { font-size:9pt; font-family:"µ¸¿ò¸²"; color:#666666; text-decoration:none; }
+A.a:active { font-size:9pt; font-family:"µ¸¿ò"; color:#666666; text-decoration:none; }
+A.a:hover { font-size:9pt; font-family:"µ¸¿ò"; color:#33AACC; text-decoration:none; }
+
+.normal {  font-family: "µ¸¿ò"; font-size: 9pt; color: 666666}
+.form { border:1px solid #BDBDBD; font-family: "±¼¸²"; font-size: 9pt; color: #666666;; background-color: #F7F7F7}

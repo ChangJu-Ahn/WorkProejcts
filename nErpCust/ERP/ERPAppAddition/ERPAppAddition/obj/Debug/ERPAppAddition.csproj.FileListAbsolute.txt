@@ -1,0 +1,13 @@
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\bin\ERPAppAddition.dll.config
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\bin\ERPAppAddition.dll
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\bin\ERPAppAddition.pdb
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\bin\AjaxControlToolkit.dll
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\bin\Oracle.DataAccess.dll
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\bin\Oracle.Web.dll
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\obj\Debug\Interop.ExcelAdaptorLib.dll
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\obj\Debug\ERPAppAddition.csproj.ResolveComReference.cache
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\obj\Debug\ERPAppAddition.dll.licenses
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\obj\Debug\RdlCompile.cache
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\obj\Debug\RdlCompile.compiled
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\obj\Debug\ERPAppAddition.dll
+E:\New_Project\NERPCUST\ERP\ERPAppAddition\ERPAppAddition\obj\Debug\ERPAppAddition.pdb

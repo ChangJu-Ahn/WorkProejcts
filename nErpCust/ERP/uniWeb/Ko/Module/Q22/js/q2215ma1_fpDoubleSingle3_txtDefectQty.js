@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle3 name=txtDefectQty CLASS=FPDS140 title=FPDOUBLESINGLE ALT="ºÒ·®¼ö" tag="23X3Z"> <PARAM Name="AllowNull" Value="-1"> <PARAM Name="Text" Value=""> </OBJECT>');

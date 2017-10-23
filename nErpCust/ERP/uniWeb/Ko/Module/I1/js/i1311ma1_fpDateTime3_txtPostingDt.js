@@ -1,0 +1,1 @@
+document.write('<OBJECT id=fpDateTime3 title=FPDATETIME CLASS=FPDTYYYYMMDD name=txtPostingDt CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" ALT="회계전표일자" tag="23X1"> <PARAM Name="AllowNull" Value="-1"><PARAM Name="Text" Value=""> </OBJECT>');

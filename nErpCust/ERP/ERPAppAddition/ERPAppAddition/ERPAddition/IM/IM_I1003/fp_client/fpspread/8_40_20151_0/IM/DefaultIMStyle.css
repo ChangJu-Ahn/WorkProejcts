@@ -1,0 +1,121 @@
+.default-controlfont {
+    font-family: Arial;
+    font-size: 10pt;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation;
+}
+
+.CalendarDefaultTodayStyle {
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+    overflow: hidden;
+    text-align: center;
+    padding: 0px;
+    background-size: 16px,16px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-color: brown;
+}
+
+.CalendarDefaultItemStyle,
+.CalendarDefaultTrailingStyle,
+.CalendarDefaultDisableItemStyle,
+.CalendarDefaultDisableTrailingStyle 
+{
+    padding: 0px;
+    border-style: none;
+    border-width: 0px;
+    border-color: black;
+    vertical-align: middle;
+    background-color: Window;
+    background-position: center center;
+}
+
+.CalendarDefaultTrailingStyle{
+    color: #959595;
+}
+
+.CalendarDefaultHeaderStyle, 
+.CalendarDefaultDisableHeaderStyle {
+    border-style: none;
+    border-color: black;
+    padding: 0px;
+    vertical-align: middle;
+    background-position: center center;
+    background-color: #F0F0F0;
+}
+
+.CalendarDefaultDisableItemStyle,
+.CalendarDefaultDisableHeaderStyle,
+.CalendarDefaultDisableTrailingStyle,
+.CalendarDefaultDisableTitleStyle {
+    color: gray;
+}
+
+.CalendarDefaultTitleStyle, 
+.CalendarDefaultDisableTitleStyle
+{
+    border-style: none;
+    border-color: black;
+    border-width: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    background-position: center center;
+    background-color: Window;
+}
+
+.CalendarDefaultSelectionStyle, 
+.CalendarDefaultJquerySelectionStyle {
+    border-style: none;
+    border-color: black;
+    border-width: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    background-position: center center;
+    background-color: highlight;
+}
+
+.CalendarDefaultSelectionStyle {
+   color: white;
+}
+
+.CalendarDefaultContainerStyle ,
+.CalendarDefaultContainerStyleNormal,
+.CalendarDefaultContainerStyleWin8,
+.CalendarDefaultContainerStyleChrome,
+.CalendarDefaultContainerStyleIpad {
+    border-style: solid;
+    border-color: ButtonFace;
+    border-width: 1px;
+    background-color: white;
+    color: WindowText;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.CalendarDefaultContainerStyleNormal {
+    border-style: inset;
+    border-width: 2px;
+}
+
+.CalendarDefaultContainerStyleWin8 {
+    border-color: #707070;
+}
+
+.CalendarDefaultContainerStyleChrome {
+    border-color: #A9A9A9;
+}
+
+.CalendarDefaultContainerStyleIpad {
+    border-color: #4C4C4C;
+    border-radius: 5px;
+}
+
+.CalendarDefaultCellStyle {
+    padding: 0px;
+    text-align: center;
+    overflow: hidden;
+}

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_mm_m10001" targetNamespace="http://tempuri.org/ds_mm_m10001.xsd" xmlns:mstns="http://tempuri.org/ds_mm_m10001.xsd" xmlns="http://tempuri.org/ds_mm_m10001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_mm_m10001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ds_mm_m10001" msprop:Generator_UserDSName="ds_mm_m10001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PO_NO" msprop:Generator_ColumnVarNameInTable="columnPO_NO" msprop:Generator_ColumnPropNameInRow="PO_NO" msprop:Generator_ColumnPropNameInTable="PO_NOColumn" msprop:Generator_UserColumnName="PO_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_SEQ_NO" msprop:Generator_ColumnVarNameInTable="columnPO_SEQ_NO" msprop:Generator_ColumnPropNameInRow="PO_SEQ_NO" msprop:Generator_ColumnPropNameInTable="PO_SEQ_NOColumn" msprop:Generator_UserColumnName="PO_SEQ_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="PLANT_CD" msprop:Generator_ColumnVarNameInTable="columnPLANT_CD" msprop:Generator_ColumnPropNameInRow="PLANT_CD" msprop:Generator_ColumnPropNameInTable="PLANT_CDColumn" msprop:Generator_UserColumnName="PLANT_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="PLANT_NM" msprop:Generator_ColumnVarNameInTable="columnPLANT_NM" msprop:Generator_ColumnPropNameInRow="PLANT_NM" msprop:Generator_ColumnPropNameInTable="PLANT_NMColumn" msprop:Generator_UserColumnName="PLANT_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEM_CD" msprop:Generator_ColumnVarNameInTable="columnITEM_CD" msprop:Generator_ColumnPropNameInRow="ITEM_CD" msprop:Generator_ColumnPropNameInTable="ITEM_CDColumn" msprop:Generator_UserColumnName="ITEM_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="ITEM_NM" msprop:Generator_ColumnVarNameInTable="columnITEM_NM" msprop:Generator_ColumnPropNameInRow="ITEM_NM" msprop:Generator_ColumnPropNameInTable="ITEM_NMColumn" msprop:Generator_UserColumnName="ITEM_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="SPEC" msprop:Generator_ColumnVarNameInTable="columnSPEC" msprop:Generator_ColumnPropNameInRow="SPEC" msprop:Generator_ColumnPropNameInTable="SPECColumn" msprop:Generator_UserColumnName="SPEC" type="xs:string" minOccurs="0" />
+              <xs:element name="TRACKING_NO" msprop:Generator_ColumnVarNameInTable="columnTRACKING_NO" msprop:Generator_ColumnPropNameInRow="TRACKING_NO" msprop:Generator_ColumnPropNameInTable="TRACKING_NOColumn" msprop:Generator_UserColumnName="TRACKING_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_UNIT" msprop:Generator_ColumnVarNameInTable="columnPO_UNIT" msprop:Generator_ColumnPropNameInRow="PO_UNIT" msprop:Generator_ColumnPropNameInTable="PO_UNITColumn" msprop:Generator_UserColumnName="PO_UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_QTY" msprop:Generator_ColumnVarNameInTable="columnPO_QTY" msprop:Generator_ColumnPropNameInRow="PO_QTY" msprop:Generator_ColumnPropNameInTable="PO_QTYColumn" msprop:Generator_UserColumnName="PO_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_BASE_UNIT" msprop:Generator_ColumnVarNameInTable="columnPO_BASE_UNIT" msprop:Generator_ColumnPropNameInRow="PO_BASE_UNIT" msprop:Generator_ColumnPropNameInTable="PO_BASE_UNITColumn" msprop:Generator_UserColumnName="PO_BASE_UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_BASE_QTY" msprop:Generator_ColumnVarNameInTable="columnPO_BASE_QTY" msprop:Generator_ColumnPropNameInRow="PO_BASE_QTY" msprop:Generator_ColumnPropNameInTable="PO_BASE_QTYColumn" msprop:Generator_UserColumnName="PO_BASE_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="INSPECT_QTY" msprop:Generator_ColumnVarNameInTable="columnINSPECT_QTY" msprop:Generator_ColumnPropNameInRow="INSPECT_QTY" msprop:Generator_ColumnPropNameInTable="INSPECT_QTYColumn" msprop:Generator_UserColumnName="INSPECT_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="RCPT_QTY" msprop:Generator_ColumnVarNameInTable="columnRCPT_QTY" msprop:Generator_ColumnPropNameInRow="RCPT_QTY" msprop:Generator_ColumnPropNameInTable="RCPT_QTYColumn" msprop:Generator_UserColumnName="RCPT_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="N_RCPT_QTY" msprop:Generator_ColumnVarNameInTable="columnN_RCPT_QTY" msprop:Generator_ColumnPropNameInRow="N_RCPT_QTY" msprop:Generator_ColumnPropNameInTable="N_RCPT_QTYColumn" msprop:Generator_UserColumnName="N_RCPT_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="PUR_GRP" msprop:Generator_ColumnVarNameInTable="columnPUR_GRP" msprop:Generator_ColumnPropNameInRow="PUR_GRP" msprop:Generator_ColumnPropNameInTable="PUR_GRPColumn" msprop:Generator_UserColumnName="PUR_GRP" type="xs:string" minOccurs="0" />
+              <xs:element name="PUR_GRP_NM" msprop:Generator_ColumnVarNameInTable="columnPUR_GRP_NM" msprop:Generator_ColumnPropNameInRow="PUR_GRP_NM" msprop:Generator_ColumnPropNameInTable="PUR_GRP_NMColumn" msprop:Generator_UserColumnName="PUR_GRP_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="BP_CD" msprop:Generator_ColumnVarNameInTable="columnBP_CD" msprop:Generator_ColumnPropNameInRow="BP_CD" msprop:Generator_ColumnPropNameInTable="BP_CDColumn" msprop:Generator_UserColumnName="BP_CD" type="xs:string" minOccurs="0" />
+              <xs:element name="BP_NM" msprop:Generator_ColumnVarNameInTable="columnBP_NM" msprop:Generator_ColumnPropNameInRow="BP_NM" msprop:Generator_ColumnPropNameInTable="BP_NMColumn" msprop:Generator_UserColumnName="BP_NM" type="xs:string" minOccurs="0" />
+              <xs:element name="EXPIRY_DT" msprop:Generator_ColumnVarNameInTable="columnEXPIRY_DT" msprop:Generator_ColumnPropNameInRow="EXPIRY_DT" msprop:Generator_ColumnPropNameInTable="EXPIRY_DTColumn" msprop:Generator_UserColumnName="EXPIRY_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="PR_NO" msprop:Generator_ColumnVarNameInTable="columnPR_NO" msprop:Generator_ColumnPropNameInRow="PR_NO" msprop:Generator_ColumnPropNameInTable="PR_NOColumn" msprop:Generator_UserColumnName="PR_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="REQ_DT" msprop:Generator_ColumnVarNameInTable="columnREQ_DT" msprop:Generator_ColumnPropNameInRow="REQ_DT" msprop:Generator_ColumnPropNameInTable="REQ_DTColumn" msprop:Generator_UserColumnName="REQ_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="REQ_APPROVE_DT" msprop:Generator_ColumnVarNameInTable="columnREQ_APPROVE_DT" msprop:Generator_ColumnPropNameInRow="REQ_APPROVE_DT" msprop:Generator_ColumnPropNameInTable="REQ_APPROVE_DTColumn" msprop:Generator_UserColumnName="REQ_APPROVE_DT" type="xs:string" minOccurs="0" />
+              <xs:element name="EXT2_CD" msprop:Generator_ColumnVarNameInTable="columnEXT2_CD" msprop:Generator_ColumnPropNameInRow="EXT2_CD" msprop:Generator_ColumnPropNameInTable="EXT2_CDColumn" msprop:Generator_UserColumnName="EXT2_CD" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

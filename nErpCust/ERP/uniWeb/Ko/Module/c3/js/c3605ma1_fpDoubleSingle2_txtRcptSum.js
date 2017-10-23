@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" name=txtRcptSum title="FPDOUBLESINGLE" style="HEIGHT: 20px; RIGHT: 0px; TOP: 0px; WIDTH: 160px" id=fpDoubleSingle2 CLASS=FPDS140 TAG="34X2" ALT="입고금액합계" > </OBJECT>');

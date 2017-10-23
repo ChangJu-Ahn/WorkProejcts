@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" ID="txtDNSeq" NAME="txtDNSeq" CLASS=FPDS65 title=FPDOUBLESINGLE ALT="출하순번" ALIGN = TOP TAG="21X6"> <PARAM Name="AllowNull" Value="-1"> <PARAM Name="Text" Value=""> </OBJECT>');

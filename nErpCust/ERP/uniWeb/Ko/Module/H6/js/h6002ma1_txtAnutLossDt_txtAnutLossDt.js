@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=txtAnutLossDt NAME="txtAnutLossDt" CLASS=FPDTYYYYMMDD tag="21" Title="FPDATETIME" ALT="국민연금상실일"></OBJECT>');

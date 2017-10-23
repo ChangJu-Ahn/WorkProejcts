@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle1 NAME="txtCreditCheckDt" CLASS=FPDS40 tag="21X7Z" ALT="신용상태확인기간" Title="FPDOUBLESINGLE"></OBJECT>');

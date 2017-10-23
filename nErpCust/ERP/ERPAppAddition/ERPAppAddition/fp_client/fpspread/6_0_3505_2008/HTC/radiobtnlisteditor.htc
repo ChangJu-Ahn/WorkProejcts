@@ -1,0 +1,87 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:PROPERTY NAME="value">
+  <get internalName="getValue"/>
+  <put internalName="setValue"/>
+</PUBLIC:PROPERTY>
+<PUBLIC:METHOD NAME="isValid" />
+<PUBLIC:METHOD NAME="focus" />
+<PUBLIC:ATTACH EVENT="onmouseup" ONEVENT="mouseUp()"  />
+<PUBLIC:ATTACH EVENT="ondocumentready" ONEVENT="init()"  />
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+   	
+   	function init() {
+   	}
+   	
+   	function mouseUp() {
+   	  if (event.srcElement!=null && event.srcElement.tagName=="INPUT" && event.srcElement.type=="radio")
+        event.srcElement.focus();
+   	}
+   	
+   	function focus() {
+   	  if (event.type=="mouseup") return;   	     	  
+      var checkbox = element.getElementsByTagName("INPUT");
+      if (checkbox==null) return;
+      
+      for (var i=0; i<checkbox.length; i++) {
+        if (checkbox[i].type=="radio" && checkbox[i].checked) {  
+          checkbox[i].focus();
+          return;
+        } 
+      }
+   	}
+   	             	       
+    function getValue() {
+      var options = element.getElementsByTagName("INPUT");
+      for (var i=0; i<options.length; i++) {
+        if (options(i).tagName=="INPUT" && options(i).checked) {
+          return options(i).value;
+        }
+      }
+      
+      return "";
+    }
+    
+    function setValue(val) {  
+      
+      if (val!=null) val = trim(val);
+      var options = element.getElementsByTagName("INPUT");
+      for (var i=0; i<options.length; i++) {
+        if (options(i).tagName=="INPUT" && val==trim(options(i).value)) {
+          options(i).checked = true;
+          break;
+        } else {
+          if (options(i).checked) options(i).checked = false;
+        }
+      }
+      
+      focus();
+    }
+    
+    function trim(s) {
+        var m = s.match(/^\s*(\S+(\s+\S+)*)\s*$/);
+        return (m == null) ? "" : m[1];
+    }
+    
+    function isValid(val) {
+      if (val==null) return "";            
+      val = trim(val);           
+      if (val=="") return "";
+      
+      var options = element.getElementsByTagName("INPUT");
+      for (var i=0; i<options.length; i++) {
+        if (options(i).tagName=="INPUT" && val==trim(options(i).value)) {
+          return "";
+        }
+      }
+      
+      return "invalid";
+    }
+                
+//-->
+</script>

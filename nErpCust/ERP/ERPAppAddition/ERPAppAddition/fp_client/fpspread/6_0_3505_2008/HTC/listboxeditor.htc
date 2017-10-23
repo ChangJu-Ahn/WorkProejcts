@@ -1,0 +1,37 @@
+<!--
+  Copyright (C) 2003-2010 GrapeCity Inc.	All rights reserved.
+-->
+
+<PUBLIC:COMPONENT>
+<PUBLIC:METHOD NAME="isValid">
+</PUBLIC:METHOD>
+</PUBLIC:COMPONENT>
+
+<script language="javascript">
+
+    /////////////////////////////////////////////////////////
+    // Note: The SELECT element has "value" property defined. 
+   	/////////////////////////////////////////////////////////
+   	               	               
+    function isValid(val) {      
+      if (val==null) return "";
+            
+      val = trim(val);           
+      if (val=="") return "";      
+      var options = element.all;
+      for (var i=0; i<options.length; i++) {
+        if (val==trim(options(i).value)) {
+          return "";
+        }
+      }
+
+      return "invalid";
+    }
+    
+    function trim(s) {
+        var m = s.match(/^\s*(\S+(\s+\S+)*)\s*$/);
+        return (m == null) ? "" : m[1];
+    }
+                
+//-->
+</script>

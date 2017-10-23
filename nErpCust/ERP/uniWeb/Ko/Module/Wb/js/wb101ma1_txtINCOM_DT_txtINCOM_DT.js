@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" name=txtINCOM_DT CLASS=FPDTYYYYMMDD title=FPDATETIME ALT="신고서제출일자" tag="21X1" id=txtINCOM_DT change="ChangeEvents()"></OBJECT>');

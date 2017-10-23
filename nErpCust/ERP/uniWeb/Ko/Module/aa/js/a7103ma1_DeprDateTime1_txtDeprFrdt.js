@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" NAME="txtDeprFrdt" CLASS=FPDTYYYYMM tag="24" Title="FPDATETIME" ALT=감가상각시작년월 id=DeprDateTime1> </OBJECT>');

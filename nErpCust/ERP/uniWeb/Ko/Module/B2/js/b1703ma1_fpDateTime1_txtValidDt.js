@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13A-EBF7-11D0-8810-0000C0E5948C" id=fpDateTime1 name="txtValidDt" CLASS=FPDTYYYYMM title=FPDATETIME ALT="해당년월" tag="12X1"></OBJECT>');

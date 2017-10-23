@@ -1,0 +1,1 @@
+document.write('<OBJECT CLASSID="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" id=fpDoubleSingle5 NAME="txtInvCnt" style="HEIGHT: 20px; WIDTH: 50px" tag="21X7" ALT="상업송장" Title="FPDOUBLESINGLE"><PARAM NAME="MaxValue" VALUE="99"><PARAM NAME="MinValue" VALUE="0"></OBJECT>');
